@@ -1,13 +1,13 @@
-# I2T2-campe
+# Capital Humano en Ciencia y Tecnología de Nuevo León - campe
 
-Application to be awesome
+Aplicación web con el objetivo de brindar seguimiento a los becarios y exbecarios del CONACYT - I2T2
 
-## Table of contents
+## Tabla de contenidos
 
-* [Client Details](#client-details)
-* [Environment URLS](#environment-urls)
-* [Da Team](#team)
-* [Management resources](#management-resources)
+* [Información del cliente](#información-del-cliente)
+* [URLS de ambiente](#urls-de-ambiente)
+* [Equipo](#equipo)
+* [Herramientas de gestión](herramientas-de-gestión)
 * [Setup the project](#setup-the-project)
 * [Running the stack for development](#running-the-stack-for-development)
 * [Stop the project](#stop-the-project)
@@ -17,36 +17,45 @@ Application to be awesome
 * [Checking code for potential issues](#checking-code-for-potential-issues)
 
 
-### Client Details
+### Información del cliente
 
-| Name               | Email             | Role |
+| Nombre               | Email             | Rol |
 | ------------------ | ----------------- | ---- |
 | Antonio Hernández | antonio.hernandez@mtycic.org | Coordinador de Formación de Capital Humano  |
 
 
-### Environment URLS
+### URLS de ambiente
 
-* **Production** - [TBD](TBD)
-* **Development** - [TBD](TBD)
+* **Producción** - [TBD](TBD)
+* **Desarrollo** - [Github](https://github.com/ProyectoIntegrador2018/i2t2-campe)
 
-### Da team
+### Equipo
 
-| Name           | Email             | Role        |
+| Nombre           | Email             | Rol        |
 | -------------- | ----------------- | ----------- |
 | Andrés Tamez | andrestamezhdz@gmail.com | Backend Developer |
-| Nombre miembro | prueba@prueba.com | Development |
+| Iván Vázquez | ivanvl_11@hotmail.com | Frontend Developer, Configuration Manager |
 | Nombre miembro | prueba@prueba.com | Development |
 
-### Management tools
-
-You should ask for access to this tools if you don't have it already:
+### Herramientas de gestión
 
 * [Github repo](https://github.com/)
 * [Backlog]()
 * [Heroku](https://crowdfront-staging.herokuapp.com/)
 * [Documentation](https://drive.com)
 
-## Development
+## Desarrollo
+
+### Stack tecnológico
+**Front End**
+* T
+
+**Back End**
+* T
+
+**Base de datos**
+* T
+
 
 ### Setup the project
 
