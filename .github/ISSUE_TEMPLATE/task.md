@@ -17,6 +17,8 @@ Please replace this text with a complete description of the TASK. You should be 
 - [ ] Tarea 2
 - [ ] Tarea 3
 
-### Definition of Done
+### Definición de Done
 
-- [ ] ¿Las pruebas están pasando?
+- [ ] Pasa todas las pruebas
+- [ ] Que el bot ponga una calificacion de B para arriba
+- [ ] Revisado y aprovado por alguien mas
