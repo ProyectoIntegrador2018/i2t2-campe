@@ -35,7 +35,9 @@ Aplicación web con el objetivo de brindar seguimiento a los becarios y exbecari
 | -------------- | ----------------- | ----------- |
 | Andrés Tamez | andrestamezhdz@gmail.com | Backend Developer |
 | Iván Vázquez | ivanvl_11@hotmail.com | Frontend Developer, Configuration Manager |
+|Hal Perry | hal96.perry@gmail.com | Backedn Developer, Scrum Master|
 | Nombre miembro | prueba@prueba.com | Development |
+
 
 ### Herramientas de gestión
 
