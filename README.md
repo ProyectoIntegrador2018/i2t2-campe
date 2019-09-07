@@ -50,13 +50,13 @@ Aplicación web con el objetivo de brindar seguimiento a los becarios y exbecari
 
 ### Stack tecnológico
 **Front End**
-* T
+* Ruby on Rails
 
 **Back End**
-* T
+* Ruby on Rails
 
 **Base de datos**
-* T
+* PostgreSQL
 
 
 ### Setup the project
