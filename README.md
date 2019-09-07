@@ -33,7 +33,7 @@ Aplicación web con el objetivo de brindar seguimiento a los becarios y exbecari
 
 | Nombre           | Email             | Rol        |
 | -------------- | ----------------- | ----------- |
-| Andrés Tamez | andrestamezhdz@gmail.com | Backend Developer, Product Owner |
+| Andrés Tamez | andrestamezhdz@gmail.com | Backend Developer, Product Owner Proxy |
 | Iván Vázquez | ivanvl_11@hotmail.com | Frontend Developer, Configuration Manager |
 | Hal Perry | hal96.perry@gmail.com | Backedn Developer, Scrum Master|
 | Martín Chung | martincc91@gmail.com | Frontend Developer, Git Manager |
