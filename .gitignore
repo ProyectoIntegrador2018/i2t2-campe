@@ -16,6 +16,10 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/node_modules
+/yarn-error.log
+
+.byebug_history
 
 # Ignore uploaded files in development
 /storage/*
