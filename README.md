@@ -1,5 +1,7 @@
 # Capital Humano en Ciencia y Tecnología de Nuevo León - campe
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/a20bb0138b3bf93ddd16/maintainability)](https://codeclimate.com/github/ProyectoIntegrador2018/i2t2-campe/maintainability)
+
 Aplicación web con el objetivo de brindar seguimiento a los becarios y exbecarios del CONACYT - I2T2
 
 ## Tabla de contenidos
