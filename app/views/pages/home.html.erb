@@ -1,0 +1,8 @@
+<h1>Pages#home</h1>
+
+<% if current_user %>
+    <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %>
+<% else %>
+    <%= link_to 'Registra becados', new_user_registration_path %>
+    <%= link_to 'Iniciar Sesión', new_user_session_path %>
+<% end %>
