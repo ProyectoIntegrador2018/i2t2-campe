@@ -18,12 +18,14 @@
 <div class="actions center-align">
 <% if current_user %>
     <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete,:class=>"waves-effect waves-light btn"%>
-<% else %>
+
+<% elsif current_admin %>
+    <%= link_to 'Cerrar Sesión Admin', destroy_admin_session_path, method: :delete,:class=>"waves-effect waves-light btn"%>
     <%= link_to 'Registra becados', new_user_registration_path, :class=>"waves-effect waves-light btn"%>
-
+<% else %>
     <%= link_to 'Iniciar Sesión Becario', new_user_session_path, :class=>"waves-effect waves-light btn"%>
-
     <%= link_to 'Iniciar Sesión Admin', new_admin_session_path, :class=>"waves-effect waves-light btn"%>
+    <%= link_to 'Registra administradores', new_admin_registration_path, :class=>"waves-effect waves-light btn"%>
 <% end %>
 </div>
 
