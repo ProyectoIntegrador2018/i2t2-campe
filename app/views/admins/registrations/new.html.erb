@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Capital Humano en Ciencia y Tecnologia de Nuevo Leon</title>
+</head>
+<body>
+<div id="basic-form" class="section">
+  <div class="row">
+		<div class="col s12 m4 l4">
+      <p></p>
+    </div>
+      <div class="col s12 m12 l4">
+        <div class="card-panel">
+          <h4 class="center-align">Registro de Admins</h4>                 
+            <div class="row">
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                <%= render "devise/shared/error_messages", resource: resource %>
+                <div class="row center-align">
+                  <div class="input-field inline">
+                    <%= f.label :Correo %><br />
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                  </div>
+                </div>
+                  <div class="row center-align">
+                    <div class="input-field inline">
+                      <%= f.label :contraseña %>
+                      <% if @minimum_password_length %>
+                      <em>(<%= @minimum_password_length %> caracteres minimo)</em>
+                      <% end %><br />
+                      <%= f.password_field :password, autocomplete: "new-password" %>
+                   </div>
+                  </div>
+                    <div class="row center-align">
+                      <div class="input-field inline">
+                       <%= f.label :confirmar_contraseña %><br />
+                       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                      </div>
+                    </div>
+                      <div class="actions center-align">
+                       <%= f.submit "Registrar", :class=>"waves-effect waves-light btn"%>
+                     </div>
+                <% end %>
+            </div>
+        <%= render "admins/shared/links" %>
+      </form>  
+     </div>
+	 <div class="col s12 m4 l4"><p></p></div>  
+  </div>
+</div>
