@@ -1,0 +1,50 @@
+class AddColumnsToUsers < ActiveRecord::Migration[5.2]
+  def change
+    add_column :users, :request_password_it2t2, :string
+    add_column :users, :creation_date, :string
+    add_column :users, :desc_request_status, :date
+    add_column :users, :cvu, :integer
+    add_column :users, :name, :string
+    add_column :users, :paternal_last_name, :string
+    add_column :users, :maternal_last_name, :string
+    add_column :users, :rfc, :string
+    add_column :users, :curp, :string
+    add_column :users, :gender, :string
+    add_column :users, :marital_stauts, :string
+    add_column :users, :birth_date, :date
+    add_column :users, :country_birth, :string
+    add_column :users, :state_birth, :string
+    add_column :users, :street_address, :string
+    add_column :users, :street_number_address_ext, :string
+    add_column :users, :street_number_address_int, :string
+    add_column :users, :colony_address, :string
+    add_column :users, :city_address, :string
+    add_column :users, :municipiality_address, :string
+    add_column :users, :state_address, :string
+    add_column :users, :phone_number, :integer
+    add_column :users, :cell_phone, :integer
+    add_column :users, :convocatory, :string
+    add_column :users, :fiscal_year, :integer
+    add_column :users, :studies_start_date, :date
+    add_column :users, :studies_end_date, :date
+    add_column :users, :start_scholarship, :date
+    add_column :users, :end_scholarship, :date
+    add_column :users, :school, :string
+    add_column :users, :entity, :string
+    add_column :users, :support_to_get, :string
+    add_column :users, :program, :string
+    add_column :users, :expertise_area, :string
+    add_column :users, :field_study, :string
+    add_column :users, :discipline, :string
+    add_column :users, :sub_discipline, :string
+    add_column :users, :last_gpa, :decimal
+    add_column :users, :recovered_gpa, :decimal
+    add_column :users, :scholarchip_requested, :string
+    add_column :users, :scholarship_currency, :string
+    add_column :users, :maintenance_requested, :string
+    add_column :users, :maintenance_currency, :string
+    add_column :users, :medical_insurance_reuquested, :string
+    add_column :users, :medical_insurance_currency, :string
+  end
+end
+

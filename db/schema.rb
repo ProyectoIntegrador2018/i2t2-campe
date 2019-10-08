@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_01_050753) do
+ActiveRecord::Schema.define(version: 2019_10_07_214919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_10_01_050753) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_admin"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
@@ -35,6 +36,51 @@ ActiveRecord::Schema.define(version: 2019_10_01_050753) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "request_password_it2t2"
+    t.string "creation_date"
+    t.date "desc_request_status"
+    t.integer "cvu"
+    t.string "name"
+    t.string "paternal_last_name"
+    t.string "maternal_last_name"
+    t.string "rfc"
+    t.string "curp"
+    t.string "gender"
+    t.string "marital_stauts"
+    t.date "birth_date"
+    t.string "country_birth"
+    t.string "state_birth"
+    t.string "street_address"
+    t.string "street_number_address_ext"
+    t.string "street_number_address_int"
+    t.string "colony_address"
+    t.string "city_address"
+    t.string "municipiality_address"
+    t.string "state_address"
+    t.integer "phone_number"
+    t.integer "cell_phone"
+    t.string "convocatory"
+    t.integer "fiscal_year"
+    t.date "studies_start_date"
+    t.date "studies_end_date"
+    t.date "start_scholarship"
+    t.date "end_scholarship"
+    t.string "school"
+    t.string "entity"
+    t.string "support_to_get"
+    t.string "program"
+    t.string "expertise_area"
+    t.string "field_study"
+    t.string "discipline"
+    t.string "sub_discipline"
+    t.decimal "last_gpa"
+    t.decimal "recovered_gpa"
+    t.string "scholarchip_requested"
+    t.string "scholarship_currency"
+    t.string "maintenance_requested"
+    t.string "maintenance_currency"
+    t.string "medical_insurance_reuquested"
+    t.string "medical_insurance_currency"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
