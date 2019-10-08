@@ -10,6 +10,9 @@ gem 'rails', '~> 5.2.3'
 gem 'materialize-sass'
 gem 'material_icons'
 
+#import excel gem
+gem "roo", "~> 2.8.0"
+gem 'roo-xls'
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
