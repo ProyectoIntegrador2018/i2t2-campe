@@ -12,3 +12,9 @@
 .icon-block .material-icons {
 	font-size: inherit;
 }
+
+.btn-large {
+    text-transform: none;
+    font-weight: bold;
+    width: 400px;
+}

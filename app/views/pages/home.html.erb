@@ -9,23 +9,26 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<body>
+<body style="background:#26a69a">
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
-      <h1 class="header center orange-text">Capital Humano en Ciencia y Tecnología de Nuevo León</h1>
+      <h1 class="header center orange-text"></h1>
 <br><br>
 <div class="actions center-align">
 <% if current_user %>
-    <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete,:class=>"waves-effect waves-light btn"%>
+    <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete,:style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
 
 <% elsif current_admin %>
-    <%= link_to 'Cerrar Sesión Admin', destroy_admin_session_path, method: :delete,:class=>"waves-effect waves-light btn"%>
-    <%= link_to 'Registra becados', new_user_registration_path, :class=>"waves-effect waves-light btn"%>
+    <%= link_to 'Cerrar Sesión Admin', destroy_admin_session_path, method: :delete,:style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
+    <%= link_to 'Registra becados', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
 <% else %>
-    <%= link_to 'Iniciar Sesión Becario', new_user_session_path, :class=>"waves-effect waves-light btn"%>
-    <%= link_to 'Iniciar Sesión Admin', new_admin_session_path, :class=>"waves-effect waves-light btn"%>
-    <%= link_to 'Registra administradores', new_admin_registration_path, :class=>"waves-effect waves-light btn"%>
+	<br><br><br>
+    <%= link_to 'Iniciar Sesión Becario', new_user_session_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
+    <br><br>
+    <%= link_to 'Iniciar Sesión Admin', new_admin_session_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
+    <br><br>
+    <%= link_to 'Registra administradores', new_admin_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
 <% end %>
 </div>
 
