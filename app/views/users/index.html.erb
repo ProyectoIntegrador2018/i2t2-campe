@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Capital Humano en Ciencia y Tecnologia de Nuevo Leon</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+  <table>
+        <thead>
+          <tr>
+              <th>Nombre</th>
+              <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @users.each do |user| %>
+        <tr>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+        </tr>
+        <% end %>
+        </tbody>
+      </table>
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+
+  </body>
+</html>
+
