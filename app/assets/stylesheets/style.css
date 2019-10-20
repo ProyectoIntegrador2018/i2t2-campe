@@ -12,3 +12,26 @@
 .icon-block .material-icons {
 	font-size: inherit;
 }
+
+.btn-large {
+    text-transform: none;
+    font-weight: bold;
+    width: 400px;
+    box-shadow: 5px 10px;
+}
+
+.navfeature{
+	background-color:#186860;
+}
+
+.btn{
+    text-transform: none;
+    font-weight: bold;
+    width: 200px;
+    box-shadow: 5px 10px;
+    color: white;
+}
+
+.card-panel{
+    box-shadow: 5px 5px;
+}

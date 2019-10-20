@@ -1,16 +1,41 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Capital Humano en Ciencia y Tecnologia de Nuevo Leon</title>
+</head>
+<body style="background:#26a69a">
+<nav class="navfeature">
+</nav>
+<br>
+<div id="basic-form" class="section">
+  <div class="row">
+    <div class="col s12 m4 l4">
+      <p></p>
+    </div>
+      <div class="col s12 m12 l4">
+        <div class="card-panel">
+          <h4 class="center-align">¿Olvidaste tu contraseña?</h4>                  
+            <div class="row">
+              <form class="col s12">
+					<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  					<%= render "devise/shared/error_messages", resource: resource %>
+                <div class="row center-align">
+                  <div class="input-field inline">
+    				<%= f.label :Correo %><br />
+    				<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                  </div>
+                </div>
+                      <div class="actions center-align">
+                       <%= f.submit "Enviar instrucciones", :class=>"waves-effect waves-light btn"%>
+                     </div>
+                <% end %>
+            </div>
+        <%= render "admins/shared/links" %>
+      </form>  
+     </div>
+   <div class="col s12 m4 l4"><p></p></div>  
   </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "admins/shared/links" %>
