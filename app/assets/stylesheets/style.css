@@ -12,3 +12,14 @@
 .icon-block .material-icons {
 	font-size: inherit;
 }
+
+.btn-large {
+    text-transform: none;
+    font-weight: bold;
+    width: 400px;
+    box-shadow: 5px 10px;
+}
+
+.navfeature{
+	background-color:#186860
+}
