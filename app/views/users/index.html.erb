@@ -9,23 +9,44 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<body>
-  <table>
+<body style="background:#26a69a">
+  <nav class="navfeature">
+</nav>
+<div class="row">
+  <div class="col s12"><p></p></div>
+    <div class="col s12 m4 l2"><p></p></div>
+  <div id="man" class="col s12 m4 l8">
+    <div class="card material-table">
+      <div class="table-header">
+        <span class="table-title">Becarios CONACYT</span>
+        <div class="actions">
+        </div>
+      </div>
+      <table id="datatable">
         <thead>
           <tr>
-              <th>Nombre</th>
-              <th>Email</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Grado</th>
+            <th>Estatus</th>
           </tr>
         </thead>
         <tbody>
-        <% @users.each do |user| %>
-        <tr>
-            <td><%= user.name %></td>
-            <td><%= user.email %></td>
-        </tr>
+          <% @users.each do |user| %>
+          <tr>
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td><%= user.email %></td>
+              <td><%= user.email %></td>
+          </tr>
         <% end %>
+        
         </tbody>
       </table>
+    </div>
+  </div>
+  <div class="col s12 m4 l2"><p></p></div>
+</div>
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
