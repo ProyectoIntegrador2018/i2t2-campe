@@ -8,7 +8,6 @@ Rails.application.routes.draw do
     # omniauth_callbacks: "users/omniauth_callbacks"
   }
   root to: 'pages#home'
-  resources :users, only: [:new, :create, :show, :index, :destroy]
   get 'export_users' => 'users#export_user'
   post 'import_users' => 'users#import_user', as: 'import_users'
   devise_for :users, path: 'users', controllers: {
@@ -18,5 +17,7 @@ Rails.application.routes.draw do
     confirmations:      "users/confirmations"
     # omniauth_callbacks: "users/omniauth_callbacks"
       }
+  resources :users, only: [:new, :create, :show, :index, :destroy]
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

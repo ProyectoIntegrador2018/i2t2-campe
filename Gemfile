@@ -9,6 +9,7 @@ gem 'devise'
 gem 'rails', '~> 5.2.3'
 gem 'materialize-sass'
 gem 'material_icons'
+gem 'pry'
 
 #import excel gem
 gem "roo", "~> 2.8.0"

@@ -7,6 +7,7 @@ class User < ApplicationRecord
   def update_imported_user(file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(4)
+    puts(header)
     header = 'email'
     header = header.to_a
     (5..spreadsheet.last_row).each do |i|

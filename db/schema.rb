@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_07_214919) do
+ActiveRecord::Schema.define(version: 2019_10_17_230734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,13 +74,6 @@ ActiveRecord::Schema.define(version: 2019_10_07_214919) do
     t.string "discipline"
     t.string "sub_discipline"
     t.decimal "last_gpa"
-    t.decimal "recovered_gpa"
-    t.string "scholarchip_requested"
-    t.string "scholarship_currency"
-    t.string "maintenance_requested"
-    t.string "maintenance_currency"
-    t.string "medical_insurance_reuquested"
-    t.string "medical_insurance_currency"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
