@@ -1,15 +1,62 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
-<% @users.each do |user| %>
-  <%= user.email %><br/>
-<% end %>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Capital Humano en Ciencia y Tecnologia de Nuevo Leon</title>
 
-<%= form_tag import_users_path, multipart: true do %>
-  <%= file_field_tag :file, class: 'form-control' %><br>
-  <%= submit_tag 'Import', class: 'btn btn-primary'%>
-<% end %>
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body style="background:#26a69a">
+  <nav class="navfeature">
+</nav>
+<div class="row">
+  <div class="col s12"><p></p></div>
+    <div class="col s12 m4 l2"><p></p></div>
+  <div id="man" class="col s12 m4 l8">
+    <div class="card material-table">
+      <div class="table-header">
+        <span class="table-title">Becarios CONACYT</span>
+        <div class="actions">
+        </div>
+      </div>
+      <table id="datatable">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Grado</th>
+            <th>Estatus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+          <tr>
+              <td><%= user.name %></td>
+              <td><%= user.email %></td>
+              <td><%= user.email %></td>
+              <td><%= user.email %></td>
+          </tr>
+        <% end %>
+        <%= form_tag import_users_path, multipart: true do %>
+        <%= file_field_tag :file, class: 'form-control' %><br>
+        <%= submit_tag 'Import', class: 'btn btn-primary'%>
+        <% end %>
+        <%= link_to 'EXCEL', export_users_path(format: "xls") %>
+        <%= link_to 'CSV', export_users_path(format: "csv") %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col s12 m4 l2"><p></p></div>
+</div>
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
 
-<%= link_to 'EXCEL', export_users_path(format: "xls") %>
+  </body>
+</html>
 
-
-<%= link_to 'CSV', export_users_path(format: "csv") %>
