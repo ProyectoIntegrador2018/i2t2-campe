@@ -1,0 +1,41 @@
+<div class="form-content" style="padding-right:5%;padding-left:5%">
+<h4 class="center-align">Registro de Becario</h4>
+<%= form_for(user) do |f| %>
+    <div class="form-section">
+        <div class="row">
+            <div class="col s4 input-field inline">
+                <input id="user_name" type="text" class="validate">
+                <label for="user_name">Nombre</label>
+             </div>
+             <div class="col s4 input-field inline">
+                <input id="user_paternal_last_name" type="text" class="validate">
+                <label for="user_paternal_last_name">Primer Apellido</label>
+             </div>
+             <div class="col s4 input-field inline">
+                <input id="user_maternal_last_name" type="text" class="validate">
+                <label for="user_maternal_last_name">Segundo Apellido</label>
+             </div>
+        </div>
+        <div class="row">
+            <div class="col s12 input-field inline">
+                <input id="user_email" type="email" class="validate">
+                <label for="user_email">Email</label>
+                <span class="helper-text" data-error="Introduce un email valido." data-success="Email valido"></span>
+             </div>
+        </div>
+        <div class="row">
+            <div class="col s6 input-field inline">
+                <input id="user_password" type="password" class="validate" pattern=".{6,}" title="La contrasenña debe tener 6 o más caracteres">
+                <label for="user_password">Contraseña</label>
+                <span class="helper-text" data-error="Introduce una contraseña con más de 5 caracteres." data-success="Contraseña valida."></span>
+             </div>
+             <div class="col s6 input-field inline">
+                <input id="user_password_confirmation" type="password" class="validate" pattern=".{6,}" title="La contrasenña debe tener 6 o más caracteres">
+                <label for="user_password_confirmation">Confirmar Contraseña</label>
+                <span class="helper-text" data-error="Introduce una contraseña con más de 5 caracteres." data-success="Contraseña valida."></span>
+             </div>
+        </div>
+        
+    </div>
+<% end %>
+</div>
