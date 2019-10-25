@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # La clase responsable  de user
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
