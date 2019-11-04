@@ -6,46 +6,61 @@
   <title>Capital Humano en Ciencia y Tecnologia de Nuevo Leon</title>
 </head>
 <body>
-<div id="basic-form" class="section">
-  <div class="row">
-		<div class="col s12 m4 l4">
-      <p></p>
+  <div id="basic-form" class="section">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="row">
+      <div class="col s4 input-field inline">
+        <%= f.label :Nombre %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="col s4 input-field inline">
+        <%= f.label :Primer_Apellido %>
+        <%= f.text_field :paternal_last_name %>
+      </div>
+      <div class="col s4 input-field inline">
+        <%= f.label :Segundo_Apellido %>
+        <%= f.text_field :maternal_last_name %>
+      </div>
     </div>
-      <div class="col s12 m12 l4">
-        <div class="card-panel">
-          <h4 class="center-align">Registro</h4>                 
-            <div class="row">
-                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                <%= render "devise/shared/error_messages", resource: resource %>
-                <div class="row center-align">
-                  <div class="input-field inline">
-                    <%= f.label :Correo %><br />
-                    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-                  </div>
-                </div>
-                  <div class="row center-align">
-                    <div class="input-field inline">
-                      <%= f.label :contraseña %>
-                      <% if @minimum_password_length %>
-                      <em>(<%= @minimum_password_length %> caracteres minimo)</em>
-                      <% end %><br />
-                      <%= f.password_field :password, autocomplete: "new-password" %>
-                   </div>
-                  </div>
-                    <div class="row center-align">
-                      <div class="input-field inline">
-                       <%= f.label :confirmar_contraseña %><br />
-                       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-                      </div>
-                    </div>
-                      <div class="actions center-align">
-                       <%= f.submit "Registrar", :class=>"waves-effect waves-light btn"%>
-                     </div>
-                <% end %>
-            </div>
-        <%= render "devise/shared/links" %>
-      </form>  
-     </div>
-	 <div class="col s12 m4 l4"><p></p></div>  
+    <div class="row">
+      <div class="col s12 input-field inline">
+        <%= f.label :Correo %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s6 input-field inline">
+        <%= f.label :contraseña %>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+      <div class="col s6 input-field inline">
+        <%= f.label :confirmar_contraseña %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s3 input-field inline">
+        <%= f.label :Request_Status %>
+        <%= f.date_field :desc_request_status %>
+      </div>
+      <div class="col s3 input-field inline">
+        <%= f.label :CVU %>
+        <%= f.text_field :cvu %>
+      </div>
+      <div class="col s3 input-field inline">
+        <%= f.label :RFC %>
+        <%= f.text_field :rfc %>
+      </div>
+      <div class="col s3 input-field inline">
+        <input id="user_curp" type="text" class="validate">
+        <label for="user_password">CURP</label>
+      </div>
+    </div>
+    <div class="actions center-align">
+      <%= f.submit "Registrar", :class=>"waves-effect waves-light btn"%>
+    </div>
+    <% end %>
+  <%= render "devise/shared/links" %>
   </div>
-</div>
+</body>
