@@ -10,8 +10,7 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body style="background:#26a69a">
-<nav class="navfeature">
-</nav>
+
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
@@ -28,10 +27,6 @@
     <%= link_to 'Registra becados', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
     <br><br>
     <%= link_to 'Ver becarios', users_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
-    <br><br>
-    <% if current_admin.is_admin != nil && current_admin.is_admin == true %>
-      <%= link_to 'Registra administradores', new_admin_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
-    <% end %>
 <% else %>
 	<br><br>
     <%= link_to 'Iniciar Sesión Becario', new_user_session_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>

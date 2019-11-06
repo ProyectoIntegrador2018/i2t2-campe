@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_07_214919) do
+ActiveRecord::Schema.define(version: 2019_10_24_203813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,19 @@ ActiveRecord::Schema.define(version: 2019_10_07_214919) do
     t.boolean "is_admin"
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "groups_users", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -74,13 +87,6 @@ ActiveRecord::Schema.define(version: 2019_10_07_214919) do
     t.string "discipline"
     t.string "sub_discipline"
     t.decimal "last_gpa"
-    t.decimal "recovered_gpa"
-    t.string "scholarchip_requested"
-    t.string "scholarship_currency"
-    t.string "maintenance_requested"
-    t.string "maintenance_currency"
-    t.string "medical_insurance_reuquested"
-    t.string "medical_insurance_currency"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
