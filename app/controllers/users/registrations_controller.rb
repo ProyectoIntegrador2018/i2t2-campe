@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
+# Registration controller to register a single student.
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
+
   protected
 
   def configure_sign_up_params
