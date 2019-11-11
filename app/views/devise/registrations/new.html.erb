@@ -6,46 +6,198 @@
   <title>Capital Humano en Ciencia y Tecnologia de Nuevo Leon</title>
 </head>
 <body>
-<div id="basic-form" class="section">
-  <div class="row">
-		<div class="col s12 m4 l4">
-      <p></p>
+  <div id="basic-form" class="section">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <h3>
+    Información Personal:
+    </h3>
+    <div class="row">
+      <div class="col s4 input-field inline">
+        <%= f.label :Nombre %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="col s4 input-field inline">
+        <%= f.label :Primer_Apellido %>
+        <%= f.text_field :paternal_last_name %>
+      </div>
+      <div class="col s4 input-field inline">
+        <%= f.label :Segundo_Apellido %>
+        <%= f.text_field :maternal_last_name %>
+      </div>
     </div>
-      <div class="col s12 m12 l4">
-        <div class="card-panel">
-          <h4 class="center-align">Registro</h4>                 
-            <div class="row">
-                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-                <%= render "devise/shared/error_messages", resource: resource %>
-                <div class="row center-align">
-                  <div class="input-field inline">
-                    <%= f.label :Correo %><br />
-                    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-                  </div>
-                </div>
-                  <div class="row center-align">
-                    <div class="input-field inline">
-                      <%= f.label :contraseña %>
-                      <% if @minimum_password_length %>
-                      <em>(<%= @minimum_password_length %> caracteres minimo)</em>
-                      <% end %><br />
-                      <%= f.password_field :password, autocomplete: "new-password" %>
-                   </div>
-                  </div>
-                    <div class="row center-align">
-                      <div class="input-field inline">
-                       <%= f.label :confirmar_contraseña %><br />
-                       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-                      </div>
-                    </div>
-                      <div class="actions center-align">
-                       <%= f.submit "Registrar", :class=>"waves-effect waves-light btn"%>
-                     </div>
-                <% end %>
-            </div>
-        <%= render "devise/shared/links" %>
-      </form>  
-     </div>
-	 <div class="col s12 m4 l4"><p></p></div>  
+    <div class="row">
+      <div class="col s4 input-field inline">
+        <%= f.label :Correo %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+      <div class="col s4 input-field inline">
+        <%= f.label :contraseña %>
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+      <div class="col s4 input-field inline">
+        <%= f.label :confirmar_contraseña %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s2 input-field inline">
+        <%= f.label :Desc_estatus_solicitud %>
+        <%= f.date_field :desc_request_status, :value => Time.now.strftime("%Y-%m-%d")  %>
+      </div>
+      <div class="col s2 input-field inline">
+        <%= f.label :CVU %>
+        <%= f.text_field :cvu %>
+      </div>
+      <div class="col s2 input-field inline">
+        <%= f.label :RFC %>
+        <%= f.text_field :rfc %>
+      </div>
+      <div class="col s2 input-field inline">
+        <%= f.label :CURP %>
+        <%= f.text_field :curp %>
+      </div>
+      <div class="col s3 input-field inline">
+        <%= f.label :Fecha_de_nacimiento %>
+        <%= f.date_field :birth_date, :value => Time.now.strftime("%Y-%m-%d")  %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s2 input-field inline">
+        <%= f.label :TODO_GENDER_SELECT %>
+        <%= f.text_field :gender %>
+      </div>
+      <div class="col s2 input-field inline">
+        <%= f.label :TODO_ESTADO_CIVIL_SELECT %>
+        <%= f.text_field :marital_stauts %>
+      </div>
+      <div class="col s2 input-field inline">
+        <%= f.label :País_de_Nacimiento %>
+        <%= f.text_field :country_birth %>
+      </div>
+      <div class="col s2 input-field inline">
+        <%= f.label :Estado_de_Nacimiento %>
+        <%= f.text_field :state_birth %>
+      </div>
+      <div class="col s2 input-field inline">
+        <%= f.label :Teléfono %>
+        <%= f.telephone_field :phone_number %>
+      </div>
+      <div class="col s2 input-field inline">
+        <%= f.label :Celular %>
+        <%= f.telephone_field :cell_phone %>
+      </div>
+    </div>
+    <h3>
+    Domicilio:
+    </h3>
+    <div class="row">
+      <div class="col s3 input-field inline">
+        <%= f.label :Calle_de_Domicilio %>
+        <%= f.text_field :street_address %>
+      </div>
+      <div class="col s3 input-field inline">
+        <%= f.label :Número_exterior %>
+        <%= f.number_field :street_number_address_ext %>
+      </div>
+      <div class="col s3 input-field inline">
+        <%= f.label :Número_interior %>
+        <%= f.number_field :street_number_address_int %>
+      </div>
+      <div class="col s3 input-field inline">
+        <%= f.label :Colonia %>
+        <%= f.text_field :colony_address %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s4 input-field inline">
+        <%= f.label :Ciudad %>
+        <%= f.text_field :city_address %>
+      </div>
+      <div class="col s4 input-field inline">
+        <%= f.label :Municipio %>
+        <%= f.text_field :municipiality_address %>
+      </div>
+      <div class="col s4 input-field inline">
+        <%= f.label :Estado %>
+        <%= f.text_field :state_address %>
+      </div>
+    </div>
+    <h3>
+    Información de Estudios:
+    </h3>
+     <div class="row">
+      <div class="col s3 input-field inline">
+        <%= f.label :Convocatoria %>
+        <%= f.text_field :convocatory %>
+      </div>
+      <div class="col s3 input-field inline">
+        <%= f.label :Año_Fiscal %>
+        <%= f.number_field :fiscal_year %>
+      </div>
+      <div class="col s3 input-field inline">
+        <%= f.label :Fecha_de_inicio_de_estudios %>
+        <%= f.date_field :studies_start_date, :value => Time.now.strftime("%Y-%m-%d")  %>
+      </div>
+      <div class="col s3 input-field inline">
+        <%= f.label :Fecha_de_fin_de_estudios %>
+        <%= f.date_field :studies_end_date, :value => Time.now.strftime("%Y-%m-%d")  %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s3 input-field inline">
+        <%= f.label :Fecha_de_inicio_de_beca %>
+        <%= f.date_field :start_scholarship, :value => Time.now.strftime("%Y-%m-%d")  %>
+      </div>
+      <div class="col s3 input-field inline">
+        <%= f.label :Fecha_de_fin_de_beca %>
+        <%= f.date_field :end_scholarship, :value => Time.now.strftime("%Y-%m-%d")  %>
+      </div>
+      <div class="col s3 input-field inline">
+        <%= f.label :Universidad %>
+        <%= f.text_field :school %>
+      </div>
+      <div class="col s3 input-field inline">
+        <%= f.label :Entidad %>
+        <%= f.text_field :entity %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s3 input-field inline">
+        <%= f.label :Apoyo_a_obtener %>
+        <%= f.text_field :support_to_get %>
+      </div>
+      <div class="col s3 input-field inline">
+        <%= f.label :Programa %>
+        <%= f.text_field :program %>
+      </div>
+      <div class="col s3 input-field inline">
+        <%= f.label :Area_de_conocimiento %>
+        <%= f.text_field :expertise_area %>
+      </div>
+      <div class="col s3 input-field inline">
+        <%= f.label :Campo %>
+        <%= f.text_field :field_study %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s4 input-field inline">
+        <%= f.label :Disciplina %>
+        <%= f.text_field :discipline %>
+      </div>
+      <div class="col s4 input-field inline">
+        <%= f.label :Subdisciplina %>
+        <%= f.text_field :sub_discipline %>
+      </div>
+      <div class="col s4 input-field inline">
+        <%= f.label :Promedio_ultimo_grado %>
+        <%= f.number_field :last_gpa %>
+      </div>
+    </div>
+    <div class="actions center-align">
+      <%= f.submit "Registrar", :class=>"waves-effect waves-light btn"%>
+    </div>
+    <% end %>
+  <%= render "devise/shared/links" %>
   </div>
-</div>
+</body>

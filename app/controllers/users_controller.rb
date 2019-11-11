@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def new
+    @user = User.new
+  end
+
   def import_user
     file = params[:file]
     file_type = ile_type = file.present? ? file.original_filename.split('.').last.to_s.downcase : ''
@@ -23,6 +27,7 @@ class UsersController < ApplicationController
     end
     headers
   end
+  
   def update_imported_user(file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
