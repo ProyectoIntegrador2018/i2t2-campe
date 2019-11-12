@@ -1,5 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<style>
+
+  .font {
+    font-family: Impact, Charcoal, sans-serif;
+  }
+
+  .font2 {
+    font-family: Comic Sans MS, cursive, sans-serif;
+  }
+
+  .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 70%;
+      height: 70%;
+  }
+
+  .site-footer{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;   
+  }
+
+  .fontSize1{
+    font-size:0.7vw;
+  }
+
+  .fontFooter{
+    color: black;
+  }
+
+  .main {
+    flex: 1 0 auto;
+  }
+
+.absolute {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+
+</style>
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
@@ -11,18 +64,7 @@
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
-  <nav class="light-blue lighten-1" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
+  
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
       <br><br>
@@ -119,4 +161,22 @@
   <script src="js/init.js"></script>
 
   </body>
+
+<footer class="page-footer footer" style="background-color: #F0F8FF">
+    <div class="container ">
+
+    <div class=" center font fontSize1 fontFooter">
+      <p class="font2" style="width: 100%">I2T2 - Organismo del Gobierno del Estado de Nuevo León, creado en 2005, responsable de la promoción de políticas públicas en Ciencia, Tecnología e Innovación para ser una de las 25 regiones más competitivas del mundo en 25 años. .</p>
+
+    </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container fontFooter center">
+        © 2019 Copyright Text
+      </div>
+  </div>
+</footer>
+
+
 </html>
+
