@@ -80,7 +80,7 @@
             <th>Nombre</th>
             <th>Correo</th>
             <th>Disciplina</th>
-            <th>Estatus</th>
+            <th>Eliminar</th>
           </tr>
         </thead>
         <tbody>   
@@ -90,6 +90,8 @@
               <td><%= user.email %></td>
               <td><%= user.discipline %></td>
               <td><%= user.phone_number %></td>
+              <td><%= button_to 'Show', user_path(user), class: 'link-button'%>
+                  <%= button_to "Eliminar", @user, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' }, class: 'link-button' %></td>
           </tr>
         <% end %>
         <%= form_tag import_users_path, multipart: true do %>
