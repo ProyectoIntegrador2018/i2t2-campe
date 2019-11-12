@@ -38,7 +38,11 @@ class UsersController < ApplicationController
       @user = User.new(email: row['CORREO'],:password => "111111", :password_confirmation => "111111", request_password_it2t2: row["CLAVESOLICITUD"],
       creation_date: row["FECHA"+'\n'+"CREACION"], desc_request_status: row["DESCESTATUSSOLICITUD"], cvu: row["CVU"], name: row["NOMBRE"], paternal_last_name: row["APELLIDOPATERNO"],
       maternal_last_name: row["APELLIDOMATERNO"], rfc: row["RFC"], curp: row["CURP"], gender: row["GÉNERO"], marital_stauts: row["ESTADOCIVIL"], birth_date: row["FECHANACIMIENTO"], 
-      country_birth: row["ESTADONACIMIENTO"]), 
+      country_birth: row["ESTADONACIMIENTO"], street_address: row["DOMICILIOCALLE"], street_number_address_ext: row["DOMICILIONUM.EXT."], street_number_address_int: row["DOMICILIONUM.INT."],
+      colony_address: row["DOMICILIOCOLONIA"], city_address: row["DOMICILIOCIUDAD"], municipiality_address: row["DOMICILIOMUNICIPIO"], state_address: row["DOMICILIOESTADO"],
+      phone_number: row["TELÉFONO"], cell_phone: row["CELULAR"], studies_start_date: row["INICIODEESTUDIOS"], studies_end_date: row["FINDEESTUDIOS"], start_scholarship: row["INICIODEBECA"], 
+      end_scholarship: row["FINDEBECA"], school: row["INSTITUCIÓN"], entity: row["ENTIDAD"], support_to_get: row["APOYOAOBTENER"], program: row["PROGRAMA"], expertise_area: row["ÁREADELCONOCIMIENTO"],
+      field_study: row["CAMPO"], discipline: row["DISCIPLINA"], sub_discipline: row["SUBDISCIPLINA"], last_gpa: row["PROMEDIOÚLTIMOGRADO"])
       @user.save
     end
     redirect_to users_path
