@@ -45,21 +45,79 @@
 		height: 200;
 	}
 
-</style>
+	.body {
+    display: flex;
+    bottom: 0px;
+    min-height: 10vh;
+    flex-direction: column;
+  }
 
-<footer class="page-footer site-footer" style="background-color: #F0F8FF">
-  	<div class="container">
+  .main {
+    flex: 1 0 auto;
+  }
+
+.absolute {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+.footer2 {
+    clear: both;
+    position: relative;
+    height: 200px;
+    margin-top: -200px;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
+}
+</style>
+<!--div class="container body main absolute">
+  <footer class="page-footer ">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="white-text">Footer Content</h5>
+                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+              </div>
+              <div class="col l4 offset-l2 s12">
+                <h5 class="white-text">Links</h5>
+  
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+          	<div class="copyright center">
+	    		<div class="container fontFooter center">
+	    			© 2019 Copyright Text
+	    	 		<a class="grey-text text-lighten-4 "</a>
+	    		</div>
+			</div>
+         
+        </footer>
+    </div>
+-->
+
+
+
+<footer class=" site-footer" style="background-color: #F0F8FF">
+  	<div class="container ">
 
 		<!--<div class="imgDiv">
 			<img class="responsive-img imgSize" src="https://storage.googleapis.com/production-bucket/Community767786/instances/EM018-Organizacion-1453826430896/InstancePicture/image_1453826431586.jpg">
 		</div>-->
-		<div class=" center font fontSize1 fontFooter">
-			<p class="font2" style="width: 100%">I2T2 - Organismo del Gobierno del Estado de Nuevo León, creado en 2005, responsable de la promoción de políticas públicas en Ciencia, Tecnología e Innovación para ser una de las 25 regiones más competitivas del mundo en 25 años. .</p>
-		</div>
-  	</div>
-  	<div class="footer-copyright">
-	    <div class="container fontFooter center">
-	    	© 2019 Copyright Text
-	    </div>
+		
 	</div>
 </footer>
