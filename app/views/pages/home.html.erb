@@ -1,4 +1,62 @@
 <html lang="en">
+
+<style>
+
+  .font {
+    font-family: Impact, Charcoal, sans-serif;
+  }
+
+  .font2 {
+    font-family: Comic Sans MS, cursive, sans-serif;
+  }
+
+  .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 70%;
+      height: 70%;
+  }
+
+  .site-footer{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;   
+  }
+
+  .fontSize1{
+    font-size:0.9vw;
+  }
+
+  .fontFooter{
+    color: black;
+  }
+
+  .main {
+    flex: 1 0 auto;
+  }
+
+  .absolute {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+  }
+
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  position: relative;
+  top: 0px;
+}
+
+.Site-content {
+  flex: 1;
+}
+
+</style>
+
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
@@ -9,7 +67,10 @@
   <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<body style="background:#26a69a">
+
+
+<body style="background:#26a69a" class="Site">
+  <main class="Site-content">
 
   <div class="section no-pad-bot" id="index-banner">
     <div class="container">
@@ -18,10 +79,10 @@
 <br><br>
 <div class="actions center-align">
 <% if current_user %>
-	<br><br>
+  <br><br>
     <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete,:style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
 <% elsif current_admin %>
-	<br><br>
+  <br><br>
     <%= link_to 'Cerrar Sesión Admin', destroy_admin_session_path, method: :delete,:style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
     <br><br>
     <%= link_to 'Registra becados', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
@@ -32,7 +93,7 @@
     <% end %>
     <%= link_to 'Ver becarios', users_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
 <% else %>
-	<br><br>
+  <br><br>
     <%= link_to 'Iniciar Sesión Becario', new_user_session_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
     <br><br>
     <%= link_to 'Iniciar Sesión Admin', new_admin_session_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
@@ -44,13 +105,19 @@
   </div>
 
 
-
-
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
-
+</main>
   </body>
+
+<footer class="page-footer fontSize1" style="background-color: #F0F8FF">
+      <div class="container fontFooter center">
+        © Todos los Derechos Reservados, I2T2
+      </div>
+      <br>
+</footer>
+
 </html>
 

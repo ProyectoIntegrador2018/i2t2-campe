@@ -1,5 +1,63 @@
 <!DOCTYPE html>
 <html lang="en" >
+
+<style>
+
+  .font {
+    font-family: Impact, Charcoal, sans-serif;
+  }
+
+  .font2 {
+    font-family: Comic Sans MS, cursive, sans-serif;
+  }
+
+  .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 70%;
+      height: 70%;
+  }
+
+  .site-footer{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;   
+  }
+
+  .fontSize1{
+    font-size:0.9vw;
+  }
+
+  .fontFooter{
+    color: black;
+  }
+
+  .main {
+    flex: 1 0 auto;
+  }
+
+  .absolute {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+  }
+
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  position: relative;
+  top: 0px;
+}
+
+.Site-content {
+  flex: 1;
+}
+
+</style>
+
 <head>
   <meta charset="UTF-8">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
@@ -12,8 +70,9 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
-<body>
-
+<body style="background:#26a69a" class="Site">
+  <main class="Site-content">
+<!--
   <ul id="slide-out" class="side-nav fixed z-depth-2">
     <li class="center no-padding">
       <div class="indigo darken-2 white-text" style="height: 180px;">
@@ -34,12 +93,13 @@
 
 
     <% if current_admin%>
-		<li id="dash_dashboard"><%= link_to 'Lista de becarios', users_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-		<li id="dash_dashboard"><%= link_to 'Registrar becarios', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+    <li id="dash_dashboard"><%= link_to 'Lista de becarios', users_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+    <li id="dash_dashboard"><%= link_to 'Registrar becarios', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
     <% else current_user%>
-    	<li id="dash_dashboard"><a class="waves-effect" href="#!"><b>Perfil</b></a></li>
+      <li id="dash_dashboard"><a class="waves-effect" href="#!"><b>Perfil</b></a></li>
     <% end %>
   </ul>
+-->
 
   <header style="padding-left: 240px">
     
@@ -49,13 +109,13 @@
         <a data-activates="slide-out" class="button-collapse show-on-" href="#!"><img style="margin-top: 17px; margin-left: 5px;" src="https://res.cloudinary.com/dacg0wegv/image/upload/t_media_lib_thumb/v1463989873/smaller-main-logo_3_bm40iv.gif" /></a>
 
         <% if current_user %>
-        	<ul class="right hide-on-med-and-down">
-          	<li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete%></li>
-        	</ul>
+          <ul class="right hide-on-med-and-down">
+            <li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete%></li>
+          </ul>
         <% else current_admin %>
-        	<ul class="right hide-on-med-and-down">
-          	<li><%= link_to 'Cerrar Sesión', destroy_admin_session_path, method: :delete%></li>
-        	</ul>
+          <ul class="right hide-on-med-and-down">
+            <li><%= link_to 'Cerrar Sesión', destroy_admin_session_path, method: :delete%></li>
+          </ul>
         <% end %>
 
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
@@ -63,8 +123,7 @@
     </nav>
   </header>
 
-  <main style="padding-left: 240px">
-  	<div class="row">
+    <div class="row">
   <div class="col s12"><p></p></div>
     <div class="col s12 m4 l2"><p></p></div>
   <div id="man" class="col s12 m4 l8">
@@ -83,7 +142,7 @@
             <th>Estatus</th>
           </tr>
         </thead>
-        <tbody> 	
+        <tbody>   
           <% @users.each do |user| %>
           <tr>
               <td><%= user.name %></td>
@@ -106,16 +165,14 @@
   <div class="col s12 m4 l2"><p></p></div>
 </div>
   </main>
-
-  <footer class="indigo page-footer" style="padding-left: 240px;background:#26a69a !important">
-    <div class="footer-copyright" style="background:#26a69a">
-      <div class="container" style="background:#26a69a">
-         <span><a style='font-weight: bold;color:white;'>© Todos los Derechos Reservados, I2T2</a></span>
-      </div>
-    </div>
-  </footer>
-<!-- partial -->
-  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js'></script><script  src="./script.js"></script>
 </body>
+
+<footer class="page-footer fontSize1" style="background-color: #F0F8FF">
+      <div class="container fontFooter center">
+        © Todos los Derechos Reservados, I2T2
+      </div>
+      <br>
+</footer>
+
+
 </html>
