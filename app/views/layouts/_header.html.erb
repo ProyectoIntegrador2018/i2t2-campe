@@ -11,13 +11,13 @@
       <div >
       
     </div>
-      <a href="" data-target="mobile-demo"  class="sidenav-trigger button-collapse"><i class="material-icons">menu</i></a>
+      <a href="" data-target="mobile-demo"  class="sidenav-trigger button-collapse show-on-large"><i class="material-icons ">menu</i></a>
       <!--<ul class="right hide-on-med-and-down">
         <li><a href="/">Iniciar Sesion</a></li>
         <li><a href="/">Registrarse</a></li>
       </ul>-->
       <% if current_user %>
-          <ul class="right hide-on-med-and-down">
+          <ul class="right">
             <li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete%></li>
           </ul>
           <% end %>
@@ -30,50 +30,4 @@
 
   </nav>
 
-<ul id="mobile-demo" class="sidenav show-on-large">
-    <li>
-       <div class="buttonWidth">
-      <a class="waves-effect sidenav-close waves-light btn-flat buttonWidth"><i class="material-icons left">arrow_back</i></a>
-    </div><div class="user-view">
-      <div class="buttonWidth">
-      <a class=" sidenav-close waves-light btn-flat buttonWidth"><i class="material-icons left"></i></a>
-    </div>
-      <div class="background">
-        <img src="https://img.freepik.com/free-photo/wall-wallpaper-concrete-colored-painted-textured-concept_53876-31799.jpg?size=626&ext=jpg">
-      </div>
-     
-      <a href="#user"><img class="circle" src="https://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png"></a>
-      <a href="#name"><span class="white-text name">Jose Perez</span></a>
-      <!--
-      <a href="#email"><span class="white-text email">joseperez@gmail.com</span></a>
-    -->
-    </div></li>
-    <li><a href="#!"><i class="material-icons">person_add</i>Crear Superadmin</a></li>
-    <li><a href="#!"><i class="material-icons">person_add</i>Crear Admin</a></li>
-    <li><a href="#!"><i class="material-icons">people</i>Administrar Becarios</a></li>
-    <li><div class="divider"></div></li>
-    <li><a  href="#!"><i class="material-icons">exit_to_app</i>Cerrar Sesion</a></li>
-  </ul>
-
-
-  <ul class="sidenav" id="mobile-demo">
-        <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu show-on-large"></i></a>
-
-    <div class="buttonWidth">
-      <a class="waves-effect sidenav-close waves-light btn-flat buttonWidth"><i class="material-icons left">arrow_back</i></a>
-    </div>
-        <li><a href="">Home</a></li>
-  </ul>
-
-
-<script> 
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, options);
-  });
-
-  $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
-</script>
 
