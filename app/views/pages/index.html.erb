@@ -63,49 +63,214 @@
     </nav>
   </header>
 
-  <main style="padding-left: 240px">
-  	<div class="row">
-  <div class="col s12"><p></p></div>
-    <div class="col s12 m4 l2"><p></p></div>
-  <div id="man" class="col s12 m4 l8">
-    <div class="card material-table">
-      <div class="table-header">
-        <span class="table-title">Becarios CONACYT</span>
-        <div class="actions">
+  <% if current_user %>
+        <main style="padding-left: 240px">
+        <div class="row">
+      <div class="col s12"><p></p></div>
+        <div class="col s12 m4 l2"><p></p></div>
+      <div id="man" class="col s12 m4 l8">
+        <div class="card material-table">
+          <div class="table-header" style="background:#26a69a">
+            <span class="table-title" style="color:#ffffff;font-weight: bold;">Información Personal</span>
+            <div class="actions">
+            </div>
+          </div>
+          <table id="datatable">
+            <tbody>   
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Nombre:</p></td>
+                  <td><p style="font-size: 18px"><%= current_user.name %></p></td>
+              </tr>   
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Primer Apellido:</p></td>
+              </tr>  
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Segundo Apellido:</p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Correo:</p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha solicitud:</p></td>
+              </tr>
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">CVU:</p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">RFC:</p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">CURP:</p></td>
+              </tr>
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de nacimiento:</p></td>
+              </tr>
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Genero:</p></td>
+              </tr>
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Estado Civil:</p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">País de nacimiento:</p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Teléfono:</p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Celular:</p></td>
+              </tr>             
+              </tbody>
+            </table>
+
+
+
+          <div class="table-header" style="background:#26a69a">
+            <span class="table-title" style="color:#ffffff;font-weight: bold;">Domicilio</span>
+            <div class="actions">
+            </div>
+          </div>
+
+          <table id="datatable">
+            <tbody>   
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Calle:</p></td>
+              </tr>   
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Número exterior:</p></td>
+              </tr>  
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Número interior:</p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Colonia:</p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Ciudad:</p></td>
+              </tr>
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Municipio:</p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Estado:</p></td>
+              </tr>            
+              </tbody>
+            </table>
+
+
+          <div class="table-header" style="background:#26a69a">
+            <span class="table-title" style="color:#ffffff;font-weight: bold;">Información de Estudios</span>
+            <div class="actions">
+            </div>
+          </div>
+          <table id="datatable">
+            <tbody>   
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Convocatoria:</p></td>
+              </tr>   
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Año fiscal:</p></td>
+              </tr>  
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha inicio de estudios:</p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha fin de estudios:</p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de inicio de beca:</p></td>
+              </tr>
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de fin de beca:</p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Universidad:</p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Entidad:</p></td>
+              </tr>
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Apoyo a obtener:</p></td>
+              </tr>
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Programa:</p></td>
+              </tr>
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Area de conocimiento:</p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Campo:</p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Disciplina:</p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Subdisciplina:</p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Promedio de último grado:</p></td>
+              </tr>              
+              </tbody>
+            </table>
+
+
+
+
+
+
+          </div>
         </div>
+        <div class="col s12 m4 l2"><p></p></div>
       </div>
-      <table id="datatable">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Correo</th>
-            <th>Grado</th>
-            <th>Estatus</th>
-          </tr>
-        </thead>
-        <tbody> 	
-          <% @users.each do |user| %>
-          <tr>
-              <td><%= user.name %></td>
-              <td><%= user.email %></td>
-              <td><%= user.email %></td>
-              <td><%= user.email %></td>
-          </tr>
-        <% end %>
-        <%= form_tag import_users_path, multipart: true do %>
-        <%= file_field_tag :file, class: 'form-control' %><br>
-        <%= submit_tag 'Import', class: 'btn btn-primary'%>
-        <% end %>
-        <%= link_to 'EXCEL', export_users_path(format: "xls") %>
-        <%= link_to 'CSV', export_users_path(format: "csv") %>
-        
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <div class="col s12 m4 l2"><p></p></div>
-</div>
-  </main>
+        </main>
+
+      
+  <% else current_admin %>
+            <main style="padding-left: 240px">
+        <div class="row">
+      <div class="col s12"><p></p></div>
+        <div class="col s12 m4 l2"><p></p></div>
+      <div id="man" class="col s12 m4 l8">
+        <div class="card material-table">
+          <div class="table-header">
+            <span class="table-title">Becarios CONACYT</span>
+            <div class="actions">
+            </div>
+          </div>
+          <table id="datatable">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Grado</th>
+                <th>Estatus</th>
+              </tr>
+            </thead>
+            <tbody>   
+              <% @users.each do |user| %>
+              <tr>
+                  <td><%= user.name %></td>
+                  <td><%= user.email %></td>
+                  <td><%= user.email %></td>
+                  <td><%= user.email %></td>
+              </tr>
+            <% end %>
+            <%= form_tag import_users_path, multipart: true do %>
+            <%= file_field_tag :file, class: 'form-control' %><br>
+            <%= submit_tag 'Import', class: 'btn btn-primary'%>
+            <% end %>
+            <%= link_to 'EXCEL', export_users_path(format: "xls") %>
+            <%= link_to 'CSV', export_users_path(format: "csv") %>
+            
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="col s12 m4 l2"><p></p></div>
+      </div>
+        </main>
+  <% end %>
+
 
   <footer class="indigo page-footer" style="padding-left: 240px;background:#26a69a !important">
     <div class="footer-copyright" style="background:#26a69a">
