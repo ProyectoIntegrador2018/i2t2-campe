@@ -102,24 +102,6 @@
 
   <header style="padding-left: 240px">
     
-
-    <nav class="indigo" role="navigation">
-      <div class="nav-wrapper" style="background:#26a69a">
-        <a data-activates="slide-out" class="button-collapse show-on-" href="#!"><img style="margin-top: 17px; margin-left: 5px;" src="https://res.cloudinary.com/dacg0wegv/image/upload/t_media_lib_thumb/v1463989873/smaller-main-logo_3_bm40iv.gif" /></a>
-
-        <% if current_user %>
-          <ul class="right hide-on-med-and-down">
-            <li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete%></li>
-          </ul>
-        <% else current_admin %>
-          <ul class="right hide-on-med-and-down">
-            <li><%= link_to 'Cerrar Sesión', destroy_admin_session_path, method: :delete%></li>
-          </ul>
-        <% end %>
-
-        <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-      </div>
-    </nav>
   </header>
 
 <main style="padding-left: 240px">
