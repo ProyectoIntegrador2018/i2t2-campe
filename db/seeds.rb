@@ -8,7 +8,7 @@
 
 # TODO(ATH): checar seguridad de admin seed.
 Admin.create(
-        email: "superAdmin@gmail.com",
-        password: "12345678",
+        email: "antonio.hernandez@mtycic.org",
+        password: "Super@dmin1",
         is_admin: true
     )
