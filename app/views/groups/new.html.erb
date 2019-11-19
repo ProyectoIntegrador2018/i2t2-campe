@@ -1,0 +1,16 @@
+<div class="form-content" style="padding-right:5%;padding-left:5%">
+<h4 class="center-align">Registro de Grupos</h4>
+<%= form_for(@group) do |f| %>
+    <div class="form-section">
+        <div class="row">
+            <div class="col s4 input-field inline">
+                <%= f.text_field :name %>
+                <label for="group_name">Nombre de Grupo</label>
+             </div>
+        </div>
+    </div>
+    <div class="actions">
+      <%= f.submit "Crear" %>
+    </div>
+<% end %>
+</div>

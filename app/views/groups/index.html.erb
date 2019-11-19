@@ -1,0 +1,53 @@
+ <main style="padding-left: 240px">
+    <div class="row">
+  <div class="col s12"><p></p></div>
+    <div class="col s12 m4 l2"><p></p></div>
+  <div id="man" class="col s12 m4 l8">
+    <div class="card material-table">
+      <div class="table-header">
+        <span class="table-title">Convocatorias</span>
+        <div class="actions">
+        </div>
+      </div>
+      <table id="datatable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Convocatoria</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>   
+          <% @groups.each do |group| %>
+          <tr>
+              <td><%= group.id %></td>
+              <td><%= group.name %></td>
+              <td><%= button_to 'Show', group_path(group), class: 'link-button'%>
+                  <%= button_to "Eliminar", group, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' }, class: 'link-button' %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col s12 m4 l2"><p></p></div>
+</div>
+
+
+  </main>
+
+<!-- partial -->
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js'></script><script  src="./script.js"></script>
+</main>
+</body>
+
+<footer class="indigo page-footer  center" style="background:#26a69a !important">
+    <div class="footer-copyright" style="background:#26a69a">
+      <div class="container" style="background:#26a69a">
+         <span><a style='font-weight: bold;color:white;'>© Todos los Derechos Reservados, I2T2</a></span>
+      </div>
+    </div>
+  </footer>
+
+</html>
