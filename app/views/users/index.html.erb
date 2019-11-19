@@ -92,11 +92,14 @@
 
 
 
-    <% if current_admin%>
-    <li id="dash_dashboard"><%= link_to 'Lista de becarios', users_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-    <li id="dash_dashboard"><%= link_to 'Registrar becarios', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+     <% if current_admin%>
+		  <li id="dash_dashboard"><%= link_to 'Lista de becarios', users_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+		  <li id="dash_dashboard"><%= link_to 'Registrar becarios', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+      <% if current_admin.is_admin != nil && current_admin.is_admin == true %>
+    	  <li id="dash_dashboard"><%= link_to 'Registrar administradores', new_admin_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+      <% end %>
     <% else current_user%>
-      <li id="dash_dashboard"><a class="waves-effect" href="#!"><b>Perfil</b></a></li>
+    	<li id="dash_dashboard"><a class="waves-effect" href="#!"><b>Perfil</b></a></li>
     <% end %>
   </ul>
 

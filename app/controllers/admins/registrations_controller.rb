@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Admins::RegistrationsController < Devise::RegistrationsController
+  # disable default no_authentication action
+  skip_before_action :require_no_authentication, only: [:new, :create, :cancel]
+   protected
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
