@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<style>
+
+  .font {
+    font-family: Impact, Charcoal, sans-serif;
+  }
+
+  .font2 {
+    font-family: Comic Sans MS, cursive, sans-serif;
+  }
+
+  .center1 {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 70%;
+      height: 70%;
+  }
+
+  .site-footer{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;   
+  }
+
+  .fontSize1{
+    font-size:0.5vw;
+  }
+
+  .fontFooter{
+    color: black;
+  }
+
+  .main {
+    flex: 1 0 auto;
+  }
+
+  .absolute {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+  }
+
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  position: relative;
+  top: 0px;
+}
+
+.Site-content {
+  flex: 1;
+}
+
+</style>
+
+<head>
+  <meta charset="UTF-8">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/font/material-design-icons/Material-Design-Icons.woff'><link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body class="Site">
+  <main class="Site-content">
+
+  <ul id="slide-out" class="side-nav fixed z-depth-2">
+    <li class="center no-padding">
+      <div class="indigo darken-2 white-text" style="height: 180px;">
+        <div class="row" style="background:#1d7d74">
+          <img style="margin-top: 5%;" width="100" height="100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTi4DmuEiqgpdMPdI839ak7nqOyEHlnwt2nQWTLtI8UzuxgsYKH" class="circle responsive-img" />
+
+          <p style="margin-top: -13%;">
+            <% if current_user %>
+              Estudiante
+            <% else %>
+              Admin
+            <% end %>
+          </p>
+        </div>
+      </div>
+    </li>
+
+
+
+    <% if current_admin%>
+    <li id="dash_dashboard"><%= link_to 'Lista de becarios', users_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+    <li id="dash_dashboard"><%= link_to 'Registrar becarios', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+    <% else current_user%>
+      <li id="dash_dashboard"><a class="waves-effect" href="#!"><b>Perfil</b></a></li>
+    <% end %>
+  </ul>
+
+  <header style="padding-left: 240px">
+
+  </header>
+
+  <main style="padding-left: 240px">
+        <div class="row">
+      <div class="col s12"><p></p></div>
+        <div class="col s12 m4 l2"><p></p></div>
+      <div id="man" class="col s12 m4 l8">
+        <div class="card material-table">
+          <div class="table-header" style="background:#26a69a">
+            <span class="table-title" style="color:#ffffff;font-weight: bold;">Información Personal</span>
+            <div class="actions">
+            </div>
+          </div>
+          <table id="datatable">
+            <tbody>   
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Nombre:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.name %></p></td>
+              </tr>   
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Primer Apellido:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.paternal_last_name %></p></td>
+              </tr>  
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Segundo Apellido:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.maternal_last_name %></p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Correo:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.email %></p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha solicitud:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.desc_request_status %></p></td>
+              </tr>
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">CVU:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.cvu %></p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">RFC:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.rfc %></p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">CURP:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.curp %></p></td>
+              </tr>
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de nacimiento:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.birth_date %></p></td>
+              </tr>
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Genero:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.gender %></p></td>
+              </tr>
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Estado Civil:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.marital_stauts %></p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">País de nacimiento:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.country_birth %></p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Teléfono:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.phone_number %></p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Celular:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.cell_phone %></p></td>
+              </tr>             
+              </tbody>
+            </table>
+
+
+
+          <div class="table-header" style="background:#26a69a">
+            <span class="table-title" style="color:#ffffff;font-weight: bold;">Domicilio</span>
+            <div class="actions">
+            </div>
+          </div>
+
+          <table id="datatable">
+            <tbody>   
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Calle:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.street_address %></p></td>
+              </tr>   
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Número exterior:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.street_number_address_ext %></p></td>
+              </tr>  
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Número interior:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.street_number_address_int %></p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Colonia:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.colony_address %></p></td>
+              </tr>
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Ciudad:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.city_address %></p></td>
+              </tr>
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Municipio:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.municipiality_address %></p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Estado:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.state_address %></p></td>
+              </tr>            
+              </tbody>
+            </table>
+
+
+          <div class="table-header" style="background:#26a69a">
+            <span class="table-title" style="color:#ffffff;font-weight: bold;">Información de Estudios</span>
+            <div class="actions">
+            </div>
+          </div>
+          <table id="datatable">
+            <tbody>   
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Convocatoria:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.convocatory %></p></td>
+              </tr>   
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Año fiscal:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.fiscal_year %></p></td>
+              </tr>  
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha inicio de estudios:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.studies_start_date %></p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha fin de estudios:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.studies_end_date %></p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de inicio de beca:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.start_scholarship %></p></td>
+              </tr>
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de fin de beca:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.end_scholarship %></p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Universidad:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.school %></p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Entidad:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.entity %></p></td>
+              </tr>
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Apoyo a obtener:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.support_to_get %></p></td>
+              </tr>
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Programa:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.program %></p></td>
+              </tr>
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Area de conocimiento:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.expertise_area %></p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Campo:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.field_study %></p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Disciplina:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.discipline %></p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Subdisciplina:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.sub_discipline %></p></td>
+              </tr> 
+              <tr>
+                  <td style="padding-left: 40px;"><p style="font-size: 18px">Promedio de último grado:</p></td>
+                  <td><p style="font-size: 18px"><%= @user.last_gpa %></p></td>
+              </tr>              
+              </tbody>
+            </table>
+
+
+
+
+
+
+          </div>
+        </div>
+        <div class="col s12 m4 l2"><p></p></div>
+      </div>
+  </main>
+
+<!-- partial -->
+  <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js'></script><script  src="./script.js"></script>
+</main>
+</body>
+
+<footer class="indigo page-footer  center" style="background:#26a69a !important">
+    <div class="footer-copyright" style="background:#26a69a">
+      <div class="container" style="background:#26a69a">
+         <span><a style='font-weight: bold;color:white;'>© Todos los Derechos Reservados, I2T2</a></span>
+      </div>
+    </div>
+  </footer>
+
+</html>
