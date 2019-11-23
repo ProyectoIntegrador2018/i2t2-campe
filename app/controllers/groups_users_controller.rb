@@ -1,17 +1,19 @@
 require 'roo'
-class UsersController < ApplicationController
-
+class GroupsUsersController < ApplicationController
   def index
-    @users = User.all
   end
 
   def new
-    @user = User.new
+    @groups_user = GroupsUser.new
+    @groups = Group.all
   end
 
-  def import_user
+  def show
+  end
+
+  def import_groups_users
     file = params[:file]
-    file_type = ile_type = file.present? ? file.original_filename.split('.').last.to_s.downcase : ''
+    file_type = file_type = file.present? ? file.original_filename.split('.').last.to_s.downcase : ''
     if file.present? and (file_type == 'csv' or file_type == 'xlsx' or file_type == 'xls')
       update_imported_user(file)
     else
@@ -19,25 +21,14 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
-    redirect_to users_path
-  end
-
   private
-  def clean(headers)
-    (0..headers.length).each do |i|
-    end
-    headers
-  end
-  
+
   def update_imported_user(file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
-      # @store = Store.new(row)
+      @groups_user = GroupsUser.new()
       @user = User.new(
         email: row['CORREO'],
         :password => '111111', 
@@ -76,6 +67,11 @@ class UsersController < ApplicationController
         last_gpa: row['PROMEDIOÚLTIMOGRADO']
       )
       @user.save
+      @groups_user.user_id = @user.id
+      binding.pry
+      @groups_user.group_id = params[:group_id].to_i
+      @groups_user.save
+
     end
     redirect_to users_path
   end
@@ -89,11 +85,9 @@ class UsersController < ApplicationController
     end
   end
 
-  def user_params
-    params.require(:user).permit(:name, :paternal_last_name, :maternal_last_name, :email, :password, :password_confirmation, :request_password_it2t2, :creation_date, :desc_request_status, :cvu,  
-    :rfc, :curp, :gender, :marital_stauts, :birth_date, :country_birth, :state_birth, :street_address, :street_number_address_ext, :street_number_address_int, :colony_address, :city_address, :municipiality_address,
-    :state_address, :phone_number, :cell_phone, :convocatory, :fiscal_year, :studies_start_date, :studies_end_date, :start_scholarship, :end_scholarship, :school, :entity, :support_to_get, :program, :expertise_area,
-    :field_study, :discipline, :sub_discipline, :last_gpa)
+  def group_user_params
+    params.require(:group_users).permit(:user_id, :group_id)
   end
+
 
 end
