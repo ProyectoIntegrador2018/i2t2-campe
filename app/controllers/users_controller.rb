@@ -22,6 +22,5 @@ class UsersController < ApplicationController
     headers
   end
   
-  end
 
 end
