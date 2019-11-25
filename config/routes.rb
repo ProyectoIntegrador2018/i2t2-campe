@@ -18,5 +18,8 @@ Rails.application.routes.draw do
   post 'import_users' => 'users#import_user', as: 'import_users'
   resources :users, only: [:new, :create, :show, :index, :destroy]
   resources :pages
+  resources :groups
+  resources :groups_users
+  post 'import_groups_users' => 'groups_users#import_groups_users', as: 'import_groups_users'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
