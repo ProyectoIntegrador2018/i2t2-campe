@@ -342,13 +342,6 @@
                                 <%= link_to "Eliminar", user, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' },:style=>'color:white;;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn" %></td>
                         </tr>
                       <% end %>
-                      <%= form_tag import_users_path, multipart: true do %>
-                      <%= file_field_tag :file, :style=>'padding-top:10px;padding-left:10px;', class: 'form-control' %><br>
-                      <%= submit_tag 'Import', :style=>'padding-left:10px;',class: 'form-control'%>
-                      <% end %>
-                      <%= link_to 'EXCEL', export_users_path(format: "xls") %>
-                      <%= link_to 'CSV', export_users_path(format: "csv") %>
-                      
                       </tbody>
                     </table>
                   </div>

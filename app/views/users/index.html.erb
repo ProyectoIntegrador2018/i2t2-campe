@@ -95,6 +95,8 @@
      <% if current_admin%>
 		  <li id="dash_dashboard"><%= link_to 'Lista de becarios', users_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
 		  <li id="dash_dashboard"><%= link_to 'Registrar becarios', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+      <li id="dash_dashboard"><%= link_to 'Ver Grupos', groups_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+      <li id="dash_dashboard"><%= link_to 'Crear Grupos', new_group_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <% if current_admin.is_admin != nil && current_admin.is_admin == true %>
     	  <li id="dash_dashboard"><%= link_to 'Registrar administradores', new_admin_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <% end %>
@@ -140,14 +142,7 @@
               <td><%= link_to 'Show', user_path(user), :style=>'color:white;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn"%><br></br>
                   <%= link_to "Eliminar", user, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' },:style=>'color:white;;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn" %></td>
           </tr>
-        <% end %>
-        <%= form_tag import_users_path, multipart: true do %>
-        <%= file_field_tag :file, :style=>'padding-top:10px;padding-left:10px;', class: 'form-control' %><br>
-        <%= submit_tag 'Import', :style=>'padding-left:10px;',class: 'form-control'%>
-        <% end %>
-        <%= link_to 'EXCEL', export_users_path(format: "xls") %>
-        <%= link_to 'CSV', export_users_path(format: "csv") %>
-        
+        <% end %>    
         </tbody>
       </table>
     </div>
