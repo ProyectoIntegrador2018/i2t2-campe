@@ -6,6 +6,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     super #Nothing special here.
+    @groups_user = GroupsUser.new()
+    @groups_user.user_id = User.last.id
+    @groups_user.group_id = params[:group_id].to_i
+    @groups_user.save
   end
 
   protected

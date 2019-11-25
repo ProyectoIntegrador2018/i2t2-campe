@@ -235,8 +235,7 @@
     </h5>
      <div class="row">
       <div class="col s3 input-field inline">
-        <%= f.label :Convocatoria %>
-        <%= f.text_field :convocatory %>
+        <%= select_tag 'group_id', options_for_select(Group.all.collect {|p| [ p.name, p.id ] }.insert(0, "Convocatoria")) ,class: "browser-default"%>
       </div>
       <div class="col s3 input-field inline">
         <%= f.label :Año_Fiscal %>
