@@ -22,8 +22,8 @@
           <tr>
               <td><%= group.id %></td>
               <td><%= group.name %></td>
-              <td><%= button_to 'Show', group_path(group), class: 'link-button'%>
-                  <%= button_to "Eliminar", group, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' }, class: 'link-button' %></td>
+              <td><%= link_to 'Show', group_path(group), :style=>'color:white;',:class=>"waves-effect waves-light btn"%><br></br>
+                  <%= link_to "Eliminar", group, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' },:style=>'color:white;',:class=>"waves-effect waves-light btn" %></td>
           </tr>
         <% end %>
         </tbody>
@@ -31,7 +31,9 @@
     </div>
   </div>
   <div class="col s12 m4 l2"><p></p></div>
+  <%= link_to 'New Convocatoria', new_groups_user_path, class: 'btn btn-primary'%> 
 </div>
+
 
 
   </main>
