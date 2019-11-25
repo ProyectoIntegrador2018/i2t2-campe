@@ -307,47 +307,53 @@
 
   <% else current_admin %>
             <main style="padding-left: 240px">
-        <div class="row">
-      <div class="col s12"><p></p></div>
-        <div class="col s12 m4 l2"><p></p></div>
-      <div id="man" class="col s12 m4 l8">
-        <div class="card material-table">
-          <div class="table-header">
-            <span class="table-title">Becarios CONACYT</span>
-            <div class="actions">
-            </div>
-          </div>
-          <table id="datatable">
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Correo</th>
-                <th>Grado</th>
-                <th>Estatus</th>
-              </tr>
-            </thead>
-            <tbody>   
-              <% @users.each do |user| %>
-              <tr>
-                  <td><%= user.name %></td>
-                  <td><%= user.email %></td>
-                  <td><%= user.email %></td>
-                  <td><%= user.email %></td>
-              </tr>
-            <% end %>
-            <%= form_tag import_users_path, multipart: true do %>
-            <%= file_field_tag :file, class: 'form-control' %><br>
-            <%= submit_tag 'Import', class: 'btn btn-primary'%>
-            <% end %>
-            <%= link_to 'EXCEL', export_users_path(format: "xls") %>
-            <%= link_to 'CSV', export_users_path(format: "csv") %>
-            
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="col s12 m4 l2"><p></p></div>
-      </div>
+                          <div class="row">
+                <div class="col s12"><p></p></div>
+                  <div class="col s12 m4 l1"><p></p></div>
+                <div id="man" class="col s12 m4 l10">
+                  <div class="card material-table">
+                    <div class="table-header">
+                      <span class="table-title">Becarios CONACYT</span>
+                      <div class="actions">
+                      </div>
+                    </div>
+                    <table id="datatable">
+                      <thead>
+                        <tr>
+                          <th>Cvu</th>
+                          <th>Nombre</th>
+                          <th>Universidad</th>
+                          <th>Disciplina</th>
+                          <th>Area</th>
+                          <th>  </th>
+                        </tr>
+                      </thead>
+                      <tbody>   
+                        <% @users.each do |user| %>
+                        <tr>
+                            <td><%= user.cvu %></td>
+                            <td><%= user.name %> <%= user.paternal_last_name %> <%= user.maternal_last_name %></td>
+                            <td><%= user.school %></td>
+                            <td><%= user.discipline %></td>
+                            <td><%= user.expertise_area %></td>
+                            <td><%= link_to 'Show', user_path(user), :style=>'color:white;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn"%><br></br>
+                                <%= link_to "Eliminar", user, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' },:style=>'color:white;;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn" %></td>
+                        </tr>
+                      <% end %>
+                      <%= form_tag import_users_path, multipart: true do %>
+                      <%= file_field_tag :file, :style=>'padding-top:10px;padding-left:10px;', class: 'form-control' %><br>
+                      <%= submit_tag 'Import', :style=>'padding-left:10px;',class: 'form-control'%>
+                      <% end %>
+                      <%= link_to 'EXCEL', export_users_path(format: "xls") %>
+                      <%= link_to 'CSV', export_users_path(format: "csv") %>
+                      
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="col s12 m4 l1"><p></p></div>
+              </div>
+
         </main>
   <% end %>
 
