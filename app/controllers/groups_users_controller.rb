@@ -68,7 +68,6 @@ class GroupsUsersController < ApplicationController
       )
       @user.save
       @groups_user.user_id = @user.id
-      binding.pry
       @groups_user.group_id = params[:group_id].to_i
       @groups_user.save
 
