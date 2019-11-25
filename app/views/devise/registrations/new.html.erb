@@ -109,14 +109,18 @@
 
 <main style="padding-left: 240px">
 
-<h4 class="center-align">Registrar becarios</h4>                 
+                   
+   <div class="row">
+  <div class="col s12" style="padding-top: 20px;"><h4 class="center-align">Registrar becarios</h4> </div>
+    <div class="col s12 m4 l1"><p></p></div>
+  <div class="col s12 m4 l10">
 
   <div id="basic-form" class="section">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
-    <h3>
+    <h5>
     Información Personal:
-    </h3>
+    </h5>
     <div class="row">
       <div class="col s4 input-field inline">
         <%= f.label :Nombre %>
@@ -169,12 +173,10 @@
     </div>
     <div class="row">
       <div class="col s2 input-field inline">
-        <%= f.label :TODO_GENDER_SELECT %>
-        <%= f.text_field :gender %>
+      <%= f.select :gender, options_for_select([["Hombre", "Hombre"], ["Mujer", "Mujer"]]), {:include_blank => "Género:"}, { class: 'browser-default'} %>
       </div>
       <div class="col s2 input-field inline">
-        <%= f.label :TODO_ESTADO_CIVIL_SELECT %>
-        <%= f.text_field :marital_stauts %>
+      <%= f.select :marital_stauts, options_for_select([["Soltero", "Soltero"], ["Casado", "Casado"]]), {:include_blank => "Estado Civil:"}, { class: 'browser-default'} %>
       </div>
       <div class="col s2 input-field inline">
         <%= f.label :País_de_Nacimiento %>
@@ -193,9 +195,9 @@
         <%= f.telephone_field :cell_phone %>
       </div>
     </div>
-    <h3>
+    <h5>
     Domicilio:
-    </h3>
+    </h5>
     <div class="row">
       <div class="col s3 input-field inline">
         <%= f.label :Calle_de_Domicilio %>
@@ -228,9 +230,9 @@
         <%= f.text_field :state_address %>
       </div>
     </div>
-    <h3>
+    <h5>
     Información de Estudios:
-    </h3>
+    </h5>
      <div class="row">
       <div class="col s3 input-field inline">
         <%= f.label :Convocatoria %>
@@ -305,6 +307,8 @@
     <% end %>
   <%= render "devise/shared/links" %>
   </div>
+</div>
+</div>
 </main>
 
 
