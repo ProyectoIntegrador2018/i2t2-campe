@@ -169,12 +169,10 @@
     </div>
     <div class="row">
       <div class="col s2 input-field inline">
-        <%= f.label :TODO_GENDER_SELECT %>
-        <%= f.text_field :gender %>
+      <%= f.select :gender, options_for_select([["Hombre", "Hombre"], ["Mujer", "Mujer"]]), {:include_blank => "Género:"}, { class: 'browser-default'} %>
       </div>
       <div class="col s2 input-field inline">
-        <%= f.label :TODO_ESTADO_CIVIL_SELECT %>
-        <%= f.text_field :marital_stauts %>
+      <%= f.select :marital_stauts, options_for_select([["Soltero", "Soltero"], ["Casado", "Casado"]]), {:include_blank => "Estado Civil:"}, { class: 'browser-default'} %>
       </div>
       <div class="col s2 input-field inline">
         <%= f.label :País_de_Nacimiento %>
