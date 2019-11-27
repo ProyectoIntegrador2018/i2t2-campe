@@ -1,6 +1,6 @@
 
   <%= form_tag import_groups_users_path, multipart: true do %>
     <%= select_tag 'group_id', options_for_select(groups.collect{ |u| [u.name, u.id] }) , class: "browser-default"%>
-    <%= file_field_tag :file, class: 'form-control' %><br>
-    <%= submit_tag 'Import', class: 'btn btn-primary'%> 
+    <%= file_field_tag :file,:style=>'padding-top:10px', class: 'form-control' %><br>
+    <%= submit_tag 'Import',:style=>'color:white;font-size:10px;width:110px ! important', class: 'btn btn-primary'%> 
   <% end %>
