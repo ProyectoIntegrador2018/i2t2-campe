@@ -95,8 +95,8 @@
     <% if current_admin%>
 		  <li id="dash_dashboard"><%= link_to 'Lista de becarios', users_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
 		  <li id="dash_dashboard"><%= link_to 'Registrar becarios', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-      <li id="dash_dashboard"><%= link_to 'Ver Grupos', groups_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-      <li id="dash_dashboard"><%= link_to 'Crear Grupos', new_group_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+      <li id="dash_dashboard"><%= link_to 'Ver Convocatorias', groups_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+      <li id="dash_dashboard"><%= link_to 'Crear Convocatoria', new_group_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <% if current_admin.is_admin != nil && current_admin.is_admin == true %>
     	  <li id="dash_dashboard"><%= link_to 'Registrar administradores', new_admin_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <% end %>
