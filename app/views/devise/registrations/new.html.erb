@@ -126,7 +126,7 @@
     <div class="row">
       <div class="col s4 input-field inline">
         <%= f.label :Nombre %>
-        <%= f.text_field :name %>
+        <%= f.text_field :name, :required => true%>
       </div>
       <div class="col s4 input-field inline">
         <%= f.label :Primer_Apellido %>
@@ -140,15 +140,15 @@
     <div class="row">
       <div class="col s4 input-field inline">
         <%= f.label :Correo %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", :required => true %>
       </div>
       <div class="col s4 input-field inline">
         <%= f.label :contraseña %>
-        <%= f.password_field :password, autocomplete: "new-password" %>
+        <%= f.password_field :password, autocomplete: "new-password", :required => true%>
       </div>
       <div class="col s4 input-field inline">
         <%= f.label :confirmar_contraseña %>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", :required => true %>
       </div>
     </div>
     <div class="row">
@@ -158,15 +158,15 @@
       </div>
       <div class="col s2 input-field inline">
         <%= f.label :CVU %>
-        <%= f.text_field :cvu %>
+        <%= f.number_field :cvu, :required => true %>
       </div>
       <div class="col s2 input-field inline">
         <%= f.label :RFC %>
-        <%= f.text_field :rfc %>
+        <%= f.text_field :rfc, :required => true%>
       </div>
       <div class="col s2 input-field inline">
         <%= f.label :CURP %>
-        <%= f.text_field :curp %>
+        <%= f.text_field :curp, :required => true %>
       </div>
       <div class="col s3 input-field inline">
         <%= f.label :Fecha_de_nacimiento %>
@@ -182,11 +182,11 @@
       </div>
       <div class="col s2 input-field inline">
         <%= f.label :País_de_Nacimiento %>
-        <%= f.text_field :country_birth %>
+        <%= f.text_field :country_birth, :required => true %>
       </div>
       <div class="col s2 input-field inline">
         <%= f.label :Estado_de_Nacimiento %>
-        <%= f.text_field :state_birth %>
+        <%= f.text_field :state_birth, :required => true %>
       </div>
       <div class="col s2 input-field inline">
         <%= f.label :Teléfono %>
@@ -203,7 +203,7 @@
     <div class="row">
       <div class="col s3 input-field inline">
         <%= f.label :Calle_de_Domicilio %>
-        <%= f.text_field :street_address %>
+        <%= f.text_field :street_address, :required => true  %>
       </div>
       <div class="col s3 input-field inline">
         <%= f.label :Número_exterior %>
@@ -221,7 +221,7 @@
     <div class="row">
       <div class="col s4 input-field inline">
         <%= f.label :Ciudad %>
-        <%= f.text_field :city_address %>
+        <%= f.text_field :city_address, :required => true  %>
       </div>
       <div class="col s4 input-field inline">
         <%= f.label :Municipio %>
@@ -237,7 +237,7 @@
     </h5>
      <div class="row">
       <div class="col s3 input-field inline">
-        <%= select_tag 'group_id', options_for_select(Group.all.collect {|p| [ p.name, p.id ] }.insert(0, "Convocatoria")) ,class: "browser-default"%>
+        <%= select_tag 'group_id', options_for_select(Group.all.collect {|p| [ p.name, p.id ] }.insert(0, "Convocatoria")), :required => true ,class: "browser-default"%>
       </div>
       <div class="col s3 input-field inline">
         <%= f.label :Año_Fiscal %>
@@ -263,21 +263,21 @@
       </div>
       <div class="col s3 input-field inline">
         <%= f.label :Universidad %>
-        <%= f.text_field :school %>
+        <%= f.text_field :school, :required => true %>
       </div>
       <div class="col s3 input-field inline">
         <%= f.label :Entidad %>
-        <%= f.text_field :entity %>
+        <%= f.text_field :entity, :required => true  %>
       </div>
     </div>
     <div class="row">
       <div class="col s3 input-field inline">
         <%= f.label :Apoyo_a_obtener %>
-        <%= f.text_field :support_to_get %>
+        <%= f.text_field :support_to_get, :required => true  %>
       </div>
       <div class="col s3 input-field inline">
         <%= f.label :Programa %>
-        <%= f.text_field :program %>
+        <%= f.text_field :program, :required => true  %>
       </div>
       <div class="col s3 input-field inline">
         <%= f.label :Area_de_conocimiento %>
@@ -303,7 +303,7 @@
       </div>
     </div>
     <div class="actions center-align">
-      <%= f.submit "Registrar", :class=>"waves-effect waves-light btn"%>
+      <%= f.submit "Registrar", :class=>"btn"%>
     </div>
     <% end %>
   <%= render "devise/shared/links" %>
