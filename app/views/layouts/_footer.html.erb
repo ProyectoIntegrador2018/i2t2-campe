@@ -1,65 +1,115 @@
 <style>
 
-	.font {
-		font-family: Impact, Charcoal, sans-serif;
-	}
+  .font {
+    font-family: Impact, Charcoal, sans-serif;
+  }
 
-	.font2 {
-		font-family: Comic Sans MS, cursive, sans-serif;
-	}
+  .font2 {
+    font-family: Comic Sans MS, cursive, sans-serif;
+  }
 
-	.center {
-	    display: block;
-	    margin-left: auto;
-	    margin-right: auto;
-	    width: 70%;
-	    height: 70%;
-	}
+  .center1 {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 70%;
+      height: 70%;
+  }
 
-	.site-footer{
-	    position: fixed;
-	    bottom: 0;
-	    left: 0;
-	    right: 0;   
-	}
+  .site-footer{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;   
+  }
 
-	.fontSize2{
-		font-size:1vw;
-	}
+  .fontSize1{
+    font-size:0.5vw;
+  }
 
-	.fontSize1{
-		font-size:0.7vw;
-	}
+  .fontFooter{
+    color: black;
+  }
 
-	.fontFooter{
-		color: black;
-	}
+  .main {
+    flex: 1 0 auto;
+  }
 
-	.imgSize{
-		width: 2010;
-		max-height: : 30%;
-	}
+  .absolute {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+  }
 
-	.imgDiv{
-		width: 200
-		height: 200;
-	}
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  position: relative;
+  top: 0px;
+}
+
+.Site-content {
+  flex: 1;
+}
+
+  .img{
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .fondo{
+    opacity:1;
+    background: rgb(0, 151, 19);
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+  }
+
+  .opacidad{
+    opacity:1;
+  }
+
+  .imagen{
+    width: 450px;
+
+    max-width: 100%;
+
+    max-height: 50%;
+    
+  }
+
+  .buttonImage{
+    background:url(https://i.blogs.es/b7d437/pantallas/450_1000.png) no-repeat;
+    cursor:pointer;
+    border:none;
+    width:100px;
+    height:150px;
+  }
+
+  .btn{
+    width:100%;
+    height:45px;
+    font-size: 150%;
+    vertical-align: middle;
+
+  }
+
+  .centrar{
+    width:400px;
+
+    vertical-align: middle;
+    text-align: center;
+    margin:auto;
+  }
 
 </style>
 
-<footer class="page-footer site-footer" style="background-color: #F0F8FF">
-  	<div class="container">
 
-		<!--<div class="imgDiv">
-			<img class="responsive-img imgSize" src="https://storage.googleapis.com/production-bucket/Community767786/instances/EM018-Organizacion-1453826430896/InstancePicture/image_1453826431586.jpg">
-		</div>-->
-		<div class=" center font fontSize1 fontFooter">
-			<p class="font2" style="width: 100%">I2T2 - Organismo del Gobierno del Estado de Nuevo León, creado en 2005, responsable de la promoción de políticas públicas en Ciencia, Tecnología e Innovación para ser una de las 25 regiones más competitivas del mundo en 25 años. .</p>
-		</div>
-  	</div>
-  	<div class="footer-copyright">
-	    <div class="container fontFooter center">
-	    	© 2019 Copyright Text
-	    </div>
-	</div>
-</footer>
+<footer class="indigo page-footer center" style="background:#26a69a !important">
+    <div class="footer-copyright" style="background:#26a69a">
+      <div class="container" style="background:#26a69a">
+         <span><a style='font-weight: bold;color:white;'>© Todos los Derechos Reservados, I2T2</a></span>
+      </div>
+    </div>
+  </footer>
