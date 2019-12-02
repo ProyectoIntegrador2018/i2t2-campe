@@ -9,7 +9,7 @@ Aplicación web con el objetivo de brindar seguimiento a los becarios y exbecari
 * [Información del cliente](#información-del-cliente)
 * [URLS de ambiente](#urls-de-ambiente)
 * [Equipo](#equipo)
-* [Herramientas de gestión](herramientas-de-gestión)
+* [Herramientas de gestión](#herramientas-de-gestión)
 
 
 
@@ -22,7 +22,7 @@ Aplicación web con el objetivo de brindar seguimiento a los becarios y exbecari
 
 ### URLS de ambiente
 
-* **Producción** - [TBD](TBD)
+* **Producción** - [Heroku](https://radiant-bayou-47421.herokuapp.com)
 * **Desarrollo** - [Github](https://github.com/ProyectoIntegrador2018/i2t2-campe)
 
 ### Equipo
@@ -37,10 +37,10 @@ Aplicación web con el objetivo de brindar seguimiento a los becarios y exbecari
 
 ### Herramientas de gestión
 
-* [Github repo](https://github.com/)
-* [Backlog]()
-* [Heroku](https://crowdfront-staging.herokuapp.com/)
-* [Documentation](https://drive.com)
+* [Github repo](https://github.com/ProyectoIntegrador2018/i2t2-campe)
+* [Backlog](https://github.com/ProyectoIntegrador2018/i2t2-campe/projects/1)
+* [Heroku](https://radiant-bayou-47421.herokuapp.com)
+* [Documentation](https://drive.google.com/drive/folders/1MvOa9Pe3SnPsSsFpNiZmLR7FRvaoJJ33?usp=sharing)
 
 ## Desarrollo
 
