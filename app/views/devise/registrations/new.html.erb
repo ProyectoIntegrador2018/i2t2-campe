@@ -125,7 +125,7 @@
     </h5>
     <div class="row">
       <div class="col s4 input-field inline">
-        <%= f.label :Nombre %>
+        <%= f.label :Nombre,:style=>'color:red;'%>
         <%= f.text_field :name, :required => true%>
       </div>
       <div class="col s4 input-field inline">
@@ -139,15 +139,15 @@
     </div>
     <div class="row">
       <div class="col s4 input-field inline">
-        <%= f.label :Correo %>
+        <%= f.label :Correo,:style=>'color:red;' %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", :required => true %>
       </div>
       <div class="col s4 input-field inline">
-        <%= f.label :contraseña %>
+        <%= f.label :contraseña,:style=>'color:red;' %>
         <%= f.password_field :password, autocomplete: "new-password", :required => true%>
       </div>
       <div class="col s4 input-field inline">
-        <%= f.label :confirmar_contraseña %>
+        <%= f.label :confirmar_contraseña,:style=>'color:red;' %>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", :required => true %>
       </div>
     </div>
@@ -157,15 +157,15 @@
         <%= f.date_field :desc_request_status, :value => Time.now.strftime("%Y-%m-%d")  %>
       </div>
       <div class="col s2 input-field inline">
-        <%= f.label :CVU %>
+        <%= f.label :CVU,:style=>'color:red;'%>
         <%= f.number_field :cvu, :required => true %>
       </div>
       <div class="col s2 input-field inline">
-        <%= f.label :RFC %>
+        <%= f.label :RFC,:style=>'color:red;'%>
         <%= f.text_field :rfc, :required => true%>
       </div>
       <div class="col s2 input-field inline">
-        <%= f.label :CURP %>
+        <%= f.label :CURP,:style=>'color:red;'%>
         <%= f.text_field :curp, :required => true %>
       </div>
       <div class="col s3 input-field inline">
@@ -181,11 +181,11 @@
       <%= f.select :marital_stauts, options_for_select([["Soltero", "Soltero"], ["Casado", "Casado"]]), {:include_blank => "Estado Civil:"}, { class: 'browser-default'} %>
       </div>
       <div class="col s2 input-field inline">
-        <%= f.label :País_de_Nacimiento %>
+        <%= f.label :País_de_Nacimiento,:style=>'color:red;'%>
         <%= f.text_field :country_birth, :required => true %>
       </div>
       <div class="col s2 input-field inline">
-        <%= f.label :Estado_de_Nacimiento %>
+        <%= f.label :Estado_de_Nacimiento,:style=>'color:red;'%>
         <%= f.text_field :state_birth, :required => true %>
       </div>
       <div class="col s2 input-field inline">
@@ -202,11 +202,11 @@
     </h5>
     <div class="row">
       <div class="col s3 input-field inline">
-        <%= f.label :Calle_de_Domicilio %>
+        <%= f.label :Calle_de_Domicilio,:style=>'color:red;' %>
         <%= f.text_field :street_address, :required => true  %>
       </div>
       <div class="col s3 input-field inline">
-        <%= f.label :Número_exterior %>
+        <%= f.label :Número_exterior%>
         <%= f.number_field :street_number_address_ext %>
       </div>
       <div class="col s3 input-field inline">
@@ -220,7 +220,7 @@
     </div>
     <div class="row">
       <div class="col s4 input-field inline">
-        <%= f.label :Ciudad %>
+        <%= f.label :Ciudad,:style=>'color:red;'%>
         <%= f.text_field :city_address, :required => true  %>
       </div>
       <div class="col s4 input-field inline">
@@ -237,7 +237,7 @@
     </h5>
      <div class="row">
       <div class="col s3 input-field inline">
-        <%= select_tag 'group_id', options_for_select(Group.all.collect {|p| [ p.name, p.id ] }.insert(0, "Convocatoria")), :required => true ,class: "browser-default"%>
+        <%= select_tag 'group_id', options_for_select(Group.all.collect {|p| [ p.name, p.id ] }.insert(0, "Convocatoria")),:style=>'color:red;', :required => true ,class: "browser-default"%>
       </div>
       <div class="col s3 input-field inline">
         <%= f.label :Año_Fiscal %>
@@ -262,21 +262,21 @@
         <%= f.date_field :end_scholarship, :value => Time.now.strftime("%Y-%m-%d")  %>
       </div>
       <div class="col s3 input-field inline">
-        <%= f.label :Universidad %>
+        <%= f.label :Universidad,:style=>'color:red;'%>
         <%= f.text_field :school, :required => true %>
       </div>
       <div class="col s3 input-field inline">
-        <%= f.label :Entidad %>
+        <%= f.label :Entidad,:style=>'color:red;'%>
         <%= f.text_field :entity, :required => true  %>
       </div>
     </div>
     <div class="row">
       <div class="col s3 input-field inline">
-        <%= f.label :Apoyo_a_obtener %>
+        <%= f.label :Apoyo_a_obtener,:style=>'color:red;'%>
         <%= f.text_field :support_to_get, :required => true  %>
       </div>
       <div class="col s3 input-field inline">
-        <%= f.label :Programa %>
+        <%= f.label :Programa,:style=>'color:red;'%>
         <%= f.text_field :program, :required => true  %>
       </div>
       <div class="col s3 input-field inline">
