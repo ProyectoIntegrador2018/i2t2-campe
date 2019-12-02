@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_232930) do
+ActiveRecord::Schema.define(version: 2019_12_02_155417) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_11_06_232930) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_groups_on_name", unique: true
   end
 
   create_table "groups_users", id: false, force: :cascade do |t|
@@ -51,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_11_06_232930) do
     t.datetime "updated_at", null: false
     t.string "request_password_it2t2"
     t.string "creation_date"
-    t.date "desc_request_status"
+    t.string "desc_request_status"
     t.integer "cvu"
     t.string "name"
     t.string "paternal_last_name"
@@ -74,10 +75,10 @@ ActiveRecord::Schema.define(version: 2019_11_06_232930) do
     t.string "cell_phone"
     t.string "convocatory"
     t.integer "fiscal_year"
-    t.date "studies_start_date"
-    t.date "studies_end_date"
-    t.date "start_scholarship"
-    t.date "end_scholarship"
+    t.string "studies_start_date"
+    t.string "studies_end_date"
+    t.string "start_scholarship"
+    t.string "end_scholarship"
     t.string "school"
     t.string "entity"
     t.string "support_to_get"
