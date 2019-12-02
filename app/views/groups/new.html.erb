@@ -128,11 +128,15 @@
                     </div>
                     <div class="actions">
                       <%= f.submit "Crear" ,:style=>'color:white;font-size:10px;width:110px ! important', class: 'btn btn-primary'%>
+                               <% if flash[:error].present? %>
+                                <p class='flash-error' style="color:red;"><%= flash[:error]%></p>
+                              <% end %>
                     </div>
                 <% end %>
                 </div>
 
           </main>
+
   
   <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js'></script><script  src="./script.js"></script>

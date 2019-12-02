@@ -16,7 +16,7 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.name = @group.name.parameterize(separator: '_')
     if Group.exists?(name: @group.name)
-      flash.now[:error] = "Hubo un error con el registro, verifica los campos del formulario"
+      flash.now[:error] = "Hubo un error con el registro, la convocatoria ya existe en la base de datos"
       render :new
     else
       @group.save
