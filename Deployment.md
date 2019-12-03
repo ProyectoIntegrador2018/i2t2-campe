@@ -1,6 +1,6 @@
 # i2t2-campe Program: Deployment
 
-The Makers Program repository is currently set-up to automatically deploy any changes made to the master branch onto the staging environment: [Heroku Staging](https://makers-program-staging.herokuapp.com/), and subsequently to production after approval. This instructions are tailored specifically for anyone interested in deploying the application into a new Heroku instance.
+The I2T2 Campe repository is currently set-up to automatically deploy any changes made to the master branch onto the staging environment: [Heroku Staging](https://radiant-bayou-47421.herokuapp.com/), and subsequently to production after approval. This instructions are tailored specifically for anyone interested in deploying the application into a new Heroku instance.
 
 ## Table of contents
 
