@@ -16,8 +16,6 @@ class GroupsController < ApplicationController
     @group = Group.new(group_params)
     @group.name = @group.name.parameterize(separator: '_')
     if Group.exists?(name: @group.name)
-      flash.now[:error] = "Hubo un error con el registro, verifica los campos del formulario"
-      render :new
     else
       @group.save
       redirect_to groups_path
