@@ -1,6 +1,7 @@
-class Admin < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+# TODO(renesg): Remove all references to Admin class and delete this class
+# after it.
+class Admin < User
+  def is_admin
+    true
+  end
 end
