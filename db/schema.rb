@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2019_12_02_155417) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "role"
     t.string "request_password_it2t2"
     t.string "creation_date"
     t.string "desc_request_status"

@@ -2,16 +2,21 @@
 
 # La clase responsable  de user
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  enum role: [:student, :admin]
+
+  after_initialize :set_default_role, :if => :new_record?
+
+  def set_default_role
+    self.role ||= :student
+  end
+
+  devise :database_authenticatable, :registerable,
+    :recoverable, :rememberable, :validatable
+
   has_many :groups_users
   has_many :groups, through: :groups_users
   has_one :student
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-      
-         
   def update_imported_user(file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(4)
