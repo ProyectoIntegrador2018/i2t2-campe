@@ -1,36 +1,46 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>I2t2Campe</title>
+    <title>Capital Humano en Ciencia y Tecnologia de Nuevo Leon</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/font/material-design-icons/Material-Design-Icons.woff'>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   </head>
 
-  <body>
+  <body class="Site">
 
     <%= render  'layouts/header' %>
     <%= render 'layouts/alerts'%>
+    <main class="Site-content">
+    <%= render  'layouts/navbar' %>
     <%= yield %>
+    </main>
     <%= render  'layouts/footer' %>
-    
-  
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 
 
-<script>
-  //const slide_menu = document.querySelectorAll(".sidenav");
-  //M.Sidenav.init(slide_menu,{});
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.sidenav');
-    var instances = M.Sidenav.init(elems, options);
-  });
-</script>
+    <script>
+      //const slide_menu = document.querySelectorAll(".sidenav");
+      //M.Sidenav.init(slide_menu,{});
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems, options);
+      });
+    </script>
+    <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js'></script>
+    <script  src="./script.js"></script>
 
   </body>
 </html>
