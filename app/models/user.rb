@@ -2,7 +2,7 @@
 
 # La clase responsable  de user
 class User < ApplicationRecord
-  enum role: [:student, :admin]
+  enum role: [:student, :admin, :super_admin]
 
   after_initialize :set_default_role, :if => :new_record?
 
@@ -20,7 +20,6 @@ class User < ApplicationRecord
   def update_imported_user(file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(4)
-    puts(header)
     header = 'email'
     header = header.to_a
     (5..spreadsheet.last_row).each do |i|

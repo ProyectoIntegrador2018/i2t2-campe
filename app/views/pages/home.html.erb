@@ -83,29 +83,24 @@
 
 <div class="actions center-align opacidad">
 
-<% if current_user %>
+  <% if current_user %>
+  <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete,:style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
 
-    <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete,:style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
-<% elsif current_admin %>
+  <%= link_to 'Registra becados', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
 
-    <%= link_to 'Cerrar Sesión Admin', destroy_admin_session_path, method: :delete,:style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
+  <% if current_user.super_admin? %>
+    <%= link_to 'Registra administradores', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
+  <% end %>
+  <%= link_to 'Ver becarios', users_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
 
-    <%= link_to 'Registra becados', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
-
-    <% if current_admin.is_admin != nil && current_admin.is_admin == true %>
-      <%= link_to 'Registra administradores', new_admin_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
-
-    <% end %>
-    <%= link_to 'Ver becarios', users_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
 <% else %>
-
 <div class="row" style="margin-top: -70px">
  <div class="col s6">
     <%= link_to 'Iniciar Sesión Becario', new_user_session_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn white"%>
 </div>
 
 <div class="col s6 ">
-    <%= link_to ' Iniciar Sesión Admin', new_admin_session_path, :style=>'color:#26a69a; ', :class=>"waves-effect waves-light btn white "%>
+    <%= link_to ' Iniciar Sesión Admin', new_user_session_path, :style=>'color:#26a69a; ', :class=>"waves-effect waves-light btn white "%>
     
 </div>
 </div>

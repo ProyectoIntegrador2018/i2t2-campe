@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # TODO(ATH): checar seguridad de admin seed.
-Admin.create(
+User.create(
         email: "Alberto.hernandez@mtycic.org",
         password: "12345678",
-        is_admin: true
+        role: "super_admin"
     )
