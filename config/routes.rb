@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'export_users' => 'users#export_user'
   post 'import_users' => 'users#import_user', as: 'import_users'
-  resources :users, only: [:new, :create, :show, :index, :destroy]
+  resources :students
   resources :pages
   resources :groups 
   resources :groups_users
