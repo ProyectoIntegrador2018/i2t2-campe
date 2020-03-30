@@ -1,4 +1,4 @@
-<% if current_user or current_admin %>
+<% if current_user %>
   <ul id="slide-out" class="side-nav fixed z-depth-2">
     <li class="center no-padding">
       <div class="indigo darken-2 white-text" style="height: 180px;">
@@ -6,7 +6,7 @@
           <img style="margin-top: 5%;" width="100" height="100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTi4DmuEiqgpdMPdI839ak7nqOyEHlnwt2nQWTLtI8UzuxgsYKH" class="circle responsive-img" />
 
           <p style="margin-top: -13%;">
-          <% if current_user %>
+          <% if current_user.student? %>
             Estudiante
           <% else %>
             Admin
@@ -18,16 +18,16 @@
 
 
 
-    <% if current_admin%>
+    <% if current_user.admin? or current_user.super_admin?  %>
       <li id="dash_dashboard"><%= link_to 'Lista de becarios', users_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <li id="dash_dashboard"><%= link_to 'Registrar becarios', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <li id="dash_dashboard"><%= link_to 'Ver Convocatorias', groups_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <li id="dash_dashboard"><%= link_to 'Crear Convocatoria', new_group_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-      <% if current_admin.is_admin != nil && current_admin.is_admin == true %>
-        <li id="dash_dashboard"><%= link_to 'Registrar administradores', new_admin_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+      <% if current_user.super_admin? %>
+        <li id="dash_dashboard"><%= link_to 'Registrar administradores', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <% end %>
-      <% else current_user%>
-        <li id="dash_dashboard"><a class="waves-effect" href="#!"><b>Perfil</b></a></li>
-      <% end %>
+    <% else%>
+      <li id="dash_dashboard"><a class="waves-effect" href="#!"><b>Perfil</b></a></li>
+    <% end %>
   </ul>
 <% end %>

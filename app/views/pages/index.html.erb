@@ -194,7 +194,7 @@
       </div>
         </main>
 
-  <% else current_admin %>
+  <% else current_user.try :admin? %>
             <main style="padding-left: 240px">
                           <div class="row">
                 <div class="col s12"><p></p></div>
