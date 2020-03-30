@@ -4,12 +4,14 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :configure_sign_up_params, only: [:create]
 
+  skip_before_action :require_no_authentication, only: [:new, :create]
+
   def create
-    super #Nothing special here.
-    @groups_user = GroupsUser.new()
-    @groups_user.user_id = User.last.id
-    @groups_user.group_id = params[:group_id].to_i
-    @groups_user.save
+    super
+    #@groups_user = GroupsUser.new()
+    #@groups_user.user_id = User.last.id
+    #@groups_user.group_id = params[:group_id].to_i
+    #@groups_user.save
   end
 
   protected
@@ -20,7 +22,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up,
-                                      keys: [:email,
+                                      keys: [:role,
+                                             :email,
                                              :desc_request_status,
                                              :cvu, :name, :paternal_last_name,
                                              :maternal_last_name,
