@@ -1,4 +1,4 @@
-  <% if current_user %>
+  <% if current_user.try :student? %>
         <main style="padding-left: 240px">
         <div class="row">
       <div class="col s12"><p></p></div>
@@ -194,7 +194,7 @@
       </div>
         </main>
 
-  <% else current_user.try :admin? %>
+  <% else current_user.try :admin? or current_user.try :super_admin? %>
             <main style="padding-left: 240px">
                           <div class="row">
                 <div class="col s12"><p></p></div>
@@ -221,7 +221,7 @@
                         <% @users.each do |user| %>
                         <tr>
                             <td><%= user.cvu %></td>
-                            <td><%= user.name %> <%= user.paternal_last_name %> <%= user.maternal_last_name %></td>
+                            <td><%= user.student.name %> <%= user.student.paternal_last_name %> <%= user.student.maternal_last_name %></td>
                             <td><%= user.school %></td>
                             <td><%= user.discipline %></td>
                             <td><%= user.expertise_area %></td>
