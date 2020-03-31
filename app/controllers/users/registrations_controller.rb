@@ -28,12 +28,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up) do |u|
       u.permit(:email, :password, :password_confirmation, :role,
                student_attributes: [:email,
-                                     :desc_request_status,
-                                     :cvu, :name, :paternal_last_name,
-                                     :maternal_last_name,
-                                     :rfc, :birth_date, :curp,
-                                     :gender, :marital_status,
-                                     :country_birth, :state_birth])
+                                    :desc_request_status,
+                                    :cvu, :name, :paternal_last_name,
+                                    :maternal_last_name,
+                                    :rfc, :birth_date, :curp,
+                                    :gender, :marital_status,
+                                    :country_birth, :state_birth,
+                                    contact_information_attributes: [:phone_number, :cell_phone_number]])
     end
   end
 

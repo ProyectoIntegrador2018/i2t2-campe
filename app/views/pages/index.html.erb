@@ -14,15 +14,15 @@
             <tbody>   
               <tr>
                 <td style="padding-left: 40px;"><p style="font-size: 18px">Nombre:</p></td>
-                <td><p style="font-size: 18px"><%= current_user.name %></p></td>
+                <td><p style="font-size: 18px"><%= @student.name %></p></td>
               </tr>   
               <tr>
                 <td style="padding-left: 40px;"><p style="font-size: 18px">Primer Apellido:</p></td>
-                <td><p style="font-size: 18px"><%= current_user.paternal_last_name %></p></td>
+                <td><p style="font-size: 18px"><%= @student.paternal_last_name %></p></td>
               </tr>  
               <tr>
                 <td style="padding-left: 40px;"><p style="font-size: 18px">Segundo Apellido:</p></td>
-                <td><p style="font-size: 18px"><%= current_user.maternal_last_name %></p></td>
+                <td><p style="font-size: 18px"><%= @student.maternal_last_name %></p></td>
               </tr> 
               <tr>
                 <td style="padding-left: 40px;"><p style="font-size: 18px">Correo:</p></td>
@@ -34,40 +34,40 @@
               </tr>
               <tr>
                 <td style="padding-left: 40px;"><p style="font-size: 18px">CVU:</p></td>
-                <td><p style="font-size: 18px"><%= current_user.cvu %></p></td>
+                <td><p style="font-size: 18px"><%= @student.cvu %></p></td>
               </tr> 
               <tr>
                 <td style="padding-left: 40px;"><p style="font-size: 18px">RFC:</p></td>
-                <td><p style="font-size: 18px"><%= current_user.rfc %></p></td>
+                <td><p style="font-size: 18px"><%= @student.rfc %></p></td>
               </tr> 
               <tr>
                 <td style="padding-left: 40px;"><p style="font-size: 18px">CURP:</p></td>
-                <td><p style="font-size: 18px"><%= current_user.curp %></p></td>
+                <td><p style="font-size: 18px"><%= @student.curp %></p></td>
               </tr>
               <tr>
                 <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de nacimiento:</p></td>
-                <td><p style="font-size: 18px"><%= current_user.birth_date %></p></td>
+                <td><p style="font-size: 18px"><%= @student.birth_date %></p></td>
               </tr>
               <tr>
                 <td style="padding-left: 40px;"><p style="font-size: 18px">Genero:</p></td>
-                <td><p style="font-size: 18px"><%= current_user.gender %></p></td>
+                <td><p style="font-size: 18px"><%= @student.gender %></p></td>
               </tr>
               <tr>
                 <td style="padding-left: 40px;"><p style="font-size: 18px">Estado Civil:</p></td>
-                <td><p style="font-size: 18px"><%= current_user.marital_stauts %></p></td>
-              </tr> 
+                <td><p style="font-size: 18px"><%= @student.marital_status %></p></td>
+              </tr>
               <tr>
                 <td style="padding-left: 40px;"><p style="font-size: 18px">País de nacimiento:</p></td>
-                <td><p style="font-size: 18px"><%= current_user.country_birth %></p></td>
-              </tr> 
+                <td><p style="font-size: 18px"><%= @student.country_birth %></p></td>
+              </tr>
               <tr>
                 <td style="padding-left: 40px;"><p style="font-size: 18px">Teléfono:</p></td>
                 <td><p style="font-size: 18px"><%= current_user.phone_number %></p></td>
-              </tr> 
+              </tr>
               <tr>
                 <td style="padding-left: 40px;"><p style="font-size: 18px">Celular:</p></td>
                 <td><p style="font-size: 18px"><%= current_user.cell_phone %></p></td>
-              </tr>             
+              </tr>
             </tbody>
           </table>
 

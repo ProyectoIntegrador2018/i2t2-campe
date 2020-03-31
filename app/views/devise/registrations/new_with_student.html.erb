@@ -44,7 +44,7 @@
               <div class="col s2 input-field inline">
                 <%= f.label :Desc_estatus_solicitud %>
                 <%= f.date_field :desc_request_status, :value => Time.now.strftime("%Y-%m-%d")  %>
-                </div>
+              </div>
               <div class="col s2 input-field inline">
                 <%= s.label :CVU,:style=>'color:red;'%>
                 <%= s.number_field :cvu, :required => true %>
@@ -77,126 +77,128 @@
                 <%= s.label :Estado_de_Nacimiento,:style=>'color:red;'%>
                 <%= s.text_field :state_birth, :required => true %>
               </div>
-            <% end %>
-            <%#<div class="col s2 input-field inline">%>
-              <%#<%= f.label :Teléfono %>%>
-              <%#<%= f.telephone_field :phone_number %>%>
-            <%#</div>%>
-            <%#<div class="col s2 input-field inline">%>
-              <%#<%= f.label :Celular %>%>
-              <%#<%= f.telephone_field :cell_phone %>%>
-            <%#</div>%>
+              <%= s.fields_for :contact_information_attributes do |c| %>
+                <div class="col s2 input-field inline">
+                  <%= c.label :Teléfono %>
+                  <%= c.telephone_field :phone_number %>
+                </div>
+                <div class="col s2 input-field inline">
+                  <%= c.label :Celular %>
+                  <%= c.telephone_field :cell_phone_number %>
+                </div>
             </div>
-            <%#<h5>%>
-              <%#Domicilio:%>
-            <%#</h5>%>
-            <%#<div class="row">%>
-              <%#<div class="col s3 input-field inline">%>
-                <%#<%= f.label :Calle_de_Domicilio,:style=>'color:red;' %>%>
-                <%#<%= f.text_field :street_address, :required => true  %>%>
-              <%#</div>%>
-              <%#<div class="col s3 input-field inline">%>
-                <%#<%= f.label :Número_exterior%>%>
-                <%#<%= f.number_field :street_number_address_ext %>%>
-              <%#</div>%>
-              <%#<div class="col s3 input-field inline">%>
-                <%#<%= f.label :Número_interior %>%>
-                <%#<%= f.number_field :street_number_address_int %>%>
-              <%#</div>%>
-              <%#<div class="col s3 input-field inline">%>
-                <%#<%= f.label :Colonia %>%>
-                <%#<%= f.text_field :colony_address %>%>
-              <%#</div>%>
-            <%#</div>%>
-            <%#<div class="row">%>
-              <%#<div class="col s4 input-field inline">%>
-                <%#<%= f.label :Ciudad,:style=>'color:red;'%>%>
-                <%#<%= f.text_field :city_address, :required => true  %>%>
-              <%#</div>%>
-              <%#<div class="col s4 input-field inline">%>
-                <%#<%= f.label :Municipio %>%>
-                <%#<%= f.text_field :municipiality_address %>%>
-              <%#</div>%>
-              <%#<div class="col s4 input-field inline">%>
-                <%#<%= f.label :Estado %>%>
-                <%#<%= f.text_field :state_address %>%>
-              <%#</div>%>
-            <%#</div>%>
             <h5>
-              Información de Estudios:
+              Domicilio:
             </h5>
             <div class="row">
               <div class="col s3 input-field inline">
-                <%= select_tag 'group_id', options_for_select(Group.all.collect {|p| [ p.name, p.id ] }.insert(0, "Convocatoria")),:style=>'color:red;', :required => true ,class: "browser-default"%>
+                <%= c.label :Calle_de_Domicilio,:style=>'color:red;' %>
+                <%= c.text_field :street_address, :required => true  %>
               </div>
               <div class="col s3 input-field inline">
-                <%= f.label :Año_Fiscal %>
-                <%= f.number_field :fiscal_year %>
+                <%= c.label :Número_exterior%>
+                <%= c.number_field :street_number_address_ext %>
               </div>
               <div class="col s3 input-field inline">
-                <%= f.label :Fecha_de_inicio_de_estudios %>
-                <%= f.date_field :studies_start_date, :value => Time.now.strftime("%Y-%m-%d")  %>
+                <%= c.label :Número_interior %>
+                <%= c.number_field :street_number_address_int %>
               </div>
               <div class="col s3 input-field inline">
-                <%= f.label :Fecha_de_fin_de_estudios %>
-                <%= f.date_field :studies_end_date, :value => Time.now.strftime("%Y-%m-%d")  %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s3 input-field inline">
-                <%= f.label :Fecha_de_inicio_de_beca %>
-                <%= f.date_field :start_scholarship, :value => Time.now.strftime("%Y-%m-%d")  %>
-              </div>
-              <div class="col s3 input-field inline">
-                <%= f.label :Fecha_de_fin_de_beca %>
-                <%= f.date_field :end_scholarship, :value => Time.now.strftime("%Y-%m-%d")  %>
-              </div>
-              <div class="col s3 input-field inline">
-                <%= f.label :Universidad,:style=>'color:red;'%>
-                <%= f.text_field :school, :required => true %>
-              </div>
-              <div class="col s3 input-field inline">
-                <%= f.label :Entidad,:style=>'color:red;'%>
-                <%= f.text_field :entity, :required => true  %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s3 input-field inline">
-                <%= f.label :Apoyo_a_obtener,:style=>'color:red;'%>
-                <%= f.text_field :support_to_get, :required => true  %>
-              </div>
-              <div class="col s3 input-field inline">
-                <%= f.label :Programa,:style=>'color:red;'%>
-                <%= f.text_field :program, :required => true  %>
-              </div>
-              <div class="col s3 input-field inline">
-                <%= f.label :Area_de_conocimiento %>
-                <%= f.text_field :expertise_area %>
-              </div>
-              <div class="col s3 input-field inline">
-                <%= f.label :Campo %>
-                <%= f.text_field :field_study %>
+                <%= c.label :Colonia %>
+                <%= c.text_field :colony_address %>
               </div>
             </div>
             <div class="row">
               <div class="col s4 input-field inline">
-                <%= f.label :Disciplina %>
-                <%= f.text_field :discipline %>
+                <%= c.label :Ciudad,:style=>'color:red;'%>
+                <%= c.text_field :city_address, :required => true  %>
               </div>
               <div class="col s4 input-field inline">
-                <%= f.label :Subdisciplina %>
-                <%= f.text_field :sub_discipline %>
+                <%= c.label :Municipio %>
+                <%= c.text_field :municipiality_address %>
               </div>
               <div class="col s4 input-field inline">
-                <%= f.label :Promedio_ultimo_grado %>
-                <%= f.number_field :last_gpa %>
+                <%= c.label :Estado %>
+                <%= c.text_field :state_address %>
               </div>
-            </div>
-            <div class="actions center-align">
-              <%= f.submit "Registrar", :class=>"btn"%>
             </div>
           <% end %>
-          <%= render "devise/shared/links" %>
+        <% end %>
+        <h5>
+          Información de Estudios:
+        </h5>
+        <div class="row">
+          <div class="col s3 input-field inline">
+            <%= select_tag 'group_id', options_for_select(Group.all.collect {|p| [ p.name, p.id ] }.insert(0, "Convocatoria")),:style=>'color:red;', :required => true ,class: "browser-default"%>
+          </div>
+          <div class="col s3 input-field inline">
+            <%= f.label :Año_Fiscal %>
+            <%= f.number_field :fiscal_year %>
+          </div>
+          <div class="col s3 input-field inline">
+            <%= f.label :Fecha_de_inicio_de_estudios %>
+            <%= f.date_field :studies_start_date, :value => Time.now.strftime("%Y-%m-%d")  %>
+          </div>
+          <div class="col s3 input-field inline">
+            <%= f.label :Fecha_de_fin_de_estudios %>
+            <%= f.date_field :studies_end_date, :value => Time.now.strftime("%Y-%m-%d")  %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s3 input-field inline">
+            <%= f.label :Fecha_de_inicio_de_beca %>
+            <%= f.date_field :start_scholarship, :value => Time.now.strftime("%Y-%m-%d")  %>
+          </div>
+          <div class="col s3 input-field inline">
+            <%= f.label :Fecha_de_fin_de_beca %>
+            <%= f.date_field :end_scholarship, :value => Time.now.strftime("%Y-%m-%d")  %>
+          </div>
+          <div class="col s3 input-field inline">
+            <%= f.label :Universidad,:style=>'color:red;'%>
+            <%= f.text_field :school, :required => true %>
+          </div>
+          <div class="col s3 input-field inline">
+            <%= f.label :Entidad,:style=>'color:red;'%>
+            <%= f.text_field :entity, :required => true  %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s3 input-field inline">
+            <%= f.label :Apoyo_a_obtener,:style=>'color:red;'%>
+            <%= f.text_field :support_to_get, :required => true  %>
+          </div>
+          <div class="col s3 input-field inline">
+            <%= f.label :Programa,:style=>'color:red;'%>
+            <%= f.text_field :program, :required => true  %>
+          </div>
+          <div class="col s3 input-field inline">
+            <%= f.label :Area_de_conocimiento %>
+            <%= f.text_field :expertise_area %>
+          </div>
+          <div class="col s3 input-field inline">
+            <%= f.label :Campo %>
+            <%= f.text_field :field_study %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s4 input-field inline">
+            <%= f.label :Disciplina %>
+            <%= f.text_field :discipline %>
+          </div>
+          <div class="col s4 input-field inline">
+            <%= f.label :Subdisciplina %>
+            <%= f.text_field :sub_discipline %>
+          </div>
+          <div class="col s4 input-field inline">
+            <%= f.label :Promedio_ultimo_grado %>
+            <%= f.number_field :last_gpa %>
+          </div>
+        </div>
+        <div class="actions center-align">
+          <%= f.submit "Registrar", :class=>"btn"%>
+        </div>
+      <% end %>
+      <%= render "devise/shared/links" %>
       </div>
     </div>
   </div>
