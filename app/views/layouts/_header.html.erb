@@ -23,7 +23,7 @@
   </nav>
 <% end %>
 
-<% if current_user.try :admin? %>
+<% if current_user.try :admin? or current_user.try :super_admin? %>
   <nav>
     <div class="nav-wrapper" style="background:#26a69a">
       <a href="/" class="brand-logo center"></a>
