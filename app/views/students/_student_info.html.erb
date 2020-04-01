@@ -9,15 +9,15 @@
       <tbody>   
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">Nombre:</p></td>
-          <td><p style="font-size: 18px"><%= user.name %></p></td>
+          <td><p style="font-size: 18px"><%= user.student.name %></p></td>
         </tr>   
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">Primer Apellido:</p></td>
-          <td><p style="font-size: 18px"><%= user.paternal_last_name %></p></td>
+          <td><p style="font-size: 18px"><%= user.student.paternal_last_name %></p></td>
         </tr>  
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">Segundo Apellido:</p></td>
-          <td><p style="font-size: 18px"><%= user.maternal_last_name %></p></td>
+          <td><p style="font-size: 18px"><%= user.student.maternal_last_name %></p></td>
         </tr> 
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">Correo:</p></td>
@@ -29,39 +29,39 @@
         </tr>
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">CVU:</p></td>
-          <td><p style="font-size: 18px"><%= user.cvu %></p></td>
+          <td><p style="font-size: 18px"><%= user.student.cvu %></p></td>
         </tr> 
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">RFC:</p></td>
-          <td><p style="font-size: 18px"><%= user.rfc %></p></td>
+          <td><p style="font-size: 18px"><%= user.student.rfc %></p></td>
         </tr> 
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">CURP:</p></td>
-          <td><p style="font-size: 18px"><%= user.curp %></p></td>
+          <td><p style="font-size: 18px"><%= user.student.curp %></p></td>
         </tr>
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de nacimiento:</p></td>
-          <td><p style="font-size: 18px"><%= user.birth_date %></p></td>
+          <td><p style="font-size: 18px"><%= user.student.birth_date %></p></td>
         </tr>
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">Genero:</p></td>
-          <td><p style="font-size: 18px"><%= user.gender %></p></td>
+          <td><p style="font-size: 18px"><%= user.student.gender %></p></td>
         </tr>
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">Estado Civil:</p></td>
-          <td><p style="font-size: 18px"><%= user.marital_stauts %></p></td>
+          <td><p style="font-size: 18px"><%= user.student.marital_status %></p></td>
         </tr> 
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">País de nacimiento:</p></td>
-          <td><p style="font-size: 18px"><%= user.country_birth %></p></td>
+          <td><p style="font-size: 18px"><%= user.student.country_birth %></p></td>
         </tr> 
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">Teléfono:</p></td>
-          <td><p style="font-size: 18px"><%= user.phone_number %></p></td>
+          <td><p style="font-size: 18px"><%= user.student.contact_information.phone_number %></p></td>
         </tr> 
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">Celular:</p></td>
-          <td><p style="font-size: 18px"><%= user.cell_phone %></p></td>
+          <td><p style="font-size: 18px"><%= user.student.contact_information.cellphone_number %></p></td>
         </tr>             
       </tbody>
     </table>
@@ -78,31 +78,31 @@
       <tbody>   
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">Calle:</p></td>
-          <td><p style="font-size: 18px"><%= user.street_address %></p></td>
+          <td><p style="font-size: 18px"><%= user.student.contact_information.street_address %></p></td>
         </tr>   
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">Número exterior:</p></td>
-          <td><p style="font-size: 18px"><%= user.street_number_address_ext %></p></td>
+          <td><p style="font-size: 18px"><%= user.student.contact_information.street_number_address_ext %></p></td>
         </tr>  
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">Número interior:</p></td>
-          <td><p style="font-size: 18px"><%= user.street_number_address_int %></p></td>
+          <td><p style="font-size: 18px"><%= user.student.contact_information.street_number_address_int %></p></td>
         </tr> 
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">Colonia:</p></td>
-          <td><p style="font-size: 18px"><%= user.colony_address %></p></td>
+          <td><p style="font-size: 18px"><%= user.student.contact_information.neighborhood %></p></td>
         </tr>
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">Ciudad:</p></td>
-          <td><p style="font-size: 18px"><%= user.city_address %></p></td>
+          <td><p style="font-size: 18px"><%= user.student.contact_information.city %></p></td>
         </tr>
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">Municipio:</p></td>
-          <td><p style="font-size: 18px"><%= user.municipiality_address %></p></td>
+          <td><p style="font-size: 18px"><%= user.student.contact_information.municipality %></p></td>
         </tr> 
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">Estado:</p></td>
-          <td><p style="font-size: 18px"><%= user.state_address %></p></td>
+          <td><p style="font-size: 18px"><%= user.student.contact_information.state %></p></td>
         </tr>            
       </tbody>
     </table>
