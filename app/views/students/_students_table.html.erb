@@ -17,7 +17,7 @@
         </tr>
         </thead>
         <tbody>
-        <% @users.each do |user| %>
+        <% users.each do |user| %>
             <tr>
             <td><%= user.student.cvu %></td>
             <td><%= user.student.name %> <%= user.student.paternal_last_name %> <%= user.student.maternal_last_name %></td>
