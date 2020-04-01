@@ -6,16 +6,18 @@ class User < ApplicationRecord
 
   after_initialize :set_default_role, :if => :new_record?
 
-  def set_default_role
-    self.role ||= :student
-  end
-
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable
 
   has_many :groups_users
   has_many :groups, through: :groups_users
   has_one :student
+
+  accepts_nested_attributes_for :student
+
+  def set_default_role
+    self.role ||= :student
+  end
 
   def update_imported_user(file)
     spreadsheet = open_spreadsheet(file)

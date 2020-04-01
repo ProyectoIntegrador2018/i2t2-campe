@@ -91,7 +91,7 @@
   <% if current_user.super_admin? %>
     <%= link_to 'Registra administradores', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
   <% end %>
-  <%= link_to 'Ver becarios', users_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
+  <%= link_to 'Ver becarios', students_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
 
 <% else %>
 <div class="row" style="margin-top: -70px">

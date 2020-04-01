@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_155417) do
+ActiveRecord::Schema.define(version: 2019_12_02_070512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contact_informations", force: :cascade do |t|
+    t.string "street_address"
+    t.string "street_number_address_ext"
+    t.string "street_number_address_int"
+    t.string "neighborhood"
+    t.string "city"
+    t.string "municipality"
+    t.string "state"
+    t.string "phone_number"
+    t.string "cellphone_number"
+    t.integer "student_id"
+  end
 
   create_table "groups", force: :cascade do |t|
     t.string "name"
@@ -57,26 +70,6 @@ ActiveRecord::Schema.define(version: 2019_12_02_155417) do
     t.string "request_password_it2t2"
     t.string "creation_date"
     t.string "desc_request_status"
-    t.integer "cvu"
-    t.string "name"
-    t.string "paternal_last_name"
-    t.string "maternal_last_name"
-    t.string "rfc"
-    t.string "curp"
-    t.string "gender"
-    t.string "marital_stauts"
-    t.date "birth_date"
-    t.string "country_birth"
-    t.string "state_birth"
-    t.string "street_address"
-    t.string "street_number_address_ext"
-    t.string "street_number_address_int"
-    t.string "colony_address"
-    t.string "city_address"
-    t.string "municipiality_address"
-    t.string "state_address"
-    t.string "phone_number"
-    t.string "cell_phone"
     t.string "convocatory"
     t.integer "fiscal_year"
     t.string "studies_start_date"

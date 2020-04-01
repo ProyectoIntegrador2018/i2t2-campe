@@ -1,8 +1,8 @@
-  <% if current_user %>
-        <main style="padding-left: 240px">
-        <div class="row">
+<% if current_user.try :student? %>
+  <main style="padding-left: 240px">
+    <div class="row">
       <div class="col s12"><p></p></div>
-        <div class="col s12 m4 l2"><p></p></div>
+      <div class="col s12 m4 l2"><p></p></div>
       <div id="man" class="col s12 m4 l8">
         <div class="card material-table">
           <div class="table-header" style="background:#26a69a">
@@ -13,63 +13,63 @@
           <table id="datatable">
             <tbody>   
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Nombre:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.name %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Nombre:</p></td>
+                <td><p style="font-size: 18px"><%= @student.name %></p></td>
               </tr>   
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Primer Apellido:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.paternal_last_name %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Primer Apellido:</p></td>
+                <td><p style="font-size: 18px"><%= @student.paternal_last_name %></p></td>
               </tr>  
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Segundo Apellido:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.maternal_last_name %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Segundo Apellido:</p></td>
+                <td><p style="font-size: 18px"><%= @student.maternal_last_name %></p></td>
               </tr> 
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Correo:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.email %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Correo:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.email %></p></td>
               </tr> 
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha solicitud:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.desc_request_status %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha solicitud:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.desc_request_status %></p></td>
               </tr>
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">CVU:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.cvu %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">CVU:</p></td>
+                <td><p style="font-size: 18px"><%= @student.cvu %></p></td>
               </tr> 
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">RFC:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.rfc %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">RFC:</p></td>
+                <td><p style="font-size: 18px"><%= @student.rfc %></p></td>
               </tr> 
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">CURP:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.curp %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">CURP:</p></td>
+                <td><p style="font-size: 18px"><%= @student.curp %></p></td>
               </tr>
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de nacimiento:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.birth_date %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de nacimiento:</p></td>
+                <td><p style="font-size: 18px"><%= @student.birth_date %></p></td>
               </tr>
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Genero:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.gender %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Genero:</p></td>
+                <td><p style="font-size: 18px"><%= @student.gender %></p></td>
               </tr>
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Estado Civil:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.marital_stauts %></p></td>
-              </tr> 
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Estado Civil:</p></td>
+                <td><p style="font-size: 18px"><%= @student.marital_status %></p></td>
+              </tr>
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">País de nacimiento:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.country_birth %></p></td>
-              </tr> 
+                <td style="padding-left: 40px;"><p style="font-size: 18px">País de nacimiento:</p></td>
+                <td><p style="font-size: 18px"><%= @student.country_birth %></p></td>
+              </tr>
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Teléfono:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.phone_number %></p></td>
-              </tr> 
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Teléfono:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.phone_number %></p></td>
+              </tr>
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Celular:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.cell_phone %></p></td>
-              </tr>             
-              </tbody>
-            </table>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Celular:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.cell_phone %></p></td>
+              </tr>
+            </tbody>
+          </table>
 
 
 
@@ -82,35 +82,35 @@
           <table id="datatable">
             <tbody>   
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Calle:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.street_address %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Calle:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.street_address %></p></td>
               </tr>   
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Número exterior:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.street_number_address_ext %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Número exterior:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.street_number_address_ext %></p></td>
               </tr>  
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Número interior:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.street_number_address_int %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Número interior:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.street_number_address_int %></p></td>
               </tr> 
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Colonia:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.colony_address %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Colonia:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.colony_address %></p></td>
               </tr>
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Ciudad:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.city_address %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Ciudad:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.city_address %></p></td>
               </tr>
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Municipio:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.municipiality_address %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Municipio:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.municipiality_address %></p></td>
               </tr> 
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Estado:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.state_address %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Estado:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.state_address %></p></td>
               </tr>            
-              </tbody>
-            </table>
+            </tbody>
+          </table>
 
 
           <div class="table-header" style="background:#26a69a">
@@ -121,120 +121,120 @@
           <table id="datatable">
             <tbody>   
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Convocatoria:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.convocatory %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Convocatoria:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.convocatory %></p></td>
               </tr>   
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Año fiscal:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.fiscal_year %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Año fiscal:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.fiscal_year %></p></td>
               </tr>  
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha inicio de estudios:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.studies_start_date %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha inicio de estudios:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.studies_start_date %></p></td>
               </tr> 
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha fin de estudios:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.studies_end_date %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha fin de estudios:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.studies_end_date %></p></td>
               </tr> 
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de inicio de beca:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.start_scholarship %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de inicio de beca:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.start_scholarship %></p></td>
               </tr>
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de fin de beca:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.end_scholarship %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de fin de beca:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.end_scholarship %></p></td>
               </tr> 
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Universidad:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.school %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Universidad:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.school %></p></td>
               </tr> 
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Entidad:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.entity %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Entidad:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.entity %></p></td>
               </tr>
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Apoyo a obtener:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.support_to_get %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Apoyo a obtener:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.support_to_get %></p></td>
               </tr>
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Programa:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.program %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Programa:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.program %></p></td>
               </tr>
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Area de conocimiento:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.expertise_area %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Area de conocimiento:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.expertise_area %></p></td>
               </tr> 
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Campo:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.field_study %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Campo:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.field_study %></p></td>
               </tr> 
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Disciplina:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.discipline %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Disciplina:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.discipline %></p></td>
               </tr> 
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Subdisciplina:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.sub_discipline %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Subdisciplina:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.sub_discipline %></p></td>
               </tr> 
               <tr>
-                  <td style="padding-left: 40px;"><p style="font-size: 18px">Promedio de último grado:</p></td>
-                  <td><p style="font-size: 18px"><%= current_user.last_gpa %></p></td>
+                <td style="padding-left: 40px;"><p style="font-size: 18px">Promedio de último grado:</p></td>
+                <td><p style="font-size: 18px"><%= current_user.last_gpa %></p></td>
               </tr>              
+            </tbody>
+          </table>
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="col s12 m4 l2"><p></p></div>
+    </div>
+  </main>
+
+  <% else current_user.try :admin? or current_user.try :super_admin? %>
+    <main style="padding-left: 240px">
+      <div class="row">
+        <div class="col s12"><p></p></div>
+        <div class="col s12 m4 l1"><p></p></div>
+        <div id="man" class="col s12 m4 l10">
+          <div class="card material-table">
+            <div class="table-header">
+              <span class="table-title">Becarios CONACYT</span>
+              <div class="actions">
+              </div>
+            </div>
+            <table id="datatable">
+              <thead>
+                <tr>
+                  <th>Cvu</th>
+                  <th>Nombre</th>
+                  <th>Universidad</th>
+                  <th>Disciplina</th>
+                  <th>Area</th>
+                  <th>  </th>
+                </tr>
+              </thead>
+              <tbody>   
+                <% @users.each do |user| %>
+                  <tr>
+                    <td><%= user.student.cvu %></td>
+                    <td><%= user.student.name %> <%= user.student.paternal_last_name %> <%= user.student.maternal_last_name %></td>
+                    <td><%= user.school %></td>
+                    <td><%= user.discipline %></td>
+                    <td><%= user.expertise_area %></td>
+                    <td><%= link_to 'Show', student_path(user.student.id), :style=>'color:white;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn"%><br></br>
+                      <%= link_to "Eliminar", user.student, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' },:style=>'color:white;;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn" %></td>
+                  </tr>
+                <% end %>
               </tbody>
             </table>
-
-
-
-
-
-
           </div>
         </div>
-        <div class="col s12 m4 l2"><p></p></div>
+        <div class="col s12 m4 l1"><p></p></div>
       </div>
-        </main>
 
-  <% else current_user.try :admin? %>
-            <main style="padding-left: 240px">
-                          <div class="row">
-                <div class="col s12"><p></p></div>
-                  <div class="col s12 m4 l1"><p></p></div>
-                <div id="man" class="col s12 m4 l10">
-                  <div class="card material-table">
-                    <div class="table-header">
-                      <span class="table-title">Becarios CONACYT</span>
-                      <div class="actions">
-                      </div>
-                    </div>
-                    <table id="datatable">
-                      <thead>
-                        <tr>
-                          <th>Cvu</th>
-                          <th>Nombre</th>
-                          <th>Universidad</th>
-                          <th>Disciplina</th>
-                          <th>Area</th>
-                          <th>  </th>
-                        </tr>
-                      </thead>
-                      <tbody>   
-                        <% @users.each do |user| %>
-                        <tr>
-                            <td><%= user.cvu %></td>
-                            <td><%= user.name %> <%= user.paternal_last_name %> <%= user.maternal_last_name %></td>
-                            <td><%= user.school %></td>
-                            <td><%= user.discipline %></td>
-                            <td><%= user.expertise_area %></td>
-                            <td><%= link_to 'Show', user_path(user), :style=>'color:white;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn"%><br></br>
-                                <%= link_to "Eliminar", user, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' },:style=>'color:white;;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn" %></td>
-                        </tr>
-                      <% end %>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-                <div class="col s12 m4 l1"><p></p></div>
-              </div>
-
-        </main>
+    </main>
   <% end %>

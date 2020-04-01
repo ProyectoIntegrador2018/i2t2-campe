@@ -1,8 +1,8 @@
 require 'roo'
-class UsersController < ApplicationController
+class StudentsController < ApplicationController
 
   def index
-    @users = User.all
+    @users = User.student
   end
 
   def show
@@ -25,6 +25,5 @@ class UsersController < ApplicationController
     end
     headers
   end
-  
 
 end

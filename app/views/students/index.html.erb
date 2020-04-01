@@ -20,18 +20,18 @@
             <th>  </th>
           </tr>
         </thead>
-        <tbody>   
+        <tbody>
           <% @users.each do |user| %>
             <tr>
-              <td><%= user.cvu %></td>
-              <td><%= user.name %> <%= user.paternal_last_name %> <%= user.maternal_last_name %></td>
+              <td><%= user.student.cvu %></td>
+              <td><%= user.student.name %> <%= user.student.paternal_last_name %> <%= user.student.maternal_last_name %></td>
               <td><%= user.school %></td>
               <td><%= user.discipline %></td>
               <td><%= user.expertise_area %></td>
-              <td><%= link_to 'Show', user_path(user), :style=>'color:white;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn"%><br></br>
-                <%= link_to "Eliminar", user, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' },:style=>'color:white;;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn" %></td>
+              <td><%= link_to 'Show', student_path(user.id), :style=>'color:white;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn"%><br></br>
+                <%= link_to "Eliminar", user.student, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' },:style=>'color:white;;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn" %></td>
             </tr>
-          <% end %>    
+          <% end %>
         </tbody>
       </table>
     </div>
