@@ -19,6 +19,10 @@ class User < ApplicationRecord
     self.role ||= :student
   end
 
+  def is_admin_or_super_admin?
+    self.admin? or self.super_admin?
+  end
+
   def update_imported_user(file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(4)
