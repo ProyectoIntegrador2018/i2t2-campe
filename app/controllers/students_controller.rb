@@ -17,7 +17,7 @@ class StudentsController < ApplicationController
 
   def update
     params.permit!
-    @student.update(params[:student])
+    @student.update!(student_params)
     redirect_to student_path(@student)
   end
 
@@ -40,6 +40,22 @@ class StudentsController < ApplicationController
 
   def authorize_user
     authorize User
+  end
+
+  def student_params
+    params.require(:student).permit(
+      :cvu,
+      :name,
+      :paternal_last_name,
+      :maternal_last_name,
+      :rfc,
+      :curp,
+      :gender,
+      :marital_status,
+      :birth_date,
+      :country_birth,
+      :state_birth,
+    )
   end
 
 end
