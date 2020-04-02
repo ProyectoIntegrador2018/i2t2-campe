@@ -26,56 +26,11 @@
           </div>
 
           <%= f.fields_for :student_attributes do |s| %>
-            <div class="row">
-              <div class="col s4 input-field inline">
-                <%= s.label :Nombre,:style=>'color:red;'%>
-                <%= s.text_field :name, :required => true%>
-              </div>
-              <div class="col s4 input-field inline">
-                <%= s.label :Primer_Apellido %>
-                <%= s.text_field :paternal_last_name %>
-              </div>
-              <div class="col s4 input-field inline">
-                <%= s.label :Segundo_Apellido %>
-                <%= s.text_field :maternal_last_name %>
-              </div>
-            </div>
+            <%= render "students/form", f: s%>
             <div class="row">
               <div class="col s2 input-field inline">
                 <%= f.label :Desc_estatus_solicitud %>
                 <%= f.date_field :desc_request_status, :value => Time.now.strftime("%Y-%m-%d")  %>
-              </div>
-              <div class="col s2 input-field inline">
-                <%= s.label :CVU,:style=>'color:red;'%>
-                <%= s.number_field :cvu, :required => true %>
-              </div>
-              <div class="col s2 input-field inline">
-                <%= s.label :RFC,:style=>'color:red;'%>
-                <%= s.text_field :rfc, :required => true%>
-              </div>
-              <div class="col s2 input-field inline">
-                <%= s.label :CURP,:style=>'color:red;'%>
-                <%= s.text_field :curp, :required => true %>
-              </div>
-              <div class="col s3 input-field inline">
-                <%= s.label :Fecha_de_nacimiento %>
-                <%= s.date_field :birth_date, :value => Time.now.strftime("%Y-%m-%d")  %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s2 input-field inline">
-                <%= s.select :gender, options_for_select([["Hombre", "Hombre"], ["Mujer", "Mujer"]]), {:include_blank => "Género:"}, { class: 'browser-default'} %>
-              </div>
-              <div class="col s2 input-field inline">
-                <%= s.select :marital_stauts, options_for_select([["Soltero", "Soltero"], ["Casado", "Casado"]]), {:include_blank => "Estado Civil:"}, { class: 'browser-default'} %>
-              </div>
-              <div class="col s2 input-field inline">
-                <%= s.label :País_de_Nacimiento,:style=>'color:red;'%>
-                <%= s.text_field :country_birth, :required => true %>
-              </div>
-              <div class="col s2 input-field inline">
-                <%= s.label :Estado_de_Nacimiento,:style=>'color:red;'%>
-                <%= s.text_field :state_birth, :required => true %>
               </div>
               <%= s.fields_for :contact_information_attributes do |c| %>
                 <div class="col s2 input-field inline">

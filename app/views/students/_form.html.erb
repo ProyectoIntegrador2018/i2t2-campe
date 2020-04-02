@@ -1,58 +1,48 @@
-<div class="form-content" style="padding-right:5%;padding-left:5%">
-  <h4 class="center-align">Registro de Becario</h4>
-  <%= form_for(user) do |f| %>
-    <div class="form-section">
-      <div class="row">
-        <div class="col s4 input-field inline">
-          <input id="user_name" type="text" class="validate">
-          <label for="user_name">Nombre</label>
-        </div>
-        <div class="col s4 input-field inline">
-          <input id="user_paternal_last_name" type="text" class="validate">
-          <label for="user_paternal_last_name">Primer Apellido</label>
-        </div>
-        <div class="col s4 input-field inline">
-          <input id="user_maternal_last_name" type="text" class="validate">
-          <label for="user_maternal_last_name">Segundo Apellido</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col s12 input-field inline">
-          <input id="user_email" type="email" class="validate">
-          <label for="user_email">Email</label>
-          <span class="helper-text" data-error="Introduce un email valido." data-success="Email valido"></span>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col s6 input-field inline">
-          <input id="user_password" type="password" class="validate" pattern=".{6,}" title="La contrasenña debe tener 6 o más caracteres">
-          <label for="user_password">Contraseña</label>
-          <span class="helper-text" data-error="Introduce una contraseña con más de 5 caracteres." data-success="Contraseña valida."></span>
-        </div>
-        <div class="col s6 input-field inline">
-          <input id="user_password_confirmation" type="password" class="validate" pattern=".{6,}" title="La contrasenña debe tener 6 o más caracteres">
-          <label for="user_password_confirmation">Confirmar Contraseña</label>
-          <span class="helper-text" data-error="Introduce una contraseña con más de 5 caracteres." data-success="Contraseña valida."></span>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col s3 input-field inline">
-          <input id="user_cvu" type="date" class="validate">
-          <label for="user_cvu">Request Status***</label>
-        </div>
-        <div class="col s3 input-field inline">
-          <input id="user_cvu" type="number" class="validate">
-          <label for="user_cvu">CVU</label>
-        </div>
-        <div class="col s3 input-field inline">
-          <input id="user_rfc" type="text">
-          <label for="user_rfc">RFC</label>
-        </div>
-        <div class="col s3 input-field inline">
-          <input id="user_curp" type="text" class="validate">
-          <label for="user_password">CURP</label>
-        </div>
-      </div>
-    </div>
-  <% end %>
+<div class="row">
+  <div class="col s4 input-field inline">
+    <%= f.label :Nombre,:style=>'color:red;'%>
+    <%= f.text_field :name, :required => true%>
+  </div>
+  <div class="col s4 input-field inline">
+    <%= f.label :Primer_Apellido %>
+    <%= f.text_field :paternal_last_name %>
+  </div>
+  <div class="col s4 input-field inline">
+    <%= f.label :Segundo_Apellido %>
+    <%= f.text_field :maternal_last_name %>
+  </div>
+</div>
+<div class="row">
+  <div class="col s2 input-field inline">
+    <%= f.label :CVU,:style=>'color:red;'%>
+    <%= f.number_field :cvu, :required => true %>
+  </div>
+  <div class="col s2 input-field inline">
+    <%= f.label :RFC,:style=>'color:red;'%>
+    <%= f.text_field :rfc, :required => true%>
+  </div>
+  <div class="col s2 input-field inline">
+    <%= f.label :CURP,:style=>'color:red;'%>
+    <%= f.text_field :curp, :required => true %>
+  </div>
+  <div class="col s3 input-field inline">
+    <%= f.label :Fecha_de_nacimiento %>
+    <%= f.date_field :birth_date, :value => Time.now.strftime("%Y-%m-%d")  %>
+  </div>
+</div>
+<div class="row">
+  <div class="col s2 input-field inline">
+    <%= f.select :gender, options_for_select([["Hombre", "Hombre"], ["Mujer", "Mujer"]]), {:include_blank => "Género:"}, { class: 'browser-default'} %>
+  </div>
+  <div class="col s2 input-field inline">
+    <%= f.select :marital_status, options_for_select([["Soltero", "Soltero"], ["Casado", "Casado"]]), {:include_blank => "Estado Civil:"}, { class: 'browser-default'} %>
+  </div>
+  <div class="col s2 input-field inline">
+    <%= f.label :País_de_Nacimiento,:style=>'color:red;'%>
+    <%= f.text_field :country_birth, :required => true %>
+  </div>
+  <div class="col s2 input-field inline">
+    <%= f.label :Estado_de_Nacimiento,:style=>'color:red;'%>
+    <%= f.text_field :state_birth, :required => true %>
+  </div>
 </div>

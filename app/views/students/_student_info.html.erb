@@ -4,7 +4,7 @@
       <span class="table-title" style="color:#ffffff;font-weight: bold;">Información Personal</span>
       <div class="actions">
         <% if can_update_personal %>
-          <%= link_to  "Editar", students_path, :class=>"white-text" %>
+          <%= link_to  "Editar", edit_student_url(student), :class=>"white-text" %>
         <% end %>
       </div>
     </div>

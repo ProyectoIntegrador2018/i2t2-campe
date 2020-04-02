@@ -27,7 +27,7 @@
         <li id="dash_dashboard"><%= link_to 'Registrar administradores', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <% end %>
     <% else%>
-      <li id="dash_dashboard"><a class="waves-effect" href="#!"><b>Perfil</b></a></li>
+      <li id="dash_dashboard"><%= link_to 'Perfil', student_path(current_user.student), :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
     <% end %>
   </ul>
 <% end %>

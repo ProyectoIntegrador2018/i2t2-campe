@@ -1,18 +1,26 @@
 require 'roo'
 class StudentsController < ApplicationController
+  before_action :set_student, only: [:show, :edit, :update]
 
   def index
+    authorize User
     @users = User.student
   end
 
   def show
-    @student = Student.find(params[:id])
     @user = @student.user
     authorize @student
   end
 
-  def new
-    @user = User.new
+  def edit
+    authorize User
+  end
+
+  def update
+    authorize User
+    params.permit!
+    @student.update(params[:student])
+    redirect_to student_path(@student)
   end
 
   def destroy
@@ -26,6 +34,10 @@ class StudentsController < ApplicationController
     (0..headers.length).each do |i|
     end
     headers
+  end
+
+  def set_student
+    @student = Student.find(params[:id])
   end
 
 end
