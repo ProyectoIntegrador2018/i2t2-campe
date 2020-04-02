@@ -7,7 +7,7 @@ class ApplicationPolicy
   end
 
   def index?
-    false
+    @user.is_admin_or_super_admin?
   end
 
   def show?

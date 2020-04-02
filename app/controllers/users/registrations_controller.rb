@@ -5,13 +5,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
   skip_before_action :require_no_authentication, only: [:new, :create]
 
   before_action :configure_sign_up_params, only: [:create]
-  before_action :authenticate_user!, :redirect_unless_admin,  only: [:new, :create]
 
   def create
+    authorize User
+    super
+  end
+
+  def new
+    authorize User
     super
   end
 
   def new_with_student
+    authorize User
     @user = User.new
   end
 
