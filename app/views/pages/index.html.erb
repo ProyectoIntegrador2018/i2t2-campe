@@ -1,21 +1,8 @@
-<% if current_user.try :student? %>
-  <main style="padding-left: 240px">
-    <div class="row">
-      <div class="col s12"><p></p></div>
-      <div class="col s12 m4 l2"><p></p></div>
-      <%= render "students/student_info", user: current_user %>
-      <div class="col s12 m4 l2"><p></p></div>
-    </div>
-  </main>
-
-  <% else current_user.try :admin? or current_user.try :super_admin? %>
-    <main style="padding-left: 240px">
-      <div class="row">
-        <div class="col s12"><p></p></div>
-        <div class="col s12 m4 l1"><p></p></div>
-        <%= render "students/students_table", users: @users %>
-        <div class="col s12 m4 l1"><p></p></div>
-      </div>
-
-    </main>
-  <% end %>
+<main style="padding-left: 240px">
+  <div class="row">
+    <div class="col s12"><p></p></div>
+    <div class="col s12 m4 l1"><p></p></div>
+    <%= render "students/students_table", users: @users %>
+    <div class="col s12 m4 l1"><p></p></div>
+  </div>
+</main>

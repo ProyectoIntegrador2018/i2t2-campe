@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  before_action :set_current_student, only: [:index]
+  before_action :admin_authorization, only: [:index]
+
   def home
   end
 
@@ -9,10 +10,7 @@ class PagesController < ApplicationController
 
   private
 
-  def set_current_student
-    if current_user.try :student?
-      @student = current_user.student
-      @contact_information = @student.contact_information
-    end
+  def admin_authorization
+    redirect_to student_path (current_user.student) if current_user.try :student?
   end
 end
