@@ -39,11 +39,4 @@ class Users::RegistrationsController < Devise::RegistrationsController
                                     contact_information_attributes: [:phone_number, :cell_phone_number]])
     end
   end
-
-  def redirect_unless_admin
-    unless current_user.try(:super_admin?)
-      flash[:error] = "Only admins can do that"
-      redirect_to root_path
-    end
-  end
 end
