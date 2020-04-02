@@ -1,9 +1,9 @@
 require 'roo'
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update]
+  before_action :authorize_user, only: [:index, :edit, :update, :destroy]
 
   def index
-    authorize User
     @users = User.student
   end
 
@@ -13,11 +13,9 @@ class StudentsController < ApplicationController
   end
 
   def edit
-    authorize User
   end
 
   def update
-    authorize User
     params.permit!
     @student.update(params[:student])
     redirect_to student_path(@student)
@@ -38,6 +36,10 @@ class StudentsController < ApplicationController
 
   def set_student
     @student = Student.find(params[:id])
+  end
+
+  def authorize_user
+    authorize User
   end
 
 end
