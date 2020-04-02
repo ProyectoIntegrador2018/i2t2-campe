@@ -16,7 +16,6 @@ class StudentsController < ApplicationController
   end
 
   def update
-    params.permit!
     @student.update!(student_params)
     redirect_to student_path(@student)
   end
