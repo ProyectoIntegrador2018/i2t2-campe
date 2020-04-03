@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col s12"><p></p></div>
     <div class="col s12 m4 l2"><p></p></div>
-    <%= render "student_info", user: @user, student: @student %>
+    <%= render "student_info", user: @user, student: @student, can_update_personal: (current_user.admin? or current_user.super_admin?) %>
     <div class="col s12 m4 l2"><p></p></div>
   </div>
 </main>
