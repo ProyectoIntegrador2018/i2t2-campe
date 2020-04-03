@@ -32,10 +32,10 @@
 </div>
 <div class="row">
   <div class="col s2 input-field inline">
-    <%= f.select :gender, options_for_select([["Hombre", "Hombre"], ["Mujer", "Mujer"]]), {:include_blank => "Género:"}, { class: 'browser-default'} %>
+    <%= f.select :gender, options_for_select(["Hombre", "Mujer"], f.object.gender), {:include_blank => "Género:"}, { class: 'browser-default' } %>
   </div>
   <div class="col s2 input-field inline">
-    <%= f.select :marital_status, options_for_select([["Soltero", "Soltero"], ["Casado", "Casado"]]), {:include_blank => "Estado Civil:"}, { class: 'browser-default'} %>
+    <%= f.select :marital_status, options_for_select(["Soltero", "Casado"], f.object.marital_status), {:include_blank => "Estado Civil:"}, { class: 'browser-default' } %>
   </div>
   <div class="col s2 input-field inline">
     <%= f.label :País_de_Nacimiento,:style=>'color:red;'%>
