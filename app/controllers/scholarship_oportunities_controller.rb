@@ -15,8 +15,8 @@ class ScholarshipOportunitiesController < ApplicationController
   def create
     @scholarship_oportunity = ScholarshipOportunity.new(scholarship_oportunity_params)
     @scholarship_oportunity.name = @scholarship_oportunity.name.parameterize(separator: '_')
-    if ScholarshipOportunity.exists?(name: @scholarship_oportunity.name)
-    else
+
+    unless ScholarshipOportunity.exists?(name: @scholarship_oportunity.name)
       @scholarship_oportunity.save
       redirect_to scholarship_oportunities_path
     end
