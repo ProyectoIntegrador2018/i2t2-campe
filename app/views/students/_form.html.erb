@@ -25,9 +25,9 @@
     <%= f.label :CURP,:style=>'color:red;'%>
     <%= f.text_field :curp, :required => true %>
   </div>
-  <div class="col s3 input-field inline">
+  <div class="col s3 inline">
     <%= f.label :Fecha_de_nacimiento %>
-    <%= f.date_field :birth_date, :value => Time.now.strftime("%Y-%m-%d")  %>
+    <%= f.date_field :birth_date %>
   </div>
 </div>
 <div class="row">
