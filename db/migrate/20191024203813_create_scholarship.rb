@@ -1,6 +1,6 @@
 class CreateScholarship < ActiveRecord::Migration[5.2]
   def change
-    create_table :scholarship do |t|
+    create_table :scholarships do |t|
       t.integer :student_id
       t.integer :scholarship_oportunity_id
       t.integer :status

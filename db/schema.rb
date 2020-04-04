@@ -28,7 +28,14 @@ ActiveRecord::Schema.define(version: 2019_10_24_203813) do
     t.integer "student_id"
   end
 
-  create_table "scholarship", force: :cascade do |t|
+  create_table "scholarship_oportunities", force: :cascade do |t|
+    t.string "name"
+    t.integer "number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "scholarships", force: :cascade do |t|
     t.integer "student_id"
     t.integer "scholarship_oportunity_id"
     t.integer "status"
@@ -49,13 +56,6 @@ ActiveRecord::Schema.define(version: 2019_10_24_203813) do
     t.string "sub_discipline"
     t.integer "degree_level"
     t.decimal "most_recent_gpa"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "scholarship_opportunities", force: :cascade do |t|
-    t.string "name"
-    t.integer "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
