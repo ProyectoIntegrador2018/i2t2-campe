@@ -2,6 +2,7 @@
 
 # Class responsible for student personal information.
 class Student < ApplicationRecord
+  audited
   belongs_to :user
   has_one :contact_information
 

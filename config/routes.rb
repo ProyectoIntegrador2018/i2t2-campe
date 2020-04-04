@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'export_users' => 'users#export_user'
   post 'import_users' => 'users#import_user', as: 'import_users'
   resources :students
+  get 'students/:id/history' => 'students#history', as: 'history'
   resources :pages
   resources :groups 
   resources :groups_users
