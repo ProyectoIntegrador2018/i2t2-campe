@@ -1,6 +1,6 @@
 <main style="padding-left: 240px">
-    <% @history.each do |audit| %>
-        <p>Modificado por: <%= audit.user_id %></p>
-        <p>Cambio: <%= audit.audited_changes %> </p>
-    <% end %>
+  <% @history.each do |audit| %>
+    <p>Modificado por: <%= audit.user_id %></p>
+    <p>Cambio: <%= audit.audited_changes %> </p>
+  <% end %>
 </main>
