@@ -27,6 +27,7 @@ class StudentsController < ApplicationController
   end
 
   def history
+    authorize @student
     @history = @student.audits
   end
 
