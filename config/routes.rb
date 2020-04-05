@@ -17,8 +17,7 @@ Rails.application.routes.draw do
     get 'history', on: :member
   end
   resources :pages
-  resources :groups 
-  resources :groups_users
-  post 'import_groups_users' => 'groups_users#import_groups_users', as: 'import_groups_users'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :scholarships
+  resources :scholarship_oportunities
+  post 'import_scholarships' => 'scholarships#import_scholarships', as: 'import_scholarships'
 end
