@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_02_070512) do
+ActiveRecord::Schema.define(version: 2019_10_24_203813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,16 +28,34 @@ ActiveRecord::Schema.define(version: 2019_12_02_070512) do
     t.integer "student_id"
   end
 
-  create_table "groups", force: :cascade do |t|
+  create_table "scholarship_oportunities", force: :cascade do |t|
     t.string "name"
+    t.integer "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_groups_on_name", unique: true
   end
 
-  create_table "groups_users", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "group_id"
+  create_table "scholarships", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "scholarship_oportunity_id"
+    t.integer "status"
+    t.string "application_id"
+    t.datetime "fiscal_year"
+    t.datetime "creation_date"
+    t.datetime "studies_start"
+    t.datetime "studies_end"
+    t.datetime "start"
+    t.datetime "end"
+    t.string "institution"
+    t.string "entity"
+    t.string "desired_support"
+    t.string "program"
+    t.string "study_field"
+    t.string "study_area"
+    t.string "discipline"
+    t.string "sub_discipline"
+    t.integer "degree_level"
+    t.decimal "most_recent_gpa"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -67,24 +85,6 @@ ActiveRecord::Schema.define(version: 2019_12_02_070512) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role"
-    t.string "request_password_it2t2"
-    t.string "creation_date"
-    t.string "desc_request_status"
-    t.string "convocatory"
-    t.integer "fiscal_year"
-    t.string "studies_start_date"
-    t.string "studies_end_date"
-    t.string "start_scholarship"
-    t.string "end_scholarship"
-    t.string "school"
-    t.string "entity"
-    t.string "support_to_get"
-    t.string "program"
-    t.string "expertise_area"
-    t.string "field_study"
-    t.string "discipline"
-    t.string "sub_discipline"
-    t.decimal "last_gpa"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

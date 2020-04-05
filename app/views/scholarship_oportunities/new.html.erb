@@ -1,0 +1,27 @@
+<!-- partial:index.partial.html -->
+<% if @scholarship_oportunity.errors.any? %>
+  <div class="form-errors">
+    <h2><%= pluralize(@scholarship_oportunity.errors.count, "error") %> stopped you from updating this scholarship_oportunity:</h2>
+    <% @scholarship_oportunity.errors.full_messages.each do |msg| %>
+      <h4><%= msg %></h4>
+    <% end %>
+  </div>
+<% end %>
+<main style="padding-left: 240px">
+  <div class="form-content" style="padding-right:5%;padding-left:5%">
+    <h4 class="center-align" style="padding-top: 20px;">Registro de Convocatoria</h4>
+    <%= form_for(@scholarship_oportunity) do |f| %>
+      <div class="form-section">
+        <div class="row">
+          <div class="col s4 input-field inline">
+            <%= f.text_field :name %>
+            <label for="group_name">Nombre de Convocatoria</label>
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <%= f.submit "Crear" ,:style=>'color:white;font-size:10px;width:110px ! important', class: 'btn btn-primary'%>
+      </div>
+    <% end %>
+  </div>
+</main>

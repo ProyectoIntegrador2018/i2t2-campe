@@ -84,7 +84,7 @@
         </h5>
         <div class="row">
           <div class="col s3 input-field inline">
-            <%= select_tag 'group_id', options_for_select(Group.all.collect {|p| [ p.name, p.id ] }.insert(0, "Convocatoria")),:style=>'color:red;', :required => true ,class: "browser-default"%>
+            <%= select_tag 'scholarship_oportunity_id', options_for_select(ScholarshipOportunity.all.collect {|p| [ p.name, p.id ] }.insert(0, "Convocatoria")),:style=>'color:red;', :required => true ,class: "browser-default"%>
           </div>
           <div class="col s3 input-field inline">
             <%= f.label :Año_Fiscal %>
