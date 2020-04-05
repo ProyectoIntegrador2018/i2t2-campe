@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Student < ApplicationRecord
+  audited
   belongs_to :user
   has_one :contact_information
   has_many :scholarships

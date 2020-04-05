@@ -1,6 +1,6 @@
 require 'roo'
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update]
+  before_action :set_student, only: [:show, :edit, :update, :history]
   before_action :authorize_user, only: [:index, :edit, :update, :destroy]
 
   def index
@@ -24,6 +24,11 @@ class StudentsController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
     redirect_to users_path
+  end
+
+  def history
+    authorize @student
+    @history = @student.audits
   end
 
   private
