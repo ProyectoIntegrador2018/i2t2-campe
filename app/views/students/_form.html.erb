@@ -37,11 +37,11 @@
   <div class="col s2 input-field inline">
     <%= f.select :marital_status, options_for_select(["Soltero", "Casado"], (f.object.try :marital_status)), {:include_blank => "Estado Civil:"}, { class: 'browser-default' } %>
   </div>
-  <div class="col s2 input-field inline">
+  <div class="col s3 input-field inline">
     <%= f.label :País_de_Nacimiento,:style=>'color:red;'%>
     <%= f.text_field :country_birth, :required => true %>
   </div>
-  <div class="col s2 input-field inline">
+  <div class="col s3 input-field inline">
     <%= f.label :Estado_de_Nacimiento,:style=>'color:red;'%>
     <%= f.text_field :state_birth, :required => true %>
   </div>
