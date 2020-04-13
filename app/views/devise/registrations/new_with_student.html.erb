@@ -30,17 +30,13 @@
             <%= s.fields_for :contact_information_attributes do |c| %>
               <div class="row">
                 <div class="col s2 input-field inline">
-                  <%= f.label :Desc_estatus_solicitud %>
-                  <%= f.date_field :desc_request_status, :value => Time.now.strftime("%Y-%m-%d")  %>
+                  <%= c.label :Teléfono %>
+                  <%= c.telephone_field :phone_number %>
                 </div>
-                  <div class="col s2 input-field inline">
-                    <%= c.label :Teléfono %>
-                    <%= c.telephone_field :phone_number %>
-                  </div>
-                  <div class="col s2 input-field inline">
-                    <%= c.label :Celular %>
-                    <%= c.telephone_field :cellphone_number %>
-                  </div>
+                <div class="col s2 input-field inline">
+                  <%= c.label :Celular %>
+                  <%= c.telephone_field :cellphone_number %>
+                </div>
               </div>
               <h5>
                 Domicilio:
@@ -60,31 +56,31 @@
                 </div>
                 <div class="col s3 input-field inline">
                   <%= c.label :Colonia %>
-                  <%= c.text_field :colony_address %>
+                  <%= c.text_field :neighborhood %>
                 </div>
               </div>
               <div class="row">
                 <div class="col s4 input-field inline">
                   <%= c.label :Ciudad,:style=>'color:red;'%>
-                  <%= c.text_field :city_address, :required => true  %>
+                  <%= c.text_field :city, :required => true  %>
                 </div>
                 <div class="col s4 input-field inline">
                   <%= c.label :Municipio %>
-                  <%= c.text_field :municipiality_address %>
+                  <%= c.text_field :municipality %>
                 </div>
                 <div class="col s4 input-field inline">
                   <%= c.label :Estado %>
-                  <%= c.text_field :state_address %>
+                  <%= c.text_field :state %>
                 </div>
               </div>
             <% end %>
             <h5>
               Información de Estudios:
             </h5>
-            <%= s.fields_for :scholarship_attributes do |sch| %>
+            <%= s.fields_for 'scholarships_attributes[0]' do |sch| %>
             <div class="row">
               <div class="col s3 input-field inline">
-                <%= select_tag 'scholarship_oportunity_id', options_for_select(ScholarshipOportunity.all.collect {|p| [ p.name, p.id ] }.insert(0, "Convocatoria")),:style=>'color:red;', :required => true ,class: "browser-default"%>
+                <%= sch.collection_select(:scholarship_oportunity_id, ScholarshipOportunity.all, :id, :name, {:prompt => 'Convocatoria'}, {:style=>'color:red;', :required => true ,class: "browser-default"}) %>
               </div>
               <div class="col s3 input-field inline">
                 <%= sch.label :Año_Fiscal %>
@@ -92,25 +88,25 @@
               </div>
               <div class="col s3 input-field inline">
                 <%= sch.label :Fecha_de_inicio_de_estudios %>
-                <%= sch.date_field :studies_start_date, :value => Time.now.strftime("%Y-%m-%d")  %>
+                <%= sch.date_field :studies_start, :value => Time.now.strftime("%Y-%m-%d")  %>
               </div>
               <div class="col s3 input-field inline">
                 <%= sch.label :Fecha_de_fin_de_estudios %>
-                <%= sch.date_field :studies_end_date, :value => Time.now.strftime("%Y-%m-%d")  %>
+                <%= sch.date_field :studies_end, :value => Time.now.strftime("%Y-%m-%d")  %>
               </div>
             </div>
             <div class="row">
               <div class="col s3 input-field inline">
                 <%= sch.label :Fecha_de_inicio_de_beca %>
-                <%= sch.date_field :start_scholarship, :value => Time.now.strftime("%Y-%m-%d")  %>
+                <%= sch.date_field :start, :value => Time.now.strftime("%Y-%m-%d")  %>
               </div>
               <div class="col s3 input-field inline">
                 <%= sch.label :Fecha_de_fin_de_beca %>
-                <%= sch.date_field :end_scholarship, :value => Time.now.strftime("%Y-%m-%d")  %>
+                <%= sch.date_field :end, :value => Time.now.strftime("%Y-%m-%d")  %>
               </div>
               <div class="col s3 input-field inline">
                 <%= sch.label :Universidad,:style=>'color:red;'%>
-                <%= sch.text_field :school, :required => true %>
+                <%= sch.text_field :institution, :required => true %>
               </div>
               <div class="col s3 input-field inline">
                 <%= sch.label :Entidad,:style=>'color:red;'%>
@@ -120,19 +116,19 @@
             <div class="row">
               <div class="col s3 input-field inline">
                 <%= sch.label :Apoyo_a_obtener,:style=>'color:red;'%>
-                <%= sch.text_field :support_to_get, :required => true  %>
+                <%= sch.text_field :desired_support, :required => true  %>
               </div>
               <div class="col s3 input-field inline">
                 <%= sch.label :Programa,:style=>'color:red;'%>
                 <%= sch.text_field :program, :required => true  %>
               </div>
               <div class="col s3 input-field inline">
-                <%= sch.label :Area_de_conocimiento %>
-                <%= sch.text_field :expertise_area %>
+                <%= sch.label :Campo_de_estudio %>
+                <%= sch.text_field :study_field %>
               </div>
               <div class="col s3 input-field inline">
-                <%= sch.label :Campo %>
-                <%= sch.text_field :field_study %>
+                <%= sch.label :Area_de_estudio %>
+                <%= sch.text_field :study_area %>
               </div>
             </div>
             <div class="row">
@@ -146,7 +142,7 @@
               </div>
               <div class="col s4 input-field inline">
                 <%= sch.label :Promedio_ultimo_grado %>
-                <%= sch.number_field :last_gpa %>
+                <%= sch.number_field :most_recent_gpa %>
               </div>
             </div>
             <% end %>
