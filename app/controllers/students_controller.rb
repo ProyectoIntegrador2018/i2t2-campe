@@ -21,9 +21,10 @@ class StudentsController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
+    @student = Student.find(params[:id])
+    @user = @student.user
     @user.destroy
-    redirect_to users_path
+    redirect_to students_path
   end
 
   def history
