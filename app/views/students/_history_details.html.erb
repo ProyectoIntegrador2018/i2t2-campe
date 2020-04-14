@@ -1,0 +1,20 @@
+<li>
+    <div class="collapsible-header"><%= audit.created_at %>: Modificado por <%= User.find(audit.user_id).email %></div>
+    <div class="collapsible-body">
+        <% audit.audited_changes.each do |field, change| %>
+        <% if get_field_name(field) != nil and change != nil and change != '' %>
+            <div>
+            <%= get_field_name(field) %>:
+            <% if change.kind_of?(Array) %>
+                <% if change[0] != nil and change[0] != '' %>   
+                    <strike class="red-text"><%= change[0]%></strike> →
+                <% end %>
+                <span class="green-text"><%= change[1]%></span>
+            <% else %>
+                <span class="green-text"><%= change%></span>
+            <% end %>
+            </div>
+        <% end %>
+        <% end %>
+    </div>
+</li>

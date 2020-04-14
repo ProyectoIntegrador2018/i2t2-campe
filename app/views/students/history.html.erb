@@ -1,6 +1,39 @@
 <main style="padding-left: 240px">
-  <% @history.each do |audit| %>
-    <p>Modificado por: <%= audit.user_id %></p>
-    <p>Cambio: <%= audit.audited_changes %> </p>
-  <% end %>
+<div class="container">
+  <div class="row"> 
+    <div class="col s12"><h4 class="center-align">Historial de Cambios</h4></div>
+  </div>
+  <div class="row"> 
+    <ul class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header"><i class="material-icons">account_circle</i>Datos Personales</div>
+        <div class="collapsible-body">
+          <div class="row">
+            <div class="col s12 m12">
+              <ul class="collapsible" data-collapsible="accordion">
+                <% @student_history.each do |audit| %>
+                  <%= render "history_details", audit: audit %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header"><i class="material-icons">phone</i>Datos de Contacto</div>
+        <div class="collapsible-body">
+          <div class="row">
+            <div class="col s12 m12">
+              <ul class="collapsible" data-collapsible="accordion">
+                <% @contact_information_history.each do |audit| %>
+                  <%= render "history_details", audit: audit %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
 </main>
