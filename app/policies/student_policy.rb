@@ -7,6 +7,10 @@ class StudentPolicy < ApplicationPolicy
     is_mine_or_admin?
   end
 
+  def update?
+    is_mine_or_admin?
+  end
+
   private
   def is_mine_or_admin?
     return true if @user.is_admin_or_super_admin?
