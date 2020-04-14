@@ -6,6 +6,7 @@
       <div class="card material-table">
         <div class="table-header">
           <span class="table-title">Convocatoria <%= @scholarship_oportunity.name%></span>
+          <span><%= link_to "Importar estudiantes", new_scholarship_path %></span>
           <div class="actions">
           </div>
         </div>
@@ -22,8 +23,8 @@
             <% @students.each do |student| %>
               <tr>
                 <td><%= student.name %></td>
-                <td><%= student.email %></td>
-                <td><%= student.discipline %></td>
+                <td><%= student.user.email %></td>
+                <td><%= map_student_discipline student, @scholarship_oportunity %></td>
                 <td><%= link_to 'Show', student_path(student), :style=>'color:white;',:class=>"waves-effect waves-light btn"%><br></br>
                   <%= link_to "Eliminar", student, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' },:style=>'color:white;',:class=>"waves-effect waves-light btn" %></td>
               </tr>
