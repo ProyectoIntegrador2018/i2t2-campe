@@ -28,51 +28,7 @@
           <%= f.fields_for :student_attributes do |s| %>
             <%= render "students/form", f: s %>
             <%= s.fields_for :contact_information_attributes do |c| %>
-              <div class="row">
-                <div class="col s2 input-field inline">
-                  <%= c.label :Teléfono %>
-                  <%= c.telephone_field :phone_number %>
-                </div>
-                <div class="col s2 input-field inline">
-                  <%= c.label :Celular %>
-                  <%= c.telephone_field :cellphone_number %>
-                </div>
-              </div>
-              <h5>
-                Domicilio:
-              </h5>
-              <div class="row">
-                <div class="col s3 input-field inline">
-                  <%= c.label :Calle_de_Domicilio,:style=>'color:red;' %>
-                  <%= c.text_field :street_address, :required => true  %>
-                </div>
-                <div class="col s3 input-field inline">
-                  <%= c.label :Número_exterior%>
-                  <%= c.number_field :street_number_address_ext %>
-                </div>
-                <div class="col s3 input-field inline">
-                  <%= c.label :Número_interior %>
-                  <%= c.number_field :street_number_address_int %>
-                </div>
-                <div class="col s3 input-field inline">
-                  <%= c.label :Colonia %>
-                  <%= c.text_field :neighborhood %>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col s4 input-field inline">
-                  <%= c.label :Ciudad,:style=>'color:red;'%>
-                  <%= c.text_field :city, :required => true  %>
-                </div>
-                <div class="col s4 input-field inline">
-                  <%= c.label :Municipio %>
-                  <%= c.text_field :municipality %>
-                </div>
-                <div class="col s4 input-field inline">
-                  <%= c.label :Estado %>
-                  <%= c.text_field :state %>
-                </div>
-              </div>
+              <%= render "students/form_contact_information", c: c %>
             <% end %>
             <h5>
               Información de Estudios:
