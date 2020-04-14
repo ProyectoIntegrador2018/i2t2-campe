@@ -52,42 +52,28 @@ class StudentsController < ApplicationController
   end
 
   def student_params
-    if current_user.is_admin_or_super_admin?
-      params.require(:student).permit(:email,
-                                      :desc_request_status,
-                                      :cvu,
-                                      :name,
-                                      :paternal_last_name,
-                                      :maternal_last_name,
-                                      :rfc,
-                                      :birth_date,
-                                      :curp,
-                                      :gender,
-                                      :marital_status,
-                                      :country_birth,
-                                      :state_birth,
-                                      {contact_information_attributes: [:id,
-                                                                        :street_address,
-                                                                        :street_number_address_ext,
-                                                                        :street_number_address_int,
-                                                                        :neighborhood,
-                                                                        :city,
-                                                                        :municipality,
-                                                                        :state,
-                                                                        :phone_number,
-                                                                        :cellphone_number]})
-    else
-      params.require(:student).permit({contact_information_attributes: [:id,
-                                                                        :street_address,
-                                                                        :street_number_address_ext,
-                                                                        :street_number_address_int,
-                                                                        :neighborhood,
-                                                                        :city,
-                                                                        :municipality,
-                                                                        :state,
-                                                                        :phone_number,
-                                                                        :cellphone_number]})
-    end
+    params_allowed = [{contact_information_attributes: [:id,
+                                                        :street_address,
+                                                        :street_number_address_ext,
+                                                        :street_number_address_int,
+                                                        :neighborhood,
+                                                        :city,
+                                                        :municipality,
+                                                        :state,
+                                                        :phone_number,
+                                                        :cellphone_number]}]
+    params_allowed += [:cvu,
+                       :name,
+                       :paternal_last_name,
+                       :maternal_last_name,
+                       :rfc,
+                       :birth_date,
+                       :curp,
+                       :gender,
+                       :marital_status,
+                       :country_birth,
+                       :state_birth] if current_user.is_admin_or_super_admin?
+    params.require(:student).permit(params_allowed)
   end
 
 end
