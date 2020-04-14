@@ -3,6 +3,9 @@
   <div class="row"> 
     <div class="col s12"><h4 class="center-align">Historial de Cambios</h4></div>
   </div>
+  <div class="row">
+    <h5> Nombre: <%= [@student.name, @student.paternal_last_name, @student.maternal_last_name].join(' ').squeeze(' ') %></h5>
+  </div>
   <div class="row"> 
     <ul class="collapsible" data-collapsible="accordion">
       <li>
