@@ -6,6 +6,7 @@ class CreateEducationHistories < ActiveRecord::Migration[5.2]
       t.date :end_date
       t.string :area_of_study
       t.string :university
+      t.string :brief_description
 
       t.timestamps
     end

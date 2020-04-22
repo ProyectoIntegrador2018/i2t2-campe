@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_203318) do
     t.date "end_date"
     t.string "area_of_study"
     t.string "university"
+    t.string "brief_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["curriculum_id"], name: "index_education_histories_on_curriculum_id"
