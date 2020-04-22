@@ -1,4 +1,4 @@
-<% if current_user.try :student? %>
+<% if current_user.try :student? or current_user.try :ex_student? %>
   <nav>
     <div class="nav-wrapper" style="background:#26a69a">
       <a href="/" class="brand-logo center"></a>
