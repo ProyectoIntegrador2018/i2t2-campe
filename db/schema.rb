@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_22_164420) do
+ActiveRecord::Schema.define(version: 2020_04_22_165137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,17 @@ ActiveRecord::Schema.define(version: 2020_04_22_164420) do
     t.string "phone_number"
     t.string "cellphone_number"
     t.integer "student_id"
+  end
+
+  create_table "curriculums", force: :cascade do |t|
+    t.bigint "student_id"
+    t.text "professional_objective"
+    t.integer "min_desired_salary"
+    t.integer "max_desired_salary"
+    t.string "desired_position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_curriculums_on_student_id"
   end
 
   create_table "scholarship_oportunities", force: :cascade do |t|
@@ -133,4 +144,5 @@ ActiveRecord::Schema.define(version: 2020_04_22_164420) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "curriculums", "students"
 end
