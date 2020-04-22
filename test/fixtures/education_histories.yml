@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  curriculum: one
+  start_date: 2020-04-22
+  end_date: 2020-04-22
+  area_of_study: MyString
+  university: MyString
+
+two:
+  curriculum: two
+  start_date: 2020-04-22
+  end_date: 2020-04-22
+  area_of_study: MyString
+  university: MyString
