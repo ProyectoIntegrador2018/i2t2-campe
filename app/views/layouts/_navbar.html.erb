@@ -25,7 +25,7 @@
     <% else%>
       <li id="dash_dashboard"><%= link_to 'Perfil', student_path(current_user.student), :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <li id="dash_dashboard"><%= link_to 'Historia', history_student_path(current_user.student.id), :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-      <% if current_user.ex_student? %>
+      <% if current_user.former_student? %>
         <li id="dash_dashboard"><%= link_to 'Bolsa de trabajo', "#", :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <% end %>
     <% end %>
