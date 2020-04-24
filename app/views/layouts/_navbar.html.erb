@@ -4,7 +4,6 @@
       <div class="indigo darken-2 white-text" style="height: 180px;">
         <div class="row" style="background:#1d7d74">
           <img style="margin-top: 5%;" width="100" height="100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTi4DmuEiqgpdMPdI839ak7nqOyEHlnwt2nQWTLtI8UzuxgsYKH" class="circle responsive-img" />
-
           <p style="margin-top: -13%;">
           <% if current_user.student? %>
             Estudiante
@@ -15,10 +14,7 @@
         </div>
       </div>
     </li>
-
-
-
-    <% if current_user.admin? or current_user.super_admin?  %>
+    <% if current_user.is_admin_or_super_admin?  %>
       <li id="dash_dashboard"><%= link_to 'Lista de becarios', students_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <li id="dash_dashboard"><%= link_to 'Registrar becarios', new_with_student_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <li id="dash_dashboard"><%= link_to 'Ver Convocatorias', scholarship_oportunities_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
@@ -29,6 +25,9 @@
     <% else%>
       <li id="dash_dashboard"><%= link_to 'Perfil', student_path(current_user.student), :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <li id="dash_dashboard"><%= link_to 'Historia', history_student_path(current_user.student.id), :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+      <% if current_user.former_student? %>
+        <li id="dash_dashboard"><%= link_to 'Bolsa de trabajo', "#", :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+      <% end %>
     <% end %>
   </ul>
 <% end %>
