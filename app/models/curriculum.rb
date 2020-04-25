@@ -5,5 +5,5 @@ class Curriculum < ApplicationRecord
   has_many :languages
   has_many :certifications
 
-  accepts_nested_attributes_for :education_histories, :languages
+  accepts_nested_attributes_for :education_histories, :languages, :certifications
 end
