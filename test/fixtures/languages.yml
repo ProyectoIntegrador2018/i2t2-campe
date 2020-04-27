@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  curriculum: one
+  language_name: MyString
+  proficiency: 1
+
+two:
+  curriculum: two
+  language_name: MyString
+  proficiency: 1
