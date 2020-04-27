@@ -90,8 +90,8 @@ ActiveRecord::Schema.define(version: 2020_04_25_235633) do
     t.string "desired_position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "skills", array: true
-    t.string "areas_of_expertise", array: true
+    t.text "skills"
+    t.text "areas_of_expertise"
     t.index ["student_id"], name: "index_curriculums_on_student_id"
   end
 
