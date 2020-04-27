@@ -107,6 +107,19 @@ ActiveRecord::Schema.define(version: 2020_04_25_235633) do
     t.index ["curriculum_id"], name: "index_education_histories_on_curriculum_id"
   end
 
+  create_table "job_postings", force: :cascade do |t|
+    t.string "title"
+    t.integer "salary"
+    t.text "description"
+    t.integer "number_positions"
+    t.string "keywords"
+    t.string "employment_type"
+    t.text "responsabilities"
+    t.string "experience_required"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "languages", force: :cascade do |t|
     t.bigint "curriculum_id"
     t.string "language_name"
