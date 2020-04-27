@@ -6,6 +6,8 @@ class CreateCurriculums < ActiveRecord::Migration[5.2]
       t.integer :min_desired_salary
       t.integer :max_desired_salary
       t.string :desired_position
+      t.text :skils
+      t.text :areas_of_expertise
 
       t.timestamps
     end
