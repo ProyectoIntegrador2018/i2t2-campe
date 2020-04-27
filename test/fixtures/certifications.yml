@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  curriculum: one
+  emitting_organization: MyString
+  certification_name: MyString
+  date_emitted: 2020-04-25
+  brief_description: MyString
+
+two:
+  curriculum: two
+  emitting_organization: MyString
+  certification_name: MyString
+  date_emitted: 2020-04-25
+  brief_description: MyString

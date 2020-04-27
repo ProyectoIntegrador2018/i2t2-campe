@@ -58,6 +58,17 @@ ActiveRecord::Schema.define(version: 2020_04_27_200605) do
     t.index ["user_id", "user_type"], name: "user_index"
   end
 
+  create_table "certifications", force: :cascade do |t|
+    t.bigint "curriculum_id"
+    t.string "emitting_organization"
+    t.string "certification_name"
+    t.date "date_emitted"
+    t.string "brief_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["curriculum_id"], name: "index_certifications_on_curriculum_id"
+  end
+
   create_table "contact_informations", force: :cascade do |t|
     t.string "street_address"
     t.string "street_number_address_ext"
@@ -178,6 +189,7 @@ ActiveRecord::Schema.define(version: 2020_04_27_200605) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "certifications", "curriculums"
   add_foreign_key "curriculums", "students"
   add_foreign_key "education_histories", "curriculums"
   add_foreign_key "languages", "curriculums"
