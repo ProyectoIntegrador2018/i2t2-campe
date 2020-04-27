@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   post 'import_users' => 'users#import_user', as: 'import_users'
   resources :students do
     get 'history', on: :member
+    resources :curriculums
   end
   resources :pages
   resources :scholarships
