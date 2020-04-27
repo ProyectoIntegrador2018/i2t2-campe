@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_22_233417) do
+ActiveRecord::Schema.define(version: 2020_04_25_231443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,17 @@ ActiveRecord::Schema.define(version: 2020_04_22_233417) do
     t.index ["created_at"], name: "index_audits_on_created_at"
     t.index ["request_uuid"], name: "index_audits_on_request_uuid"
     t.index ["user_id", "user_type"], name: "user_index"
+  end
+
+  create_table "certifications", force: :cascade do |t|
+    t.bigint "curriculum_id"
+    t.string "emitting_organization"
+    t.string "certification_name"
+    t.date "date_emitted"
+    t.string "brief_description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["curriculum_id"], name: "index_certifications_on_curriculum_id"
   end
 
   create_table "contact_informations", force: :cascade do |t|
@@ -165,6 +176,7 @@ ActiveRecord::Schema.define(version: 2020_04_22_233417) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "certifications", "curriculums"
   add_foreign_key "curriculums", "students"
   add_foreign_key "education_histories", "curriculums"
   add_foreign_key "languages", "curriculums"
