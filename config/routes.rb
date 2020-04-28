@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :students do
     get 'history', on: :member
   end
+  resources :curriculums, except: [:index, :destroy]
   resources :pages
   resources :scholarships
   resources :scholarship_oportunities
