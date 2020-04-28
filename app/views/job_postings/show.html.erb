@@ -5,15 +5,14 @@
     </div>
     <div class="col s7 offset-s1 inline">
       <h4><%= @job_posting.title %></h4>
-      <div>Nombre de la compañia</div>
+      <h4>Nombre de la compañia</h4>
       <div>Sobre nosotros de la compañia</div>
     </div>
   </div>
-
   <div class="row">
     <div class="col s5 offset-s1 inline">
       <div><strong> Sueldo: </strong> $<%= @job_posting.salary %> </div>
-      <div><strong> Cantidad de vacantes:</strong> $<%= @job_posting.number_positions %> </div>
+      <div><strong> Cantidad de vacantes:</strong> <%= @job_posting.number_positions %> </div>
       <div><strong> Tipo de Empleo:</strong> <%= @job_posting.employment_type %> </div>
       <div><strong> Experiencia requerida:</strong> <%= @job_posting.experience_required %> </div>
     </div>
