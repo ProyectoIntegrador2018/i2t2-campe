@@ -1,5 +1,6 @@
 class CurriculumsController < ApplicationController
   before_action :set_curriculum, only: [:show, :edit, :update]
+  before_action :authorize_former_student, only: [:new, :create]
   before_action :authorize_curriculum, only: [:edit, :update, :show]
 
   def new
@@ -8,6 +9,7 @@ class CurriculumsController < ApplicationController
 
   def create
     @curriculum = Curriculum.new(curriculum_params)
+    @curriculum.student_id = current_user.student.id
     @curriculum.save!
     redirect_to curriculum_path(@curriculum)
   end
@@ -29,7 +31,11 @@ class CurriculumsController < ApplicationController
   end
 
   def curriculum_params
-    params.require(:curriculum).permit()
+    params.require(:curriculum).permit(:professional_objective)
+  end
+
+  def authorize_former_student
+    authorize Curriculum
   end
 
   def authorize_curriculum
