@@ -21,6 +21,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
   end
 
+  def new_with_company
+    authorize User
+    @user = User.new
+    @user.role = "company"
+  end
+
   def sign_up(resource_name, resource)
     true
   end
@@ -32,6 +38,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
                :password,
                :password_confirmation,
                :role,
+               company_attributes: [:name, :information],
                student_attributes: [:email,
                                     :desc_request_status,
                                     :cvu,
