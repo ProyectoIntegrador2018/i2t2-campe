@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :companies
   resources :job_postings
   devise_for :users, path: 'users', controllers: {
     sessions:           "users/sessions",

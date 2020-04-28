@@ -10,8 +10,9 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable
 
   has_one :student
+  has_one :company
 
-  accepts_nested_attributes_for :student
+  accepts_nested_attributes_for :student, :company
 
   def set_default_role
     self.role ||= :student
