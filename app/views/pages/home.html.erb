@@ -17,14 +17,7 @@
         <div class="container">
           <h1 class="header center orange-text"></h1>
           <div class="actions center-align opacidad">
-            <% if current_user.is_admin_or_super_admin? %>
-              <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete,:style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
-              <%= link_to 'Registra becados', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
-              <% if current_user.super_admin? %>
-                <%= link_to 'Registra administradores', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
-              <% end %>
-              <%= link_to 'Ver becarios', students_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
-            <% elsif current_user.nil? %>
+            <% if current_user.nil? %>
               <div class="row" style="margin-top: -70px">
                 <div class="col s6">
                   <%= link_to 'Iniciar Sesión Becario', new_user_session_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn white"%>
@@ -33,6 +26,13 @@
                   <%= link_to ' Iniciar Sesión Admin', new_user_session_path, :style=>'color:#26a69a; ', :class=>"waves-effect waves-light btn white "%>
                 </div>
               </div>
+            <% elsif current_user.is_admin_or_super_admin? %>
+              <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete,:style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
+              <%= link_to 'Registra becados', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
+              <% if current_user.super_admin? %>
+                <%= link_to 'Registra administradores', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
+              <% end %>
+              <%= link_to 'Ver becarios', students_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
             <% end %>
           </div>
         </div>
