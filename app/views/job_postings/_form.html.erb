@@ -2,56 +2,55 @@
   <% if job_posting.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(job_posting.errors.count, "error") %> prohibited this job_posting from being saved:</h2>
-
       <ul>
-      <% job_posting.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% job_posting.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="row">
+    <div class="col s4 input-field inline">
+      <%= form.label "Titulo de vacante" %>
+      <%= form.text_field :title %>
+    </div>
+    <div class="col s4 input-field inline">
+      <%= form.label "Salario" %>
+      <%= form.number_field :salary %>
+    </div>
+    <div class="col s4 input-field inline">
+      <%= form.label "Cantidad de vacantes" %>
+      <%= form.number_field :number_positions %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :salary %>
-    <%= form.number_field :salary %>
+  <div class"row">
+    <div class="col s4 input-field inline">
+      <%= form.label "Palabras clave (separadas por comas)" %>
+      <%= form.text_field :keywords %>
+    </div>
+    <div class="col s4 input-field inline">
+      <%= form.label "Tipo de empleo" %>
+      <%= form.text_field :employment_type %>
+    </div>
+    <div class="col s4 input-field inline">
+      <%= form.label "Experiencia requerida" %>
+      <%= form.text_field :experience_required %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="row">
+    <div class="col s12 input-field">
+      <%= form.label "Descripción" %>
+      <%= form.text_area :description, class: 'materialize-textarea' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :number_positions %>
-    <%= form.number_field :number_positions %>
+  <div class="row">
+    <div class="col s12 input-field">
+      <%= form.label "Funciones laborales" %>
+      <%= form.text_area :responsabilities, class: 'materialize-textarea' %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :keywords %>
-    <%= form.text_field :keywords %>
-  </div>
-
-  <div class="field">
-    <%= form.label :employment_type %>
-    <%= form.text_field :employment_type %>
-  </div>
-
-  <div class="field">
-    <%= form.label :responsabilities %>
-    <%= form.text_area :responsabilities %>
-  </div>
-
-  <div class="field">
-    <%= form.label :experience_required %>
-    <%= form.text_field :experience_required %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions center-align">
+    <%= form.submit "Guardar", :class => "btn" %>
   </div>
 <% end %>
+
