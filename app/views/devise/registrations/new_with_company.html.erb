@@ -1,0 +1,46 @@
+<main style="padding-left: 240px">
+  <div class="row">
+    <div class="col s12" style="padding-top: 20px;"><h4 class="center-align">Registro de compañia</h4> </div>
+    <div class="col s12 m4 l1"><p></p></div>
+    <div class="col s12 m4 l10">
+
+      <div id="basic-form" class="section">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="row">
+            <div class="col s4 input-field inline">
+              <%= f.label :Correo %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", :required => true %>
+            </div>
+            <div class="col s4 input-field inline">
+              <%= f.label :contraseña %>
+              <%= f.password_field :password, autocomplete: "new-password", :required => true%>
+            </div>
+            <div class="col s4 input-field inline">
+              <%= f.label :confirmar_contraseña %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", :required => true %>
+            </div>
+          </div>
+          <%= f.fields_for :company_attributes do |c| %>
+            <div class="row">
+              <div class="col s4 input-field inline">
+                <%= c.label "Nombre" %>
+                <%= c.text_field :name%>
+              </div>
+              <div class="col s4 input-field inline">
+                <%= c.label "Descripción" %>
+                <%= c.text_area :information, class: 'materialize-textarea' %>
+              </div>
+              <%= f.hidden_field :role, :value => @user.role %>
+            </div>
+      </div>
+    <% end %>
+    <div class="actions center-align">
+      <%= f.submit "Registrar", :class=>"btn"%>
+    </div>
+  <% end %>
+    </div>
+  </div>
+  </div>
+</main>
+
