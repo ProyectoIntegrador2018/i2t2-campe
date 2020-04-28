@@ -2,7 +2,7 @@
 
 # La clase responsable  de user
 class User < ApplicationRecord
-  enum role: [:student, :admin, :super_admin, :former_student]
+  enum role: [:student, :admin, :super_admin, :former_student, :company]
 
   after_initialize :set_default_role, :if => :new_record?
 
@@ -19,6 +19,10 @@ class User < ApplicationRecord
 
   def is_admin_or_super_admin?
     self.admin? or self.super_admin?
+  end
+
+  def is_student_or_former_student?
+    self.student? or self.former_student?
   end
 
   def update_imported_user(file)

@@ -1,77 +1,47 @@
 <html lang="en">
-
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Capital Humano en Ciencia y Tecnologia de Nuevo Leon</title>
-
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-</head>
-
-
-
-<div class="Site body-background">
-  <main class="Site-content">
-<div class="center">
-    <img src="http://www.nl.gob.mx/sites/default/files/styles/logo/public/29_LG-INNOVACION-TRANSFERENCIA-TECNOLOGIA_0.png?itok=e5H7Kri6" class="centrar">
-  </div>
-
-    <!--<div class="background">
-        <img src="https://img.freepik.com/free-photo/wall-wallpaper-concrete-colored-painted-textured-concept_53876-31799.jpg?size=626&ext=jpg">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Capital Humano en Ciencia y Tecnologia de Nuevo Leon</title>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  </head>
+  <div class="Site body-background">
+    <main class="Site-content">
+      <div class="center">
+        <img src="http://www.nl.gob.mx/sites/default/files/styles/logo/public/29_LG-INNOVACION-TRANSFERENCIA-TECNOLOGIA_0.png?itok=e5H7Kri6" class="centrar">
       </div>
--->
-  <div class="section no-pad-bot opacidad" id="index-banner">
-    <div class="container">
-    
-      <h1 class="header center orange-text"></h1>
-
-<div class="actions center-align opacidad">
-
-  <% if current_user %>
-  <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete,:style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
-
-  <%= link_to 'Registra becados', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
-
-  <% if current_user.super_admin? %>
-    <%= link_to 'Registra administradores', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
-  <% end %>
-  <%= link_to 'Ver becarios', students_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
-
-<% else %>
-<div class="row" style="margin-top: -70px">
- <div class="col s6">
-    <%= link_to 'Iniciar Sesión Becario', new_user_session_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn white"%>
-</div>
-
-<div class="col s6 ">
-    <%= link_to ' Iniciar Sesión Admin', new_user_session_path, :style=>'color:#26a69a; ', :class=>"waves-effect waves-light btn white "%>
-    
-</div>
-</div>
-<% end %>
-</div>
-    </div>
-  </div>
-
-
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
-
-</main>
-  </div>
-
-<!--<footer class="indigo page-footer center" style="background:#26a69a !important">
-    <div class="footer-copyright" style="background:#26a69a">
-      <div class="container" style="background:#26a69a">
-         <span><a style='font-weight: bold;color:white;'>© Todos los Derechos Reservados, I2T2</a></span>
+      <div class="section no-pad-bot opacidad" id="index-banner">
+        <div class="container">
+          <h1 class="header center orange-text"></h1>
+          <div class="actions center-align opacidad">
+            <% if current_user.is_admin_or_super_admin? %>
+              <%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete,:style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
+              <%= link_to 'Registra becados', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
+              <% if current_user.super_admin? %>
+                <%= link_to 'Registra administradores', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
+              <% end %>
+              <%= link_to 'Ver becarios', students_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn-large white"%>
+            <% elsif current_user.nil? %>
+              <div class="row" style="margin-top: -70px">
+                <div class="col s6">
+                  <%= link_to 'Iniciar Sesión Becario', new_user_session_path, :style=>'color:#26a69a;', :class=>"waves-effect waves-light btn white"%>
+                </div>
+                <div class="col s6 ">
+                  <%= link_to ' Iniciar Sesión Admin', new_user_session_path, :style=>'color:#26a69a; ', :class=>"waves-effect waves-light btn white "%>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
-    </div>
-  </footer>-->
-
+      <!--  Scripts-->
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="js/materialize.js"></script>
+      <script src="js/init.js"></script>
+    </main>
+  </div>
 </html>
 
