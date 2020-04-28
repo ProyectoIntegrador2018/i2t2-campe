@@ -4,6 +4,7 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
       t.string :name
       t.text :information
 
+      t.integer :user_id
       t.timestamps
     end
   end

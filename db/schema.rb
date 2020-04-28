@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_27_200605) do
+ActiveRecord::Schema.define(version: 2020_04_28_182545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,14 @@ ActiveRecord::Schema.define(version: 2020_04_27_200605) do
     t.index ["curriculum_id"], name: "index_certifications_on_curriculum_id"
   end
 
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.text "information"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "contact_informations", force: :cascade do |t|
     t.string "street_address"
     t.string "street_number_address_ext"
@@ -88,8 +96,6 @@ ActiveRecord::Schema.define(version: 2020_04_27_200605) do
     t.integer "min_desired_salary"
     t.integer "max_desired_salary"
     t.string "desired_position"
-    t.text "skils"
-    t.text "areas_of_expertise"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["student_id"], name: "index_curriculums_on_student_id"
