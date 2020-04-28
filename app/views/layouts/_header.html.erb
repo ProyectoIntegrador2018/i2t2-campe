@@ -1,35 +1,11 @@
-<% if current_user.try :student? or current_user.try :former_student? %>
+<% if current_user %>
   <nav>
     <div class="nav-wrapper" style="background:#26a69a">
       <a href="/" class="brand-logo center"></a>
-      <div >
-
-      </div>
         <a href="" data-target="mobile-demo"  class="sidenav-trigger button-collapse show-on-large"><i class="material-icons "></i></a>
-
-        <ul class="right">
-          <li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete%></li>
-        </ul>
-
-
-    </div>
-
-  </nav>
-<% end %>
-
-<% if current_user.try :admin? or current_user.try :super_admin? %>
-  <nav>
-    <div class="nav-wrapper" style="background:#26a69a">
-      <a href="/" class="brand-logo center"></a>
-      <div >
-
-      </div>
-        <a href="" data-target="mobile-demo"  class="sidenav-trigger button-collapse show-on-large"><i class="material-icons "></i></a>
-
         <ul class="right">
           <li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete%></li>
         </ul>
     </div>
-
   </nav>
 <% end %>

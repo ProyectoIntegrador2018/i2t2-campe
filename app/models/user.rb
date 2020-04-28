@@ -21,6 +21,10 @@ class User < ApplicationRecord
     self.admin? or self.super_admin?
   end
 
+  def is_student_or_former_student?
+    self.student? or self.former_student?
+  end
+
   def update_imported_user(file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(4)
