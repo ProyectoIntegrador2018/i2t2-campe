@@ -3,14 +3,13 @@
     <div class="col s12" style="padding-top: 20px;"><h4 class="center-align">Curriculum</h4> </div>
     <div class="col s12 m4 l1"><p></p></div>
     <div class="col s12 m4 l10">
-
-        <div id="basic-form" class="section">
-            <%= form_for @curriculum do |f| %>
-              <%= render "curriculums/form", f: f %>
-              <div class="actions center-align">
-                  <%= f.submit "Guardar", :class=>"btn"%>
-              </div>
-            <% end %>
-        </div>
+      <div id="basic-form" class="section">
+        <%= form_for @curriculum do |f| %>
+          <%= render "curriculums/form", f: f %>
+          <div class="actions center-align">
+              <%= f.submit "Guardar", :class=>"btn"%>
+          </div>
+        <% end %>
+      </div>
     </div>
 </main>
