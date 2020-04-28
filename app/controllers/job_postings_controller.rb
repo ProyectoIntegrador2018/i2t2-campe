@@ -1,5 +1,7 @@
 class JobPostingsController < ApplicationController
   before_action :set_job_posting, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_company, only: [:new, :create, :index]
+  before_action :authrize_job_posting, only: [:edit, :update, :show]
 
   # GET /job_postings
   # GET /job_postings.json
@@ -71,4 +73,12 @@ class JobPostingsController < ApplicationController
     def job_posting_params
       params.require(:job_posting).permit(:title, :salary, :description, :number_positions, :keywords, :employment_type, :responsabilities, :experience_required)
     end
+
+  def authorize_company
+    authorize JobPosting
+  end
+
+  def authrize_job_posting
+    authorize @job_posting
+  end
 end
