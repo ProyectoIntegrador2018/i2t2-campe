@@ -49,7 +49,15 @@
       <%= form.text_area :responsabilities, class: 'materialize-textarea' %>
     </div>
   </div>
-  <%= form.hidden_field :company_id, :value => current_user.company.id %>
+  <div class="row">
+    <div class="col s12 input-field">
+      <% if current_user.super_admin? %>
+        <%= form.collection_select(:company_id, Company.all, :id, :name, {:prompt => 'Compañia'}, {:required => true ,class: "browser-default"}) %>
+      <% else %>
+        <%= form.hidden_field :company_id, :value => current_user.company.id %>
+      <% end %>
+    </div>
+  </div>
   <div class="actions center-align">
     <%= form.submit "Guardar", :class => "btn" %>
   </div>

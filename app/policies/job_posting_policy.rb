@@ -1,10 +1,10 @@
 class JobPostingPolicy < ApplicationPolicy
   def new?
-    @user.company?
+    @user.is_company_or_super_admin?
   end
 
   def create?
-    @user.company?
+    @user.is_company_or_super_admin?
   end
 
   def show?
@@ -12,7 +12,7 @@ class JobPostingPolicy < ApplicationPolicy
   end
 
   def update?
-    @user.company?
+    @user.is_company_or_super_admin?
   end
 
   def edit?
