@@ -103,67 +103,68 @@
         </tr>
       </tbody>
     </table>
-    <div class="table-header" style="background:#26a69a">
-      <span class="table-title" style="color:#ffffff;font-weight: bold;">Información de Estudios</span>
-      <div class="actions">
+    <% if student.scholarships.any? %>
+      <div class="table-header" style="background:#26a69a">
+        <span class="table-title" style="color:#ffffff;font-weight: bold;">Información de Estudios</span>
+        <div class="actions">
+        </div>
       </div>
-    </div>
-    <table id="datatable">
-      <tbody>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha inicio de estudios:</p></td>
-          <td><p style="font-size: 18px"><%= student.scholarships.last.studies_start %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha fin de estudios:</p></td>
-          <td><p style="font-size: 18px"><%= student.scholarships.last.studies_end %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de inicio de beca:</p></td>
-          <td><p style="font-size: 18px"><%= student.scholarships.last.start %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de fin de beca:</p></td>
-          <td><p style="font-size: 18px"><%= student.scholarships.last.end %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Universidad:</p></td>
-          <td><p style="font-size: 18px"><%= student.scholarships.last.institution %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Entidad:</p></td>
-          <td><p style="font-size: 18px"><%= student.scholarships.last.entity %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Apoyo a obtener:</p></td>
-          <td><p style="font-size: 18px"><%= student.scholarships.last.desired_support %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Programa:</p></td>
-          <td><p style="font-size: 18px"><%= student.scholarships.last.program %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Area de conocimiento:</p></td>
-          <td><p style="font-size: 18px"><%= student.scholarships.last.study_area %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Campo:</p></td>
-          <td><p style="font-size: 18px"><%= student.scholarships.last.study_field %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Disciplina:</p></td>
-          <td><p style="font-size: 18px"><%= student.scholarships.last.discipline %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Subdisciplina:</p></td>
-          <td><p style="font-size: 18px"><%= student.scholarships.last.sub_discipline %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Promedio de último grado:</p></td>
-          <td><p style="font-size: 18px"><%= student.scholarships.last.most_recent_gpa %></p></td>
-
-        </tr>
-      </tbody>
-    </table>
+      <table id="datatable">
+        <tbody>
+          <tr>
+            <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha inicio de estudios:</p></td>
+            <td><p style="font-size: 18px"><%= student.scholarships.last.studies_start %></p></td>
+          </tr>
+          <tr>
+            <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha fin de estudios:</p></td>
+            <td><p style="font-size: 18px"><%= student.scholarships.last.studies_end %></p></td>
+          </tr>
+          <tr>
+            <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de inicio de beca:</p></td>
+            <td><p style="font-size: 18px"><%= student.scholarships.last.start %></p></td>
+          </tr>
+          <tr>
+            <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de fin de beca:</p></td>
+            <td><p style="font-size: 18px"><%= student.scholarships.last.end %></p></td>
+          </tr>
+          <tr>
+            <td style="padding-left: 40px;"><p style="font-size: 18px">Universidad:</p></td>
+            <td><p style="font-size: 18px"><%= student.scholarships.last.institution %></p></td>
+          </tr>
+          <tr>
+            <td style="padding-left: 40px;"><p style="font-size: 18px">Entidad:</p></td>
+            <td><p style="font-size: 18px"><%= student.scholarships.last.entity %></p></td>
+          </tr>
+          <tr>
+            <td style="padding-left: 40px;"><p style="font-size: 18px">Apoyo a obtener:</p></td>
+            <td><p style="font-size: 18px"><%= student.scholarships.last.desired_support %></p></td>
+          </tr>
+          <tr>
+            <td style="padding-left: 40px;"><p style="font-size: 18px">Programa:</p></td>
+            <td><p style="font-size: 18px"><%= student.scholarships.last.program %></p></td>
+          </tr>
+          <tr>
+            <td style="padding-left: 40px;"><p style="font-size: 18px">Area de conocimiento:</p></td>
+            <td><p style="font-size: 18px"><%= student.scholarships.last.study_area %></p></td>
+          </tr>
+          <tr>
+            <td style="padding-left: 40px;"><p style="font-size: 18px">Campo:</p></td>
+            <td><p style="font-size: 18px"><%= student.scholarships.last.study_field %></p></td>
+          </tr>
+          <tr>
+            <td style="padding-left: 40px;"><p style="font-size: 18px">Disciplina:</p></td>
+            <td><p style="font-size: 18px"><%= student.scholarships.last.discipline %></p></td>
+          </tr>
+          <tr>
+            <td style="padding-left: 40px;"><p style="font-size: 18px">Subdisciplina:</p></td>
+            <td><p style="font-size: 18px"><%= student.scholarships.last.sub_discipline %></p></td>
+          </tr>
+          <tr>
+            <td style="padding-left: 40px;"><p style="font-size: 18px">Promedio de último grado:</p></td>
+            <td><p style="font-size: 18px"><%= student.scholarships.last.most_recent_gpa %></p></td>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
   </div>
 </div>
