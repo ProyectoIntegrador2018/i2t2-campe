@@ -15,6 +15,8 @@
       <li id="dash_dashboard"><%= link_to 'Registrar becarios', new_with_student_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <li id="dash_dashboard"><%= link_to 'Ver Convocatorias', scholarship_oportunities_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <li id="dash_dashboard"><%= link_to 'Crear Convocatoria', new_scholarship_oportunity_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+      <li id="dash_dashboard"><%= link_to 'Vacantes', job_postings_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+      <li id="dash_dashboard"><%= link_to 'Compañias', companies_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <% if current_user.super_admin? %>
         <li id="dash_dashboard"><%= link_to 'Registrar administradores', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <% end %>
@@ -22,7 +24,7 @@
       <li id="dash_dashboard"><%= link_to 'Perfil', student_path(current_user.student), :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <li id="dash_dashboard"><%= link_to 'Historia', history_student_path(current_user.student.id), :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <% if current_user.former_student? %>
-        <li id="dash_dashboard"><%= link_to 'Bolsa de trabajo', "#", :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+        <li id="dash_dashboard"><%= link_to 'Bolsa de trabajo', job_postings_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
         <% if current_user.student.curriculum %>
           <li id="dash_dashboard"><%= link_to 'Curriculum', curriculum_path(current_user.student.curriculum), :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
         <% else %>
@@ -31,7 +33,7 @@
       <% end %>
     <% elsif current_user.company? %>
       <li id="dash_dashboard"><%= link_to 'Perfil', "#", :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-      <li id="dash_dashboard"><%= link_to 'Vacantes', "#", :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+      <li id="dash_dashboard"><%= link_to 'Mis vacantes', job_postings_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
     <% end %>
   </ul>
 <% end %>
