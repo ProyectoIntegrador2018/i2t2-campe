@@ -49,6 +49,7 @@
       <%= form.text_area :responsabilities, class: 'materialize-textarea' %>
     </div>
   </div>
+  <%= form.hidden_field :company_id, :value => current_user.company.id %>
   <div class="actions center-align">
     <%= form.submit "Guardar", :class => "btn" %>
   </div>
