@@ -5,6 +5,7 @@ ruby '2.5.3'
 
 gem 'devise'
 gem 'pundit'
+gem 'cocoon'
 gem 'audited', '~> 4.9'
 gem 'rails', '~> 5.2.3'
 gem 'materialize-sass'

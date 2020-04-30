@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 2020_04_30_002042) do
     t.integer "min_desired_salary"
     t.integer "max_desired_salary"
     t.string "desired_position"
-    t.text "skils"
+    t.text "skills"
     t.text "areas_of_expertise"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

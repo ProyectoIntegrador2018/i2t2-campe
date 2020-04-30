@@ -1,14 +1,14 @@
 <main style="padding-left: 240px">
-  <div class="row">
+  <div class="container">
     <div class="col s12" style="padding-top: 20px;"><h4 class="center-align">Curriculum</h4> </div>
-    <div class="col s12 m4 l1"><p></p></div>
     <div class="col s12 m4 l10">
       <div id="basic-form" class="section">
         <%= form_for @curriculum do |f| %>
           <%= render "curriculums/form", f: f %>
-          <div class="actions center-align">
-              <%= f.submit "Guardar", :class=>"btn"%>
-          </div>
+          <div class="fixed-action-btn">
+          <%= f.submit :class=>"btn-floating btn-large teal darken-2" do %>
+            <i class="large material-icons">save</i>
+          <% end %>
         <% end %>
       </div>
     </div>
