@@ -201,15 +201,16 @@ ActiveRecord::Schema.define(version: 2020_04_30_002042) do
 
   create_table "work_experiences", force: :cascade do |t|
     t.bigint "student_id", null: false
-    t.bigint "company_id", null: false
+    t.string "company"
     t.string "entity"
     t.string "country"
     t.string "title"
     t.string "study_area"
-    t.integer "degree_level"
+    t.text "description"
+    t.date "start_date"
+    t.date "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_work_experiences_on_company_id"
     t.index ["student_id"], name: "index_work_experiences_on_student_id"
   end
 
@@ -218,6 +219,5 @@ ActiveRecord::Schema.define(version: 2020_04_30_002042) do
   add_foreign_key "curriculums", "students"
   add_foreign_key "education_histories", "curriculums"
   add_foreign_key "languages", "curriculums"
-  add_foreign_key "work_experiences", "companies"
   add_foreign_key "work_experiences", "students"
 end
