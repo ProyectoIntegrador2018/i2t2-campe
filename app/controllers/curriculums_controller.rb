@@ -50,6 +50,10 @@ class CurriculumsController < ApplicationController
       ],
       certifications_attributes: [
         :id,
+        :emitting_organization,
+        :certification_name,
+        :date_emitted,
+        :brief_description,
         :_destroy,
       ],
       languages_attributes: [
