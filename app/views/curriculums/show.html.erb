@@ -13,20 +13,20 @@
         <span>
           <div class="row">
             <div class="col s12">
-              <h1 class="zero-margin"><%= @curriculum.student.full_name %></h1>
+              <h1 class="zeroMargin"><%= @curriculum.student.full_name %></h1>
             </div>
           </div>
           <div class="row">
             <div class="col s12">
-              <p class="large-text zero-margin grey-text">Empleo deseado:</p>
+              <p class="largeText zeroMargin grey-text">Empleo deseado:</p>
             </div>
           </div>
           <div class="row">
             <div class="col s12 m6">
-              <p class="large-text zero-margin"><%= @curriculum.desired_position %></p>
+              <p class="largeText zeroMargin"><%= @curriculum.desired_position %></p>
             </div>
             <div class="col s12 m6">
-              <p class="large-text zero-margin">
+              <p class="largeText zeroMargin">
                 <%= number_to_currency @curriculum.min_desired_salary %> - <%= number_to_currency @curriculum.max_desired_salary %>
               </p>
             </div>
@@ -56,7 +56,7 @@
               <div class="col s12">
                 <ul>
                   <% @curriculum.languages.each do |language| %>
-                    <li class="medium-text">
+                    <li class="mediumText">
                       <%= language.language_name %> - 
                       <span class="blue-grey-text text-darken-1"><%= humanize_language_proficiency(language)%><span>
                     </li>
@@ -77,7 +77,7 @@
           <div class="card-panel">
             <div class="row">
               <div class="col s12">
-                <p class="medium-text"><%= @curriculum.skills %></p>
+                <p class="mediumText"><%= @curriculum.skills %></p>
               </div>
             </div>
           </div>
@@ -93,7 +93,7 @@
           <div class="card-panel">
             <div class="row">
               <div class="col s12">
-                <p class="medium-text"><%= @curriculum.areas_of_expertise%></p>
+                <p class="mediumText"><%= @curriculum.areas_of_expertise%></p>
               </div>
             </div>
           </div>
@@ -110,21 +110,21 @@
     <% @curriculum.education_histories.each do |edu| %>
       <div class="card-panel">
         <div class="col s12">
-          <p class="x-large-text zero-margin"><%= edu.area_of_study%></p>
+          <p class="xLargeText zeroMargin"><%= edu.area_of_study%></p>
         </div>
         <div class="row">
           <div class="col s12 m7">
-            <p class="large-text blue-grey-text text-darken-3 zero-margin">
+            <p class="largeText blue-grey-text text-darken-3 zeroMargin">
               <%= edu.university %>
             </p>
           </div>
           <div class="col s6 m2">
-            <p class="large-text blue-grey-text text-darken-2 zero-margin">
+            <p class="largeText blue-grey-text text-darken-2 zeroMargin">
               <%= edu.start_date.try :strftime, "%B %Y" %>
             </p>
           </div>
           <div class="col s6 m2">
-            <p class="large-text blue-grey-text text-darken-2 zero-margin">
+            <p class="largeText blue-grey-text text-darken-2 zeroMargin">
               <%= edu.end_date.try :strftime, "%B %Y" %>
             </p>
           </div>
@@ -132,7 +132,7 @@
         <div class="divider"></div>
         <div class="row">
           <div class="col s12">
-            <p class="university-text medium-text zero-margin">
+            <p class="universityText mediumText zeroMargin">
               <%= edu.brief_description %>
             </p>
           </div>
@@ -149,16 +149,16 @@
     <% @curriculum.certifications.each do |cert| %>
       <div class="card-panel">
         <div class="col s12">
-          <p class="x-large-text zero-margin"><%= cert.certification_name%></p>
+          <p class="xLargeText zeroMargin"><%= cert.certification_name%></p>
         </div>
         <div class="row">
           <div class="col s12 m7">
-            <p class="large-text blue-grey-text text-darken-3 zero-margin">
+            <p class="largeText blue-grey-text text-darken-3 zeroMargin">
               <%= cert.emitting_organization %>
             </p>
           </div>
           <div class="col s12 m2 offset-m2">
-            <p class="large-text blue-grey-text text-darken-2 zero-margin">
+            <p class="largeText blue-grey-text text-darken-2 zeroMargin">
               <%= cert.date_emitted.try :strftime, "%B %Y" %>
             </p>
           </div>
@@ -166,7 +166,7 @@
         <div class="divider"></div>
         <div class="row">
           <div class="col s12">
-            <p class="university-text medium-text zero-margin">
+            <p class="universityText mediumText zeroMargin">
               <%= cert.brief_description %>
             </p>
           </div>

@@ -1,7 +1,12 @@
 <div class="row">
-  <div class="col s12">
-    <h5>Foto:</h5>
-    <%= f.file_field :profile_picture %>
+  <div class="col s12 l6 input-field">
+    <div class="file-field input-field gallery_picture">
+      <div class="btn-small">
+        <span><b>Adjuntar Foto</b></span>
+        <%= f.file_field :profile_picture %>
+      </div>
+      <input class="file-path validate" type="text"/>
+    </div>
   </div>
 </div>
 
@@ -24,7 +29,7 @@
 <blockquote>
   <h5>Objetivo profesional:</h5>
   <%= f.label :Objetivo_Profesional %>
-  <%= f.text_area :professional_objective %>
+  <%= f.text_area :professional_objective, class: 'materialize-textarea' %>
 </blockquote>
 
 <div class="row">
@@ -60,7 +65,7 @@
         <div class="row">
           <div class="col s12">
             <%= f.label :Habilidades %>
-            <%= f.text_area :skills %>
+            <%= f.text_area :skills, class: 'materialize-textarea' %>
           </div>
         </div>
       </div>
@@ -77,7 +82,7 @@
         <div class="row">
           <div class="col s12">    
             <%= f.label :Areas_de_expertiz %>
-            <%= f.text_area :areas_of_expertise %>
+            <%= f.text_area :areas_of_expertise, class: 'materialize-textarea' %>
           </div>
         </div>
       </div>
