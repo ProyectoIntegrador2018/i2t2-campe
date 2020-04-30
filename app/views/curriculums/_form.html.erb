@@ -102,6 +102,18 @@
 
 <br><br><br>
 
+<h5>Experiencias de Trabajo</h5>
+<%= f.fields_for :work_experiences do |certification| %>
+  <%= render 'work_experience_fields', f: certification %>
+<% end %>
+<div class='links'>
+  <%= link_to_add_association f, :work_experiences, :class => "right btn-floating btn-large teal" do %>
+    <i class="large material-icons">add</i>
+  <% end %>
+</div>
+
+<br><br><br>
+
 <h5>Cursos y Certificacions</h5>
 <%= f.fields_for :certifications do |certification| %>
   <%= render 'certification_fields', f: certification %>

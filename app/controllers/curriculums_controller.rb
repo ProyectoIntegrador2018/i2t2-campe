@@ -62,6 +62,18 @@ class CurriculumsController < ApplicationController
         :proficiency,
         :_destroy,
       ],
+      work_experiences_attributes: [
+        :id,
+        :company,
+        :entity,
+        :country,
+        :title,
+        :study_area,
+        :description,
+        :start_date,
+        :end_date,
+        :_destroy,
+      ]
     )
   end
 

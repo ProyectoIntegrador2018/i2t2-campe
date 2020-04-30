@@ -4,6 +4,7 @@ class Curriculum < ApplicationRecord
   has_many :education_histories
   has_many :languages
   has_many :certifications
+  has_many :work_experiences
 
-  accepts_nested_attributes_for :education_histories, :languages, :certifications, allow_destroy: true
+  accepts_nested_attributes_for :education_histories, :languages, :certifications, :work_experiences, allow_destroy: true
 end
