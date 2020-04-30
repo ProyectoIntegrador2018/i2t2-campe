@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_28_200605) do
+ActiveRecord::Schema.define(version: 2020_04_30_002042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -199,9 +199,25 @@ ActiveRecord::Schema.define(version: 2020_04_28_200605) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "work_experiences", force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "company_id", null: false
+    t.string "entity"
+    t.string "country"
+    t.string "title"
+    t.string "study_area"
+    t.integer "degree_level"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_work_experiences_on_company_id"
+    t.index ["student_id"], name: "index_work_experiences_on_student_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "certifications", "curriculums"
   add_foreign_key "curriculums", "students"
   add_foreign_key "education_histories", "curriculums"
   add_foreign_key "languages", "curriculums"
+  add_foreign_key "work_experiences", "companies"
+  add_foreign_key "work_experiences", "students"
 end

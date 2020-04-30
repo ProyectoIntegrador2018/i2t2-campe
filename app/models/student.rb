@@ -7,6 +7,7 @@ class Student < ApplicationRecord
   has_one :curriculum
   has_many :scholarships
   has_many :scholarship_oportunities, through: :scholarships
+  has_many :work_experiences
 
   accepts_nested_attributes_for :contact_information, :scholarships, :curriculum
 end
