@@ -1,0 +1,16 @@
+<div class='nested-fields'>
+  <%= f.label :Organizacion_o_Universidad %>
+  <%= f.text_field :emitting_organization %>
+
+  <%= f.label :Fecha %>
+  <%= f.date_field :date_emitted %>
+
+  <%= f.label :Nombre_del_curso_o_certificacion %>
+  <%= f.text_field :certification_name %>
+
+  <%= f.label :Descripcion_breve %>
+  <%= f.text_area :brief_description %>
+
+  <%= link_to_remove_association "Borrar", f %>
+  <div class="divider"></div>
+</div>

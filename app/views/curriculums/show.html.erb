@@ -140,7 +140,39 @@
       </div>
     <% end %>
     
-    <div class="col s12 m4 l2"><p></p></div>
+    <div class="row">
+      <div class="col s12">
+        <h3>Cursos y Certificaciones</h3>
+      </div>
+    </div>
+
+    <% @curriculum.certifications.each do |cert| %>
+      <div class="card-panel">
+        <div class="col s12">
+          <p class="x-large-text zero-margin"><%= cert.certification_name%></p>
+        </div>
+        <div class="row">
+          <div class="col s12 m7">
+            <p class="large-text blue-grey-text text-darken-3 zero-margin">
+              <%= cert.emitting_organization %>
+            </p>
+          </div>
+          <div class="col s12 m2 offset-m2">
+            <p class="large-text blue-grey-text text-darken-2 zero-margin">
+              <%= cert.date_emitted.strftime("%B %Y") %>
+            </p>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="row">
+          <div class="col s12">
+            <p class="university-text medium-text zero-margin">
+              <%= cert.brief_description %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
 
     <% if current_user.former_student? %>
       <div class="fixed-action-btn">

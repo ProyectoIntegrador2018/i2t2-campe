@@ -14,6 +14,21 @@
 <%= f.label :Objetivo_Profesional %>
 <%= f.text_area :professional_objective %>
 
+<%= f.label :Habilidades %>
+<%= f.text_area :skills %>
+
+<%= f.label :Areas_de_expertiz %>
+<%= f.text_area :areas_of_expertise %>
+
+
+<h5>Idiomas</h5>
+<%= f.fields_for :languages do |language| %>
+  <%= render 'language_fields', f: language %>
+<% end %>
+<div class='links'>
+  <%= link_to_add_association 'Agregar nuevo', f, :languages%>
+</div>
+
 <h5>Educación</h5>
 <%= f.fields_for :education_histories do |education_history| %>
   <%= render 'education_history_fields', f: education_history %>
@@ -22,10 +37,10 @@
   <%= link_to_add_association 'Agregar nuevo', f, :education_histories%>
 </div>
 
-<h5>Idiomas</h5>
-<%= f.fields_for :languages do |language| %>
-  <%= render 'language_fields', f: language %>
+<h5>Cursos y Certificacions</h5>
+<%= f.fields_for :certifications do |certification| %>
+  <%= render 'certification_fields', f: certification %>
 <% end %>
 <div class='links'>
-  <%= link_to_add_association 'Agregar nuevo', f, :languages%>
+  <%= link_to_add_association 'Agregar nuevo', f, :certifications%>
 </div>
