@@ -31,7 +31,29 @@ class CurriculumsController < ApplicationController
   end
 
   def curriculum_params
-    params.require(:curriculum).permit(:professional_objective)
+    params.require(:curriculum).permit(
+      :profile_picture,
+      :professional_objective,
+      education_histories_attributes: [
+        :id,
+        :start_date,
+        :end_date,
+        :area_of_study,
+        :university,
+        :brief_description,
+        :_destroy,
+      ],
+      certifications_attributes: [
+        :id,
+        :_destroy,
+      ],
+      languages_attributes: [
+        :id,
+        :language_name,
+        :proficiency,
+        :_destroy,
+      ],
+    )
   end
 
   def authorize_former_student

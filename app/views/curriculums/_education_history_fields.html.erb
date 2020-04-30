@@ -1,0 +1,19 @@
+<div class='nested-fields'>
+  <%= f.label :Universidad %>
+  <%= f.text_field :university %>
+
+  <%= f.label :Inicio_de_estudios %>
+  <%= f.date_field :start_date %>
+
+  <%= f.label :Fin_de_estudios %>
+  <%= f.date_field :end_date %>
+
+  <%= f.label :Area_de_estudios %>
+  <%= f.text_field :area_of_study %>
+
+  <%= f.label :Descripcion_breve %>
+  <%= f.text_area :brief_description %>
+
+  <%= link_to_remove_association "Borrar", f %>
+  <div class="divider"></div>
+</div>

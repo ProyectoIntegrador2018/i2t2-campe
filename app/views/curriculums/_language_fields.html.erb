@@ -1,0 +1,16 @@
+<div class='nested-fields'>
+  <%= f.label :Idioma %>
+  <%= f.text_field :language_name %>
+
+  <%= f.label :Nivel_de_conocimiento %>
+  <%= f.select :proficiency, options_for_select([
+    ["Básico", "elementary"],
+    ["Básico Limitado", "limited_working"],
+    ["Profesional Limitado", "minimum_professional"],
+    ["Profesional Avanzado", "full_professional"],
+    ["Bilingüe/Nativo", "native_bilingual"],
+    ], (f.object.try :proficiency)), {}, { class: 'browser-default'}  %>
+
+  <%= link_to_remove_association "Borrar", f %>
+  <div class="divider"></div>
+</div>

@@ -1,2 +1,21 @@
+<%= f.label :Foto%>
+<%= f.file_field :profile_picture %>
+
 <%= f.label :Objetivo_Profesional %>
 <%= f.text_area :professional_objective %>
+
+<h5>Educación</h5>
+<%= f.fields_for :education_histories do |education_history| %>
+  <%= render 'education_history_fields', f: education_history %>
+<% end %>
+<div class='links'>
+  <%= link_to_add_association 'Agregar nuevo', f, :education_histories%>
+</div>
+
+<h5>Idiomas</h5>
+<%= f.fields_for :languages do |language| %>
+  <%= render 'language_fields', f: language %>
+<% end %>
+<div class='links'>
+  <%= link_to_add_association 'Agregar nuevo', f, :languages%>
+</div>

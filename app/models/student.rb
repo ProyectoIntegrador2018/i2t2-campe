@@ -9,5 +9,9 @@ class Student < ApplicationRecord
   has_many :scholarship_oportunities, through: :scholarships
 
   accepts_nested_attributes_for :contact_information, :scholarships, :curriculum
+
+  def full_name
+    [self.name, self.paternal_last_name, self.maternal_last_name].join(' ').squeeze(' ')
+  end
 end
 
