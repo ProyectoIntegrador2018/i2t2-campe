@@ -120,12 +120,12 @@
           </div>
           <div class="col s6 m2">
             <p class="large-text blue-grey-text text-darken-2 zero-margin">
-              <%= edu.start_date.strftime("%B %Y") %>
+              <%= edu.start_date.try :strftime, "%B %Y" %>
             </p>
           </div>
           <div class="col s6 m2">
             <p class="large-text blue-grey-text text-darken-2 zero-margin">
-              <%= edu.end_date.strftime("%B %Y") %>
+              <%= edu.end_date.try :strftime, "%B %Y" %>
             </p>
           </div>
         </div>
@@ -159,7 +159,7 @@
           </div>
           <div class="col s12 m2 offset-m2">
             <p class="large-text blue-grey-text text-darken-2 zero-margin">
-              <%= cert.date_emitted.strftime("%B %Y") %>
+              <%= cert.date_emitted.try :strftime, "%B %Y" %>
             </p>
           </div>
         </div>
