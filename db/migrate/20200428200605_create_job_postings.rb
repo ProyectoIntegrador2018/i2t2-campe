@@ -10,6 +10,7 @@ class CreateJobPostings < ActiveRecord::Migration[5.2]
       t.text :responsabilities
       t.string :experience_required
 
+      t.integer :company_id
       t.timestamps
     end
   end

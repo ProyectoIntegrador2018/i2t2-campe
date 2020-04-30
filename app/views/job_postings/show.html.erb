@@ -1,12 +1,12 @@
 <main style="padding-left: 240px">
   <div class="row">
     <div class="col s3 offset-s1 inline">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTi4DmuEiqgpdMPdI839ak7nqOyEHlnwt2nQWTLtI8UzuxgsYKH" class="companyLogo" />
+      <%= image_tag @job_posting.company.logo, class: "companyLogo" %>
     </div>
     <div class="col s7 offset-s1 inline">
       <h4><%= @job_posting.title %></h4>
-      <h4>Nombre de la compañia</h4>
-      <div>Sobre nosotros de la compañia</div>
+      <h4><%= @job_posting.company.name %></h4>
+      <div><%= @job_posting.company.information %></div>
     </div>
   </div>
   <div class="row">
