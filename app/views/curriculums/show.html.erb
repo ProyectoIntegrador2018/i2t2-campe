@@ -2,15 +2,36 @@
   <div class="container">
 
     <div class="row">
-      <div class="col s12 m2 valign-wrapper">
+      <div class="col s12 m2 valign-wrapper z-depth-1">
         <% if @curriculum.profile_picture.attached? %>
-          <img src="<%= url_for(@curriculum.profile_picture) %>" height="200" class="materialboxed" />
+          <img src="<%= url_for(@curriculum.profile_picture) %>" height="200" class="materialboxed center-align" />
         <% else %>
-          <img style="margin-top: 5%;" width="100" height="100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTi4DmuEiqgpdMPdI839ak7nqOyEHlnwt2nQWTLtI8UzuxgsYKH" class="circle responsive-img" />
+          <img style="margin-top: 5%;" height="200" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTi4DmuEiqgpdMPdI839ak7nqOyEHlnwt2nQWTLtI8UzuxgsYKH" class="center-align responsive-img" />
         <% end %>
       </div>
       <div class="col s12 m10 valign-wrapper">
-        <h1><%= @curriculum.student.full_name %></h1>
+        <span>
+          <div class="row">
+            <div class="col s12">
+              <h1 class="zero-margin"><%= @curriculum.student.full_name %></h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12">
+              <p class="large-text zero-margin grey-text">Empleo deseado:</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12 m6">
+              <p class="large-text zero-margin"><%= @curriculum.desired_position %></p>
+            </div>
+            <div class="col s12 m6">
+              <p class="large-text zero-margin">
+                <%= number_to_currency @curriculum.min_desired_salary %> - <%= number_to_currency @curriculum.max_desired_salary %>
+              </p>
+            </div>
+          </div>
+        </span>
       </div>
     </div>
   
@@ -23,6 +44,64 @@
     </div>
 
     <div class="row">
+      <div class="col s12 m4">
+        <div>
+          <div class="row">
+            <div class="col s12">
+              <h3>Idiomas</h3>
+            </div>
+          </div>
+          <div class="card-panel">
+            <div class="row">
+              <div class="col s12">
+                <ul>
+                  <% @curriculum.languages.each do |language| %>
+                    <li class="medium-text">
+                      <%= language.language_name %> - 
+                      <span class="blue-grey-text text-darken-1"><%= humanize_language_proficiency(language)%><span>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m4">
+        <div>
+          <div class="row">
+            <div class="col s12">
+              <h3>Habilidades</h3>
+            </div>
+          </div>
+          <div class="card-panel">
+            <div class="row">
+              <div class="col s12">
+                <p class="medium-text"><%= @curriculum.skills %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m4">
+        <div>
+          <div class="row">
+            <div class="col s12">
+              <h3>Áreas de expertiz</h3>
+            </div>
+          </div>
+          <div class="card-panel">
+            <div class="row">
+              <div class="col s12">
+                <p class="medium-text"><%= @curriculum.areas_of_expertise%></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
       <div class="col s12">
         <h3>Educación</h3>
       </div>
@@ -31,21 +110,21 @@
     <% @curriculum.education_histories.each do |edu| %>
       <div class="card-panel">
         <div class="col s12">
-          <p class="university-title zero-margin"><%= edu.area_of_study%></p>
+          <p class="x-large-text zero-margin"><%= edu.area_of_study%></p>
         </div>
         <div class="row">
           <div class="col s12 m7">
-            <p class="university-subtitle blue-grey-text text-darken-3 zero-margin">
+            <p class="large-text blue-grey-text text-darken-3 zero-margin">
               <%= edu.university %>
             </p>
           </div>
           <div class="col s6 m2">
-            <p class="university-subtitle blue-grey-text text-darken-2 zero-margin">
+            <p class="large-text blue-grey-text text-darken-2 zero-margin">
               <%= edu.start_date.strftime("%B %Y") %>
             </p>
           </div>
           <div class="col s6 m2">
-            <p class="university-subtitle blue-grey-text text-darken-2 zero-margin">
+            <p class="large-text blue-grey-text text-darken-2 zero-margin">
               <%= edu.end_date.strftime("%B %Y") %>
             </p>
           </div>
@@ -53,18 +132,14 @@
         <div class="divider"></div>
         <div class="row">
           <div class="col s12">
-            <p class="university-text zero-margin">
+            <p class="university-text medium-text zero-margin">
               <%= edu.brief_description %>
             </p>
           </div>
         </div>
       </div>
     <% end %>
-
-    <h4>Idiomas</h2>
-    <% @curriculum.languages.each do |language| %>
-      <p><%= language.language_name %> - <%= humanize_language_proficiency(language)%></p>
-    <% end %>
+    
     <div class="col s12 m4 l2"><p></p></div>
 
     <% if current_user.former_student? %>

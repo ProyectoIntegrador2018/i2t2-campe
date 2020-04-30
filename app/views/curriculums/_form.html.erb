@@ -1,5 +1,15 @@
 <%= f.label :Foto%>
 <%= f.file_field :profile_picture %>
+<br>
+
+<%= f.label :Puesto_deseado %>
+<%= f.text_field :desired_position %>
+
+<%= f.label :Minimo_salario_esperado %>
+<%= f.number_field :min_desired_salary %>
+
+<%= f.label :Maximo_salario_esperado %>
+<%= f.number_field :max_desired_salary %>
 
 <%= f.label :Objetivo_Profesional %>
 <%= f.text_area :professional_objective %>
