@@ -152,19 +152,38 @@
           <p class="xLargeText zeroMargin"><%= we.company%></p>
         </div>
         <div class="row">
-          <div class="col s12 m7">
+          <div class="col s12 m6">
             <p class="largeText blue-grey-text text-darken-3 zeroMargin">
               <%= we.title %>
             </p>
           </div>
-          <div class="col s6 m2">
+          <div class="col s6 m3">
             <p class="largeText blue-grey-text text-darken-2 zeroMargin">
               <%= we.start_date.try :strftime, "%B %Y" %>
             </p>
           </div>
-          <div class="col s6 m2">
+          <div class="col s6 m3">
             <p class="largeText blue-grey-text text-darken-2 zeroMargin">
               <%= we.end_date.try :strftime, "%B %Y" %>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m6">
+            <p class="largeText blue-grey-text text-darken-3 zeroMargin">
+              <%= we.entity %>
+            </p>
+          </div>
+          <div class="col s12 m6">
+            <p class="largeText blue-grey-text text-darken-3 zeroMargin">
+              <%= we.country %>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12">
+            <p class="largeText blue-grey-text text-darken-3 zeroMargin">
+              <%= we.study_area %>
             </p>
           </div>
         </div>
