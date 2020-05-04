@@ -21,6 +21,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
   end
 
+  def new_with_former_student
+    authorize User
+    @user = User.new
+    @user.role = "former_student"
+  end
+
   def new_with_company
     authorize User
     @user = User.new

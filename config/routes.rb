@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "users/new_with_student" => "users/registrations#new_with_student", :as => "new_with_student"
     get "users/new_with_company" => "users/registrations#new_with_company", :as => "new_with_company"
+    get "users/new_with_former_student" => "users/registrations#new_with_former_student", :as => "new_with_former_student"
   end
 
   root to: 'pages#home'

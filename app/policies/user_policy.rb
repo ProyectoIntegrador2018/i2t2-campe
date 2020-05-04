@@ -11,4 +11,8 @@ class UserPolicy < ApplicationPolicy
   def new_with_company?
     @user.try :is_admin_or_super_admin?
   end
+
+  def new_with_former_student?
+    @user.try :is_admin_or_super_admin?
+  end
 end
