@@ -1,6 +1,7 @@
 class Curriculum < ApplicationRecord
   belongs_to :student
   has_one_attached :profile_picture
+  has_one_attached :curriculum_file
   has_many :education_histories
   has_many :languages
   has_many :certifications

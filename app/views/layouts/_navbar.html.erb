@@ -1,9 +1,9 @@
 <% if current_user %>
   <ul id="slide-out" class="side-nav fixed z-depth-2">
     <li class="center no-padding">
-      <div class="indigo darken-2 white-text" style="height: 180px;">
-        <div class="row" style="background:#1d7d74">
-          <img style="margin-top: 5%;" width="100" height="100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTi4DmuEiqgpdMPdI839ak7nqOyEHlnwt2nQWTLtI8UzuxgsYKH" class="circle responsive-img" />
+      <div class="teal darken-1 white-text">
+        <div class="row">
+          <img style="margin-top: 10%;" width="100" height="100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTi4DmuEiqgpdMPdI839ak7nqOyEHlnwt2nQWTLtI8UzuxgsYKH" class="circle responsive-img" />
           <p style="margin-top: -13%;">
           <%= humanized_role_name(current_user) %>
           </p>
@@ -11,21 +11,21 @@
       </div>
     </li>
     <% if current_user.is_admin_or_super_admin?  %>
-      <li id="dash_dashboard"><%= link_to 'Lista de becarios', students_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-      <li id="dash_dashboard"><%= link_to 'Registrar becarios', new_with_student_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+      <li id="dash_dashboard"><%= link_to 'Lista de Becarios', students_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+      <li id="dash_dashboard"><%= link_to 'Registrar Becarios', new_with_student_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <li id="dash_dashboard"><%= link_to 'Ver Convocatorias', scholarship_oportunities_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <li id="dash_dashboard"><%= link_to 'Crear Convocatoria', new_scholarship_oportunity_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <li id="dash_dashboard"><%= link_to 'Vacantes', job_postings_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <li id="dash_dashboard"><%= link_to 'Compañias', companies_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-      <li id="dash_dashboard"><%= link_to 'Registrar exbecario', new_with_former_student_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+      <li id="dash_dashboard"><%= link_to 'Registrar Exbecario', new_with_former_student_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <% if current_user.super_admin? %>
-        <li id="dash_dashboard"><%= link_to 'Registrar administradores', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+        <li id="dash_dashboard"><%= link_to 'Registrar Administradores', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <% end %>
       <% elsif current_user.is_student_or_former_student? %>
       <li id="dash_dashboard"><%= link_to 'Perfil', student_path(current_user.student), :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <li id="dash_dashboard"><%= link_to 'Historia', history_student_path(current_user.student.id), :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <% if current_user.former_student? %>
-        <li id="dash_dashboard"><%= link_to 'Bolsa de trabajo', job_postings_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+        <li id="dash_dashboard"><%= link_to 'Bolsa de Trabajo', job_postings_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
         <% if current_user.student.curriculum %>
           <li id="dash_dashboard"><%= link_to 'Curriculum', curriculum_path(current_user.student.curriculum), :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
         <% else %>
@@ -34,7 +34,7 @@
       <% end %>
     <% elsif current_user.company? %>
       <li id="dash_dashboard"><%= link_to 'Perfil', "#", :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-      <li id="dash_dashboard"><%= link_to 'Mis vacantes', job_postings_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+      <li id="dash_dashboard"><%= link_to 'Mis Vacantes', job_postings_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
     <% end %>
   </ul>
 <% end %>
