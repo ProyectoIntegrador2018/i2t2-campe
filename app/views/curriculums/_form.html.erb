@@ -105,13 +105,15 @@
 <br><br><br>
 
 <h5>Experiencias de Trabajo</h5>
-<%= f.fields_for :work_experiences do |work_experience| %>
-  <%= render 'work_experience_fields', f: work_experience %>
-<% end %>
-<div class='links'>
-  <%= link_to_add_association f, :work_experiences, :class => "right btn-floating btn-large teal" do %>
-    <i class="large material-icons">add</i>
+<div id="work-experiences">
+  <%= f.fields_for :work_experiences do |work_experience| %>
+    <%= render 'work_experience_fields', f: work_experience %>
   <% end %>
+  <div class='links'>
+    <%= link_to_add_association f, :work_experiences, :class => "right btn-floating btn-large teal" do %>
+      <i class="large material-icons">add</i>
+    <% end %>
+  </div>
 </div>
 
 <br><br><br>
