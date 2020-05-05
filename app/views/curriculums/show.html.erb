@@ -1,15 +1,11 @@
 <main style="padding-left: 240px">
   <div class="container">
 
-    <div class="row">
-      <div class="col s12 l2 valign-wrapper z-depth-1">
-        <% if @curriculum.profile_picture.attached? %>
-          <img src="<%= url_for(@curriculum.profile_picture) %>" height="200" class="materialboxed center-align" />
-        <% else %>
-          <img style="margin-top: 5%;" height="200" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTi4DmuEiqgpdMPdI839ak7nqOyEHlnwt2nQWTLtI8UzuxgsYKH" class="center-align responsive-img" />
-        <% end %>
+    <div class="row valign-wrapper ">
+      <div class="col s12 l3 z-depth-1 center-align">
+        <img src="<%= @curriculum.profile_picture.attached? ? url_for(@curriculum.profile_picture) : 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTi4DmuEiqgpdMPdI839ak7nqOyEHlnwt2nQWTLtI8UzuxgsYKH' %>" class="materialboxed responsive-img">
       </div>
-      <div class="col s12 l10 valign-wrapper">
+      <div class="col s12 l8 offset-l1 valign-wrapper">
         <span>
           <div class="row">
             <div class="col s12">
@@ -31,7 +27,20 @@
               </p>
             </div>
           </div>
+          <div class="row">
+            <div class="col s12">
+              <p class="largeText zeroMargin grey-text">Archivo de curriculum:</p>
+              <% if @curriculum.curriculum_file.attached? %>
+                <div class="col s12 l10 valign-wrapper">
+                  <a href="<%= url_for(@curriculum.curriculum_file) %>" class="btn-small"><i class="material-icons left">file_download</i>Descargar Curriculum</a>
+                </div>
+              <% else %>
+                No has subido un archivo.
+              <% end %>
+            </div>
+          </div>
         </span>
+
       </div>
     </div>
   
@@ -47,8 +56,8 @@
       <div class="col s12 l4">
         <div>
           <div class="row">
-            <div class="col s12">
-              <h3>Idiomas</h3>
+            <div class="col s12 center-align">
+              <h4>Idiomas</h4>
             </div>
           </div>
           <div class="card-panel">
@@ -70,8 +79,8 @@
       <div class="col s12 l4">
         <div>
           <div class="row">
-            <div class="col s12">
-              <h3>Habilidades</h3>
+            <div class="col s12 center-align">
+              <h4>Habilidades</h4>
             </div>
           </div>
           <div class="card-panel">
@@ -86,8 +95,8 @@
       <div class="col s12 l4">
         <div>
           <div class="row">
-            <div class="col s12">
-              <h3>Áreas de expertiz</h3>
+            <div class="col s12 center-align">
+              <h4>Experiencia</h4>
             </div>
           </div>
           <div class="card-panel">
@@ -103,7 +112,7 @@
 
     <div class="row">
       <div class="col s12">
-        <h3>Educación</h3>
+        <h4>Educación</h4>
       </div>
     </div>
 
@@ -142,7 +151,7 @@
 
     <div class="row">
       <div class="col s12">
-        <h3>Experiencias de Trabajo</h3>
+        <h4>Experiencias de Trabajo</h4>
       </div>
     </div>
 
@@ -200,7 +209,7 @@
     
     <div class="row">
       <div class="col s12">
-        <h3>Cursos y Certificaciones</h3>
+        <h4>Cursos y Certificaciones</h4>
       </div>
     </div>
 

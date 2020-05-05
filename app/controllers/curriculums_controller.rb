@@ -33,6 +33,7 @@ class CurriculumsController < ApplicationController
   def curriculum_params
     params.require(:curriculum).permit(
       :profile_picture,
+      :curriculum_file,
       :desired_position,
       :min_desired_salary,
       :max_desired_salary,
