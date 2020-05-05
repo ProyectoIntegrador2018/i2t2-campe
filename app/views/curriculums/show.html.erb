@@ -173,7 +173,7 @@
           </div>
           <div class="col s6 m3">
             <p class="largeText blue-grey-text text-darken-2 zeroMargin">
-              <%= we.end_date.try :strftime, "%B %Y" %>
+              <%= we.is_current ? "Actual" : (we.end_date.try :strftime, "%B %Y") %>
             </p>
           </div>
         </div>
