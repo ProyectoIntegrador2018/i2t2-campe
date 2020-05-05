@@ -72,6 +72,7 @@ class CurriculumsController < ApplicationController
         :description,
         :start_date,
         :end_date,
+        :is_current,
         :_destroy,
       ]
     )
