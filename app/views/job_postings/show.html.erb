@@ -1,7 +1,7 @@
 <main style="padding-left: 240px">
   <div class="row">
     <div class="col s3 offset-s1 inline">
-      <%= image_tag @job_posting.company.logo, class: "companyLogo" %>
+      <%= image_tag (@job_posting.company.logo.attached? ? @job_posting.company.logo : 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTi4DmuEiqgpdMPdI839ak7nqOyEHlnwt2nQWTLtI8UzuxgsYKH'), class: "companyLogo" %>
     </div>
     <div class="col s7 offset-s1 inline">
       <h4><%= @job_posting.title %></h4>
