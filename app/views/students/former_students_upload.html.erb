@@ -1,0 +1,21 @@
+<main style="padding-left: 240px">
+  <div class="container">
+    <div class="row">
+      <div class="col s12"><p></p></div>
+      <div class="col s12 m4 l1"><p></p></div>
+      <h2>Carga Masiva de exbecarios</h2>
+      <%= form_tag import_former_students_path, multipart: true do %>
+        <div class="row file-field input-field">
+          <div class="col s3 btn-small">
+            Excel Exbecarios
+            <%= file_field_tag :file,:style=>'padding-top:10px', class: 'form-control' %><br>
+          </div>
+          <input class="col s8 offset-s1 file-path validate" type="text" placeholder="Sube el excel con los exbecarios"/>
+        </div>
+        <%= submit_tag 'Enviar',:style=>'color:white;font-size:10px;width:110px ! important', class: 'btn btn-primary'%>
+      <% end %>
+
+      <div class="col s12 m4 l1"><p></p></div>
+    </div>
+  </div>
+</main>
