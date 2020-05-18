@@ -12,7 +12,16 @@
             class: 'filterrific-periodically-observed'
           ) %>
         </div>
+        <div class="col sm-6 inline">
+          <%= f.label "Compañia" %>
+          <%= f.select(
+            :with_company_id,
+            @filterrific.select_options[:with_company_id],
+            { include_blank: 'Nombre de compañia' }, { class: 'browser-default' }
+          ) %>
+        </div>
       </div>
+      <%= f.submit 'Filtrar' %>
     <% end %>
     <%= render "list", job_postings: @job_postings %>
   </div>
