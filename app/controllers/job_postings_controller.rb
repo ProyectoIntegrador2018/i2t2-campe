@@ -16,7 +16,7 @@ class JobPostingsController < ApplicationController
       params[:filterrific]
     ) || return
 
-    @job_postings = @filterrific.find
+    @job_postings = @filterrific.find.not_expired
   end
 
   # GET /job_postings/1
@@ -81,7 +81,7 @@ class JobPostingsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def job_posting_params
-    params.require(:job_posting).permit(:title, :salary, :description, :number_positions, :keywords, :employment_type, :responsabilities, :experience_required, :company_id)
+    params.require(:job_posting).permit(:title, :salary, :description, :number_positions, :keywords, :employment_type, :responsabilities, :experience_required, :expiration, :company_id)
   end
 
   def authorize_company

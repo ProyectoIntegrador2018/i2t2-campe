@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_223008) do
     t.string "employment_type"
     t.text "responsabilities"
     t.string "experience_required"
+    t.date "expiration"
     t.integer "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
