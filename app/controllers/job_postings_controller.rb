@@ -6,7 +6,7 @@ class JobPostingsController < ApplicationController
   # GET /job_postings
   # GET /job_postings.json
   def index
-    @job_postings = current_user.company? ? current_user.company.job_postings : JobPosting.all
+    @job_postings = current_user.company? ? current_user.company.job_postings : JobPosting.not_expired
   end
 
   # GET /job_postings/1
@@ -71,7 +71,7 @@ class JobPostingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_posting_params
-      params.require(:job_posting).permit(:title, :salary, :description, :number_positions, :keywords, :employment_type, :responsabilities, :experience_required, :company_id)
+      params.require(:job_posting).permit(:title, :salary, :description, :number_positions, :keywords, :employment_type, :responsabilities, :experience_required, :expiration, :company_id)
     end
 
   def authorize_company
