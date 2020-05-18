@@ -2,33 +2,30 @@
   <div class="row">
     <div class="col s12" style="padding-top: 20px;"><h4 class="center-align">Oportunidades laborales</h4></div>
   </div>
-  <div class="card-panel">
-    <div class="row">
-      <div class="col s12" style="padding-top: 20px;"><h5>Filtros</h5></div>
-      <%= form_for_filterrific @filterrific do |f| %>
-        <div class="row">
-          <div class="col s3 inline">
-            <%= f.label "Nombre vacante" %>
-            <%= f.text_field(
-              :search_name,
-              class: 'filterrific-periodically-observed'
-            ) %>
-          </div>
-          <div class="col s3 inline">
-            <%= f.label "Compañia" %>
-            <%= f.select(
-              :with_company_id,
-              @filterrific.select_options[:with_company_id],
-              { include_blank: 'Nombre de compañia' }, { class: 'browser-default' }
-            ) %>
-          </div>
-          <div class="col s3 inline">
-            <%= f.submit 'Filtrar' %>
-          </div>
-        </div>
-      <% end %>
+  <div class="divider"></div>
+  <%= form_for_filterrific @filterrific do |f| %>
+    <div class="row flex center-aligned">
+      <div class="col s3 inline">
+        <%= f.label "Nombre vacante" %>
+        <%= f.text_field(
+          :search_name,
+          class: 'filterrific-periodically-observed'
+        ) %>
+      </div>
+      <div class="col s3 inline">
+        <%= f.label "Compañia" %>
+        <%= f.select(
+          :with_company_id,
+          @filterrific.select_options[:with_company_id],
+          { include_blank: 'Nombre de compañia' }, { class: 'browser-default' }
+        ) %>
+      </div>
+      <div class="col s3 inline">
+        <%= f.submit 'Filtrar', :class => "btn-small" %>
+      </div>
     </div>
-  </div>
+  <% end %>
+  <div class="divider"></div>
   <div class="row">
     <%= render "list", job_postings: @job_postings %>
   </div>
