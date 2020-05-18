@@ -1,0 +1,18 @@
+<div id="filtered-results">
+  <% @job_postings.each do |job_posting| %>
+    <%= link_to job_posting_path(job_posting), :class => "clickableCard" do %>
+      <div class="col s4">
+        <div class="card">
+          <div class="card-image">
+            <%= image_tag job_posting.company.logo, class: "companyLogo" %>
+          </div>
+          <div class="divider"></div>
+          <div class="card-content">
+            <div><strong><%= job_posting.title %></strong></div>
+            <div>Nombre Empresa</div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
