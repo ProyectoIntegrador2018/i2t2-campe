@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   resources :students do
     get 'history', on: :member
   end
+  get 'former_students' => 'students#former_students', as: 'former_students'
+  get 'former_students_upload' => 'students#former_students_upload', as: 'former_students_upload'
+  post 'import_former_students' => 'students#import_former_students', as: 'import_former_students'
   resources :curriculums, except: [:index, :destroy]
   resources :pages
   resources :scholarships
