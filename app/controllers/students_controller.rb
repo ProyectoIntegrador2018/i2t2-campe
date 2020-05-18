@@ -1,7 +1,8 @@
-require 'roo'
 class StudentsController < ApplicationController
+  include ApplicationHelper
+
   before_action :set_student, only: [:show, :edit, :update, :destroy, :history]
-  before_action :authorize_user, only: [:index, :destroy]
+  before_action :authorize_user, only: [:index, :destroy, :former_students, :former_students_upload, :import_former_students]
   before_action :authorize_update, only: [:edit, :update]
 
   FIELD_TO_NAME = { 
@@ -28,6 +29,22 @@ class StudentsController < ApplicationController
 
   def index
     @users = User.student
+  end
+
+  def former_students
+    @users = User.former_student
+    
+    respond_to do |format|
+      format.html
+      format.csv { send_data @users.to_csv }
+    end
+  end
+
+  def former_students_upload
+  end
+
+  def import_former_students
+    import_users(params[:file], 'former_student', former_students_upload_path, former_students_path)
   end
 
   def show

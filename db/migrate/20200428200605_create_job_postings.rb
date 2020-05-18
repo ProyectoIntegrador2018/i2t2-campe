@@ -9,6 +9,7 @@ class CreateJobPostings < ActiveRecord::Migration[5.2]
       t.string :employment_type
       t.text :responsabilities
       t.string :experience_required
+      t.date :expiration
 
       t.integer :company_id
       t.timestamps

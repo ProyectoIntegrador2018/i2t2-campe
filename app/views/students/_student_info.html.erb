@@ -24,10 +24,12 @@
           <td style="padding-left: 40px;"><p style="font-size: 18px">Correo:</p></td>
           <td><p style="font-size: 18px"><%= user.email %></p></td>
         </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha solicitud:</p></td>
-          <td><p style="font-size: 18px"><%= student.scholarships.last.creation_date %></p></td>
-        </tr>
+        <% if student.scholarships.any? %>
+          <tr>
+            <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha solicitud:</p></td>
+            <td><p style="font-size: 18px"><%= student.scholarships.last.creation_date %></p></td>
+          </tr>
+        <% end %>
         <tr>
           <td style="padding-left: 40px;"><p style="font-size: 18px">CVU:</p></td>
           <td><p style="font-size: 18px"><%= student.cvu %></p></td>

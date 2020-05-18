@@ -17,7 +17,7 @@
       <li id="dash_dashboard"><%= link_to 'Crear Convocatoria', new_scholarship_oportunity_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <li id="dash_dashboard"><%= link_to 'Vacantes', job_postings_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <li id="dash_dashboard"><%= link_to 'Compañias', companies_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-      <li id="dash_dashboard"><%= link_to 'Registrar Exbecario', new_with_former_student_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+      <li id="dash_dashboard"><%= link_to 'Exbecarios', former_students_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <% if current_user.super_admin? %>
         <li id="dash_dashboard"><%= link_to 'Registrar Administradores', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
       <% end %>
