@@ -42,4 +42,67 @@ class User < ApplicationRecord
       @user.save
     end
   end
+
+  def self.to_csv
+    headers = [
+      "Correo", "CVU", "Nombre", "Apellido Paterno", "Apellido Materno", "RFC",
+      "CURP", "Genero", "Estado marital", "Fecha de nacimiento", "Pais de nacimiento",
+      "Estado de nacimiento", "Calle", "Numero Ext", "Numero Int", "Colonia",
+      "Ciudad", "Municipio", "Estado", "Telefono", "Celular", "Empresa actual",
+      "Puesto actual",
+    ]
+
+    CSV.generate(headers: true) do |csv|
+      csv << headers
+
+      all.each do |user|
+        csv << user.get_all_attributes
+      end
+    end
+  end
+
+  def get_all_attributes
+    attributes = [self.email]
+    if self.student
+      attributes += [
+        self.student.cvu,
+        self.student.name,
+        self.student.paternal_last_name,
+        self.student.maternal_last_name,
+        self.student.rfc,
+        self.student.curp,
+        self.student.gender,
+        self.student.marital_status,
+        self.student.birth_date,
+        self.student.country_birth,
+        self.student.state_birth,
+      ]
+
+      if self.student.contact_information
+        attributes += [
+          self.student.contact_information.street_address,
+          self.student.contact_information.street_number_address_ext,
+          self.student.contact_information.street_number_address_int,
+          self.student.contact_information.neighborhood,
+          self.student.contact_information.city,
+          self.student.contact_information.municipality,
+          self.student.contact_information.state,
+          self.student.contact_information.phone_number,
+          self.student.contact_information.cellphone_number,
+        ]
+      end
+
+      if self.student.curriculum
+        current_job = self.student.curriculum.current_job
+        if current_job.any?
+          current_job = current_job.first
+          attributes += [
+            current_job.company,
+            current_job.title,
+          ]
+        end
+      end
+    end
+    attributes
+  end
 end
