@@ -10,7 +10,7 @@
     </div>
   <% end %>
   <div class="row">
-    <div class="col s4 input-field inline">
+    <div class="col s8 input-field inline">
       <%= form.label "Titulo de vacante" %>
       <%= form.text_field :title %>
     </div>
@@ -18,12 +18,8 @@
       <%= form.label "Salario" %>
       <%= form.number_field :salary %>
     </div>
-    <div class="col s4 input-field inline">
-      <%= form.label "Cantidad de vacantes" %>
-      <%= form.number_field :number_positions %>
-    </div>
   </div>
-  <div class"row">
+  <div class="row">
     <div class="col s4 input-field inline">
       <%= form.label "Palabras clave (separadas por comas)" %>
       <%= form.text_field :keywords %>
@@ -35,6 +31,16 @@
     <div class="col s4 input-field inline">
       <%= form.label "Experiencia requerida" %>
       <%= form.text_field :experience_required %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col s6 input-field inline">
+      <%= form.label "Cantidad de vacantes" %>
+      <%= form.number_field :number_positions %>
+    </div>
+    <div class="col s6 input-field inline">
+      <%= form.label "Fecha de expiración" %>
+      <%= form.date_field :expiration, :value => Time.now.strftime("%Y-%m-%d")  %>
     </div>
   </div>
   <div class="row">
