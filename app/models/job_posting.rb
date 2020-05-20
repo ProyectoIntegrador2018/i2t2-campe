@@ -1,6 +1,8 @@
 class JobPosting < ApplicationRecord
   belongs_to :company
 
+  self.per_page = 10
+
   filterrific(
     available_filters: [
       :search_name,
