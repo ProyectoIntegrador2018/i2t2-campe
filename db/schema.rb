@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_223008) do
     t.string "employment_type"
     t.text "responsabilities"
     t.string "experience_required"
+    t.date "expiration"
     t.integer "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -192,6 +193,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_223008) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role"
