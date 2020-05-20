@@ -17,7 +17,7 @@ class JobPostingsController < ApplicationController
       select_options: {
         with_company_id: Company.options_for_select
       },
-      available_filters: [:search_name, :with_company_id],
+      available_filters: [:search_name, :with_company_id, :keyword_search],
     ) || return
 
     @job_postings = @filterrific.find.not_expired

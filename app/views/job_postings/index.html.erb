@@ -21,6 +21,13 @@
         ) %>
       </div>
       <div class="col s3 inline">
+        <%= f.label "Palabra clave" %>
+        <%= f.text_field(
+          :keyword_search,
+          class: 'filterrific-periodically-observed'
+        ) %>
+      </div>
+      <div class="col s3 inline">
         <%= f.submit 'Filtrar', :class => "btn-small" %>
       </div>
     </div>
