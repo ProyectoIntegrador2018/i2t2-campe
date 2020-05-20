@@ -30,6 +30,10 @@ class User < ApplicationRecord
     self.company? or self.super_admin?
   end
 
+  def first_time_former_student?
+    self.former_student? and self.sign_in_count == 1
+  end
+
   def update_imported_user(file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(4)

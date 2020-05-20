@@ -2,7 +2,7 @@ class StudentsController < ApplicationController
   include ApplicationHelper
 
   before_action :set_student, only: [:show, :edit, :update, :destroy, :history]
-  before_action :authorize_user, only: [:index, :destroy, :former_students, :former_students_upload, :import_former_students]
+  before_action :authorize_user, only: [:index, :destroy, :former_students, :former_students_upload, :import_former_students, :first_time_login]
   before_action :authorize_update, only: [:edit, :update]
 
   FIELD_TO_NAME = { 
@@ -47,6 +47,10 @@ class StudentsController < ApplicationController
     import_users(params[:file], 'former_student', former_students_upload_path, former_students_path)
   end
 
+  def first_time_login
+    @student = current_user.student
+  end
+
   def show
     @user = @student.user
     authorize @student
@@ -57,7 +61,12 @@ class StudentsController < ApplicationController
 
   def update
     @student.update!(student_params)
-    redirect_to student_path(@student)
+    if current_user.first_time_former_student?
+      current_user.increment! :sign_in_count
+      redirect_to new_curriculum_path
+    else
+      redirect_to student_path(@student)
+    end
   end
 
   def destroy
@@ -112,7 +121,7 @@ class StudentsController < ApplicationController
                        :gender,
                        :marital_status,
                        :country_birth,
-                       :state_birth] if current_user.is_admin_or_super_admin?
+                       :state_birth] if current_user.is_admin_or_super_admin? or current_user.first_time_former_student?
     params.require(:student).permit(params_allowed)
   end
 
