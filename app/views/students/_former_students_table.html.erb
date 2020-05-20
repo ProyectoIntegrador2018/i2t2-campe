@@ -1,10 +1,14 @@
-<div id="man" class="col s12 m4 l10">
+<script type="text/javascript" src="/javascript/table.js"></script>
+<div id="man" class="col s12 m10 offset-m1">
     <div class="card material-table">
     <div class="table-header">
         <span class="table-title">Exbecarios</span>
         <div class="actions">
-            <%= link_to 'Registrar', new_with_former_student_path, :class=>"btn-small"%>
-            <%= link_to 'Carga Masiva', former_students_upload_path, :class=>"btn-small"%>
+            <div class="col"><a class="btn-small disabled table-button" table-button-tag="VER">Ver</a></div>
+            <div class="col"><a class="btn-small disabled table-button" table-button-tag="CV">CV</a></div>
+            <div class="col"><a class="btn-small disabled table-button" table-button-tag="ELIMINAR"">Eliminar</a></div>
+            <div class="col"><%= link_to 'Crear', new_with_former_student_path, :class=>"btn-small"%></div>
+            <div class="col"><%= link_to 'Importar', former_students_upload_path, :class=>"btn-small"%></div>
         </div>
     </div>
     <table id="datatable">
@@ -12,19 +16,19 @@
         <tr>
             <th>Cvu</th>
             <th>Nombre</th>
-            <th>  </th>
+            <th class="hide"></th>
         </tr>
         </thead>
         <tbody>
         <% users.each do |user| %>
-            <tr>
+            <tr class="table-row">
             <td><%= user.student.cvu %></td>
             <td><%= user.student.full_name %></td>
-            <td><%= link_to 'Show', student_path(user.student.id), :style=>'color:white;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn"%><br></br>
+            <td class="hide"><%= link_to 'VER', student_path(user.student.id), :style=>'color:white;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn"%><br></br>
                 <% if user.student.curriculum %>
-                    <%= link_to 'Curriculum', curriculum_path(user.student.curriculum), :style=>'color:white;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn"%><br></br>
+                <%= link_to 'CV', curriculum_path(user.student.curriculum), :style=>'color:white;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn"%><br></br>
                 <% end %>
-                <%= link_to "Eliminar", user.student, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' },:style=>'color:white;;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn" %></td>
+                <%= link_to "ELIMINAR", user.student, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' },:style=>'color:white;;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn" %></td>
             </tr>
         <% end %>
         </tbody>

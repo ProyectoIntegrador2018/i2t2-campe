@@ -1,3 +1,4 @@
+<script type="text/javascript" src="/javascript/table.js"></script>
 <main style="padding-left: 240px">
   <div class="row">
     <div class="col s12"><p></p></div>
@@ -6,8 +7,10 @@
       <div class="card material-table">
         <div class="table-header">
           <span class="table-title">Convocatoria <%= @scholarship_oportunity.name%></span>
-          <span><%= link_to "Importar estudiantes", new_scholarship_path %></span>
           <div class="actions">
+            <div class="col"><a class="btn-small disabled table-button" table-button-tag="Ver">Ver</a></div>
+            <div class="col"><a class="btn-small disabled table-button" table-button-tag="Eliminar">Eliminar</a></div>
+            <div class="col"><%= link_to 'Importar', new_scholarship_path, class: 'btn-small'%></div>
           </div>
         </div>
         <table id="datatable">
@@ -16,17 +19,17 @@
               <th>Nombre</th>
               <th>Correo</th>
               <th>Disciplina</th>
-              <th>Eliminar</th>
+              <th class="hide"></th>
             </tr>
           </thead>
           <tbody>
             <% @students.each do |student| %>
-              <tr>
+              <tr class="table-row" id="<%= student.id %>">
                 <td><%= student.name %></td>
                 <td><%= student.user.email %></td>
                 <td><%= map_student_discipline student, @scholarship_oportunity %></td>
-                <td><%= link_to 'Show', student_path(student), :style=>'color:white;',:class=>"waves-effect waves-light btn"%><br></br>
-                  <%= link_to "Eliminar", student, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' },:style=>'color:white;',:class=>"waves-effect waves-light btn" %></td>
+                <td class="hide"><%= link_to 'Ver', student_path(student) %><br></br>
+                  <%= link_to "Eliminar", student, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' } %></td>
               </tr>
             <% end %>
           </tbody>

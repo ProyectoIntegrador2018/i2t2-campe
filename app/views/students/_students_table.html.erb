@@ -1,32 +1,38 @@
-<div id="man" class="col s12 m4 l10">
+<script type="text/javascript" src="/javascript/table.js"></script>
+<div id="man" class="col s12 m10 offset-m1">
     <div class="card material-table">
     <div class="table-header">
-        <span class="table-title">Becarios CONACYT</span>
+        <span class="table-title">Becarios</span>
         <div class="actions">
+            <div class="col"><a class="btn-small disabled table-button" table-button-tag="VER">Ver</a></div>
+            <div class="col"><a class="btn-small disabled table-button" table-button-tag="HISTORIA">Historia</a></div>
+            <div class="col"><a class="btn-small disabled table-button" table-button-tag="ELIMINAR"">Eliminar</a></div>
+            <div class="col"><%= link_to 'Crear', new_with_student_path,class: 'btn-small'%></div>
         </div>
     </div>
-    <table id="datatable">
+    <table id="datatable" class="hide-last-column">
         <thead>
         <tr>
-            <th>Cvu</th>
+            <th>CVU</th>
             <th>Nombre</th>
             <th>Universidad</th>
             <th>Disciplina</th>
             <th>Area de Estudio</th>
-            <th>  </th>
+            <th class="hide"></th>
         </tr>
         </thead>
         <tbody>
         <% users.each do |user| %>
-            <tr>
-            <td><%= user.student.cvu %></td>
-            <td><%= user.student.full_name %></td>
-            <td><%= user.student.scholarships.any? ? user.student.scholarships.last.institution : 'N/A' %></td>
-            <td><%= user.student.scholarships.any? ? user.student.scholarships.last.discipline : 'N/A' %></td>
-            <td><%= user.student.scholarships.any? ? user.student.scholarships.last.study_area : 'N/A' %></td>
-            <td><%= link_to 'Show', student_path(user.student.id), :style=>'color:white;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn"%><br></br>
-                <%= link_to 'Historia', history_student_path(user.student.id), :style=>'color:white;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn"%><br></br>
-                <%= link_to "Eliminar", user.student, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' },:style=>'color:white;;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn" %></td>
+            <tr class="table-row">
+                <td><%= user.student.cvu %></td>
+                <td><%= user.student.full_name %></td>
+                <td><%= user.student.scholarships.any? ? user.student.scholarships.last.institution : 'N/A' %></td>
+                <td><%= user.student.scholarships.any? ? user.student.scholarships.last.discipline : 'N/A' %></td>
+                <td><%= user.student.scholarships.any? ? user.student.scholarships.last.study_area : 'N/A' %></td>
+                <td class="hide">
+                <%= link_to 'VER', student_path(user.student.id) %><br></br>
+                <%= link_to 'HISTORIA', history_student_path(user.student.id)%><br></br>
+                <%= link_to "ELIMINAR", user.student, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' } %></td>
             </tr>
         <% end %>
         </tbody>

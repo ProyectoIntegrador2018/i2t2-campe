@@ -11,30 +11,82 @@
       </div>
     </li>
     <% if current_user.is_admin_or_super_admin?  %>
-      <li id="dash_dashboard"><%= link_to 'Lista de Becarios', students_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-      <li id="dash_dashboard"><%= link_to 'Registrar Becarios', new_with_student_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-      <li id="dash_dashboard"><%= link_to 'Ver Convocatorias', scholarship_oportunities_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-      <li id="dash_dashboard"><%= link_to 'Crear Convocatoria', new_scholarship_oportunity_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-      <li id="dash_dashboard"><%= link_to 'Vacantes', job_postings_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-      <li id="dash_dashboard"><%= link_to 'Compañias', companies_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-      <li id="dash_dashboard"><%= link_to 'Exbecarios', former_students_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+      <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+          <li>
+            <a class="collapsible-header"><i class="material-icons">assignment_ind</i>Becas</a>
+            <div class="collapsible-body no-padding">
+              <ul>
+                <li id="dash_dashboard"><%= link_to 'Becarios', students_path, :class=>"waves-effect"%></li>
+                <li id="dash_dashboard"><%= link_to 'Convocatorias', scholarship_oportunities_path, :class=>"waves-effect"%></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+          <li>
+            <a class="collapsible-header"><i class="material-icons">assignment</i>Bolsa de Trabajo</a>
+            <div class="collapsible-body no-padding">
+              <ul>
+                <li id="dash_dashboard"><%= link_to 'Exbecarios', former_students_path, :class=>"waves-effect"%></li>
+                <li id="dash_dashboard"><%= link_to 'Vacantes', job_postings_path, :class=>"waves-effect"%></li>
+                <li id="dash_dashboard"><%= link_to 'Compañias', companies_path, :class=>"waves-effect"%></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </li>
       <% if current_user.super_admin? %>
-        <li id="dash_dashboard"><%= link_to 'Registrar Administradores', new_user_registration_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li>
+              <a class="collapsible-header"><i class="material-icons">assessment</i>Administración</a>
+              <div class="collapsible-body no-padding">
+                <ul>
+                  <li id="dash_dashboard"><%= link_to 'Administradores', new_user_registration_path, :class=>"waves-effect"%></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
       <% end %>
+      
       <% elsif current_user.is_student_or_former_student? %>
-      <li id="dash_dashboard"><%= link_to 'Perfil', student_path(current_user.student), :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-      <li id="dash_dashboard"><%= link_to 'Historia', history_student_path(current_user.student.id), :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-      <% if current_user.former_student? %>
-        <li id="dash_dashboard"><%= link_to 'Bolsa de Trabajo', job_postings_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-        <% if current_user.student.curriculum %>
-          <li id="dash_dashboard"><%= link_to 'Curriculum', curriculum_path(current_user.student.curriculum), :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-        <% else %>
-          <li id="dash_dashboard"><%= link_to 'Curriculum', new_curriculum_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+      <li id="dash_dashboard">
+        <%= link_to student_path(current_user.student), :class=>"waves-effect" do %>
+          <i class="material-icons left">account_circle</i>Perfil
         <% end %>
+      </li>
+      <li id="dash_dashboard">
+        <%= link_to history_student_path(current_user.student.id), :class=>"waves-effect" do %>
+          <i class="material-icons left">history</i>Historia
+        <% end %>
+      </li>
+      <% if current_user.former_student? %>
+        <li id="dash_dashboard">
+          <%= link_to job_postings_path, :class=>"waves-effect" do %>
+            <i class="material-icons left">library_books</i>Bolsa de Trabajo
+          <% end %>
+        </li>
+        <li id="dash_dashboard">
+          <%= link_to current_user.student.curriculum ? curriculum_path(current_user.student.curriculum) : new_curriculum_path, :class=>"waves-effect" do %>
+            <i class="material-icons left">book</i>Curriculum
+          <% end %>
+        </li>
       <% end %>
     <% elsif current_user.company? %>
-      <li id="dash_dashboard"><%= link_to 'Perfil', "#", :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
-      <li id="dash_dashboard"><%= link_to 'Mis Vacantes', job_postings_path, :style=>'color:#26a69a;', :class=>"waves-effect"%></li>
+      <li id="dash_dashboard">
+        <%= link_to "#", :class=>"waves-effect" do %>
+          <i class="material-icons">account_circle</i>Perfil
+        <% end %>
+      </li>
+      <li id="dash_dashboard">
+        <%= link_to job_postings_path, :class=>"waves-effect" do %>
+          <i class="material-icons">library_books</i>Mis Vacantes
+        <% end %>
+      </li>
     <% end %>
   </ul>
 <% end %>
