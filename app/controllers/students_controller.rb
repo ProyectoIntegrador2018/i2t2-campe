@@ -33,6 +33,11 @@ class StudentsController < ApplicationController
 
   def former_students
     @users = User.former_student
+    
+    respond_to do |format|
+      format.html
+      format.csv { send_data @users.to_csv }
+    end
   end
 
   def former_students_upload

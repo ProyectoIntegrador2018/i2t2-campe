@@ -8,4 +8,8 @@ class Curriculum < ApplicationRecord
   has_many :work_experiences
 
   accepts_nested_attributes_for :education_histories, :languages, :certifications, :work_experiences, allow_destroy: true
+
+  def current_job
+    self.work_experiences.select { |we| we.is_current }
+  end
 end
