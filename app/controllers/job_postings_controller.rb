@@ -21,6 +21,7 @@ class JobPostingsController < ApplicationController
     ) || return
 
     @job_postings = @filterrific.find.not_expired.paginate(page: params[:page])
+    @custom_paginate_renderer = custom_paginate_renderer
   end
 
   # GET /job_postings/1

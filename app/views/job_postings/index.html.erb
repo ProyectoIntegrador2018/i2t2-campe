@@ -31,7 +31,7 @@
   </div>
   <div class="row center">
     <div class "col s3 inline">
-      <%= will_paginate @job_postings %>
+      <%= will_paginate @job_postings, renderer: @custom_paginate_renderer %>
     </div>
   </div>
 </main>
