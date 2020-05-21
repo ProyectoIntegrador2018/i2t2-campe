@@ -7,6 +7,8 @@ class PagesController < ApplicationController
         redirect_to pages_path
       elsif current_user.first_time_former_student?
         redirect_to first_time_login_path
+      elsif current_user.company?
+        redirect_to my_job_postings_path
       else
         redirect_to student_path(current_user.student.id)
       end

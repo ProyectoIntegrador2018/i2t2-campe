@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :job_applications
   resources :companies
-  resources :job_postings
+  resources :job_postings do
+    get "candidates", on: :member
+  end
   devise_for :users, path: 'users', controllers: {
     sessions:           "users/sessions",
     passwords:          "users/passwords",
@@ -30,4 +32,5 @@ Rails.application.routes.draw do
   resources :scholarships
   resources :scholarship_oportunities
   post 'import_scholarships' => 'scholarships#import_scholarships', as: 'import_scholarships'
+  get "my_job_postings" => "job_postings#my_job_postings", as: "my_job_postings"
 end
