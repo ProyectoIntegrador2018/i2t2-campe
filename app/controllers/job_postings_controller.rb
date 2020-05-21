@@ -20,7 +20,8 @@ class JobPostingsController < ApplicationController
       available_filters: [:search_name, :with_company_id, :keyword_search],
     ) || return
 
-    @job_postings = @filterrific.find.not_expired
+    @job_postings = @filterrific.find.not_expired.paginate(page: params[:page])
+    @custom_paginate_renderer = custom_paginate_renderer
   end
 
   # GET /job_postings/1
