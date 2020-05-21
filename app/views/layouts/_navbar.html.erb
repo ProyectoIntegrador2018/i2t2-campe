@@ -1,11 +1,14 @@
 <% if current_user %>
-  <ul id="slide-out" class="side-nav fixed z-depth-2">
+  <ul id="slide-out" class="sidenav sidenav-fixed z-depth-2">
     <li class="center no-padding">
       <div class="teal darken-1 white-text">
-        <div class="row">
+        <div class="row sidenav-header ">
           <img style="margin-top: 10%;" width="100" height="100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTi4DmuEiqgpdMPdI839ak7nqOyEHlnwt2nQWTLtI8UzuxgsYKH" class="circle responsive-img" />
-          <p style="margin-top: -13%;">
-          <%= humanized_role_name(current_user) %>
+          <p style="margin: -6% 0 0; font-size: 16px;">
+            <%= humanized_role_name(current_user) %>
+          </p>
+          <p class="small-subtitle" style="margin: -8% 0 4%;">
+            <%= current_user.email %>
           </p>
         </div>
       </div>
@@ -14,11 +17,14 @@
       <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
           <li>
-            <a class="collapsible-header"><i class="material-icons">assignment_ind</i>Becas</a>
-            <div class="collapsible-body no-padding">
+            <a class="collapsible-header">
+              <i class="material-icons left">assignment_ind</i>
+              Becas
+            </a>
+            <div class="collapsible-body">
               <ul>
-                <li id="dash_dashboard"><%= link_to 'Becarios', students_path, :class=>"waves-effect"%></li>
-                <li id="dash_dashboard"><%= link_to 'Convocatorias', scholarship_oportunities_path, :class=>"waves-effect"%></li>
+                <li><%= link_to 'Becarios', students_path %></li>
+                <li><%= link_to 'Convocatorias', scholarship_oportunities_path %></li>
               </ul>
             </div>
           </li>
@@ -27,12 +33,15 @@
       <li class="no-padding">
         <ul class="collapsible collapsible-accordion">
           <li>
-            <a class="collapsible-header"><i class="material-icons">assignment</i>Bolsa de Trabajo</a>
-            <div class="collapsible-body no-padding">
+            <a class="collapsible-header">
+              <i class="material-icons">assignment</i>
+              Bolsa de Trabajo
+            </a>
+            <div class="collapsible-body">
               <ul>
-                <li id="dash_dashboard"><%= link_to 'Exbecarios', former_students_path, :class=>"waves-effect"%></li>
-                <li id="dash_dashboard"><%= link_to 'Vacantes', job_postings_path, :class=>"waves-effect"%></li>
-                <li id="dash_dashboard"><%= link_to 'Compañias', companies_path, :class=>"waves-effect"%></li>
+                <li><%= link_to 'Exbecarios', former_students_path%></li>
+                <li><%= link_to 'Vacantes', job_postings_path%></li>
+                <li><%= link_to 'Compañias', companies_path%></li>
               </ul>
             </div>
           </li>
@@ -42,10 +51,13 @@
         <li class="no-padding">
           <ul class="collapsible collapsible-accordion">
             <li>
-              <a class="collapsible-header"><i class="material-icons">assessment</i>Administración</a>
-              <div class="collapsible-body no-padding">
+              <a class="collapsible-header">
+                <i class="material-icons">assessment</i>
+                Administración
+              </a>
+              <div class="collapsible-body">
                 <ul>
-                  <li id="dash_dashboard"><%= link_to 'Administradores', new_user_registration_path, :class=>"waves-effect"%></li>
+                  <li><%= link_to 'Administradores', new_user_registration_path, :class=>"waves-effect"%></li>
                 </ul>
               </div>
             </li>

@@ -23,10 +23,6 @@
   font-family: Impact, Charcoal, sans-serif;
 }
 
-.font2 {
-  font-family: Comic Sans MS, cursive, sans-serif;
-}
-
 .center1 {
   display: block;
   margin-left: auto;
@@ -166,9 +162,21 @@
   margin-top: 2em;
 }
 
-.side-nav a, .side-nav.fixed a, .side-nav i {
+.sidenav-header a, .sidenav-header  i {
   height: 45px;
   line-height: 45px !important;
+}
+
+.sidenav li li > a{
+  font-size: 16px;
+  color: #616161;
+  font-weight: 400;
+}
+
+.sidenav li li li > a{
+  font-size: 16px;
+  color: #616161;
+  font-weight: 300;
 }
  
 .collapsible-header {
@@ -195,4 +203,44 @@
 
 .center-aligned {
   align-items: center;
+}
+
+h4 {
+  color: #212121;
+}
+
+h5 {
+  color: #424242;
+}
+
+@media (min-width: 993px) { 
+  .l-left-padding{
+    padding-left:300px;
+  }
+}
+
+.title {
+  font-size: 32px;
+  color: #009688;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: #616161;
+  margin: 10px;
+}
+
+.small-subtitle {
+  font-size: 12px;
+  color: #e0e0e0;
+}
+
+.label {
+  color: #9e9e9e;
+}
+
+body {
+  font-weight: 300;
 }

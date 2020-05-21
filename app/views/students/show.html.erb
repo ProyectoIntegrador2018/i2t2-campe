@@ -1,8 +1,12 @@
-<main style="padding-left: 240px">
+<main class="l-left-padding">
   <div class="row">
-    <div class="col s12"><p></p></div>
-    <div class="col s12 m4 l2"><p></p></div>
-    <%= render "student_info", user: @user, student: @student %>
-    <div class="col s12 m4 l2"><p></p></div>
+    <div class="card col s12 m8 offset-m2" style="padding: 20px">
+      <div class="section">
+        <div class="center-align teal-text title flow-text"><%= "#{@student.name} #{@student.paternal_last_name} #{@student.maternal_last_name}" %></h4>
+        <div class="right"><a href="<%= edit_student_url(@student) %>" class="btn-small"><i class="material-icons left">edit</i>Editar</a></div>
+      </div>
+      <div class="divider"></div>
+      <%= render "student_info", user: @user, student: @student %>
+    </div>
   </div>
 </main>

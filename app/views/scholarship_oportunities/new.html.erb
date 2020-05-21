@@ -7,21 +7,27 @@
     <% end %>
   </div>
 <% end %>
-<main style="padding-left: 240px">
-  <div class="form-content" style="padding-right:5%;padding-left:5%">
-    <h4 class="center-align" style="padding-top: 20px;">Registro de Convocatoria</h4>
-    <%= form_for(@scholarship_oportunity) do |f| %>
-      <div class="form-section">
-        <div class="row">
-          <div class="col s4 input-field inline">
-            <%= f.text_field :name %>
-            <label for="group_name">Nombre de Convocatoria</label>
+<main class="l-left-padding">
+  <div class="row">
+    <div class="card col s12 m8 offset-m2" style="padding: 20px">
+      <div class="section">
+        <div class="center-align title">Registrar Convocatoria</div>
+      </div>
+      <div class="divider"></div>
+      <div class="section">
+        <%= form_for(@scholarship_oportunity) do |f| %>
+          <div class="row zeroMargin">
+            <div class="col s12 m6 input-field inline">
+              <%= f.text_field :name %>
+              <label for="group_name">Nombre de la convocatoria*</label>
+            </div>
           </div>
-        </div>
+          <div class="section"> 
+              <div class="row zeroMargin center-align">
+                <%= f.submit "Registrar", :class=>"btn-small"%>
+              </div>
+            </div>
+        <% end %>
       </div>
-      <div class="actions">
-        <%= f.submit "Crear" ,:style=>'color:white;font-size:10px;width:110px ! important', class: 'btn btn-primary'%>
-      </div>
-    <% end %>
   </div>
 </main>

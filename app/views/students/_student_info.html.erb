@@ -1,172 +1,297 @@
-<div id="man" class="col s12 m4 l8">
-  <div class="card material-table">
-    <div class="table-header" style="background:#26a69a">
-      <span class="table-title" style="color:#ffffff;font-weight: bold;">Información Personal</span>
-      <div class="actions">
-        <%= link_to  "Editar", edit_student_url(student), :class=>"white-text" %>
-      </div>
+<div class="section">
+  <div class="center-align subtitle">Información Personal</div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      Nombre
     </div>
-    <table id="datatable">
-      <tbody>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Nombre:</p></td>
-          <td><p style="font-size: 18px"><%= student.name %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Primer Apellido:</p></td>
-          <td><p style="font-size: 18px"><%= student.paternal_last_name %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Segundo Apellido:</p></td>
-          <td><p style="font-size: 18px"><%= student.maternal_last_name %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Correo:</p></td>
-          <td><p style="font-size: 18px"><%= user.email %></p></td>
-        </tr>
-        <% if student.scholarships.any? %>
-          <tr>
-            <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha solicitud:</p></td>
-            <td><p style="font-size: 18px"><%= student.scholarships.last.creation_date %></p></td>
-          </tr>
-        <% end %>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">CVU:</p></td>
-          <td><p style="font-size: 18px"><%= student.cvu %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">RFC:</p></td>
-          <td><p style="font-size: 18px"><%= student.rfc %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">CURP:</p></td>
-          <td><p style="font-size: 18px"><%= student.curp %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de nacimiento:</p></td>
-          <td><p style="font-size: 18px"><%= student.birth_date %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Genero:</p></td>
-          <td><p style="font-size: 18px"><%= student.gender %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Estado Civil:</p></td>
-          <td><p style="font-size: 18px"><%= student.marital_status %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">País de nacimiento:</p></td>
-          <td><p style="font-size: 18px"><%= student.country_birth %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Teléfono:</p></td>
-          <td><p style="font-size: 18px"><%= student.contact_information.phone_number %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Celular:</p></td>
-          <td><p style="font-size: 18px"><%= student.contact_information.cellphone_number %></p></td>
-        </tr>
-      </tbody>
-    </table>
-    <div class="table-header" style="background:#26a69a">
-      <span class="table-title" style="color:#ffffff;font-weight: bold;">Domicilio</span>
-      <div class="actions">
-      </div>
+    <div class="col s8">
+      <%= student.name %>
     </div>
-    <table id="datatable">
-      <tbody>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Calle:</p></td>
-          <td><p style="font-size: 18px"><%= student.contact_information.street_address %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Número exterior:</p></td>
-          <td><p style="font-size: 18px"><%= student.contact_information.street_number_address_ext %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Número interior:</p></td>
-          <td><p style="font-size: 18px"><%= student.contact_information.street_number_address_int %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Colonia:</p></td>
-          <td><p style="font-size: 18px"><%= student.contact_information.neighborhood%></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Ciudad:</p></td>
-          <td><p style="font-size: 18px"><%= student.contact_information.city %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Municipio:</p></td>
-          <td><p style="font-size: 18px"><%= student.contact_information.municipality %></p></td>
-        </tr>
-        <tr>
-          <td style="padding-left: 40px;"><p style="font-size: 18px">Estado:</p></td>
-          <td><p style="font-size: 18px"><%= student.contact_information.state %></p></td>
-        </tr>
-      </tbody>
-    </table>
-    <% if student.scholarships.any? %>
-      <div class="table-header" style="background:#26a69a">
-        <span class="table-title" style="color:#ffffff;font-weight: bold;">Información de Estudios</span>
-        <div class="actions">
-        </div>
-      </div>
-      <table id="datatable">
-        <tbody>
-          <tr>
-            <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha inicio de estudios:</p></td>
-            <td><p style="font-size: 18px"><%= student.scholarships.last.studies_start %></p></td>
-          </tr>
-          <tr>
-            <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha fin de estudios:</p></td>
-            <td><p style="font-size: 18px"><%= student.scholarships.last.studies_end %></p></td>
-          </tr>
-          <tr>
-            <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de inicio de beca:</p></td>
-            <td><p style="font-size: 18px"><%= student.scholarships.last.start %></p></td>
-          </tr>
-          <tr>
-            <td style="padding-left: 40px;"><p style="font-size: 18px">Fecha de fin de beca:</p></td>
-            <td><p style="font-size: 18px"><%= student.scholarships.last.end %></p></td>
-          </tr>
-          <tr>
-            <td style="padding-left: 40px;"><p style="font-size: 18px">Universidad:</p></td>
-            <td><p style="font-size: 18px"><%= student.scholarships.last.institution %></p></td>
-          </tr>
-          <tr>
-            <td style="padding-left: 40px;"><p style="font-size: 18px">Entidad:</p></td>
-            <td><p style="font-size: 18px"><%= student.scholarships.last.entity %></p></td>
-          </tr>
-          <tr>
-            <td style="padding-left: 40px;"><p style="font-size: 18px">Apoyo a obtener:</p></td>
-            <td><p style="font-size: 18px"><%= student.scholarships.last.desired_support %></p></td>
-          </tr>
-          <tr>
-            <td style="padding-left: 40px;"><p style="font-size: 18px">Programa:</p></td>
-            <td><p style="font-size: 18px"><%= student.scholarships.last.program %></p></td>
-          </tr>
-          <tr>
-            <td style="padding-left: 40px;"><p style="font-size: 18px">Area de conocimiento:</p></td>
-            <td><p style="font-size: 18px"><%= student.scholarships.last.study_area %></p></td>
-          </tr>
-          <tr>
-            <td style="padding-left: 40px;"><p style="font-size: 18px">Campo:</p></td>
-            <td><p style="font-size: 18px"><%= student.scholarships.last.study_field %></p></td>
-          </tr>
-          <tr>
-            <td style="padding-left: 40px;"><p style="font-size: 18px">Disciplina:</p></td>
-            <td><p style="font-size: 18px"><%= student.scholarships.last.discipline %></p></td>
-          </tr>
-          <tr>
-            <td style="padding-left: 40px;"><p style="font-size: 18px">Subdisciplina:</p></td>
-            <td><p style="font-size: 18px"><%= student.scholarships.last.sub_discipline %></p></td>
-          </tr>
-          <tr>
-            <td style="padding-left: 40px;"><p style="font-size: 18px">Promedio de último grado:</p></td>
-            <td><p style="font-size: 18px"><%= student.scholarships.last.most_recent_gpa %></p></td>
-          </tr>
-        </tbody>
-      </table>
-    <% end %>
+  </div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      Apellido Paterno
+    </div>
+    <div class="col s8">
+      <%= student.paternal_last_name %>
+    </div>
+  </div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      Apellido Materno 
+    </div>
+    <div class="col s8">
+      <%= student.maternal_last_name %>
+    </div>
+  </div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      Correo
+    </div>
+    <div class="col s8">
+      <%= user.email %>
+    </div>
+  </div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      CVU
+    </div>
+    <div class="col s8">
+      <%= student.cvu %>
+    </div>
+  </div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      RFC
+    </div>
+    <div class="col s8">
+      <%= student.rfc %>
+    </div>
+  </div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      CURP 
+    </div>
+    <div class="col s8">
+      <%= student.curp %>
+    </div>
+  </div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      Fecha de Nacimiento 
+    </div>
+    <div class="col s8">
+      <%= student.birth_date.try :strftime, "%e %B %Y" %>
+    </div>
+  </div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      Género 
+    </div>
+    <div class="col s8">
+      <%= student.gender %>
+    </div>
+  </div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      Estado Civil 
+    </div>
+    <div class="col s8">
+      <%= student.marital_status %>
+    </div>
+  </div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      País de Nacimiento
+    </div>
+    <div class="col s8">
+      <%= student.country_birth %>
+    </div>
+  </div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      Estado de Nacimiento
+    </div>
+    <div class="col s8">
+      <%= student.state_birth %>
+    </div>
   </div>
 </div>
+<div class="divider"></div>
+<div class="section">
+  <div class="center-align subtitle">Teléfonos</div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      Teléfono
+    </div>
+    <div class="col s8">
+      <%= student.contact_information.phone_number %>
+    </div>
+  </div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      Celular
+    </div>
+    <div class="col s8">
+      <%= student.contact_information.cellphone_number %>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+<div class="section">
+  <div class="center-align subtitle">Domicilio</div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      Calle
+    </div>
+    <div class="col s8">
+      <%= student.contact_information.street_address %>
+    </div>
+  </div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      Número Exterior
+    </div>
+    <div class="col s8">
+      <%= student.contact_information.street_number_address_ext %>
+    </div>
+  </div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      Número Interior
+    </div>
+    <div class="col s8">
+      <%= student.contact_information.street_number_address_int %>
+    </div>
+  </div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      Colonia
+    </div>
+    <div class="col s8">
+      <%= student.contact_information.neighborhood %>
+    </div>
+  </div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      Ciudad
+    </div>
+    <div class="col s8">
+      <%= student.contact_information.city %>
+    </div>
+  </div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      Municipio
+    </div>
+    <div class="col s8">
+      <%= student.contact_information.municipality %>
+    </div>
+  </div>
+  <div class="row zeroMargin">
+    <div class="col s4 right-align label">
+      Estado
+    </div>
+    <div class="col s8">
+      <%= student.contact_information.state %>
+    </div>
+  </div>
+</div>
+<% if student.scholarships.any? %>
+  <div class="divider"></div>
+  <div class="section">
+    <div class="center-align subtitle">Información de Estudios</div>
+    <div class="row zeroMargin">
+      <div class="col s4 right-align label">
+        Fecha Solicitud
+      </div>
+      <div class="col s8">
+        <%= student.scholarships.last.creation_date.try :strftime, "%e %B %Y" %>
+      </div>
+    </div>
+    <div class="row zeroMargin">
+      <div class="col s4 right-align label">
+        Inicio de Estudios
+      </div>
+      <div class="col s8">
+        <%= student.scholarships.last.studies_start.try :strftime, "%e %B %Y" %>
+      </div>
+    </div>
+    <div class="row zeroMargin">
+      <div class="col s4 right-align label">
+        Fin de Estudios
+      </div>
+      <div class="col s8">
+        <%= student.scholarships.last.studies_end.try :strftime, "%e %B %Y" %>
+      </div>
+    </div>
+    <div class="row zeroMargin">
+      <div class="col s4 right-align label">
+        Inicio de Beca
+      </div>
+      <div class="col s8">
+        <%= student.scholarships.last.start.try :strftime, "%e %B %Y" %>
+      </div>
+    </div>
+    <div class="row zeroMargin">
+      <div class="col s4 right-align label">
+        Fin de Beca
+      </div>
+      <div class="col s8">
+        <%= student.scholarships.last.end.try :strftime, "%e %B %Y" %>
+      </div>
+    </div>
+    <div class="row zeroMargin">
+      <div class="col s4 right-align label">
+        Universidad
+      </div>
+      <div class="col s8">
+        <%= student.scholarships.last.institution %>
+      </div>
+    </div>
+    <div class="row zeroMargin">
+      <div class="col s4 right-align label">
+        Entidad
+      </div>
+      <div class="col s8">
+        <%= student.scholarships.last.entity %>
+      </div>
+    </div>
+    <div class="row zeroMargin">
+      <div class="col s4 right-align label">
+        Apoyo a Obtener
+      </div>
+      <div class="col s8">
+        <%= student.scholarships.last.desired_support %>
+      </div>
+    </div>
+    <div class="row zeroMargin">
+      <div class="col s4 right-align label">
+        Programa
+      </div>
+      <div class="col s8">
+        <%= student.scholarships.last.program %>
+      </div>
+    </div>
+    <div class="row zeroMargin">
+      <div class="col s4 right-align label">
+        Área del Conocimiento
+      </div>
+      <div class="col s8">
+        <%= student.scholarships.last.study_area %>
+      </div>
+    </div>
+    <div class="row zeroMargin">
+      <div class="col s4 right-align label">
+        Campo
+      </div>
+      <div class="col s8">
+        <%= student.scholarships.last.study_field %>
+      </div>
+    </div>
+    <div class="row zeroMargin">
+      <div class="col s4 right-align label">
+        Disciplina
+      </div>
+      <div class="col s8">
+        <%= student.scholarships.last.discipline %>
+      </div>
+    </div>
+    <div class="row zeroMargin">
+      <div class="col s4 right-align label">
+        Subdisciplina
+      </div>
+      <div class="col s8">
+        <%= student.scholarships.last.sub_discipline %>
+      </div>
+    </div>
+    <div class="row zeroMargin">
+      <div class="col s4 right-align label">
+        Último Promedio
+      </div>
+      <div class="col s8">
+        <%= student.scholarships.last.most_recent_gpa %>
+      </div>
+    </div>
+  </div>
+<% end %>
