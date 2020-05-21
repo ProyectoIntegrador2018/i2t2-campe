@@ -52,8 +52,8 @@ class User < ApplicationRecord
       "Correo", "CVU", "Nombre", "Apellido Paterno", "Apellido Materno", "RFC",
       "CURP", "Genero", "Estado marital", "Fecha de nacimiento", "Pais de nacimiento",
       "Estado de nacimiento", "Calle", "Numero Ext", "Numero Int", "Colonia",
-      "Ciudad", "Municipio", "Estado", "Telefono", "Celular", "Empresa actual",
-      "Puesto actual",
+      "Ciudad", "Municipio", "Estado", "Telefono", "Celular", "Tiene Empleo",
+      "Razon de Desempleo", "Empresa actual", "Puesto actual",
     ]
 
     CSV.generate(headers: true) do |csv|
@@ -94,6 +94,15 @@ class User < ApplicationRecord
           self.student.contact_information.phone_number,
           self.student.contact_information.cellphone_number,
         ]
+      end
+
+      if self.student.unemployment_datum
+        attributes += [
+          self.student.unemployment_datum.is_employed ? "Si" : "No",
+          self.student.unemployment_datum.unemployment_reason,
+        ]
+      else
+        attributes += ['', '']
       end
 
       if self.student.curriculum
