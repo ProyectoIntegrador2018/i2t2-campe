@@ -19,6 +19,10 @@ class JobPostingPolicy < ApplicationPolicy
     update?
   end
 
+  def my_job_postings?
+    @user.is_company_or_super_admin?
+  end
+
   def candidates?
     return true if @user.is_admin_or_super_admin?
 

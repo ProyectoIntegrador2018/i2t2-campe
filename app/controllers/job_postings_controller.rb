@@ -1,6 +1,6 @@
 class JobPostingsController < ApplicationController
   before_action :set_job_posting, only: [:show, :edit, :update, :destroy, :candidates]
-  before_action :authorize_company, only: [:new, :create, :index]
+  before_action :authorize_company, only: [:new, :create, :index, :my_job_postings]
   before_action :authrize_job_posting, only: [:edit, :update, :show]
   before_action :initalize_custom_renderer, only: [:index, :my_job_postings]
 
