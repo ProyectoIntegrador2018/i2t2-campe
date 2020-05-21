@@ -23,9 +23,9 @@ class ApplicationController < ActionController::Base
 
       def page_number(page)
         if page == current_page
-          "<li class=\"cyan active\">"+link(page, page, rel: rel_value(page))+"</li>"
+          "<li class=\'cyan active\'>#{link(page, page, rel: rel_value(page))}</li>"
         else
-          "<li class=\"waves-effect\">"+link(page, page, rel: rel_value(page))+"</li>"
+          "<li class=\'waves-effect\'>#{link(page, page, rel: rel_value(page))}</li>"
         end
       end
 
@@ -41,9 +41,9 @@ class ApplicationController < ActionController::Base
 
       def previous_or_next_page(page, text)
         if page
-          "<li class=\"waves-effect\">"+link(text, page)+"</li>"
+          "<li class=\'waves-effect\'>#{link(text, page)}</li>"
         else
-          "<li class=\"waves-effect\">"+text+"</li>"
+          "<li class=\'waves-effect\'>#{text}</li>"
         end
       end
     end

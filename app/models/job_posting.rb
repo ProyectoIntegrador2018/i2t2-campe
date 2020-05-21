@@ -1,7 +1,7 @@
 class JobPosting < ApplicationRecord
   belongs_to :company
 
-  self.per_page = 10
+  self.per_page = 12
 
   filterrific(
     available_filters: [
