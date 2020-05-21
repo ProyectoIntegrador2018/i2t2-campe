@@ -27,6 +27,8 @@ class JobPostingsController < ApplicationController
   # GET /job_postings/1
   # GET /job_postings/1.json
   def show
+    @job_application = JobApplication.new
+    @has_not_applied_before = current_user.student.job_postings.where(id: params[:id]).empty?
   end
 
   def candidates

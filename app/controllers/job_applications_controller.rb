@@ -28,10 +28,10 @@ class JobApplicationsController < ApplicationController
 
     respond_to do |format|
       if @job_application.save
-        format.html { redirect_to @job_application, notice: 'Job application was successfully created.' }
+        format.html { redirect_to @job_application.job_posting, notice: 'Job application was successfully created.' }
         format.json { render :show, status: :created, location: @job_application }
       else
-        format.html { render :new }
+        format.html { redirect_to @job_application.job_posting, notice: 'Error' }
         format.json { render json: @job_application.errors, status: :unprocessable_entity }
       end
     end
@@ -42,10 +42,10 @@ class JobApplicationsController < ApplicationController
   def update
     respond_to do |format|
       if @job_application.update(job_application_params)
-        format.html { redirect_to @job_application, notice: 'Job application was successfully updated.' }
+        format.html { redirect_to @job_application.job_posting, notice: 'Job application was successfully updated.' }
         format.json { render :show, status: :ok, location: @job_application }
       else
-        format.html { render :edit }
+        format.html { redirect_to @job_application.job_posting, notice: 'Error' }
         format.json { render json: @job_application.errors, status: :unprocessable_entity }
       end
     end
@@ -69,6 +69,6 @@ class JobApplicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_application_params
-      params.require(:job_application).permit(:job_posting_id, :student)
+      params.require(:job_application).permit(:job_posting_id, :student_id)
     end
 end
