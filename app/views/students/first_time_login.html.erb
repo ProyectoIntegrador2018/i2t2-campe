@@ -34,6 +34,33 @@
       <% end %>
       <div class="row">
         <div class="col s12">
+          <h3>Datos laborales</h3>
+        </div>
+      </div>
+      <%= f.fields_for :unemployment_datum_attributes do |u| %>
+        <p class="flow-text">
+          ¿Actualmente te encuentras con empleo?
+        </p>
+        <div class="switch">
+          <label>
+            No
+            <%= u.check_box :is_employed %>
+            <span class="lever"></span>
+            Si
+          </label>
+        </div>
+        <br/>
+        <p class="flow-text">
+          Si estas desempleado, ¿cuál es la razón por la que estás desempleado?
+        </p>
+        <div class="row">
+          <%= u.label :Razon_de_desempleo %>
+          <%= u.text_field :unemployment_reason %>
+        </div>
+        <br/>
+      <% end %>
+      <div class="row">
+        <div class="col s12">
           <blockquote class="flow-text">
             Al hacer click en confirmar verifico que mis datos son correctos y completos.
           </blockquote>
