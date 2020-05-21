@@ -30,7 +30,7 @@ class JobPostingsController < ApplicationController
   end
 
   def candidates
-    @candidates = @job_posting.students
+    @candidates = User.find(@job_posting.students.pluck("user_id"))
   end
 
   # GET /job_postings/new
