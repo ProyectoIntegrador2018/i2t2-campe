@@ -2,15 +2,11 @@ class JobPostingsController < ApplicationController
   before_action :set_job_posting, only: [:show, :edit, :update, :destroy, :candidates]
   before_action :authorize_company, only: [:new, :create, :index]
   before_action :authrize_job_posting, only: [:edit, :update, :show]
+  before_action :initalize_custom_renderer, only: [:index, :my_job_postings]
 
   # GET /job_postings
   # GET /job_postings.json
   def index
-    if current_user.company?
-      @job_postings = current_user.company.job_postings
-      return
-    end
-
     @filterrific = initialize_filterrific(
       JobPosting,
       params[:filterrific],
@@ -21,14 +17,17 @@ class JobPostingsController < ApplicationController
     ) || return
 
     @job_postings = @filterrific.find.not_expired.paginate(page: params[:page])
-    @custom_paginate_renderer = custom_paginate_renderer
+  end
+
+  def my_job_postings
+    @job_postings = current_user.company.job_postings.paginate(page: params[:page])
   end
 
   # GET /job_postings/1
   # GET /job_postings/1.json
   def show
     @job_application = JobApplication.new
-    @has_not_applied_before = current_user.student.job_postings.where(id: params[:id]).empty?
+    @has_not_applied_before = current_user.former_student? ? current_user.student.job_postings.where(id: params[:id]).empty? : false
   end
 
   def candidates
@@ -101,5 +100,9 @@ class JobPostingsController < ApplicationController
 
   def authrize_job_posting
     authorize @job_posting
+  end
+
+  def initalize_custom_renderer
+    @custom_paginate_renderer = custom_paginate_renderer
   end
 end

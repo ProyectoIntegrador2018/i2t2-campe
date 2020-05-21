@@ -32,4 +32,5 @@ Rails.application.routes.draw do
   resources :scholarships
   resources :scholarship_oportunities
   post 'import_scholarships' => 'scholarships#import_scholarships', as: 'import_scholarships'
+  get "my_job_postings" => "job_postings#my_job_postings", as: "my_job_postings"
 end

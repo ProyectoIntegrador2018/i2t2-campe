@@ -4,9 +4,9 @@
     <div class="table-header">
       <span class="table-title"><%= table_title %></span>
       <div class="actions">
-        <div class="col"><a class="btn-small disabled table-button" table-button-tag="VER">Ver</a></div>
         <div class="col"><a class="btn-small disabled table-button" table-button-tag="CV">CV</a></div>
         <% if display_actions %>
+          <div class="col"><a class="btn-small disabled table-button" table-button-tag="VER">Ver</a></div>
           <div class="col"><a class="btn-small disabled table-button" table-button-tag="ELIMINAR">Eliminar</a></div>
           <div class="col"><%= link_to 'Crear', new_with_former_student_path, :class=>"btn-small"%></div>
           <div class="col"><%= link_to 'Importar', former_students_upload_path, :class=>"btn-small"%></div>

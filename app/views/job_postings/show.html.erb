@@ -31,13 +31,13 @@
       <%= f.hidden_field :student_id, :value => current_user.student.id %>
       <div class="row">
         <div class="col s2 offset-s5 inline">
-          <%= f.submit "Aplicar", :class => "btn" %>
+          <%= f.submit "Aplicar", :class => "btn-small" %>
         </div>
       </div>
     <% end %>
-  <% else %>
+  <% elsif current_user.former_student? %>
     <div class="row">
-      <div class="col s2 offset-s5 inline">
+      <div class="col s4 offset-s4 inline center">
         Ya has aplicado a esta posición
       </div>
     </div>
