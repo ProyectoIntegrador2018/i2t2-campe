@@ -41,6 +41,12 @@
         Ya has aplicado a esta posición
       </div>
     </div>
+  <% elsif current_user.company? or current_user.is_admin_or_super_admin? %>
+    <div class="row">
+      <div class="col s4 offset-s4 inline center">
+        <%= link_to "Ver candidatos", candidates_job_posting_path(@job_posting), class: "btn-small" %>
+      </div>
+    </div>
   <% end %>
 </main>
 
