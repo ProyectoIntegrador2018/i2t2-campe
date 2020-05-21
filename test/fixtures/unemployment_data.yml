@@ -3,7 +3,9 @@
 one:
   is_employed: false
   unemployment_reason: MyText
+  student: one
 
 two:
   is_employed: false
   unemployment_reason: MyText
+  student: two
