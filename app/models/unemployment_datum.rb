@@ -1,0 +1,2 @@
+class UnemploymentDatum < ApplicationRecord
+end
