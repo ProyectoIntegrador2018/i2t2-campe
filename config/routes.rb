@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :job_applications
   resources :companies
-  resources :job_postings
+  resources :job_postings do
+    get "candidates", on: :member
+  end
   devise_for :users, path: 'users', controllers: {
     sessions:           "users/sessions",
     passwords:          "users/passwords",

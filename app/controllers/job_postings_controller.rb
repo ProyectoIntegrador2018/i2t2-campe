@@ -1,5 +1,5 @@
 class JobPostingsController < ApplicationController
-  before_action :set_job_posting, only: [:show, :edit, :update, :destroy]
+  before_action :set_job_posting, only: [:show, :edit, :update, :destroy, :candidates]
   before_action :authorize_company, only: [:new, :create, :index]
   before_action :authrize_job_posting, only: [:edit, :update, :show]
 
@@ -27,6 +27,10 @@ class JobPostingsController < ApplicationController
   # GET /job_postings/1
   # GET /job_postings/1.json
   def show
+  end
+
+  def candidates
+    @candidates = @job_posting.students
   end
 
   # GET /job_postings/new
