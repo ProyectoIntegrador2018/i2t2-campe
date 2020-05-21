@@ -8,6 +8,7 @@ class CurriculumPolicy < ApplicationPolicy
   end
 
   def show?
+    return student_applied_to_company? if @user.company?
     is_mine_or_admin?
   end
 
@@ -20,6 +21,10 @@ class CurriculumPolicy < ApplicationPolicy
     return true if @user.is_admin_or_super_admin?
 
     is_mine?
+  end
+
+  def student_applied_to_company?
+    @user.company.job_postings.find(@record.student.job_applications.pluck("job_posting_id")).any?
   end
 
   def is_mine?
