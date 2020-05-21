@@ -26,7 +26,7 @@ class JobPostingPolicy < ApplicationPolicy
   end
 
   def index?
-    not @user.student?
+    @user.is_admin_or_super_admin? or @user.former_student?
   end
 
   private
