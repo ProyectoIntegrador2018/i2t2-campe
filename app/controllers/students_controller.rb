@@ -111,17 +111,24 @@ class StudentsController < ApplicationController
                                                         :state,
                                                         :phone_number,
                                                         :cellphone_number]}]
-    params_allowed += [:cvu,
-                       :name,
-                       :paternal_last_name,
-                       :maternal_last_name,
-                       :rfc,
-                       :birth_date,
-                       :curp,
-                       :gender,
-                       :marital_status,
-                       :country_birth,
-                       :state_birth] if current_user.is_admin_or_super_admin? or current_user.first_time_former_student?
+    params_allowed += [
+      :cvu,
+      :name,
+      :paternal_last_name,
+      :maternal_last_name,
+      :rfc,
+      :birth_date,
+      :curp,
+      :gender,
+      :marital_status,
+      :country_birth,
+      :state_birth,
+      unemployment_datum_attributes:
+        [
+          :is_employed,
+          :unemployment_reason,
+        ],
+    ] if current_user.is_admin_or_super_admin? or current_user.first_time_former_student?
     params.require(:student).permit(params_allowed)
   end
 
