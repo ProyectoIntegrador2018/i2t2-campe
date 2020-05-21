@@ -1,5 +1,7 @@
 class JobPosting < ApplicationRecord
   belongs_to :company
+  has_many :job_applications
+  has_many :students, through: :job_applications
 
   self.per_page = 12
 
