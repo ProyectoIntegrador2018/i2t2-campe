@@ -1,137 +1,123 @@
 <%= javascript_include_tag 'curriculum.js' %>
-<div class="row">
-  <div class="col s12">
-    <div class="row file-field input-field gallery_picture">
-      <div class="col s3 btn-small">
-        Foto
-        <%= f.file_field :profile_picture %>
+<div class="section">
+  <div class="row zeroMargin">
+    <div class="col s12">
+      <div class="row file-field input-field gallery_picture">
+        <div class="col s3 btn-small">
+          Foto
+          <%= f.file_field :profile_picture %>
+        </div>
+        <input class="col s8 offset-s1 file-path validate" type="text" placeholder="Actualiza tu foto de perfil">
       </div>
-      <input class="col s8 offset-s1 file-path validate" type="text" placeholder="Actualiza tu foto de perfil">
-    </div>
-    <div class="row file-field input-field">
-      <div class="col s3 btn-small">
-        Curriculum
-        <%= f.file_field :curriculum_file %>
+      <div class="row file-field input-field">
+        <div class="col s3 btn-small">
+          Curriculum
+          <%= f.file_field :curriculum_file %>
+        </div>
+        <input class="col s8 offset-s1 file-path validate" type="text" placeholder="Actualiza el archivo con tu curriculum"/>
       </div>
-      <input class="col s8 offset-s1 file-path validate" type="text" placeholder="Actualiza el archivo con tu curriculum"/>
     </div>
   </div>
 </div>
 
-<h5>Datos del trabajo desado:</h5>
-<div class="row">
-  <div class="col s12 l6">
-    <%= f.label :Puesto_deseado %>
-    <%= f.text_field :desired_position %>
-  </div>
-  <div class="col s12 l3">
-    <%= f.label :Minimo_salario_esperado %>
-    <%= f.number_field :min_desired_salary %>
-  </div>
-  <div class="col s12 l3">
-    <%= f.label :Maximo_salario_esperado %>
-    <%= f.number_field :max_desired_salary %>
+<div class="divider"></div>
+<div class="section">
+  <div class="center-align subtitle">Trabajo Deseado</div>
+  <div class="row">
+    <div class="col s12 l6">
+      <%= f.label :Puesto_deseado %>
+      <%= f.text_field :desired_position %>
+    </div>
+    <div class="col s12 l3">
+      <%= f.label :Minimo_salario_esperado %>
+      <%= f.number_field :min_desired_salary %>
+    </div>
+    <div class="col s12 l3">
+      <%= f.label :Maximo_salario_esperado %>
+      <%= f.number_field :max_desired_salary %>
+    </div>
   </div>
 </div>
 
-<blockquote>
-  <h5>Objetivo profesional:</h5>
+<div class="divider"></div>
+<div class="section">
+  <div class="center-align subtitle">Objetivo Profesional</div>
   <%= f.label :Objetivo_Profesional %>
   <%= f.text_area :professional_objective, class: 'materialize-textarea' %>
-</blockquote>
-
-<div class="row">
-  <div class="col s12 l4">
-    <div>
-      <div class="row">
-        <div class="col s12">
-          <h5>Idiomas:</h5>
-        </div>
-      </div>
-      <div class="card-panel">
-        <div class="row">
-          <div class="col s12">
-            <%= f.fields_for :languages do |language| %>
-              <%= render 'language_fields', f: language %>
-            <% end %>
-            <div class='links'>
-              <%= link_to_add_association 'Agregar nuevo', f, :languages%>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col s12 l4">
-    <div>
-      <div class="row">
-        <div class="col s12">
-          <h5>Habilidades:</h5>
-        </div>
-      </div>
-      <div class="card-panel">
-        <div class="row">
-          <div class="col s12">
-            <%= f.label :Habilidades %>
-            <%= f.text_area :skills, class: 'materialize-textarea' %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col s12 l4">
-    <div>
-      <div class="row">
-        <div class="col s12">
-          <h5>Experiencia:</h5>
-        </div>
-      </div>
-      <div class="card-panel">
-        <div class="row">
-          <div class="col s12">    
-            <%= f.label :Areas_de_experiencia %>
-            <%= f.text_area :areas_of_expertise, class: 'materialize-textarea' %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
-<h5>Educación:</h5>
-<%= f.fields_for :education_histories do |education_history| %>
-  <%= render 'education_history_fields', f: education_history %>
-<% end %>
-<div class='links'>
-  <%= link_to_add_association f, :education_histories, :class => "right btn-floating btn-large teal" do %>
-    <i class="large material-icons">add</i>
+<div class="divider"></div>
+<div class="section">
+  <div class="center-align subtitle">Idiomas</div>
+  <%= f.fields_for :languages do |language| %>
+    <%= render 'language_fields', f: language %>
   <% end %>
+  <div class="row">
+    <%= link_to_add_association f, :languages, :class => "right btn-floating btn-large teal" do %>
+      <i class="large material-icons">add</i>
+    <% end %>
+  </div>
 </div>
 
-<br><br><br>
+<div class="divider"></div>
+<div class="section">
+  <div class="center-align subtitle">Habilidades</div>
+    <div class="row">
+      <div class="col s12">
+        <%= f.label :Habilidades %>
+        <%= f.text_area :skills, class: 'materialize-textarea' %>
+      </div>
+    </div>
+  <div>
+<div>
 
-<h5>Experiencia Laboral</h5>
-<div id="work-experiences">
+<div class="divider"></div>
+<div class="section">
+  <div class="center-align subtitle">Experiencia</div>
+    <div class="row">
+      <div class="col s12">    
+        <%= f.label :Areas_de_experiencia %>
+        <%= f.text_area :areas_of_expertise, class: 'materialize-textarea' %>
+      </div>
+    </div>
+  <div>
+<div>
+
+<div class="divider"></div>
+<div class="section">
+  <div class="center-align subtitle">Educación</div>
+  <%= f.fields_for :education_histories do |education_history| %>
+    <%= render 'education_history_fields', f: education_history %>
+  <% end %>
+  <div class="row">
+    <%= link_to_add_association f, :education_histories, :class => "right btn-floating btn-large teal" do %>
+      <i class="large material-icons">add</i>
+    <% end %>
+  </div>
+</div>
+
+<div class="divider"></div>
+<div class="section" id="work-experiences">
+  <div class="center-align subtitle">Experiencia Laboral</div>
   <%= f.fields_for :work_experiences do |work_experience| %>
     <%= render 'work_experience_fields', f: work_experience %>
   <% end %>
-  <div class='links'>
+  <div class="row">
     <%= link_to_add_association f, :work_experiences, :class => "right btn-floating btn-large teal" do %>
       <i class="large material-icons">add</i>
     <% end %>
   </div>
 </div>
 
-<br><br><br>
-
-<h5>Cursos y Certificacions</h5>
-<%= f.fields_for :certifications do |certification| %>
-  <%= render 'certification_fields', f: certification %>
-<% end %>
-<div class='links'>
-  <%= link_to_add_association f, :certifications, :class => "right btn-floating btn-large teal" do %>
-    <i class="large material-icons">add</i>
+<div class="divider"></div>
+<div class="section">
+  <div class="center-align subtitle">Cursos y Certificaciones</div>
+  <%= f.fields_for :certifications do |certification| %>
+    <%= render 'certification_fields', f: certification %>
   <% end %>
+  <div class="row">
+    <%= link_to_add_association f, :certifications, :class => "right btn-floating btn-large teal" do %>
+      <i class="large material-icons">add</i>
+    <% end %>
+  </div>
 </div>
-
-<br><br><br>
