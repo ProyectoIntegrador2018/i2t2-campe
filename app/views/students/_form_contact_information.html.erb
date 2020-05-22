@@ -1,48 +1,52 @@
-<h5>
-Teléfonos:
-</h5>
-<div class="row">
-    <div class="col s2 input-field inline">
-        <%= c.label :Teléfono %>
+<div class="divider"></div>
+<div class="section">
+  <div class="center-align subtitle">
+    Teléfonos
+  </div>
+  <div class="row zeroMargin">
+    <div class="col s4 input-field inline">
+        <%= c.label :phone_number, 'Teléfono' %>
         <%= c.telephone_field :phone_number %>
     </div>
-    <div class="col s2 input-field inline">
-        <%= c.label :Celular %>
+    <div class="col s4 input-field inline">
+        <%= c.label :cellphone_number, 'Celular' %>
         <%= c.telephone_field :cellphone_number %>
     </div>
-    </div>
-    <h5>
-    Domicilio:
-    </h5>
-    <div class="row">
-    <div class="col s3 input-field inline">
-        <%= c.label :Calle_de_Domicilio,:style=>'color:red;' %>
+  </div>
+</div>
+<div class="divider"></div>
+<div class="section">
+  <div class="center-align subtitle">
+    Domicilio
+  </div>
+  <div class="row zeroMargin">
+    <div class="col s12 m6 l4 input-field inline">
+        <%= c.label :street_address, 'Calle*' %>
         <%= c.text_field :street_address, :required => true  %>
     </div>
-    <div class="col s3 input-field inline">
-        <%= c.label :Número_exterior%>
-        <%= c.number_field :street_number_address_ext %>
+    <div class="col s12 m6 l4 input-field inline">
+        <%= c.label :street_number_address_ext, 'Número exterior*'%>
+        <%= c.number_field :street_number_address_ext, :required => true %>
     </div>
-    <div class="col s3 input-field inline">
-        <%= c.label :Número_interior %>
+    <div class="col s12 m6 l4 input-field inline">
+        <%= c.label :street_number_address_int, 'Número interior' %>
         <%= c.number_field :street_number_address_int %>
     </div>
-    <div class="col s3 input-field inline">
-        <%= c.label :Colonia %>
+    <div class="col s12 m6 l4 input-field inline">
+        <%= c.label :neighborhood, 'Colonia' %>
         <%= c.text_field :neighborhood %>
     </div>
-    </div>
-    <div class="row">
-    <div class="col s4 input-field inline">
-        <%= c.label :Ciudad,:style=>'color:red;'%>
+    <div class="col s12 m6 l4 input-field inline">
+        <%= c.label :city, 'Ciudad*'%>
         <%= c.text_field :city, :required => true  %>
     </div>
-    <div class="col s4 input-field inline">
-        <%= c.label :Municipio %>
+    <div class="col s12 m6 l4 input-field inline">
+        <%= c.label :municipality, 'Municipio' %>
         <%= c.text_field :municipality %>
     </div>
-    <div class="col s4 input-field inline">
-        <%= c.label :Estado %>
+    <div class="col s12 m6 l4 input-field inline">
+        <%= c.label :state, 'Estado' %>
         <%= c.text_field :state %>
     </div>
+  </div>
 </div>

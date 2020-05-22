@@ -1,10 +1,16 @@
-<main style="padding-left: 240px">
+<main class="l-left-padding">
   <div class="row">
-    <div class="col s12" style="padding-top: 20px;"><h4 class="center-align">Nueva Convocatoria</h4> </div>
-    <div class="col s12 m4 l2"><p></p></div>
-    <div id="man" class="col s12 m4 l8">
+    <div class="card col s12 m8 offset-m2" style="padding: 20px">
+      <div class="section">
+        <div style="position: absolute; padding-left: 20px">
+          <%= link_to students_path do %>
+            <i class="material-icons left teal-text" style="font-size: 35px; line-height: 48px">arrow_back</i>
+          <% end %>
+        </div>
+        <div class="center-align teal-text title">Importar Becarios</div>
+      </div>
+      <div class="divider"></div>
       <%= render "form", scholarship: @scholarship, scholarship_oportunities: @scholarship_oportunities %>
     </div>
-    <div class="col s12 m4 l2"><p></p></div>
   </div>
 </main>

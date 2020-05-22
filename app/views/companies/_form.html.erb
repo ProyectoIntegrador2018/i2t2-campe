@@ -1,39 +1,37 @@
 <%= form_with(model: company, local: true) do |form| %>
-  <% if company.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+  <div class="section">
+    <% if company.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
 
-      <ul>
-        <% company.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="row">
-    <div class="col s6 input-field inline">
-      <%= form.label "Nombre" %>
-      <%= form.text_field :name %>
-    </div>
-    <div class="col s6 input-field inline">
-      <div class="file-field input-field gallery_picture">
-        <div class="btn">
-          <span>Adjuntar logo</span>
+        <ul>
+          <% company.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="row zeroMargin">
+      <div class="col s12 m6 input-field inline">
+        <%= form.label "Nombre" %>
+        <%= form.text_field :name %>
+      </div>
+      <div class="col s12 file-field input-field gallery_picture">
+        <div class="col s3 btn-small">
+          Logo
           <%= form.file_field :logo %>
         </div>
-        <input class="file-path validate" type="text"/>
+        <input class="col s8 offset-s1 file-path validate" type="text" placeholder="Actualiza el logo de la compañía">
+      </div>
+      <div class="col s12 input-field inline">
+        <%= form.label "Información" %>
+        <%= form.text_area :information, class: 'materialize-textarea' %>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col s12 input-field inline">
-      <%= form.label "Información" %>
-      <%= form.text_area :information, class: 'materialize-textarea' %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s4 input-field inline">
-      <%= form.submit "Guardar", :class => "btn" %>
+  <div class="section"> 
+    <div class="row zeroMargin center-align">
+      <%= form.submit "Actualizar", :class=>"btn-small"%>
     </div>
   </div>
 <% end %>

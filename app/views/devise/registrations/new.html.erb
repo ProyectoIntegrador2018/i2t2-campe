@@ -1,38 +1,40 @@
-<main style="padding-left: 240px">
+<main class="l-left-padding">
   <div class="row">
-    <div class="col s12" style="padding-top: 20px;"><h4 class="center-align">Registrar administrador</h4> </div>
-    <div class="col s12 m4 l1"><p></p></div>
-    <div class="col s12 m4 l10">
-
-      <div id="basic-form" class="section">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
-          <div class="row">
-            <div class="row">
-              <div class="col s4 input-field inline">
-                <%= f.label :Correo,:style=>'color:red;' %>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", :required => true %>
+    <div class="card col s12 m8 offset-m2" style="padding: 20px">
+      <div class="section">
+        <div class="center-align teal-text title">Registrar Administrador</h4>
+      </div>
+      <div class="divider"></div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+          <%= f.fields_for :student_attributes do |s| %>
+            <div class="section">
+              <div class="row zeroMargin">
+                <div class="col s12 m6 l4 input-field">
+                  <%= f.label :email, 'Correo*' %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", :required => true %>
+                </div>
+                <div class="col s12 m6 l4  input-field">
+                  <%= f.label :password, 'Contraseña*' %>
+                  <%= f.password_field :password, autocomplete: "new-password", :required => true%>
+                </div>
+                <div class="col s12 m6 l4  input-field">
+                  <%= f.label :password_confirmation, 'Confirmar contraseña*' %>
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", :required => true %>
+                </div>
+                <div class="col s12 m6 l4  input-field">
+                  <%= f.select :role, options_for_select([["Administrador", "admin"], ["Super Administrador", "super_admin"]]), {:include_blank => "Rol*"}  %>
+                </div>
               </div>
-              <div class="col s4 input-field inline">
-                <%= f.label :contraseña,:style=>'color:red;' %>
-                <%= f.password_field :password, autocomplete: "new-password", :required => true%>
-              </div>
-              <div class="col s4 input-field inline">
-                <%= f.label :confirmar_contraseña,:style=>'color:red;' %>
-                <%= f.password_field :password_confirmation, autocomplete: "new-password", :required => true %>
-              </div>
-
-              <div class="col s4 input-field inline">
-                <%= f.label :role, :style=>'color:red;' %>
-                <%= f.select :role, options_for_select([["Administrador", "admin"], ["Super Administrador", "super_admin"]]), {}, { class: 'browser-default'}  %>
-              </div>
-            </div>
-            <div class="actions center-align">
-              <%= f.submit "Registrar", :class=>"btn"%>
             </div>
           <% end %>
-          <%= render "devise/shared/links" %>
+          <div class="section"> 
+            <div class="row zeroMargin center-align">
+              <%= f.submit "Registrar", :class=>"btn-small"%>
+            </div>
           </div>
+        <% end %>
       </div>
     </div>
+  </div>
 </main>

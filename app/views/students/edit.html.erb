@@ -1,21 +1,33 @@
-<main style="padding-left: 240px">
+<main class="l-left-padding">
   <div class="row">
-    <div class="col s12" style="padding-top: 20px;"><h4 class="center-align">Actualizar Datos Personales</h4> </div>
-    <div class="col s12 m4 l1"><p></p></div>
-    <div class="col s12 m4 l10">
-
-        <div id="basic-form" class="section">
-            <%= form_for @student do |f| %>
-                <% if current_user.is_admin_or_super_admin? %>
-                    <%= render "form", f: f %>
-                <% end %>
-                <%= f.fields_for :contact_information do |c| %>
-                    <%= render "form_contact_information", c: c %>
-                <% end %>
-                <div class="actions center-align">
-                    <%= f.submit "Actualizar", :class=>"btn"%>
-                </div>
-            <% end %>
+    <div class="card col s12 m8 offset-m2" style="padding: 20px">
+      <div class="section">
+        <div style="position: absolute; padding-left: 20px">
+          <%= link_to student_path(@student.id) do %>
+            <i class="material-icons left teal-text" style="font-size: 35px; line-height: 48px">arrow_back</i>
+          <% end %>
         </div>
+        <div class="center-align teal-text title">Editar Perfil</div>
+      </div>
+      <%= form_for @student do |f| %>
+        <% if current_user.is_admin_or_super_admin? %>
+          <div class="divider"></div>
+          <div class="section">
+            <div class="center-align subtitle">Información Personal</div>
+            <div class="row zeroMargin">
+              <%= render "form", f: f %>
+            </div>
+          </div>
+        <% end %>
+        <%= f.fields_for :contact_information do |c| %>
+          <%= render "form_contact_information", c: c %>
+        <% end %>
+        <div class="section"> 
+          <div class="row zeroMargin center-align">
+            <%= f.submit "Actualizar", :class=>"btn-small"%>
+          </div>
+        </div>
+      <% end %>
     </div>
+  </div>
 </main>

@@ -1,4 +1,4 @@
-<main style="padding-left: 240px">
+<main class="l-left-padding">
   <div class="row">
     <div class="col s12" style="padding-top: 20px;"><h4 class="center-align">Oportunidades laborales</h4></div>
   </div>
@@ -13,11 +13,11 @@
         ) %>
       </div>
       <div class="col s3 inline">
-        <%= f.label "Compañia" %>
+        <%= f.label "Compañía" %>
         <%= f.select(
           :with_company_id,
           @filterrific.select_options[:with_company_id],
-          { include_blank: 'Nombre de compañia' }, { class: 'browser-default' }
+          { include_blank: 'Compañía' }
         ) %>
       </div>
       <div class="col s3 inline">

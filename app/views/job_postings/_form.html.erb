@@ -58,7 +58,7 @@
   <div class="row">
     <div class="col s12 input-field">
       <% if current_user.super_admin? %>
-        <%= form.collection_select(:company_id, Company.all, :id, :name, {:prompt => 'Compañia'}, {:required => true ,class: "browser-default"}) %>
+        <%= form.collection_select(:company_id, Company.all, :id, :name, {:prompt => 'Compañía'}, {:required => true ,class: "browser-default"}) %>
       <% else %>
         <%= form.hidden_field :company_id, :value => current_user.company.id %>
       <% end %>

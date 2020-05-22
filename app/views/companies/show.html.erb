@@ -1,14 +1,58 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @company.name %>
-</p>
-
-<p>
-  <strong>Information:</strong>
-  <%= @company.information %>
-</p>
-
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+<main class="l-left-padding">
+  <div class="row">
+    <div class="card col s12 m8 offset-m2" style="padding: 20px">
+      <div class="section">
+        <% if current_user.is_admin_or_super_admin?  %>
+          <div style="position: absolute; padding-left: 20px">
+            <%= link_to companies_path do %>
+              <i class="material-icons left teal-text" style="font-size: 35px; line-height: 48px">arrow_back</i>
+            <% end %>
+          </div>
+        <% end %>
+        <div class="center-align teal-text title">
+          Compañía
+          <div class="right"><a href="<%= edit_company_url(@company) %>" class="btn-small"><i class="material-icons left">edit</i>Editar</a></div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="section">
+        <div class="row zeroMargin">
+          <div class="row zeroMargin">
+            <div class="col s4 right-align label">
+              Logo
+            </div>
+            <div class="col s8">
+              <% if @company.logo.attached? %>
+                <img src="<%= url_for(@company.logo) %>" class="materialboxed responsive-img">
+              <% else %>
+                No disponible.
+              <% end %>
+            </div>
+          </div>
+          <div class="col s4 right-align label">
+            Nombre
+          </div>
+          <div class="col s8">
+            <%= @company.name %>
+          </div>
+        </div>
+        <div class="row zeroMargin">
+          <div class="col s4 right-align label">
+            Email
+          </div>
+          <div class="col s8">
+            <%= @company.user.email %>
+          </div>
+        </div>
+        <div class="row zeroMargin">
+          <div class="col s4 right-align label">
+            Información
+          </div>
+          <div class="col s8">
+            <%= @company.information %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

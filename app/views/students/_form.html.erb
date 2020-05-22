@@ -1,48 +1,42 @@
-<div class="row">
-  <div class="col s4 input-field inline">
-    <%= f.label :Nombre,:style=>'color:red;'%>
-    <%= f.text_field :name, :required => true%>
-  </div>
-  <div class="col s4 input-field inline">
-    <%= f.label :Primer_Apellido %>
-    <%= f.text_field :paternal_last_name %>
-  </div>
-  <div class="col s4 input-field inline">
-    <%= f.label :Segundo_Apellido %>
-    <%= f.text_field :maternal_last_name %>
-  </div>
+<div class="col s12 m6 l4 input-field">
+  <%= f.label :name, 'Nombre*'%>
+  <%= f.text_field :name, :required => true%>
 </div>
-<div class="row">
-  <div class="col s2 input-field inline">
-    <%= f.label :CVU,:style=>'color:red;'%>
-    <%= f.number_field :cvu, :required => true %>
-  </div>
-  <div class="col s2 input-field inline">
-    <%= f.label :RFC,:style=>'color:red;'%>
-    <%= f.text_field :rfc, :required => true%>
-  </div>
-  <div class="col s2 input-field inline">
-    <%= f.label :CURP,:style=>'color:red;'%>
-    <%= f.text_field :curp, :required => true %>
-  </div>
-  <div class="col s3 inline">
-    <%= f.label :Fecha_de_nacimiento %>
-    <%= f.date_field :birth_date %>
-  </div>
+<div class="col s12 m6 l4 input-field">
+  <%= f.label :paternal_last_name, 'Apellido paterno' %>
+  <%= f.text_field :paternal_last_name %>
 </div>
-<div class="row">
-  <div class="col s2 input-field inline">
-    <%= f.select :gender, options_for_select(["Hombre", "Mujer"], (f.object.try :gender)), {:include_blank => "Género:"}, { class: 'browser-default' } %>
-  </div>
-  <div class="col s2 input-field inline">
-    <%= f.select :marital_status, options_for_select(["Soltero", "Casado"], (f.object.try :marital_status)), {:include_blank => "Estado Civil:"}, { class: 'browser-default' } %>
-  </div>
-  <div class="col s3 input-field inline">
-    <%= f.label :País_de_Nacimiento,:style=>'color:red;'%>
-    <%= f.text_field :country_birth, :required => true %>
-  </div>
-  <div class="col s3 input-field inline">
-    <%= f.label :Estado_de_Nacimiento,:style=>'color:red;'%>
-    <%= f.text_field :state_birth, :required => true %>
-  </div>
+<div class="col s12 m6 l4 input-field">
+  <%= f.label :maternal_last_name, 'Apellido materno' %>
+  <%= f.text_field :maternal_last_name %>
+</div>
+<div class="col s12 m6 l4 input-field">
+  <%= f.label :cvu, 'CVU*'%>
+  <%= f.number_field :cvu, :required => true %>
+</div>
+<div class="col s12 m6 l4 input-field">
+  <%= f.label :RFC, 'RFC*'%>
+  <%= f.text_field :rfc, :required => true%>
+</div>
+<div class="col s12 m6 l4 input-field">
+  <%= f.label :curp, 'CURP*'%>
+  <%= f.text_field :curp, :required => true %>
+</div>
+<div class="col s12 m6 l4">
+  <%= f.label :birth_date, 'Fecha de nacimiento' %>
+  <%= f.date_field :birth_date %>
+</div>
+<div class="col s12 m6 l4 input-field">
+  <%= f.select :gender, options_for_select(["Hombre", "Mujer"], (f.object.try :gender)), {:include_blank => "Género"} %>
+</div>
+<div class="col s12 m6 l4 input-field">
+  <%= f.select :marital_status, options_for_select(["Soltero", "Casado"], (f.object.try :marital_status)), {:include_blank => "Estado Civil"} %>
+</div>
+<div class="col s12 m6 l4 input-field">
+  <%= f.label :country_birth, 'País de nacimiento*'%>
+  <%= f.text_field :country_birth, :required => true %>
+</div>
+<div class="col s12 m6 l4 input-field">
+  <%= f.label :state_birth, 'Estado de nacimiento*'%>
+  <%= f.text_field :state_birth, :required => true %>
 </div>

@@ -1,21 +1,33 @@
-<main style="padding-left: 240px">
-  <div class="container">
-    <div class="row">
-      <div class="col s12"><p></p></div>
-      <div class="col s12 m4 l1"><p></p></div>
-      <h2>Carga Masiva de Exbecarios</h2>
-      <%= form_tag import_former_students_path, multipart: true do %>
-        <div class="row file-field input-field">
-          <div class="col s3 btn-small">
-            Excel Exbecarios
-            <%= file_field_tag :file,:style=>'padding-top:10px', class: 'form-control' %><br>
-          </div>
-          <input class="col s8 offset-s1 file-path validate" type="text" placeholder="Sube el excel con los exbecarios"/>
+<main class="l-left-padding">
+  <div class="row">
+    <div class="card col s12 m8 offset-m2" style="padding: 20px">
+      <div class="section">
+        <div style="position: absolute; padding-left: 20px">
+          <%= link_to former_students_path do %>
+            <i class="material-icons left teal-text" style="font-size: 35px; line-height: 48px">arrow_back</i>
+          <% end %>
         </div>
-        <%= submit_tag 'Enviar',:style=>'color:white;font-size:10px;width:110px ! important', class: 'btn btn-primary'%>
+        <div class="center-align teal-text title">Importar Exbecarios</div>
+      </div>
+      <%= form_tag import_former_students_path, multipart: true do %>
+        <div class="divider"></div>
+        <div class="section">
+          <div class="row" style="margin-top: 20px">
+            <div class="col s12 file-field input-field">
+              <div class="col s3 btn-small">
+                Archivo
+                <%= file_field_tag :file,:style=>'padding-top:10px', class: 'form-control' %><br>
+              </div>
+              <input class="col s8 offset-s1 file-path validate" type="text" placeholder="Selecciona el archivo de Excel con los exbecarios"/>
+            </div>
+          </div>
+        </div>
+        <div class="section"> 
+          <div class="row zeroMargin center-align">
+            <%= submit_tag 'Procesar', class: 'btn-small'%>
+          </div>
+        </div>
       <% end %>
-
-      <div class="col s12 m4 l1"><p></p></div>
     </div>
   </div>
 </main>

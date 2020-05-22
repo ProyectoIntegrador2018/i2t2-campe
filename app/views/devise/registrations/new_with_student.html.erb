@@ -1,114 +1,113 @@
-<main style="padding-left: 240px">
+<main class="l-left-padding">
   <div class="row">
-    <div class="col s12" style="padding-top: 20px;"><h4 class="center-align">Registrar becarios</h4> </div>
-    <div class="col s12 m4 l1"><p></p></div>
-    <div class="col s12 m4 l10">
-
-      <div id="basic-form" class="section">
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
-          <h5>
-            Información Personal:
-          </h5>
-          <div class="row">
-            <div class="col s4 input-field inline">
-              <%= f.label :Correo,:style=>'color:red;' %>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", :required => true %>
-            </div>
-            <div class="col s4 input-field inline">
-              <%= f.label :contraseña,:style=>'color:red;' %>
-              <%= f.password_field :password, autocomplete: "new-password", :required => true%>
-            </div>
-            <div class="col s4 input-field inline">
-              <%= f.label :confirmar_contraseña,:style=>'color:red;' %>
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", :required => true %>
+    <div class="card col s12 m8 offset-m2" style="padding: 20px">
+      <div class="section">
+        <div style="position: absolute; padding-left: 20px">
+            <%= link_to students_path do %>
+              <i class="material-icons left teal-text" style="font-size: 35px; line-height: 48px">arrow_back</i>
+            <% end %>
+          </div>
+        <div class="center-align teal-text title">Registrar Becario</h4>
+      </div>
+      <div class="divider"></div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <%= f.fields_for :student_attributes do |s| %>
+          <div class="section">
+            <div class="center-align subtitle">Información Personal</div>
+            <div class="row zeroMargin">
+              <div class="col s12 m6 l4 input-field">
+                <%= f.label :email, 'Correo*'%>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", :required => true %>
+              </div>
+              <div class="col s12 m6 l4 input-field">
+                <%= f.label :password, 'Contraseña*' %>
+                <%= f.password_field :password, autocomplete: "new-password", :required => true%>
+              </div>
+              <div class="col s12 m6 l4 input-field">
+                <%= f.label :password_confirmation, 'Confirmar contraseña*' %>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", :required => true %>
+              </div>
+              <%= render "students/form", f: s %>
             </div>
           </div>
-
-          <%= f.fields_for :student_attributes do |s| %>
-            <%= render "students/form", f: s %>
-            <%= s.fields_for :contact_information_attributes do |c| %>
-              <%= render "students/form_contact_information", c: c %>
-            <% end %>
-            <h5>
-              Información de Estudios:
-            </h5>
-            <%= s.fields_for 'scholarships_attributes[0]' do |sch| %>
-            <div class="row">
-              <div class="col s3 input-field inline">
-                <%= sch.collection_select(:scholarship_oportunity_id, ScholarshipOportunity.all, :id, :name, {:prompt => 'Convocatoria'}, {:style=>'color:red;', :required => true ,class: "browser-default"}) %>
-              </div>
-              <div class="col s3 input-field inline">
-                <%= sch.label :Año_Fiscal %>
-                <%= sch.number_field :fiscal_year %>
-              </div>
-              <div class="col s3 input-field inline">
-                <%= sch.label :Fecha_de_inicio_de_estudios %>
-                <%= sch.date_field :studies_start, :value => Time.now.strftime("%Y-%m-%d")  %>
-              </div>
-              <div class="col s3 input-field inline">
-                <%= sch.label :Fecha_de_fin_de_estudios %>
-                <%= sch.date_field :studies_end, :value => Time.now.strftime("%Y-%m-%d")  %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s3 input-field inline">
-                <%= sch.label :Fecha_de_inicio_de_beca %>
-                <%= sch.date_field :start, :value => Time.now.strftime("%Y-%m-%d")  %>
-              </div>
-              <div class="col s3 input-field inline">
-                <%= sch.label :Fecha_de_fin_de_beca %>
-                <%= sch.date_field :end, :value => Time.now.strftime("%Y-%m-%d")  %>
-              </div>
-              <div class="col s3 input-field inline">
-                <%= sch.label :Universidad,:style=>'color:red;'%>
-                <%= sch.text_field :institution, :required => true %>
-              </div>
-              <div class="col s3 input-field inline">
-                <%= sch.label :Entidad,:style=>'color:red;'%>
-                <%= sch.text_field :entity, :required => true  %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s3 input-field inline">
-                <%= sch.label :Apoyo_a_obtener,:style=>'color:red;'%>
-                <%= sch.text_field :desired_support, :required => true  %>
-              </div>
-              <div class="col s3 input-field inline">
-                <%= sch.label :Programa,:style=>'color:red;'%>
-                <%= sch.text_field :program, :required => true  %>
-              </div>
-              <div class="col s3 input-field inline">
-                <%= sch.label :Campo_de_estudio %>
-                <%= sch.text_field :study_field %>
-              </div>
-              <div class="col s3 input-field inline">
-                <%= sch.label :Area_de_estudio %>
-                <%= sch.text_field :study_area %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s4 input-field inline">
-                <%= sch.label :Disciplina %>
-                <%= sch.text_field :discipline %>
-              </div>
-              <div class="col s4 input-field inline">
-                <%= sch.label :Subdisciplina %>
-                <%= sch.text_field :sub_discipline %>
-              </div>
-              <div class="col s4 input-field inline">
-                <%= sch.label :Promedio_ultimo_grado %>
-                <%= sch.number_field :most_recent_gpa %>
-              </div>
-            </div>
-            <% end %>
+          <%= s.fields_for :contact_information_attributes do |c| %>
+            <%= render "students/form_contact_information", c: c %>
           <% end %>
-          <div class="actions center-align">
-            <%= f.submit "Registrar", :class=>"btn"%>
+          <div class="divider"></div>
+          <div class="section">
+            <div class="center-align subtitle">Información de Estudios</div>
+            <%= s.fields_for 'scholarships_attributes[0]' do |sch| %>
+              <div class="row zeroMargin">
+                <div class="col s12 input-field">
+                  <%= sch.collection_select(:scholarship_oportunity_id, ScholarshipOportunity.all, :id, :name, {:prompt => 'Convocatoria*'}, {:required => true}) %>
+                </div>
+                <div class="col s12 m6 l4 input-field">
+                  <%= sch.label :fiscal_year, 'Año fiscal' %>
+                  <%= sch.number_field :fiscal_year %>
+                </div>
+                <div class="col s12 m6 l4 input-field">
+                  <%= sch.label :studies_start, 'Inicio de estudios' %>
+                  <%= sch.date_field :studies_start, :value => Time.now.strftime("%Y-%m-%d")  %>
+                </div>
+                <div class="col s12 m6 l4 input-field">
+                  <%= sch.label :studies_end, 'Fin de estudios' %>
+                  <%= sch.date_field :studies_end, :value => Time.now.strftime("%Y-%m-%d")  %>
+                </div>
+                <div class="col s12 m6 l4 input-field">
+                  <%= sch.label :start, 'Inicio de beca' %>
+                  <%= sch.date_field :start, :value => Time.now.strftime("%Y-%m-%d")  %>
+                </div>
+                <div class="col s12 m6 l4 input-field">
+                  <%= sch.label :end, 'Fin de beca' %>
+                  <%= sch.date_field :end, :value => Time.now.strftime("%Y-%m-%d")  %>
+                </div>
+                <div class="col s12 m6 l4 input-field">
+                  <%= sch.label :institution, 'Universidad*'%>
+                  <%= sch.text_field :institution, :required => true %>
+                </div>
+                <div class="col s12 m6 l4 input-field">
+                  <%= sch.label :entity, 'Entidad*'%>
+                  <%= sch.text_field :entity, :required => true  %>
+                </div>
+                <div class="col s12 m6 l4 input-field">
+                  <%= sch.label :desired_support, 'Apoyo a obtener*'%>
+                  <%= sch.text_field :desired_support, :required => true  %>
+                </div>
+                <div class="col s12 m6 l4 input-field">
+                  <%= sch.label :program, 'Programa*' %>
+                  <%= sch.text_field :program, :required => true  %>
+                </div>
+                <div class="col s12 m6 l4 input-field">
+                  <%= sch.label :study_field, 'Campo de estudio' %>
+                  <%= sch.text_field :study_field %>
+                </div>
+                <div class="col s12 m6 l4 input-field">
+                  <%= sch.label :study_area, 'Área de estudio' %>
+                  <%= sch.text_field :study_area %>
+                </div>
+                <div class="col s12 m6 l4 input-field">
+                  <%= sch.label :discipline, 'Disciplina' %>
+                  <%= sch.text_field :discipline %>
+                </div>
+                <div class="col s12 m6 l4 input-field">
+                  <%= sch.label :sub_discipline, 'Subdisciplina' %>
+                  <%= sch.text_field :sub_discipline %>
+                </div>
+                <div class="col s12 m6 l4 input-field">
+                  <%= sch.label :most_recent_gpa, 'Último promedio' %>
+                  <%= sch.number_field :most_recent_gpa %>
+                </div>
+              </div>
+            <% end %>
           </div>
         <% end %>
-        <%= render "devise/shared/links" %>
-      </div>
+        <div class="section"> 
+          <div class="row zeroMargin center-align">
+            <%= f.submit "Registrar", :class=>"btn-small"%>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </main>
