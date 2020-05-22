@@ -1,15 +1,18 @@
 <main class="l-left-padding">
-  <div class="container">
-    <div class="col s12" style="padding-top: 20px;"><h4 class="center-align">Curriculum</h4> </div>
-    <div class="col s12 m4 l10">
-      <div id="basic-form" class="section">
-        <%= form_for @curriculum do |f| %>
-          <%= render "curriculums/form", f: f %>
-          <div class="fixed-action-btn">
-          <%= f.submit :class=>"btn-floating btn-large teal darken-2" do %>
+  <div class="row">
+    <div class="card col s12 m8 offset-m2" style="padding: 40px">
+      <div class="section">
+        <div class="center-align teal-text title">Curriculum</div>
+      </div>
+      <div class="divider"></div>
+      <%= form_for @curriculum do |f| %>
+        <%= render "curriculums/form", f: f %>
+        <div class="fixed-action-btn">
+          <%= button_tag( :class => "btn-floating btn-large teal darken-2") do %>
             <i class="large material-icons">save</i>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
+  </div>
 </main>

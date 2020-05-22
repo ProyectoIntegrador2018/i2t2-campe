@@ -1,252 +1,263 @@
 <main class="l-left-padding">
-  <div class="container">
-
-    <div class="row valign-wrapper ">
-      <div class="col s12 l3 z-depth-1 center-align">
-        <img src="<%= @curriculum.profile_picture.attached? ? url_for(@curriculum.profile_picture) : 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTi4DmuEiqgpdMPdI839ak7nqOyEHlnwt2nQWTLtI8UzuxgsYKH' %>" class="materialboxed responsive-img">
+  <div class="row">
+    <div class="card col s12 m10 offset-m1" style="padding: 50px">
+      <div class="row">
+        <% if current_user.is_admin_or_super_admin?  %>
+          <div style="position: absolute; padding-left: 20px">
+            <%= link_to former_students_path do %>
+              <i class="material-icons left teal-text" style="font-size: 35px; line-height: 48px">arrow_back</i>
+            <% end %>
+          </div>
+        <% end %>
+        <div class="col s12">
+          <div class="title center-align"><%= @curriculum.student.full_name %></div>
+        </div>
       </div>
-      <div class="col s12 l8 offset-l1 valign-wrapper">
-        <span>
-          <div class="row">
-            <div class="col s12">
-              <h1 class="zeroMargin"><%= @curriculum.student.full_name %></h1>
-            </div>
+      <div>
+        <div class="row valign-wrapper ">
+          <div class="col s12 m3 z-depth-1 center-align">
+            <img src="<%= @curriculum.profile_picture.attached? ? url_for(@curriculum.profile_picture) : 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTi4DmuEiqgpdMPdI839ak7nqOyEHlnwt2nQWTLtI8UzuxgsYKH' %>" class="materialboxed responsive-img">
           </div>
-          <div class="row">
-            <div class="col s12">
-              <p class="largeText zeroMargin grey-text">Empleo deseado:</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col s12 m6">
-              <p class="largeText zeroMargin"><%= @curriculum.desired_position %></p>
-            </div>
-            <div class="col s12 m6">
-              <p class="largeText zeroMargin">
-                <%= number_to_currency @curriculum.min_desired_salary %> - <%= number_to_currency @curriculum.max_desired_salary %>
-              </p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col s12">
-              <p class="largeText zeroMargin grey-text">Archivo de curriculum:</p>
-              <% if @curriculum.curriculum_file.attached? %>
-                <div class="col s12 l10 valign-wrapper">
-                  <a href="<%= url_for(@curriculum.curriculum_file) %>" class="btn-small"><i class="material-icons left">file_download</i>Descargar Curriculum</a>
+          <div class="col s12 m8 offset-m1 valign-wrapper">
+            <span class="col s12">
+              <div class="row">
+                <div class="col s12">
+                  <p class="largeText zeroMargin grey-text">Empleo Deseado</p>
                 </div>
-              <% else %>
-                No has subido un archivo.
-              <% end %>
-            </div>
-          </div>
-        </span>
-
-      </div>
-    </div>
-  
-    <div class="row">
-      <div class="col s12">
-        <blockquote class="flow-text">
-          <%= @curriculum.professional_objective %>
-        </blockquote>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col s12 l4">
-        <div>
-          <div class="row">
-            <div class="col s12 center-align">
-              <h4>Idiomas</h4>
-            </div>
-          </div>
-          <div class="card-panel">
-            <div class="row">
-              <div class="col s12">
-                <ul>
-                  <% @curriculum.languages.each do |language| %>
-                    <li class="mediumText">
-                      <%= language.language_name %> - 
-                      <span class="blue-grey-text text-darken-1"><%= humanize_language_proficiency(language)%><span>
-                    </li>
+              </div>
+              <div class="row">
+                <div class="col s12 m6 largeText zeroMargin">
+                  <%= @curriculum.desired_position %>
+                </div>
+                <div class="col s12 m6 largeText zeroMargin">
+                  <%= number_to_currency @curriculum.min_desired_salary %> - <%= number_to_currency @curriculum.max_desired_salary %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col s12">
+                  <p class="largeText zeroMargin grey-text">Archivo de Curriculum</p>
+                  <% if @curriculum.curriculum_file.attached? %>
+                    <div class="col s12 l10 valign-wrapper">
+                      <a href="<%= url_for(@curriculum.curriculum_file) %>" class="btn-small"><i class="material-icons left">file_download</i>Descargar Curriculum</a>
+                    </div>
+                  <% else %>
+                    No has subido un archivo.
                   <% end %>
-                </ul>
+                </div>
+              </div>
+            </span>
+
+          </div>
+        </div>
+      
+        <div class="row">
+          <div class="col s12">
+            <blockquote class="flow-text">
+              <%= @curriculum.professional_objective %>
+            </blockquote>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12 m4">
+            <div>
+              <div class="row">
+                <div class="col s12 center-align subtitle">
+                  Idiomas
+                </div>
+              </div>
+              <div class="card-panel">
+                <div class="row">
+                  <div class="col s12">
+                    <ul>
+                      <% @curriculum.languages.each do |language| %>
+                        <li class="mediumText">
+                          <%= language.language_name %> - 
+                          <span class="blue-grey-text text-darken-1"><%= humanize_language_proficiency(language)%><span>
+                        </li>
+                      <% end %>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m4">
+            <div>
+              <div class="row">
+                <div class="col s12 center-align subtitle">
+                  Habilidades
+                </div>
+              </div>
+              <div class="card-panel">
+                <div class="row">
+                  <div class="col s12">
+                    <p class="mediumText"><%= @curriculum.skills %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m4">
+            <div>
+              <div class="row">
+                <div class="col s12 center-align subtitle">
+                  Experiencia
+                </div>
+              </div>
+              <div class="card-panel">
+                <div class="row">
+                  <div class="col s12">
+                    <p class="mediumText"><%= @curriculum.areas_of_expertise%></p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col s12 l4">
-        <div>
-          <div class="row">
-            <div class="col s12 center-align">
-              <h4>Habilidades</h4>
-            </div>
+
+        <div class="divider" style="margin: 20px 0"></div>
+        <div class="row">
+          <div class="col s12 subtitle center-align">
+            Educación
           </div>
+        </div>
+
+        <% @curriculum.education_histories.each do |edu| %>
           <div class="card-panel">
+            <div class="col s12">
+              <p class="xLargeText zeroMargin"><%= edu.area_of_study%></p>
+            </div>
+            <div class="row">
+              <div class="col s12 m7">
+                <p class="largeText blue-grey-text text-darken-3 zeroMargin">
+                  <%= edu.university %>
+                </p>
+              </div>
+              <div class="col s6 m2">
+                <p class="largeText blue-grey-text text-darken-2 zeroMargin">
+                  <%= edu.start_date.try :strftime, "%B %Y" %>
+                </p>
+              </div>
+              <div class="col s6 m2">
+                <p class="largeText blue-grey-text text-darken-2 zeroMargin">
+                  <%= edu.end_date.try :strftime, "%B %Y" %>
+                </p>
+              </div>
+            </div>
+            <div class="divider"></div>
             <div class="row">
               <div class="col s12">
-                <p class="mediumText"><%= @curriculum.skills %></p>
+                <p class="universityText mediumText zeroMargin">
+                  <%= edu.brief_description %>
+                </p>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="col s12 l4">
-        <div>
-          <div class="row">
-            <div class="col s12 center-align">
-              <h4>Experiencia</h4>
-            </div>
+        <% end %>
+
+        <div class="divider" style="margin: 20px 0"></div>
+        <div class="row">
+          <div class="col s12 subtitle center-align">
+            Experiencias de Trabajo
           </div>
+        </div>
+
+        <% @curriculum.work_experiences.each do |we| %>
           <div class="card-panel">
+            <div class="col s12">
+              <p class="xLargeText zeroMargin"><%= we.company%></p>
+            </div>
+            <div class="row">
+              <div class="col s12 m6">
+                <p class="largeText blue-grey-text text-darken-3 zeroMargin">
+                  <%= we.title %>
+                </p>
+              </div>
+              <div class="col s6 m3">
+                <p class="largeText blue-grey-text text-darken-2 zeroMargin">
+                  <%= we.start_date.try :strftime, "%B %Y" %>
+                </p>
+              </div>
+              <div class="col s6 m3">
+                <p class="largeText blue-grey-text text-darken-2 zeroMargin">
+                  <%= we.is_current ? "Actual" : (we.end_date.try :strftime, "%B %Y") %>
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 m6">
+                <p class="largeText blue-grey-text text-darken-3 zeroMargin">
+                  <%= we.entity %>
+                </p>
+              </div>
+              <div class="col s12 m6">
+                <p class="largeText blue-grey-text text-darken-3 zeroMargin">
+                  <%= we.country %>
+                </p>
+              </div>
+            </div>
             <div class="row">
               <div class="col s12">
-                <p class="mediumText"><%= @curriculum.areas_of_expertise%></p>
+                <p class="largeText blue-grey-text text-darken-3 zeroMargin">
+                  <%= we.study_area %>
+                </p>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="row">
+              <div class="col s12">
+                <p class="universityText mediumText">
+                  <%= we.description %>
+                </p>
               </div>
             </div>
           </div>
+        <% end %>
+        
+        <div class="divider" style="margin: 20px 0"></div>
+        <div class="row">
+          <div class="col s12 subtitle center-align">
+            Cursos y Certificaciones
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col s12">
-        <h4>Educación</h4>
-      </div>
-    </div>
+        <% @curriculum.certifications.each do |cert| %>
+          <div class="card-panel">
+            <div class="col s12">
+              <p class="xLargeText zeroMargin"><%= cert.certification_name%></p>
+            </div>
+            <div class="row">
+              <div class="col s12 m7">
+                <p class="largeText blue-grey-text text-darken-3 zeroMargin">
+                  <%= cert.emitting_organization %>
+                </p>
+              </div>
+              <div class="col s12 m2 offset-m2">
+                <p class="largeText blue-grey-text text-darken-2 zeroMargin">
+                  <%= cert.date_emitted.try :strftime, "%B %Y" %>
+                </p>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div class="row">
+              <div class="col s12">
+                <p class="universityText mediumText zeroMargin">
+                  <%= cert.brief_description %>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% end %>
 
-    <% @curriculum.education_histories.each do |edu| %>
-      <div class="card-panel">
-        <div class="col s12">
-          <p class="xLargeText zeroMargin"><%= edu.area_of_study%></p>
-        </div>
-        <div class="row">
-          <div class="col s12 m7">
-            <p class="largeText blue-grey-text text-darken-3 zeroMargin">
-              <%= edu.university %>
-            </p>
+        <% if current_user.former_student? %>
+          <div class="fixed-action-btn">
+            <%= link_to edit_curriculum_path(@curriculum), :class => "btn-floating btn-large teal darken-2" do %>
+              <i class="large material-icons">mode_edit</i>
+            <% end %>
           </div>
-          <div class="col s6 m2">
-            <p class="largeText blue-grey-text text-darken-2 zeroMargin">
-              <%= edu.start_date.try :strftime, "%B %Y" %>
-            </p>
-          </div>
-          <div class="col s6 m2">
-            <p class="largeText blue-grey-text text-darken-2 zeroMargin">
-              <%= edu.end_date.try :strftime, "%B %Y" %>
-            </p>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="row">
-          <div class="col s12">
-            <p class="universityText mediumText zeroMargin">
-              <%= edu.brief_description %>
-            </p>
-          </div>
-        </div>
-      </div>
-    <% end %>
-
-    <div class="row">
-      <div class="col s12">
-        <h4>Experiencias de Trabajo</h4>
-      </div>
-    </div>
-
-    <% @curriculum.work_experiences.each do |we| %>
-      <div class="card-panel">
-        <div class="col s12">
-          <p class="xLargeText zeroMargin"><%= we.company%></p>
-        </div>
-        <div class="row">
-          <div class="col s12 m6">
-            <p class="largeText blue-grey-text text-darken-3 zeroMargin">
-              <%= we.title %>
-            </p>
-          </div>
-          <div class="col s6 m3">
-            <p class="largeText blue-grey-text text-darken-2 zeroMargin">
-              <%= we.start_date.try :strftime, "%B %Y" %>
-            </p>
-          </div>
-          <div class="col s6 m3">
-            <p class="largeText blue-grey-text text-darken-2 zeroMargin">
-              <%= we.is_current ? "Actual" : (we.end_date.try :strftime, "%B %Y") %>
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col s12 m6">
-            <p class="largeText blue-grey-text text-darken-3 zeroMargin">
-              <%= we.entity %>
-            </p>
-          </div>
-          <div class="col s12 m6">
-            <p class="largeText blue-grey-text text-darken-3 zeroMargin">
-              <%= we.country %>
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col s12">
-            <p class="largeText blue-grey-text text-darken-3 zeroMargin">
-              <%= we.study_area %>
-            </p>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="row">
-          <div class="col s12">
-            <p class="universityText mediumText">
-              <%= we.description %>
-            </p>
-          </div>
-        </div>
-      </div>
-    <% end %>
-    
-    <div class="row">
-      <div class="col s12">
-        <h4>Cursos y Certificaciones</h4>
-      </div>
-    </div>
-
-    <% @curriculum.certifications.each do |cert| %>
-      <div class="card-panel">
-        <div class="col s12">
-          <p class="xLargeText zeroMargin"><%= cert.certification_name%></p>
-        </div>
-        <div class="row">
-          <div class="col s12 m7">
-            <p class="largeText blue-grey-text text-darken-3 zeroMargin">
-              <%= cert.emitting_organization %>
-            </p>
-          </div>
-          <div class="col s12 m2 offset-m2">
-            <p class="largeText blue-grey-text text-darken-2 zeroMargin">
-              <%= cert.date_emitted.try :strftime, "%B %Y" %>
-            </p>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="row">
-          <div class="col s12">
-            <p class="universityText mediumText zeroMargin">
-              <%= cert.brief_description %>
-            </p>
-          </div>
-        </div>
-      </div>
-    <% end %>
-
-    <% if current_user.former_student? %>
-      <div class="fixed-action-btn">
-        <%= link_to edit_curriculum_path(@curriculum), :class => "btn-floating btn-large teal darken-2" do %>
-          <i class="large material-icons">mode_edit</i>
         <% end %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  </div>  
 </main>

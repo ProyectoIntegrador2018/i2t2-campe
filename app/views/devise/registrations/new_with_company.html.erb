@@ -7,7 +7,7 @@
             <i class="material-icons left teal-text" style="font-size: 35px; line-height: 48px">arrow_back</i>
           <% end %>
         </div>
-        <div class="center-align teal-text title">Registrar Compañía</h4>
+        <div class="center-align teal-text title">Registrar Compañía</div>
       </div>
       <div class="divider"></div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -38,8 +38,9 @@
           <% end %>
         </div>
         <div class="section"> 
-        <div class="row zeroMargin center-align">
-          <%= f.submit "Registrar", :class=>"btn-small"%>
+          <div class="row zeroMargin center-align">
+            <%= f.submit "Registrar", :class=>"btn-small"%>
+          </div>
         </div>
       <% end %>
     </div>
