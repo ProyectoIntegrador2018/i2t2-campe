@@ -20,7 +20,7 @@ class CurriculumPolicy < ApplicationPolicy
   def is_mine_or_admin?
     return true if @user.is_admin_or_super_admin?
 
-    is_mine?
+    @user.former_student? and is_mine?
   end
 
   def student_applied_to_company?
