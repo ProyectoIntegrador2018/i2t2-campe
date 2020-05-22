@@ -1,0 +1,15 @@
+<main style="padding-left: 240px">
+  <div class="row">
+    <div class="col s12" style="padding-top: 20px;"><h4 class="center-align">Mis vacantes</h4></div>
+  </div>
+  <div class="row">
+    <%= render "list", job_postings: @job_postings %>
+  </div>
+  <div class="row center">
+    <div class "col s3 inline">
+      <%= will_paginate @job_postings, renderer: @custom_paginate_renderer %>
+    </div>
+  </div>
+</main>
+
+

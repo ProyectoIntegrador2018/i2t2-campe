@@ -25,6 +25,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'filterrific'
 gem 'rails-i18n'
 gem 'devise-i18n'
+gem 'will_paginate', '~> 3.1.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

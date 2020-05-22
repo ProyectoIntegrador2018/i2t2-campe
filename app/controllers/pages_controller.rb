@@ -5,6 +5,10 @@ class PagesController < ApplicationController
     else
       if current_user.is_admin_or_super_admin?
         redirect_to pages_path
+      elsif current_user.first_time_former_student?
+        redirect_to first_time_login_path
+      elsif current_user.company?
+        redirect_to my_job_postings_path
       else
         redirect_to student_path(current_user.student.id)
       end

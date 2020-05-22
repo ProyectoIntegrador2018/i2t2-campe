@@ -21,6 +21,13 @@
         ) %>
       </div>
       <div class="col s3 inline">
+        <%= f.label "Palabra clave" %>
+        <%= f.text_field(
+          :keyword_search,
+          class: 'filterrific-periodically-observed'
+        ) %>
+      </div>
+      <div class="col s3 inline">
         <%= f.submit 'Filtrar', :class => "btn-small" %>
       </div>
     </div>
@@ -28,6 +35,11 @@
   <div class="divider"></div>
   <div class="row">
     <%= render "list", job_postings: @job_postings %>
+  </div>
+  <div class="row center">
+    <div class "col s3 inline">
+      <%= will_paginate @job_postings, renderer: @custom_paginate_renderer %>
+    </div>
   </div>
 </main>
 

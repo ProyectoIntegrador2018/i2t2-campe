@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_04_223008) do
+ActiveRecord::Schema.define(version: 2020_05_21_163747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,6 +115,13 @@ ActiveRecord::Schema.define(version: 2020_05_04_223008) do
     t.index ["curriculum_id"], name: "index_education_histories_on_curriculum_id"
   end
 
+  create_table "job_applications", force: :cascade do |t|
+    t.integer "job_posting_id"
+    t.integer "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "job_postings", force: :cascade do |t|
     t.string "title"
     t.integer "salary"
@@ -187,6 +194,15 @@ ActiveRecord::Schema.define(version: 2020_05_04_223008) do
     t.integer "user_id"
   end
 
+  create_table "unemployment_data", force: :cascade do |t|
+    t.boolean "is_employed"
+    t.text "unemployment_reason"
+    t.bigint "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_unemployment_data_on_student_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -220,5 +236,6 @@ ActiveRecord::Schema.define(version: 2020_05_04_223008) do
   add_foreign_key "curriculums", "students"
   add_foreign_key "education_histories", "curriculums"
   add_foreign_key "languages", "curriculums"
+  add_foreign_key "unemployment_data", "students"
   add_foreign_key "work_experiences", "curriculums"
 end

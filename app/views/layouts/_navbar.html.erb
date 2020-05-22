@@ -65,7 +65,7 @@
         </li>
       <% end %>
       
-      <% elsif current_user.is_student_or_former_student? %>
+      <% elsif current_user.is_student_or_former_student? and !current_user.first_time_former_student? %>
       <li id="dash_dashboard">
         <%= link_to student_path(current_user.student), :class=>"waves-effect" do %>
           <i class="material-icons left">account_circle</i>Perfil
@@ -95,7 +95,7 @@
         <% end %>
       </li>
       <li id="dash_dashboard">
-        <%= link_to job_postings_path, :class=>"waves-effect" do %>
+        <%= link_to my_job_postings_path, :class=>"waves-effect" do %>
           <i class="material-icons">library_books</i>Mis Vacantes
         <% end %>
       </li>

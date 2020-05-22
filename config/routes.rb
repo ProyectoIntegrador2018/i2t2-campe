@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  resources :job_applications
   resources :companies
-  resources :job_postings
+  resources :job_postings do
+    get "candidates", on: :member
+  end
   devise_for :users, path: 'users', controllers: {
     sessions:           "users/sessions",
     passwords:          "users/passwords",
@@ -23,9 +26,11 @@ Rails.application.routes.draw do
   get 'former_students' => 'students#former_students', as: 'former_students'
   get 'former_students_upload' => 'students#former_students_upload', as: 'former_students_upload'
   post 'import_former_students' => 'students#import_former_students', as: 'import_former_students'
+  get 'first_time_login' => 'students#first_time_login', as: 'first_time_login'
   resources :curriculums, except: [:index, :destroy]
   resources :pages
   resources :scholarships
   resources :scholarship_oportunities
   post 'import_scholarships' => 'scholarships#import_scholarships', as: 'import_scholarships'
+  get "my_job_postings" => "job_postings#my_job_postings", as: "my_job_postings"
 end

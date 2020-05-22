@@ -27,4 +27,8 @@ class UserPolicy < ApplicationPolicy
   def import_former_students?
     @user.try :is_admin_or_super_admin?
   end
+
+  def first_time_login?
+    @user.try :first_time_former_student?
+  end
 end
