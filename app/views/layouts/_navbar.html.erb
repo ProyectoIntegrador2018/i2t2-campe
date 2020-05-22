@@ -90,7 +90,7 @@
       <% end %>
     <% elsif current_user.company? %>
       <li id="dash_dashboard">
-        <%= link_to "#", :class=>"waves-effect" do %>
+        <%= link_to company_path(current_user.company), :class=>"waves-effect" do %>
           <i class="material-icons">account_circle</i>Perfil
         <% end %>
       </li>

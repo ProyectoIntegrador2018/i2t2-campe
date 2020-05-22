@@ -3,12 +3,12 @@
 class Student < ApplicationRecord
   audited
   belongs_to :user
-  has_one :contact_information
-  has_one :curriculum
-  has_one :unemployment_datum
-  has_many :scholarships
+  has_one :contact_information, dependent: :destroy
+  has_one :curriculum, dependent: :destroy
+  has_one :unemployment_datum, dependent: :destroy
+  has_many :scholarships, dependent: :destroy
   has_many :scholarship_oportunities, through: :scholarships
-  has_many :job_applications
+  has_many :job_applications, dependent: :destroy
   has_many :job_postings, through: :job_applications
 
   accepts_nested_attributes_for :contact_information, :scholarships, :curriculum, :unemployment_datum

@@ -57,11 +57,16 @@
                 Sin datos
               <% end %>
             </td>
-            <td class="hide"><%= link_to 'VER', student_path(user.student.id), :style=>'color:white;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn"%><br></br>
+            <td class="hide">
+              <% if current_user.is_admin_or_super_admin? %>
+                <%= link_to 'VER', student_path(user.student.id), :style=>'color:white;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn"%><br></br>
+              <% end %>
               <% if user.student.curriculum %>
                 <%= link_to 'CV', curriculum_path(user.student.curriculum), :style=>'color:white;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn"%><br></br>
               <% end %>
-              <%= link_to 'HISTORIA', history_student_path(user.student.id)%>
+              <% if current_user.is_admin_or_super_admin? %>
+                <%= link_to 'HISTORIA', history_student_path(user.student.id)%>
+              <% end %>
               <%= link_to "ELIMINAR", user.student, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' },:style=>'color:white;;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn" %></td>
             </tr>
         <% end %>

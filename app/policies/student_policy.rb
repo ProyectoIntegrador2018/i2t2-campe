@@ -15,6 +15,6 @@ class StudentPolicy < ApplicationPolicy
   def is_mine_or_admin?
     return true if @user.is_admin_or_super_admin?
 
-    @record.id == @user.student.id
+    @user.is_student_or_former_student? and @record.id == @user.student.id
   end
 end

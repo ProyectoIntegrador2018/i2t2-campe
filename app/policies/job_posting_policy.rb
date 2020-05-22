@@ -26,7 +26,7 @@ class JobPostingPolicy < ApplicationPolicy
   def candidates?
     return true if @user.is_admin_or_super_admin?
 
-    is_mine?
+    @user.company? and is_mine?
   end
 
   def index?

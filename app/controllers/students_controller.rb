@@ -71,8 +71,9 @@ class StudentsController < ApplicationController
 
   def destroy
     @user = @student.user
+    path_to_redirect = @user.student? ? students_path : former_students_path
     @user.destroy
-    redirect_to students_path
+    redirect_to path_to_redirect
   end
 
   def history

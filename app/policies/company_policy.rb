@@ -18,7 +18,8 @@ class CompanyPolicy < ApplicationPolicy
 
   private
   def is_mine_or_super_admin?
-    @record.company_id == @user.company.id or @user.super_admin?
+    return true if @user.super_admin?
+    @user.company? and @record.company_id == @user.company.id
   end
 end
 
