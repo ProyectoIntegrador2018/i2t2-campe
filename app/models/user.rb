@@ -9,8 +9,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :validatable
 
-  has_one :student
-  has_one :company
+  has_one :student, dependent: :destroy
+  has_one :company, dependent: :destroy
 
   accepts_nested_attributes_for :student, :company
 
