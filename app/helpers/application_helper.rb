@@ -42,7 +42,8 @@ module ApplicationHelper
         gender: row['GÉNERO'],
         marital_status: row['ESTADO CIVIL'],
         birth_date: row['FECHA NACIMIENTO'],
-        state_birth: row['ESTADO NACIMIENTO']
+        state_birth: row['ESTADO NACIMIENTO'],
+        country_birth: row['PAÍS NACIMIENTO']
       )
 
       user.student.build_contact_information(
