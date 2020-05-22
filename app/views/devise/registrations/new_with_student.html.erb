@@ -2,28 +2,35 @@
   <div class="row">
     <div class="card col s12 m8 offset-m2" style="padding: 20px">
       <div class="section">
+        <div style="position: absolute; padding-left: 20px">
+            <%= link_to students_path do %>
+              <i class="material-icons left teal-text" style="font-size: 35px; line-height: 48px">arrow_back</i>
+            <% end %>
+          </div>
         <div class="center-align teal-text title">Registrar Becario</h4>
       </div>
       <div class="divider"></div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
-        <div class="section">
-          <div class="center-align subtitle">Información Personal</div>
-          <div class="row zeroMargin">
-            <div class="col s12 m6 l4 input-field">
-              <%= f.label :email, 'Correo*'%>
-              <%= f.email_field :email, autofocus: true, autocomplete: "email", :required => true %>
-            </div>
-            <div class="col s12 m6 l4 input-field">
-              <%= f.label :password, 'Contraseña*' %>
-              <%= f.password_field :password, autocomplete: "new-password", :required => true%>
-            </div>
-            <div class="col s12 m6 l4 input-field">
-              <%= f.label :password_confirmation, 'Confirmar contraseña*' %>
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", :required => true %>
-            </div>
         <%= f.fields_for :student_attributes do |s| %>
-          <%= render "students/form", f: s %>
+          <div class="section">
+            <div class="center-align subtitle">Información Personal</div>
+            <div class="row zeroMargin">
+              <div class="col s12 m6 l4 input-field">
+                <%= f.label :email, 'Correo*'%>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", :required => true %>
+              </div>
+              <div class="col s12 m6 l4 input-field">
+                <%= f.label :password, 'Contraseña*' %>
+                <%= f.password_field :password, autocomplete: "new-password", :required => true%>
+              </div>
+              <div class="col s12 m6 l4 input-field">
+                <%= f.label :password_confirmation, 'Confirmar contraseña*' %>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", :required => true %>
+              </div>
+              <%= render "students/form", f: s %>
+            </div>
+          </div>
           <%= s.fields_for :contact_information_attributes do |c| %>
             <%= render "students/form_contact_information", c: c %>
           <% end %>
@@ -93,13 +100,13 @@
                 </div>
               </div>
             <% end %>
-            <div class="section"> 
-              <div class="row zeroMargin center-align">
-                <%= f.submit "Registrar", :class=>"btn-small"%>
-              </div>
-            </div>
           </div>
         <% end %>
+        <div class="section"> 
+          <div class="row zeroMargin center-align">
+            <%= f.submit "Registrar", :class=>"btn-small"%>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>

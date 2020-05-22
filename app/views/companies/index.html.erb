@@ -4,7 +4,7 @@
     <div id="man" class="col s12 m10 offset-m1">
       <div class="card material-table">
         <div class="table-header">
-          <span class="table-title teal-text">Compañias</span>
+          <span class="table-title teal-text">Compañías</span>
           <div class="actions">
             <div class="col"><a class="btn-small disabled table-button" table-button-tag="VER">Ver</a></div>
             <div class="col"><a class="btn-small disabled table-button" table-button-tag="ELIMINAR"">Eliminar</a></div>
@@ -25,7 +25,7 @@
                 <td><%= company.name %></td>
                 <td><%= company.user.email %></td>
                 <td class="hide"><%= link_to 'VER', company_path(company)%>
-                                 <%= link_to "ELIMINAR", company, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar a la compañia?' } %></td>
+                                 <%= link_to "ELIMINAR", company, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar a la compañía?' } %></td>
               </tr>
             <% end %>
           </tbody>

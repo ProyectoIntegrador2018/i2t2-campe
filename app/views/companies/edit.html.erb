@@ -1,10 +1,16 @@
 <main class="l-left-padding">
   <div class="row">
-    <div class="col s12" style="padding-top: 20px;"><h4 class="center-align">Editar información de <%= @company.name %></h4> </div>
-    <div class="col s12 m4 l1"><p></p></div>
-    <div class="col s12 m4 l10">
-      <div id="basic-form" class="section">
-        <%= render 'form', company: @company %>
+    <div class="card col s12 m8 offset-m2" style="padding: 20px">
+      <div class="section">
+        <div style="position: absolute; padding-left: 20px">
+          <%= link_to company_path(@company) do %>
+            <i class="material-icons left teal-text" style="font-size: 35px; line-height: 48px">arrow_back</i>
+          <% end %>
+        </div>
+        <div class="center-align teal-text title">Editar Compañía</div>
       </div>
+      <div class="divider"></div>
+      <%= render 'form', company: @company %>
     </div>
+  </div>
 </main>

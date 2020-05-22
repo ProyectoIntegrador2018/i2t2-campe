@@ -1,5 +1,24 @@
 <%= form_tag import_scholarships_path, multipart: true do %>
-  <%= select_tag 'scholarship_oportunity_id', options_for_select(scholarship_oportunities.collect{ |u| [u.name, u.id] }) , class: "browser-default"%>
-  <%= file_field_tag :file,:style=>'padding-top:10px', class: 'form-control' %><br>
-  <%= submit_tag 'Import',:style=>'color:white;font-size:10px;width:110px ! important', class: 'btn btn-primary'%>
+  <div class="divider"></div>
+  <div class="section">
+    <div class="row">
+      <div class="col s12">
+        <%= select_tag 'scholarship_oportunity_id', options_for_select(scholarship_oportunities.collect{ |u| [u.name, u.id] }), {:include_blank => "Convocatoria"}%>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col s12 file-field input-field">
+        <div class="col s3 btn-small">
+          Archivo
+          <%= file_field_tag :file,:style=>'padding-top:10px', class: 'form-control' %><br>
+        </div>
+        <input class="col s8 offset-s1 file-path validate" type="text" placeholder="Selecciona el archivo de Excel con los exbecarios"/>
+      </div>
+    </div>
+  </div>
+  <div class="section"> 
+    <div class="row zeroMargin center-align">
+      <%= submit_tag 'Procesar', class: 'btn-small'%>
+    </div>
+  </div>
 <% end %>

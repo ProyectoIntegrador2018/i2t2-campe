@@ -4,10 +4,15 @@
     <div class="table-header">
         <span class="table-title teal-text">Becarios</span>
         <div class="actions">
-            <div class="col"><a class="btn-small disabled table-button" table-button-tag="VER">Ver</a></div>
-            <div class="col"><a class="btn-small disabled table-button" table-button-tag="HISTORIA">Historia</a></div>
-            <div class="col"><a class="btn-small disabled table-button" table-button-tag="ELIMINAR"">Eliminar</a></div>
+            <div class="col">
+                <a class='dropdown-button btn-small disabled table-button' href='#' data-activates='dropdown1'>Ver</a>
+                <ul id='dropdown1' class='dropdown-content'>
+                    <li><a class="table-button" table-button-tag="VER">Perfil</a></li>
+                    <li><a class="table-button" table-button-tag="HISTORIA">Historia</a></li>
+                </ul>
+            </div>
             <div class="col"><%= link_to 'Crear', new_with_student_path,class: 'btn-small'%></div>
+            <div class="col"><%= link_to 'Importar', new_scholarship_path, class: 'btn-small'%></div>
         </div>
     </div>
     <table id="datatable" class="hide-last-column">
@@ -30,8 +35,8 @@
                 <td><%= user.student.scholarships.any? ? user.student.scholarships.last.discipline : 'N/A' %></td>
                 <td><%= user.student.scholarships.any? ? user.student.scholarships.last.study_area : 'N/A' %></td>
                 <td class="hide">
-                <%= link_to 'VER', student_path(user.student.id) %><br></br>
-                <%= link_to 'HISTORIA', history_student_path(user.student.id)%><br></br>
+                <%= link_to 'VER', student_path(user.student.id) %>
+                <%= link_to 'HISTORIA', history_student_path(user.student.id)%>
                 <%= link_to "ELIMINAR", user.student, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' } %></td>
             </tr>
         <% end %>

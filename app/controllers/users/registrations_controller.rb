@@ -11,6 +11,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  def after_sign_up_path_for(user)
+    if user.company?
+      companies_path
+    elsif user.former_student?
+      former_students_path
+    else
+      students_path
+    end
+  end
+
   def new
     authorize User
     super

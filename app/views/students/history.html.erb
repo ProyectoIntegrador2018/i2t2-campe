@@ -1,42 +1,52 @@
 <main class="l-left-padding">
-<div class="container">
-  <div class="row"> 
-    <div class="col s12"><h4 class="center-align">Historial de Cambios</h4></div>
-  </div>
   <div class="row">
-    <h5> Nombre: <%= @student.full_name %></h5>
-  </div>
-  <div class="row"> 
-    <ul class="collapsible" data-collapsible="accordion">
-      <li>
-        <div class="collapsible-header"><i class="material-icons">account_circle</i>Datos Personales</div>
-        <div class="collapsible-body">
-          <div class="row">
-            <div class="col s12 m12">
-              <ul class="collapsible" data-collapsible="accordion">
-                <% @student_history.each do |audit| %>
-                  <%= render "history_details", audit: audit %>
-                <% end %>
-              </ul>
-            </div>
+    <div class="card col s12 m8 offset-m2" style="padding: 20px">
+      <div class="section">
+        <% if current_user.is_admin_or_super_admin?  %>
+          <div style="position: absolute; padding-left: 20px">
+            <%= link_to @student.user.former_student? ? former_students_path : students_path do %>
+              <i class="material-icons left teal-text" style="font-size: 35px; line-height: 48px">arrow_back</i>
+            <% end %>
           </div>
+        <% end %>
+        <div class="center-align teal-text title">Historial de Cambios</div>
+      </div>
+      <div class="divider"></div>
+      <div class="section">
+        <div class="center-align subtitle"><%= @student.full_name %></div>
+        <div class="row"> 
+          <ul class="collapsible" data-collapsible="accordion" style="margin: 30px 10px 0px">
+            <li>
+              <div class="collapsible-header"><i class="material-icons">account_circle</i>Datos Personales</div>
+              <div class="collapsible-body">
+                <div class="row">
+                  <div class="col s12 m12">
+                    <ul class="collapsible" data-collapsible="accordion">
+                      <% @student_history.each do |audit| %>
+                        <%= render "history_details", audit: audit %>
+                      <% end %>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header"><i class="material-icons">phone</i>Datos de Contacto</div>
+              <div class="collapsible-body">
+                <div class="row">
+                  <div class="col s12 m12">
+                    <ul class="collapsible" data-collapsible="accordion">
+                      <% @contact_information_history.each do |audit| %>
+                        <%= render "history_details", audit: audit %>
+                      <% end %>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
-      </li>
-      <li>
-        <div class="collapsible-header"><i class="material-icons">phone</i>Datos de Contacto</div>
-        <div class="collapsible-body">
-          <div class="row">
-            <div class="col s12 m12">
-              <ul class="collapsible" data-collapsible="accordion">
-                <% @contact_information_history.each do |audit| %>
-                  <%= render "history_details", audit: audit %>
-                <% end %>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
-</div>
 </main>

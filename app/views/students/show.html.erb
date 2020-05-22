@@ -2,8 +2,17 @@
   <div class="row">
     <div class="card col s12 m8 offset-m2" style="padding: 20px">
       <div class="section">
-        <div class="center-align teal-text title flow-text"><%= "#{@student.name} #{@student.paternal_last_name} #{@student.maternal_last_name}" %></h4>
-        <div class="right"><a href="<%= edit_student_url(@student) %>" class="btn-small"><i class="material-icons left">edit</i>Editar</a></div>
+        <% if current_user.is_admin_or_super_admin?  %>
+          <div style="position: absolute; padding-left: 20px">
+            <%= link_to @user.former_student? ? former_students_path : students_path do %>
+              <i class="material-icons left teal-text" style="font-size: 35px; line-height: 48px">arrow_back</i>
+            <% end %>
+          </div>
+        <% end %>
+        <div class="center-align teal-text title">
+          Perfil
+          <div class="right"><a href="<%= edit_student_url(@student) %>" class="btn-small"><i class="material-icons left">edit</i>Editar</a></div>
+        </div>
       </div>
       <div class="divider"></div>
       <%= render "student_info", user: @user, student: @student %>

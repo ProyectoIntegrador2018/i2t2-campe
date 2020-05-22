@@ -4,8 +4,14 @@
     <div class="table-header">
         <span class="table-title teal-text">Exbecarios</span>
         <div class="actions">
-            <div class="col"><a class="btn-small disabled table-button" table-button-tag="VER">Ver</a></div>
-            <div class="col"><a class="btn-small disabled table-button" table-button-tag="CV">CV</a></div>
+            <div class="col">
+                <a class='dropdown-button btn-small disabled table-button' href='#' data-activates='dropdown1'>Ver</a>
+                <ul id='dropdown1' class='dropdown-content'>
+                    <li><a class="table-button-dropdown" table-button-tag="VER">Perfil</a></li>
+                    <li><a class="table-button-dropdown" table-button-tag="CV">CV</a></li>
+                    <li><a class="table-button-dropdown" table-button-tag="HISTORIA">Historia</a></li>
+                </ul>
+            </div>
             <div class="col"><a class="btn-small disabled table-button" table-button-tag="ELIMINAR"">Eliminar</a></div>
             <div class="col"><%= link_to 'Crear', new_with_former_student_path, :class=>"btn-small"%></div>
             <div class="col"><%= link_to 'Importar', former_students_upload_path, :class=>"btn-small"%></div>
@@ -53,6 +59,7 @@
                 <% if user.student.curriculum %>
                 <%= link_to 'CV', curriculum_path(user.student.curriculum), :style=>'color:white;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn"%><br></br>
                 <% end %>
+                <%= link_to 'HISTORIA', history_student_path(user.student.id)%>
                 <%= link_to "ELIMINAR", user.student, method: :delete, data: { confirm: '¿Estás seguro que quieres eliminar al usuario?' },:style=>'color:white;;font-size:10px;width:100px ! important',:class=>"waves-effect waves-light btn" %></td>
             </tr>
         <% end %>
