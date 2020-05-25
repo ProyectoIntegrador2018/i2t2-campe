@@ -1,6 +1,6 @@
 $(document).ready(function() {
     initFields();
-    const observer = new MutationObserver(initFields);
+    var observer = new MutationObserver(initFields);
     var element = document.getElementById("work-experiences");
     if (element) {
         observer.observe(element, { childList: true });
@@ -17,9 +17,9 @@ function initFields() {
 }
 
 function updateDateFieldDisplay(checkboxField) {
-    const isCurrent = $(checkboxField).prop('checked');
-    const endDateId = $(checkboxField).attr('id').replace("is_current", "end_date");
-    const endDateField = $('#' + endDateId).first();
+    var isCurrent = $(checkboxField).prop('checked');
+    var endDateId = $(checkboxField).attr('id').replace("is_current", "end_date");
+    var endDateField = $('#' + endDateId).first();
     if(isCurrent) {
         endDateField.prop('disabled', true);
     } else {
