@@ -1,53 +1,72 @@
 <main class="l-left-padding">
   <div class="row">
-    <div class="col s3 offset-s1 inline">
-      <%= image_tag (@job_posting.company.logo.attached? ? @job_posting.company.logo : 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTi4DmuEiqgpdMPdI839ak7nqOyEHlnwt2nQWTLtI8UzuxgsYKH'), class: "companyLogo" %>
-    </div>
-    <div class="col s7 offset-s1 inline">
-      <h4><%= @job_posting.title %></h4>
-      <h4><%= @job_posting.company.name %></h4>
-      <div><%= @job_posting.company.information %></div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s5 offset-s1 inline">
-      <div><strong> Sueldo: </strong> $<%= @job_posting.salary %> </div>
-      <div><strong> Cantidad de vacantes:</strong> <%= @job_posting.number_positions %> </div>
-      <div><strong> Tipo de Empleo:</strong> <%= @job_posting.employment_type %> </div>
-      <div><strong> Experiencia requerida:</strong> <%= @job_posting.experience_required %> </div>
-    </div>
-    <div class="col s5 offset-s1 inline">
-      <div><strong>Descripción:</strong></div>
-      <%= @job_posting.description %>
-      <div><strong>Funciones laborales:</strong></div>
-      <%= @job_posting.responsabilities %>
-      <div><strong>Palabras clave:</strong> <%= @job_posting.keywords %></div>
-    </div>
-  </div>
-
-  <% if current_user.former_student? and @has_not_applied_before %>
-    <%= form_for @job_application, url: job_applications_path do |f| %>
-      <%= f.hidden_field :job_posting_id, :value => @job_posting.id %>
-      <%= f.hidden_field :student_id, :value => current_user.student.id %>
+    <div class="card col s12 m10 offset-m1" style="padding: 50px">
       <div class="row">
-        <div class="col s2 offset-s5 inline">
-          <%= f.submit "Aplicar", :class => "btn-small" %>
+        <div style="position: absolute; padding-left: 20px">
+          <%= link_to job_postings_path do %>
+            <i class="material-icons left teal-text" style="font-size: 35px; line-height: 48px">arrow_back</i>
+          <% end %>
+        </div>
+        <div class="col s12">
+          <div class="title center-align"><%= @job_posting.title %></div>
         </div>
       </div>
-    <% end %>
-  <% elsif current_user.former_student? %>
-    <div class="row">
-      <div class="col s4 offset-s4 inline center">
-        Ya has aplicado a esta posición
+      <div class="row">
+        <div class="col s3 offset-s1 inline">
+          <%= image_tag (@job_posting.company.logo.attached? ? @job_posting.company.logo : 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTi4DmuEiqgpdMPdI839ak7nqOyEHlnwt2nQWTLtI8UzuxgsYKH'), class: "companyLogo" %>
+        </div>
+        <div class="col s7 offset-s1 inline">
+          <div class="subtitle zeroMargin"><%= @job_posting.company.name %></div>
+          <div><%= @job_posting.company.information %></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s5 offset-s1 inline">
+          <div><strong> Sueldo: </strong> $<%= @job_posting.salary %> </div>
+          <div><strong> Cantidad de vacantes:</strong> <%= @job_posting.number_positions %> </div>
+          <div><strong> Tipo de Empleo:</strong> <%= @job_posting.employment_type %> </div>
+          <div><strong> Experiencia requerida:</strong> <%= @job_posting.experience_required %> </div>
+        </div>
+        <div class="col s5 offset-s1 inline">
+          <div><strong>Descripción:</strong></div>
+          <%= @job_posting.description %>
+          <div><strong>Funciones laborales:</strong></div>
+          <%= @job_posting.responsabilities %>
+          <div><strong>Palabras clave:</strong> <%= @job_posting.keywords %></div>
+        </div>
+      </div>
+      <div class="section">
+        <% if current_user.former_student? and @has_not_applied_before %>
+          <%= form_for @job_application, url: job_applications_path do |f| %>
+            <%= f.hidden_field :job_posting_id, :value => @job_posting.id %>
+            <%= f.hidden_field :student_id, :value => current_user.student.id %>
+            <div class="row">
+              <div class="col s2 offset-s5 inline">
+                <%= f.submit "Aplicar", :class => "btn-small" %>
+              </div>
+            </div>
+          <% end %>
+        <% elsif current_user.former_student? %>
+          <div class="row zeroMargin">
+            <div class="col s4 offset-s4 inline center">
+              Ya has aplicado a esta posición
+            </div>
+          </div>
+        <% elsif current_user.company? or current_user.is_admin_or_super_admin? %>
+          <div class="row zeroMargin">
+            <div class="col s4 offset-s4 inline center">
+              <%= link_to "Ver candidatos", candidates_job_posting_path(@job_posting), class: "btn-small" %>
+            </div>
+          </div>
+          <div class="fixed-action-btn">
+            <%= link_to edit_job_posting_path(@job_posting), :class => "btn-floating btn-large teal darken-2" do %>
+              <i class="large material-icons">mode_edit</i>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
-  <% elsif current_user.company? or current_user.is_admin_or_super_admin? %>
-    <div class="row">
-      <div class="col s4 offset-s4 inline center">
-        <%= link_to "Ver candidatos", candidates_job_posting_path(@job_posting), class: "btn-small" %>
-      </div>
-    </div>
-  <% end %>
+  </div>
 </main>
 
 

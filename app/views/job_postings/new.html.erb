@@ -1,13 +1,17 @@
 <main class="l-left-padding">
   <div class="row">
-    <div class="col s12" style="padding-top: 20px;"><h4 class="center-align">Crear nueva vacante</h4> </div>
-    <div class="col s12 m4 l1"><p></p></div>
-    <div class="col s12 m4 l10">
-      <div id="basic-form" class="section">
-
+    <div class="card col s12 m8 offset-m2" style="padding: 20px">
+      <div class="section">
+        <div style="position: absolute; padding-left: 20px">
+          <%= link_to job_postings_path do %>
+            <i class="material-icons left teal-text" style="font-size: 35px; line-height: 48px">arrow_back</i>
+          <% end %>
+        </div>
+        <div class="center-align teal-text title">Crear Vacante</div>
+      </div>
+      <div class="divider"></div>
+      <div class="section">
         <%= render 'form', job_posting: @job_posting %>
-
-        <%= link_to 'Back', job_postings_path %>
       </div>
     </div>
 </main>

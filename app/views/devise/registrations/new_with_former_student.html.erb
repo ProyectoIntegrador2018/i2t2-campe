@@ -7,7 +7,7 @@
             <i class="material-icons left teal-text" style="font-size: 35px; line-height: 48px">arrow_back</i>
           <% end %>
         </div>
-        <div class="center-align teal-text title">Registrar Exbecario</div>
+        <div class="center-align teal-text title">Crear Exbecario</div>
       </div>
       <div class="divider"></div>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -38,7 +38,7 @@
           <%= f.hidden_field :role, :value => @user.role %>
           <div class="section"> 
             <div class="row zeroMargin center-align">
-              <%= f.submit "Registrar", :class=>"btn-small"%>
+              <%= f.submit "Crear", :class=>"btn-small"%>
             </div>
           </div>
         <% end %>
