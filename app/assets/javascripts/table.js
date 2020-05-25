@@ -8,7 +8,7 @@ $(document).ready(function() {
         $(this).addClass('table-selected-row');
         selectedRow = $(this);
         var buttons = $('.actions .table-button');
-        buttons.each((index, button) => {
+        buttons.each(function(index, button) {
             var tag = $(button).attr('table-button-tag');
             if (!tag || $(selectedRow).find("a:contains('" + tag + "')").size() > 0) {
                 $(button).removeClass('disabled');
@@ -17,7 +17,7 @@ $(document).ready(function() {
             }
         });
         var buttons = $('.actions .table-button-dropdown');
-        buttons.each((index, button) => {
+        buttons.each(function(index, button) {
             var tag = $(button).attr('table-button-tag');
             if (!tag || $(selectedRow).find("a:contains('" + tag + "')").size() > 0) {
                 $(button).parent().removeClass('hide');

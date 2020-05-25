@@ -1,4 +1,4 @@
-$(document).ready(() => {
+$(document).ready(function() {
     initFields();
     const observer = new MutationObserver(initFields);
     var element = document.getElementById("work-experiences");
@@ -8,9 +8,9 @@ $(document).ready(() => {
 })
 
 function initFields() {
-    $("input[id$='is_current']").each((index, field) => {
+    $("input[id$='is_current']").each(function(index, field) {
         updateDateFieldDisplay(field);
-        $(field).click((event) => {
+        $(field).click(function(event) {
             updateDateFieldDisplay(event.target);
         })
     })
