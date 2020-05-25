@@ -12,22 +12,22 @@
         </div>
       </div>
       <div class="row">
-        <div class="col s3 offset-s1 inline">
+        <div class="col s12 m4">
           <%= image_tag (@job_posting.company.logo.attached? ? @job_posting.company.logo : 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTi4DmuEiqgpdMPdI839ak7nqOyEHlnwt2nQWTLtI8UzuxgsYKH'), class: "companyLogo" %>
         </div>
-        <div class="col s7 offset-s1 inline">
+        <div class="col s12 m8">
           <div class="subtitle zeroMargin"><%= @job_posting.company.name %></div>
           <div><%= @job_posting.company.information %></div>
         </div>
       </div>
       <div class="row">
-        <div class="col s5 offset-s1 inline">
+        <div class="col s12 m6">
           <div><strong> Sueldo: </strong> $<%= @job_posting.salary %> </div>
           <div><strong> Cantidad de vacantes:</strong> <%= @job_posting.number_positions %> </div>
           <div><strong> Tipo de Empleo:</strong> <%= @job_posting.employment_type %> </div>
           <div><strong> Experiencia requerida:</strong> <%= @job_posting.experience_required %> </div>
         </div>
-        <div class="col s5 offset-s1 inline">
+        <div class="col s12 m6">
           <div><strong>Descripción:</strong></div>
           <%= @job_posting.description %>
           <div><strong>Funciones laborales:</strong></div>
