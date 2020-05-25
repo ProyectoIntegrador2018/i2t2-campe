@@ -11,11 +11,17 @@
         <% end %>
         <div class="center-align teal-text title">
           Perfil
-          <div class="right"><a href="<%= edit_student_url(@student) %>" class="btn-small"><i class="material-icons left">edit</i>Editar</a></div>
         </div>
       </div>
       <div class="divider"></div>
       <%= render "student_info", user: @user, student: @student %>
     </div>
   </div>
+  <% if not current_user.company? %>
+    <div class="fixed-action-btn">
+      <%= link_to edit_student_url(@student), :class => "btn-floating btn-large teal darken-2" do %>
+        <i class="large material-icons">mode_edit</i>
+      <% end %>
+    </div>
+  <% end %>
 </main>

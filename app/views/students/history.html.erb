@@ -4,7 +4,7 @@
       <div class="section">
         <% if current_user.is_admin_or_super_admin?  %>
           <div style="position: absolute; padding-left: 20px">
-            <%= link_to :back do %>
+            <%= link_to @student.user.former_student? ? former_students_path : students_path do %>
               <i class="material-icons left teal-text" style="font-size: 35px; line-height: 48px">arrow_back</i>
             <% end %>
           </div>

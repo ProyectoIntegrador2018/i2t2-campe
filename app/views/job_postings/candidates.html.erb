@@ -1,6 +1,6 @@
-<main style="padding-left: 240px">
+<main class="l-left-padding">
 <div class="row">
-  <%= render "/students/former_students_table", users: @candidates, table_title: "Candidatos", display_actions: false %>
+  <%= render "/students/former_students_table", users: @candidates, table_title: "Candidatos", display_actions: false, back_path: job_posting_path(@job_posting) %>
 </div>
 </main>
 

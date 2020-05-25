@@ -2,7 +2,12 @@
 <div id="man" class="col s12 m10 offset-m1">
   <div class="card material-table">
     <div class="table-header">
-        <span class="table-title teal-text">Exbecarios</span>
+        <% if defined?(back_path) %>
+          <%= link_to back_path do %>
+            <i class="material-icons left teal-text" style="font-size: 25px; line-height: 30px">arrow_back</i>
+          <% end %>
+        <% end %>
+        <span class="table-title teal-text"><%= defined?(table_title) ? table_title : 'Exbecarios' %></span>
         <div class="actions">
             <div class="col">
                 <a class='dropdown-button btn-small disabled table-button' href='#' data-activates='dropdown1'>Ver</a>
