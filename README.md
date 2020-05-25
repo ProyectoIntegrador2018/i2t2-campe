@@ -22,7 +22,7 @@ Aplicación web con el objetivo de brindar seguimiento a los becarios y exbecari
 
 ### URLS de ambiente
 
-* **Producción** - [Heroku](https://radiant-bayou-47421.herokuapp.com)
+* **Producción** - [Heroku](https://i2t2-capital-humano.herokuapp.com)
 * **Desarrollo** - [Github](https://github.com/ProyectoIntegrador2018/i2t2-campe)
 
 ### Equipo
@@ -89,3 +89,6 @@ $ docker-compose down
 
 **Base de datos**
 * PostgreSQL
+
+**File storage**
+* GCP Cloud Storage
