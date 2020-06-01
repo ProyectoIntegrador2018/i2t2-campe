@@ -30,7 +30,7 @@
                   <%= @curriculum.desired_position %>
                 </div>
                 <div class="col s12 m6 largeText zeroMargin">
-                  <%= number_to_currency @curriculum.min_desired_salary %> - <%= number_to_currency @curriculum.max_desired_salary %>
+                  <%= number_to_currency @curriculum.min_desired_salary, unit: "$", format: "%u%n"%> - <%= number_to_currency @curriculum.max_desired_salary, unit: "$", format: "%u%n" %>
                 </div>
               </div>
               <div class="row">
