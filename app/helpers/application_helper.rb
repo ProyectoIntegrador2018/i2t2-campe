@@ -15,13 +15,14 @@ module ApplicationHelper
     if file.present? and (file_type == 'csv' or file_type == 'xlsx' or file_type == 'xls')
       update_imported_user(file, role, success_redirect)
     else
-      redirect_to error_redirect, flash: {danger: 'csv'}
+      redirect_to error_redirect, alert: "Archivo no existente o formato incorrecto."
     end
   end
 
   def update_imported_user(file, role, success_redirect)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
+    errors = 0
     (2..spreadsheet.last_row).each do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
       puts(header)
@@ -75,9 +76,15 @@ module ApplicationHelper
           most_recent_gpa: row['PROMEDIO ÚLTIMO GRADO']
         )
       end
-      user.save
+      if !user.save
+        errors += 1
+      end
     end
-    redirect_to success_redirect
+    if errors
+      redirect_to success_redirect, alert: "Error al crear #{errors} usuarios. Verifica que el correo no esté repetido."
+    else
+      redirect_to success_redirect
+    end
   end
 
   def open_spreadsheet(file)

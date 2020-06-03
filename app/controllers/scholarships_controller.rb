@@ -13,7 +13,7 @@ class ScholarshipsController < ApplicationController
   end
 
   def import_scholarships
-    import_users(params[:file], 'student', students_path, scholarship_oportunities_path(params[:scholarship_oportunity_id].to_i))
+    import_users(params[:file], 'student', new_scholarship_path, students_path)
   end
 
   private
