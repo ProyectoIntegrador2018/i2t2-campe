@@ -43,10 +43,10 @@
     <div class="col s12 m6 l4 input-field inline">
         <%= c.label :municipality, 'Municipio' %>
         <%= c.text_field :municipality %>
+
     </div>
     <div class="col s12 m6 l4 input-field inline">
-        <%= c.label :state, 'Estado' %>
-        <%= c.text_field :state %>
+      <%= c.select :state, options_for_select(mx_state_list, (c.object.try :state)), {:include_blank => "Estado"} %>
     </div>
   </div>
 </div>

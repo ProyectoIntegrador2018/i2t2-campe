@@ -26,3 +26,7 @@ function updateDateFieldDisplay(checkboxField) {
         endDateField.removeAttr("disabled");
     }
 }
+
+$('form').on('cocoon:after-insert', function(e, insertedItem) {
+  $(insertedItem).find('select').material_select();
+})

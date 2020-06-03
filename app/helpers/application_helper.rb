@@ -2,6 +2,41 @@ require 'roo'
 
 module ApplicationHelper
 
+  def mx_state_list
+    [
+      ["Aguascalientes", "Aguascalientes"],
+      ["Baja California", "Baja California"],
+      ["Baja California Sur", "Baja California Sur"],
+      ["Chihuahua", "Chihuahua"],
+      ["Campeche", "Campeche"],
+      ["Ciudad de México", "Ciudad de México"],
+      ["Coahuila", "Coahuila"],
+      ["Colima", "Colima"],
+      ["Durango", "Durango"],
+      ["Guerrero", "Guerrero"],
+      ["Guanajuato", "Guanajuato"],
+      ["Hidalgo", "Hidalgo"],
+      ["Jalisco", "Jalisco"],
+      ["Michoacan", "Michoacan"],
+      ["Estado de México", "Estado de México"],
+      ["Morelos", "Morelos"],
+      ["Nayarit", "Nayarit"],
+      ["Nuevo León", "Nuevo León"],
+      ["Oaxaca", "Oaxaca"],
+      ["Puebla", "Puebla"],
+      ["Quintana Roo", "Quintana Roo"],
+      ["Sinaloa", "Sinaloa"],
+      ["San Luis Potosí", "San Luis Potosí"],
+      ["Sonora", "Sonora"],
+      ["Tabasco", "Tabasco"],
+      ["Tlaxcala", "Tlaxcala"],
+      ["Tamaulipas", "Tamaulipas"],
+      ["Veracruz", "Veracruz"],
+      ["Yucatán", "Yucatán"],
+      ["Zacatecas", "Zacatecas"]
+    ]
+  end
+
   def humanized_role_name(current_user)
     return "Becario" if current_user.student?
     return "Administrador" if current_user.admin?
