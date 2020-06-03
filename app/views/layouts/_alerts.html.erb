@@ -1,1 +1,4 @@
-<p class="notice"><%= notice %> <%= alert %></p>
+<% flash.each do |message_type, message| %>
+  <%= javascript_tag "M.toast({html: '#{message}'})" %>
+<% end %>
+
