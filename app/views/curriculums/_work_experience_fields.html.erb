@@ -7,13 +7,11 @@
   </div>
   
   <div class="row">
-    <div class="col s12 l6">
-      <%= f.label :entity, "Entidad*" %>
-      <%= f.text_field :entity, required: true%>
+    <div class="col s12 l6 input-field">
+      <%= f.select :entity, options_for_select(mx_state_list, (f.object.try :state_birth)), {:include_blank => "Estado"} %>
     </div>
-    <div class="col s12 l6">
-      <%= f.label :country, "País*" %>
-      <%= f.text_field :country, required: true%>
+    <div class="col s12 l6 input-field">
+      <%= f.country_select :country, priority_countries: ["MX"], prompt: "País" %>
     </div>
   </div>
 
