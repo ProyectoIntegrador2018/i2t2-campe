@@ -6,11 +6,11 @@
   <div class="row zeroMargin">
     <div class="col s4 input-field inline">
         <%= c.label :phone_number, 'Teléfono' %>
-        <%= c.telephone_field :phone_number %>
+        <%= c.telephone_field :phone_number, :pattern => "\\d*" %>
     </div>
     <div class="col s4 input-field inline">
         <%= c.label :cellphone_number, 'Celular' %>
-        <%= c.telephone_field :cellphone_number %>
+        <%= c.telephone_field :cellphone_number, :pattern => "\\d*" %>
     </div>
   </div>
 </div>
