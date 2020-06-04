@@ -1,14 +1,14 @@
 <div class="col s12 m6 l4 input-field">
   <%= f.label :name, 'Nombre*'%>
-  <%= f.text_field :name, :required => true%>
+  <%= f.text_field :name, :required => true, :pattern => '[A-Za-zÀ-ÖØ-öø-ÿ]*' %>
 </div>
 <div class="col s12 m6 l4 input-field">
   <%= f.label :paternal_last_name, 'Apellido paterno' %>
-  <%= f.text_field :paternal_last_name %>
+  <%= f.text_field :paternal_last_name, :pattern => '[A-Za-zÀ-ÖØ-öø-ÿ]*' %>
 </div>
 <div class="col s12 m6 l4 input-field">
   <%= f.label :maternal_last_name, 'Apellido materno' %>
-  <%= f.text_field :maternal_last_name %>
+  <%= f.text_field :maternal_last_name, :pattern => '[A-Za-zÀ-ÖØ-öø-ÿ]*' %>
 </div>
 <div class="col s12 m6 l4 input-field">
   <%= f.label :cvu, 'CVU*'%>
