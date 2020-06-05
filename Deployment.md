@@ -1,13 +1,9 @@
 # i2t2-campe Program: Deployment
-
-The I2T2 Campe repository is currently set-up to automatically deploy any changes made to the master branch onto the staging environment: [Heroku Staging](https://i2t2-capital-humano.herokuapp.com/), and subsequently to production after approval. This instructions are tailored specifically for anyone interested in deploying the application into a new Heroku instance.
-
 ## Table of contents
 
 * [Preconditions](#Preconditions)
 * [Clone or update repository](#Clone-or-update-repository)
 * [Deploying to Heroku](#Deploying-to-Heroku)
-* [Additional references](#Additional-references)
 
 ### Preconditions
 Having the following tools installed and configured:
@@ -37,17 +33,27 @@ $ git pull origin master
 ```
 
 ### Deploying to Heroku
+There are two options, either to deploy to the current heroku project that is hosting the website ([I2T2 Capital Humano](https://i2t2-capital-humano.herokuapp.com)) or create a new project to host the app.
 
-Make sure you are logged in to Heroku on your terminal session. Run the following command to setup your environment with Heroku:
+Make sure you are logged in to Heroku on your terminal session.
+
+#### Set current project
+If you're deploying to the current project run the following command:
+```bash
+$ heroku git:remote -a i2t2-capital-humano
+```
+
+#### Set new project
+Run the following command to setup your environment with Heroku:
 ```bash
 $ heroku create
 ```
-
+#### Deploy
 To push deploy the current master branch to Heroku, run:
 ```bash
 $ git push heroku master
 ```
-To push deploy the current master branch to Heroku, run:
+If it's the first time deploying the project you'll need to create the database, run:
 ```bash
 $ heroku run rails db:create
 ```
