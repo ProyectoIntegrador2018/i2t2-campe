@@ -1,53 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title>Capital Humano en Ciencia y Tecnologia de Nuevo Leon</title>
-</head>
-<body style="background:#" class="Site">
-  <main class="Site-content">
-<br>
-<div id="basic-form" class="section">
-  <div class="row">
-    <div class="col s12 m4 l4">
-      <p></p>
-    </div>
-      <div class="col s12 m12 l4">
-        <div class="card-panel">
-          <h4 class="center-align">¿Olvidaste tu contraseña?</h4>                  
-            <div class="row">
-              <form class="col s12">
+<body style="background: #26a69a">
+  <div class="valign-wrapper sign-in" style="width:100%;height:80%;position: absolute;">
+    <div id="basic-form" class="valign section" style="width:100%;">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m6 l4 offset-m3 offset-l4">
+            <div class="card-panel">
+              <div class="center">
+                <img class="responsive-img negativeMargin" src="http://www.nl.gob.mx/sites/default/files/styles/logo/public/29_LG-INNOVACION-TRANSFERENCIA-TECNOLOGIA_0.png?itok=e5H7Kri6">
+              </div>
+              <div class="row smallMargin">
                 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  				<%= render "devise/shared/error_messages", resource: resource %>
-                <div class="row center-align">
-                  <div class="input-field inline">
-    				<%= f.label :Correo %><br />
-    				<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  				      <%= render "devise/shared/error_messages", resource: resource %>
+                  <div class="row zeroMargin">
+                    <div class="input-field col s10 offset-s1">
+                      <%= f.label :Correo %><br />
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                    </div>
                   </div>
-                </div>
-                      <div class="actions center-align">
-                       <%= f.submit "Enviar instrucciones", :class=>"waves-effect waves-light btn"%>
-                     </div>
-                <% end %>
-            </div>
-        <%= render "devise/shared/links" %>
-      </form>  
-     </div>
-   <div class="col s12 m4 l4"><p></p></div>  
-  </div>
-</div>
-</div>
-</div>
-</main>
-</body>
 
-<!--<footer class="indigo page-footer center" style="background:#26a69a !important">
-    <div class="footer-copyright" style="background:#26a69a">
-      <div class="container" style="background:#26a69a">
-         <span><a style='font-weight: bold;color:white;'>© Todos los Derechos Reservados DEVISE, I2T2</a></span>
+                  <div class="row center-align smallMarginBottom">
+                    <%= button_tag( :class => "btn-small") do %>
+                      <i class="material-icons right">send</i> Recuperar Contraseña
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+              <div class="row center-align smallMarginBottom">
+                <%= link_to "Iniciar Sesión", new_session_path('user') %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </footer>-->
+  </div>
+</body>
 
