@@ -10,7 +10,7 @@
         <div class="section">
           <div class="row zeroMargin">
             <div class="col s12 m6 l4 input-field">
-              <%= f.label :current_password %>
+              <%= f.label :current_password, 'Contraseña actual*' %>
               <%= f.password_field :current_password, autocomplete: "current-password", :required => true %>
             </div>
             <div class="col s12 m6 l4 input-field">
@@ -18,7 +18,7 @@
               <%= f.password_field :password, autocomplete: "new-password", :required => true%>
             </div>
             <div class="col s12 m6 l4 input-field">
-              <%= f.label :password_confirmation, 'Confirmar contraseña*' %>
+              <%= f.label :password_confirmation, 'Confirmar contraseña nueva*' %>
               <%= f.password_field :password_confirmation, autocomplete: "new-password", :required => true %>
             </div>
           </div>

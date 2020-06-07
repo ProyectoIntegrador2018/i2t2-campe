@@ -30,7 +30,7 @@
   <%= f.select :gender, options_for_select(["Hombre", "Mujer"], (f.object.try :gender)), {:include_blank => "Género"} %>
 </div>
 <div class="col s12 m6 l4 input-field">
-  <%= f.select :marital_status, options_for_select(["Soltero", "Casado"], (f.object.try :marital_status)), {:include_blank => "Estado Civil"} %>
+  <%= f.select :marital_status, options_for_select(["Soltero(a)", "Casado(a)"], (f.object.try :marital_status)), {:include_blank => "Estado Civil"} %>
 </div>
 <div class="col s12 m6 l4 input-field">
   <%= f.country_select :country_birth, priority_countries: ["MX"], prompt: "País de Nacimiento" %>
