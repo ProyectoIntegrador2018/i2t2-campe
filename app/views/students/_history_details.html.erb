@@ -1,5 +1,5 @@
 <li>
-    <div class="collapsible-header"><%= audit.created_at %>: Modificado por <%= User.find(audit.user_id).email %></div>
+    <div class="collapsible-header"><%= audit.created_at.try :strftime, "%-d/%-m/%Y %I:%M %P" %>: Modificado por <%= User.find(audit.user_id).email %></div>
     <div class="collapsible-body">
         <% audit.audited_changes.each do |field, change| %>
         <% if get_field_name(field) != nil and change != nil and change != '' %>
