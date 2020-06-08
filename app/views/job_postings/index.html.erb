@@ -28,6 +28,9 @@
           <div class="col s6 m3 center-align">
             <%= f.submit 'Filtrar', :class => "btn-small" %>
           </div>
+          <div class="col s6 m3 center-align">
+            Vacantes disponibles: <%= JobPosting.not_expired.count %>
+          </div>
         </div>
       <% end %>
     </div>
